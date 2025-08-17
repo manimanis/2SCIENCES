@@ -1,0 +1,86 @@
+#nine-balls-app {
+	border: solid 3px;
+	padding: 20px;
+	border-radius: 20px;
+}
+
+.billes {
+	display: flex;
+	justify-content: center;
+}
+
+.bille {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: steelblue;
+  margin: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.balance {
+  width: 600px;
+  height: 182px;
+  margin: auto;
+  position: relative;
+}
+
+.balance.gauche {
+  background-image: url(../../images/module01/balance_plateaux_0.png);
+}
+
+.balance.equilibre {
+  background-image: url(../../images/module01/balance_plateaux_1.png);
+}
+
+.balance.droite {
+  background-image: url(../../images/module01/balance_plateaux_2.png);
+}
+
+
+.balance.equilibre .plateau1 {
+	position: absolute;
+	top: -8px;
+	left: 47px;
+	width: 158px;
+}
+
+.balance.equilibre .plateau2 {
+	position: absolute;
+	top: -8px;
+	left: 389px;
+	width: 158px;
+}
+
+.balance.droite .plateau1 {
+	width: 158px;
+	position: absolute;
+	left: 47px;
+	top: -26px;
+}
+
+.balance.droite .plateau2 {
+	width: 158px;
+	position: absolute;
+	left: 389px;
+	top: 7px;
+}
+
+.balance.gauche .plateau2 {
+	width: 158px;
+	position: absolute;
+	left: 389px;
+	top: -26px;
+}
+
+.balance.gauche .plateau1 {
+	width: 158px;
+	position: absolute;
+	left: 47px;
+	top: 7px;
+}

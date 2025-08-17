@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/default.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/module01.css">
+  <title>Etapes de résolution d'un problème</title>
+</head>
+
+<body>
+  <aside>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#aside_navbar"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span> Menu
+      </button>
+      <div class="collapse navbar-collapse" id="aside_navbar"></div>
+    </nav>
+  </aside>
+
+  <main class="container my-3">
+    <h1>Etapes de résolution d'un problème</h1>
+
+    <article>
+      <h2>Problèmes de logique</h2>
+
+      <section>
+        <h3>Problème des neufs billes</h3>
+
+        <p>Vous avez 9 billes, dont 8 ont le même poids (100g) et une est plus légère (90g). Votre objectif est de
+          déterminer, en utilisant une balance à plateaux, quelle est la bille plus légère en seulement 2 pesées.</p>
+
+        <div id="nine-balls-app">
+          <h4>Démonstration</h4>
+          
+          <template v-if="step == 0">
+            <p>Cliquer sur les billes pour les mettre dans les plateaux de la bascule.</p>
+
+            <div class="billes">
+              <div class="bille" v-for="ball, idx in balls" @click="addBall(idx)">{{ball.num}}</div>
+            </div>
+            <div class="balance equilibre">
+              <div class="plateau1">
+                <div class="billes">
+                  <div class="bille" v-for="ball, idx in ballsLeft" @click="removeBall(ballsLeft, idx)">{{ball.num}}
+                  </div>
+                </div>
+              </div>
+              <div class="plateau2">
+                <div class="billes">
+                  <div class="bille" v-for="ball, idx in ballsRight" @click="removeBall(ballsRight, idx)">{{ball.num}}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <button class="btn btn-primary" v-if="ballsLeft.length == 3 && ballsRight.length == 3"
+                @click="nextStep()">Peser</button>
+            </div>
+          </template>
+
+          <template v-if="step == 1">
+            <div class="billes">
+              <div class="bille" v-for="ball, idx in balls">{{ball.num}}</div>
+            </div>
+
+            <div class="balance"
+              v-bind:class="{'equilibre': plateau1 == plateau2, 'droite': plateau1 < plateau2, 'gauche': plateau1 > plateau2}">
+              <div class="plateau1">
+                <div class="billes">
+                  <div class="bille" v-for="ball, idx in ballsLeft" @click="removeBall(ballsLeft, idx)">{{ball.num}}
+                  </div>
+                </div>
+              </div>
+              <div class="plateau2">
+                <div class="billes">
+                  <div class="bille" v-for="ball, idx in ballsRight" @click="removeBall(ballsRight, idx)">{{ball.num}}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <p v-if="plateau1 == plateau2"><strong>La bille cherchée est parmi les billes : <span
+                  v-for="ball in balls">{{ball.num}}, </span></strong></p>
+            <p v-if="plateau1 > plateau2"><strong>La bille cherchée est parmi les billes : <span
+                  v-for="ball in ballsRight">{{ball.num}}, </span></strong></p>
+            <p v-if="plateau1 < plateau2"><strong>La bille cherchée est parmi les billes : <span
+                  v-for="ball in ballsLeft">{{ball.num}}, </span></strong></p>
+
+            <div>
+              <button class="btn btn-primary" v-if="ballsLeft.length == 3 && ballsRight.length == 3"
+                @click="nextStep()">Continuer</button>
+            </div>
+          </template>
+
+          <template v-if="step == 2">
+            <p>Mettre une seule bille dans chacun des plateaux de la bascule.</p>
+
+            <div class="billes">
+              <div class="bille" v-for="ball, idx in balls" @click="addBall(idx)">{{ball.num}}</div>
+            </div>
+            <div class="balance equilibre">
+              <div class="plateau1">
+                <div class="billes">
+                  <div class="bille" v-for="ball, idx in ballsLeft" @click="removeBall(ballsLeft, idx)">{{ball.num}}
+                  </div>
+                </div>
+              </div>
+              <div class="plateau2">
+                <div class="billes">
+                  <div class="bille" v-for="ball, idx in ballsRight" @click="removeBall(ballsRight, idx)">{{ball.num}}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <button class="btn btn-primary" v-if="ballsLeft.length == 1 && ballsRight.length == 1"
+                @click="nextStep()">Peser</button>
+            </div>
+          </template>
+
+          <template v-if="step == 3">
+            <div class="billes">
+              <div class="bille" v-for="ball, idx in balls">{{ball.num}}</div>
+            </div>
+
+            <div class="balance"
+              v-bind:class="{'equilibre': plateau1 == plateau2, 'droite': plateau1 < plateau2, 'gauche': plateau1 > plateau2}">
+              <div class="plateau1">
+                <div class="billes">
+                  <div class="bille" v-for="ball, idx in ballsLeft" @click="removeBall(ballsLeft, idx)">{{ball.num}}
+                  </div>
+                </div>
+              </div>
+              <div class="plateau2">
+                <div class="billes">
+                  <div class="bille" v-for="ball, idx in ballsRight" @click="removeBall(ballsRight, idx)">{{ball.num}}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <p v-if="plateau1 == plateau2"><strong>La bille cherchée est la bille numéro {{balls[0].num}} qui pèse
+                {{balls[0].weight}}g.</strong></p>
+            <p v-if="plateau1 > plateau2"><strong>La bille cherchée est la bille numéro {{ballsRight[0].num}} qui pèse
+                {{ballsRight[0].weight}}g.</strong></p>
+            <p v-if="plateau1 < plateau2"><strong>La bille cherchée est la bille numéro {{ballsLeft[0].num}} qui pèse
+                {{ballsLeft[0].weight}}g.</strong></p>
+
+            <div>
+              <button class="btn btn-primary" @click="init()">Reset</button>
+            </div>
+          </template>
+        </div>
+
+      </section>
+    </article>
+  </main>
+  <footer class="d-print-none bg-dark text-white p-2">
+    <div class="text-center">Page créée avec ♥ par Mohamed Anis MANI</div>
+    <div class="text-center small">Année scolaire : 2021/2022</div>
+  </footer>
+
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/highlight.pack.js"></script>
+  <script src="assets/js/hljs.algorithm.js"></script>
+  <script src="assets/js/clipboard.min.js"></script>
+  <script src="assets/js/vue.min.js"></script>
+  <script src="assets/apps/module01-apps.js"></script>
+  <script src="assets/js/pages.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+
+    document.querySelectorAll('.language-algorithm,.language-python')
+      .forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'bd-clipboard d-print-none';
+        const btn = document.createElement('button');
+        btn.className = 'btn-clipboard';
+        btn.textContent = "📋";
+        btn.title = "Copier";
+        div.appendChild(btn);
+        item.parentElement.insertBefore(div, item);
+      });
+    new ClipboardJS('.btn-clipboard', {
+      target: (trigger) => {
+        return trigger.parentElement.nextElementSibling;
+      }
+    });
+  </script>
+</body>
+
+</html>
