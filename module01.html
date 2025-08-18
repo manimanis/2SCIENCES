@@ -193,22 +193,28 @@
             <div class="col-3">
               <div class="my-2">
                 <button class="btn btn-sm btn-secondary" @click="addStep('Charger(loup)')"
-                  v-bind:disabled="isRunning">Charger(loup)</button>
+                  v-bind:disabled="isControlButtonDisabled()">Charger(loup)</button>
                 <button class="btn btn-sm btn-secondary" @click="addStep('Charger(agneau)')"
-                  v-bind:disabled="isRunning">Charger(agneau)</button>
+                  v-bind:disabled="isControlButtonDisabled()">Charger(agneau)</button>
                 <button class="btn btn-sm btn-secondary" @click="addStep('Charger(choux)')"
-                  v-bind:disabled="isRunning">Charger(choux)</button>
+                  v-bind:disabled="isControlButtonDisabled()">Charger(choux)</button>
                 <button class="btn btn-sm btn-secondary" @click="addStep('Décharger()')"
-                  v-bind:disabled="isRunning">Décharger()</button>
+                  v-bind:disabled="isControlButtonDisabled()">Décharger()</button>
                 <button class="btn btn-sm btn-secondary" @click="addStep('Passer()')"
-                  v-bind:disabled="isRunning">Passer()</button>
+                  v-bind:disabled="isControlButtonDisabled()">Passer()</button>
               </div>
               <div class="my-2">
                 <div class="m-1" v-for="step, idx in steps">
-                  <span
-                    v-bind:class="{'fw-bold': (isRunning || failed) && currStep == idx,'text-primary': isRunning && currStep == idx,'text-danger': failed && currStep == idx}">Etape
-                    {{idx + 1}} :</span>
-                  <button class="btn btn-sm btn-secondary">{{step}}</button>
+                  <template>
+                    <button @click="moveUp(idx)" v-bind:disabled="idx == 0 || isRunning">&uarr;</button>
+                    <button @click="moveDown(idx)"
+                      v-bind:disabled="idx == steps.length - 1 || isRunning">&darr;</button>
+                    <button @click="removeStep(idx)" v-bind:disabled="isRunning">&#x1F5D1;</button>
+                    <span
+                      v-bind:class="{'fw-bold': (isRunning || failed) && currStep == idx,'text-primary': isRunning && currStep == idx,'text-danger': failed && currStep == idx}">Etape
+                      {{idx + 1}} :</span>
+                    <button class="btn btn-sm btn-secondary">{{step}}</button>
+                  </template>
                 </div>
                 <p v-if="failed" class="text-danger"><strong>Perdu : {{message}}</strong></p>
               </div>
@@ -221,6 +227,43 @@
 
 
 
+        </div>
+      </section>
+
+      <section>
+        <h3>Tours de Hanoï</h3>
+
+        <p>Le jeu des tours de Hanoï est constitué de trois piquets A, B et C, placés verticalement, et de n disques
+          de taille décroissante. Chacun des disques est percé en son centre pour être mis autour de l’un ou l’autre
+          des trois piquets. Les n disques sont initialement placés par taille décroissante autour du piquet A (celui
+          de gauche), formant ainsi une tour. Le but du jeu consiste à déplacer les disques jusqu’à parvenir à la
+          situation finale dans laquelle tous les disques se retrouvent autour du piquet C par ordre de taille
+          décroissante. Les disques peuvent aller et venir librement sur les piquets, en suivant deux règles :</p>
+
+        <ul>
+          <li>on ne déplace qu’un seul disque à la fois;</li>
+          <li>un disque ne peut jamais être posé sur un disque plus petit.</li>
+        </ul>
+
+        <div id="tour-hanoi">
+          <div class="row">
+            <div class="col-9">
+              <div class="piliers">
+                <div class="pilier" v-bind:data-label="String.fromCharCode(65 + pilIdx)" v-for="disks, pilIdx in disks" @click="pilierClicked(pilIdx)">
+                  <div class="disk" v-bind:class="'size-' + disk" v-for="disk, dskIdx in disks">{{disk}}</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-3" v-if="operations.length > 0">
+              <p><strong>Opérations</strong></p>
+              <ol>
+                <li class="my-1" v-for="op, idx in operations">{{op}}</li>
+              </ol>
+              <div class="my-2">
+                <button class="btn btn-secondary" @click="init()">Remise à zéro</button>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </article>

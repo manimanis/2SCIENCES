@@ -1,182 +1,251 @@
 #nine-balls-app {
-	border: solid 3px;
-	padding: 20px;
-	border-radius: 20px;
+  border: solid 3px;
+  padding: 20px;
+  border-radius: 20px;
 }
 
 .billes {
-	display: flex;
-	justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .bille {
-	width: 40px;
-	height: 40px;
-	border-radius: 50%;
-	background-color: steelblue;
-	margin: 5px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	color: white;
-	font-weight: bold;
-	cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: steelblue;
+  margin: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .balance {
-	width: 600px;
-	height: 182px;
-	margin: auto;
-	position: relative;
+  width: 600px;
+  height: 182px;
+  margin: auto;
+  position: relative;
 }
 
 .balance.gauche {
-	background-image: url(../../images/module01/balance_plateaux_0.png);
+  background-image: url(../../images/module01/balance_plateaux_0.png);
 }
 
 .balance.equilibre {
-	background-image: url(../../images/module01/balance_plateaux_1.png);
+  background-image: url(../../images/module01/balance_plateaux_1.png);
 }
 
 .balance.droite {
-	background-image: url(../../images/module01/balance_plateaux_2.png);
+  background-image: url(../../images/module01/balance_plateaux_2.png);
 }
 
 
 .balance.equilibre .plateau1 {
-	position: absolute;
-	top: -8px;
-	left: 47px;
-	width: 158px;
+  position: absolute;
+  top: -8px;
+  left: 47px;
+  width: 158px;
 }
 
 .balance.equilibre .plateau2 {
-	position: absolute;
-	top: -8px;
-	left: 389px;
-	width: 158px;
+  position: absolute;
+  top: -8px;
+  left: 389px;
+  width: 158px;
 }
 
 .balance.droite .plateau1 {
-	width: 158px;
-	position: absolute;
-	left: 47px;
-	top: -26px;
+  width: 158px;
+  position: absolute;
+  left: 47px;
+  top: -26px;
 }
 
 .balance.droite .plateau2 {
-	width: 158px;
-	position: absolute;
-	left: 389px;
-	top: 7px;
+  width: 158px;
+  position: absolute;
+  left: 389px;
+  top: 7px;
 }
 
 .balance.gauche .plateau2 {
-	width: 158px;
-	position: absolute;
-	left: 389px;
-	top: -26px;
+  width: 158px;
+  position: absolute;
+  left: 389px;
+  top: -26px;
 }
 
 .balance.gauche .plateau1 {
-	width: 158px;
-	position: absolute;
-	left: 47px;
-	top: 7px;
+  width: 158px;
+  position: absolute;
+  left: 47px;
+  top: 7px;
 }
 
 .riviere {
-	position: relative;
-	background: url(../../images/module01/riviere.jpg);
-	width: 853px;
-	height: 600px;
-	overflow: hidden;
+  position: relative;
+  background: url(../../images/module01/riviere.jpg);
+  width: 853px;
+  height: 600px;
+  overflow: hidden;
 }
 
 .loup {
-	position: absolute;
-	background: url(../../images/module01/loup.png);
-	width: 200px;
-	height: 133px;
+  position: absolute;
+  background: url(../../images/module01/loup.png);
+  width: 200px;
+  height: 133px;
 }
 
 .loup.rive-droite {
-	top: 472px;
-	left: 604px;
+  top: 472px;
+  left: 604px;
 }
 
 .loup.rive-gauche {
-	top: 372px;
-	left: 201px;
+  top: 372px;
+  left: 201px;
 }
 
-.loup.barque, .agneau.barque, .choux.barque {
+.loup.barque,
+.agneau.barque,
+.choux.barque {
   display: none;
 }
 
 .agneau {
-	position: absolute;
-	background: url(../../images/module01/agneau.png);
-	width: 113px;
-	height: 133px;
+  position: absolute;
+  background: url(../../images/module01/agneau.png);
+  width: 113px;
+  height: 133px;
 }
 
 .agneau.rive-droite {
-	top: 436px;
-	left: 674px;
+  top: 436px;
+  left: 674px;
 }
 
 .agneau.rive-gauche {
-	top: 355px;
-	left: 133px;
+  top: 355px;
+  left: 133px;
 }
 
 .choux {
-	position: absolute;
-	background: url(../../images/module01/choux.png) no-repeat;
-	width: 120px;
-	height: 133px;
-	background-size: contain;
+  position: absolute;
+  background: url(../../images/module01/choux.png) no-repeat;
+  width: 120px;
+  height: 133px;
+  background-size: contain;
 }
 
 .choux.rive-droite {
-	top: 427px;
-	left: 736px;
+  top: 427px;
+  left: 736px;
 }
 
 .choux.rive-gauche {
-	top: 326px;
-	left: 214px;
+  top: 326px;
+  left: 214px;
 }
 
 .passeur {
-	position: absolute;
-	background: url(../../images/module01/passeur.png) no-repeat;
-	width: 248px;
-	height: 200px;
+  position: absolute;
+  background: url(../../images/module01/passeur.png) no-repeat;
+  width: 248px;
+  height: 200px;
 }
 
 .passeur.rive-droite {
-	top: 427px;
-	left: 391px;
+  top: 427px;
+  left: 391px;
 }
 
 .passeur.rive-gauche {
-	top: 408px;
-	left: 167px;
+  top: 408px;
+  left: 167px;
 }
 
 .passeur .loup {
-	top: 18px;
-	left: -26px;
+  top: 18px;
+  left: -26px;
 }
 
 .passeur .agneau {
-	top: 15px;
-	left: -3px;
+  top: 15px;
+  left: -3px;
 }
 
 .passeur .choux {
-	top: 58px;
-	left: 9px;
+  top: 58px;
+  left: 9px;
+}
+
+.piliers {
+  display: flex;
+  min-height: 109px;
+  margin-top: 35px;
+  margin-bottom: 30px;
+  align-items: flex-end;
+}
+
+.pilier {
+  width: 33%;
+  position: relative;
+  cursor: pointer;
+  min-height: 109px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  align-content: flex-end;
+}
+
+.pilier::before {
+  content: attr(data-label);
+  position: absolute;
+  width: 100%;
+  top: 109px;
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+  background-color: #9E9E9E;
+}
+
+.pilier::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 135px;
+  background-color: #666;
+  border-radius: 4px 4px 0 0;
+  top: -28px;
+  left: calc(50% - 5px);
+  z-index: -1;
+}
+
+.disk {
+  margin: 1px auto;
+  text-align: center;
+  padding: 5px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.disk.size-1 {
+  width: 50%;
+  background-color: #F44336;
+  color: white;
+}
+
+.disk.size-2 {
+  width: 70%;
+  background-color: #673AB7;
+  color: white;
+}
+
+.disk.size-3 {
+  width: 90%;
+  background-color: #CDDC39;
 }

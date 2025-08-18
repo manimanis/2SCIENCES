@@ -116,9 +116,14 @@ const prob_riv = new Vue({
       this.message = '';
       this.failed = false;
     },
+    isControlButtonDisabled() {
+      return this.isRunning || this.steps.length >= 25;
+    },
     addStep(stepText) {
-      this.steps.push(stepText);
-      this.$forceUpdate();
+      if (this.steps.length < 25) {
+        this.steps.push(stepText);
+        this.$forceUpdate();
+      }
     },
     removeStep(idx) {
       this.steps.splice(idx, 1);
@@ -172,7 +177,20 @@ const prob_riv = new Vue({
         this.message += 'Le loup mange l\'agneau. ';
         this.stop();
       }
-      
+
+    },
+    switchSteps(idx1, idx2) {
+      if (0 <= idx1 && idx1 < this.steps.length &&
+        0 <= idx2 && idx2 < this.steps.length) {
+        [this.steps[idx1], this.steps[idx2]] = [this.steps[idx2], this.steps[idx1]];
+        this.$forceUpdate();
+      }
+    },
+    moveUp(idx) {
+      this.switchSteps(idx, idx - 1);
+    },
+    moveDown(idx) {
+      this.switchSteps(idx, idx + 1);
     },
     nextStep() {
       const op = this.steps[this.currStep];
@@ -198,6 +216,62 @@ const prob_riv = new Vue({
           }
         }
       }
+      this.$forceUpdate();
+    }
+  }
+});
+
+const tour_hanoi = new Vue({
+  el: "#tour-hanoi",
+  data: {
+    disks: [],
+    pilStart: -1,
+    pilEnd: -1,
+    operations: [],
+    ended: false
+  },
+  mounted() {
+    this.init();
+  },
+  methods: {
+    init() {
+      this.disks = [[], [], []];
+      for (let i = 1; i <= 3; i++) {
+        this.disks[0].push(i);
+      }
+      this.pilStart = -1;
+      this.pilEnd = -1;
+      this.operations = [];
+      this.ended = false;
+    },
+    sommetPillier(pilIdx) {
+      return (this.disks[pilIdx].length > 0) ? this.disks[pilIdx][0] : -1;
+    },
+    pilierClicked(pilIdx) {
+      if (this.ended) {
+        return;
+      }
+
+      if (this.pilStart == -1) {
+        this.pilStart = pilIdx;
+      } else if (this.pilEnd == -1) {
+        this.pilEnd = pilIdx;
+      }
+
+      if (this.pilStart != -1 && this.pilEnd != -1) {
+        const somStart = this.sommetPillier(this.pilStart);
+        const somEnd = this.sommetPillier(this.pilEnd);
+
+        if (somStart != -1 && (somEnd == -1 || somStart < somEnd)) {
+          this.operations.push("Disk " + somStart + " : " + this.pilStart + " → " + this.pilEnd);
+          this.disks[this.pilStart].splice(0, 1);
+          this.disks[this.pilEnd].unshift(somStart);
+        }
+
+        this.pilStart = -1;
+        this.pilEnd = -1;
+      }
+      this.ended = this.disks[2].reduce((pv, cv) => pv - cv, 6) == 0;
       this.$forceUpdate();
     }
   }
