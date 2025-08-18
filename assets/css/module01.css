@@ -10,36 +10,36 @@
 }
 
 .bille {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: steelblue;
-  margin: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-color: steelblue;
+	margin: 5px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: white;
+	font-weight: bold;
+	cursor: pointer;
 }
 
 .balance {
-  width: 600px;
-  height: 182px;
-  margin: auto;
-  position: relative;
+	width: 600px;
+	height: 182px;
+	margin: auto;
+	position: relative;
 }
 
 .balance.gauche {
-  background-image: url(../../images/module01/balance_plateaux_0.png);
+	background-image: url(../../images/module01/balance_plateaux_0.png);
 }
 
 .balance.equilibre {
-  background-image: url(../../images/module01/balance_plateaux_1.png);
+	background-image: url(../../images/module01/balance_plateaux_1.png);
 }
 
 .balance.droite {
-  background-image: url(../../images/module01/balance_plateaux_2.png);
+	background-image: url(../../images/module01/balance_plateaux_2.png);
 }
 
 
@@ -83,4 +83,100 @@
 	position: absolute;
 	left: 47px;
 	top: 7px;
+}
+
+.riviere {
+	position: relative;
+	background: url(../../images/module01/riviere.jpg);
+	width: 853px;
+	height: 600px;
+	overflow: hidden;
+}
+
+.loup {
+	position: absolute;
+	background: url(../../images/module01/loup.png);
+	width: 200px;
+	height: 133px;
+}
+
+.loup.rive-droite {
+	top: 472px;
+	left: 604px;
+}
+
+.loup.rive-gauche {
+	top: 372px;
+	left: 201px;
+}
+
+.loup.barque, .agneau.barque, .choux.barque {
+  display: none;
+}
+
+.agneau {
+	position: absolute;
+	background: url(../../images/module01/agneau.png);
+	width: 113px;
+	height: 133px;
+}
+
+.agneau.rive-droite {
+	top: 436px;
+	left: 674px;
+}
+
+.agneau.rive-gauche {
+	top: 355px;
+	left: 133px;
+}
+
+.choux {
+	position: absolute;
+	background: url(../../images/module01/choux.png) no-repeat;
+	width: 120px;
+	height: 133px;
+	background-size: contain;
+}
+
+.choux.rive-droite {
+	top: 427px;
+	left: 736px;
+}
+
+.choux.rive-gauche {
+	top: 326px;
+	left: 214px;
+}
+
+.passeur {
+	position: absolute;
+	background: url(../../images/module01/passeur.png) no-repeat;
+	width: 248px;
+	height: 200px;
+}
+
+.passeur.rive-droite {
+	top: 427px;
+	left: 391px;
+}
+
+.passeur.rive-gauche {
+	top: 408px;
+	left: 167px;
+}
+
+.passeur .loup {
+	top: 18px;
+	left: -26px;
+}
+
+.passeur .agneau {
+	top: 15px;
+	left: -3px;
+}
+
+.passeur .choux {
+	top: 58px;
+	left: 9px;
 }

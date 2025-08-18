@@ -80,6 +80,125 @@ const nine_balls = new Vue({
         this.plateau2 = this.ballsRight.reduce((pv, cv) => pv + cv.weight, 0);
         this.step = 3;
       }
-    } 
+    }
+  }
+});
+
+const prob_riv = new Vue({
+  el: "#probleme-riviere",
+  data: {
+    objets: {},
+    steps: [],
+    isRunning: false,
+    barque: '',
+    currStep: 0,
+    message: '',
+    failed: false
+  },
+  mounted() {
+    this.init();
+  },
+  methods: {
+    init() {
+      this.initPosition();
+      this.steps = [];
+    },
+    initPosition() {
+      this.objets = {
+        'passeur': 'rive-droite',
+        'loup': 'rive-droite',
+        'agneau': 'rive-droite',
+        'choux': 'rive-droite'
+      };
+      this.isRunning = false;
+      this.barque = "";
+      this.currStep = 0;
+      this.message = '';
+      this.failed = false;
+    },
+    addStep(stepText) {
+      this.steps.push(stepText);
+      this.$forceUpdate();
+    },
+    removeStep(idx) {
+      this.steps.splice(idx, 1);
+      this.$forceUpdate();
+    },
+    run() {
+      this.initPosition();
+      this.isRunning = true;
+      setTimeout(this.nextStep, 1000);
+    },
+    stop() {
+      this.failed = this.objets["loup"] == 'rive-droite' ||
+        this.objets["agneau"] == 'rive-droite' ||
+        this.objets["choux"] == 'rive-droite';
+      this.isRunning = false;
+    },
+    charger(objet) {
+      if (this.barque != '') {
+        this.message = "La barque n'est pas vide, décharger !";
+        this.stop();
+        return;
+      }
+
+      if (this.objets[objet] == this.objets['passeur']) {
+        this.objets[objet] = 'barque';
+        this.barque = objet;
+      } else {
+        this.message = "L'objet '" + objet + "' est sur l'autre rive !";
+        this.stop();
+      }
+    },
+    decharger() {
+      if (this.barque != '') {
+        this.objets[this.barque] = this.objets['passeur'];
+        this.barque = '';
+      } else {
+        this.message = "Rien à décharger !";
+        this.stop();
+      }
+    },
+    passer() {
+      const othRive = (this.objets['passeur'] == 'rive-droite') ? 'rive-gauche' : 'rive-droite';
+      this.objets['passeur'] = othRive;
+
+      if (this.objets['agneau'] == this.objets['choux']) {
+        this.message = 'L\'agneau mange les choux. ';
+        this.stop();
+      }
+
+      if (this.objets['loup'] == this.objets['agneau']) {
+        this.message += 'Le loup mange l\'agneau. ';
+        this.stop();
+      }
+      
+    },
+    nextStep() {
+      const op = this.steps[this.currStep];
+      console.log(this.currStep, '->', op);
+
+      if (op.startsWith('Charger(')) {
+        const obj = op.substring(8, op.length - 1);
+        this.charger(obj);
+      } else if (op == 'Passer()') {
+        this.passer();
+      } else if (op == 'Décharger()') {
+        this.decharger();
+      }
+
+      if (this.isRunning) {
+        if (this.currStep < this.steps.length - 1) {
+          this.currStep++;
+          setTimeout(this.nextStep, 1000);
+        } else {
+          this.stop();
+          if (this.failed) {
+            this.message = "Incomplet, déplacer tous les objets à la rive gauche !";
+          }
+        }
+      }
+      this.$forceUpdate();
+    }
   }
 });

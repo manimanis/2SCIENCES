@@ -37,7 +37,7 @@
 
         <div id="nine-balls-app">
           <h4>Démonstration</h4>
-          
+
           <template v-if="step == 0">
             <p>Cliquer sur les billes pour les mettre dans les plateaux de la bascule.</p>
 
@@ -158,6 +158,70 @@
           </template>
         </div>
 
+      </section>
+
+      <section>
+        <h3>Problème de la rivière</h3>
+
+        <figure>
+          <img src="images/module01/probleme_riviere.png" alt="Problème de la rivière">
+          <figcaption>Problème de la rivière</figcaption>
+        </figure>
+
+        <p>Il y a longtemps, un fermier est allé au marché et a acheté <strong>un loup</strong> , <strong>un
+            agneau</strong> et <strong>un panier de choux</strong>. De retour chez lui, il arriva sur la rive d'une
+          rivière et loua une barque pour la traverser, mais <strong>la barque</strong> ne pouvait transporter (à part
+          lui) qu'<strong>un seul</strong> parmi le loup, l'agneau et le chou.</p>
+        <p>S'il était laissé seul <u>sans sa présence</u>, le <strong>loup mangerait l'agneau</strong>, ou
+          <strong>l'agneau mangerait le chou</strong>; le loup, carnivore, ne mangeait pas de choux.
+        </p>
+
+        <div id="probleme-riviere">
+          <h4>Démonstration</h4>
+
+          <div class="row">
+            <div class="col-9">
+              <div class="riviere">
+                <div class="choux" v-bind:class="objets.choux"></div>
+                <div class="agneau" v-bind:class="objets.agneau"></div>
+                <div class="loup" v-bind:class="objets.loup"></div>
+                <div class="passeur" v-bind:class="objets.passeur">
+                  <div v-if="barque != ''" v-bind:class="barque"></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-3">
+              <div class="my-2">
+                <button class="btn btn-sm btn-secondary" @click="addStep('Charger(loup)')"
+                  v-bind:disabled="isRunning">Charger(loup)</button>
+                <button class="btn btn-sm btn-secondary" @click="addStep('Charger(agneau)')"
+                  v-bind:disabled="isRunning">Charger(agneau)</button>
+                <button class="btn btn-sm btn-secondary" @click="addStep('Charger(choux)')"
+                  v-bind:disabled="isRunning">Charger(choux)</button>
+                <button class="btn btn-sm btn-secondary" @click="addStep('Décharger()')"
+                  v-bind:disabled="isRunning">Décharger()</button>
+                <button class="btn btn-sm btn-secondary" @click="addStep('Passer()')"
+                  v-bind:disabled="isRunning">Passer()</button>
+              </div>
+              <div class="my-2">
+                <div class="m-1" v-for="step, idx in steps">
+                  <span
+                    v-bind:class="{'fw-bold': (isRunning || failed) && currStep == idx,'text-primary': isRunning && currStep == idx,'text-danger': failed && currStep == idx}">Etape
+                    {{idx + 1}} :</span>
+                  <button class="btn btn-sm btn-secondary">{{step}}</button>
+                </div>
+                <p v-if="failed" class="text-danger"><strong>Perdu : {{message}}</strong></p>
+              </div>
+              <div class="my-2" v-if="this.steps.length > 0">
+                <button class="btn btn-primary" @click="run()" v-bind:disabled="isRunning">Jouer</button>
+                <button class="btn btn-warning" @click="init()" v-bind:disabled="isRunning">Reset</button>
+              </div>
+            </div>
+          </div>
+
+
+
+        </div>
       </section>
     </article>
   </main>
