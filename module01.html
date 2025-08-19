@@ -27,6 +27,176 @@
     <h1>Etapes de résolution d'un problème</h1>
 
     <article>
+      <h2>Etapes</h2>
+
+      <section>
+        <h3>Présentation</h3>
+
+        <div class="clearfix">
+          <figure class="col-md-4 float-md-end mb-2 ms-md-2">
+            <img src="images/module01/informatique_domaines.jpg" alt="Domaines de l'informatique">
+            <figcaption>Quelques domaines d'utilisation de l'informatique</figcaption>
+          </figure>
+
+          <p>L'informatique est un outil précieux dans tous les domaines : mathématiques, physiques, économie,
+            astronomie,
+            énergie, médecine, enseignement, etc.</p>
+          <p>Les programmes informatiques sont développés dans le but de résoudre des problèmes de tous les genres et
+            les
+            tailles.</p>
+          <p>Un programme effectue le traitement des données selon un algorithme préétablit.</p>
+          <p>Ainsi, un problème peut être de petite taille (calculer la somme de deux entiers) ou de grande taille
+            (contrôler une navette spatiale ou un réacteur nucléaire à distance).</p>
+        </div>
+      </section>
+
+      <section>
+        <h3>Etapes de résolution d'un problème</h3>
+
+        <figure>
+          <img src="images/module01/etapes_resolution.png" alt="Etapes de résolution d'un problème">
+          <figcaption>Etapes de résolution d'un problème</figcaption>
+        </figure>
+
+        <p>Le processus de résolution d'un problème comprend 4 étapes : </p>
+        <ol type="a">
+          <li>L'analyse du problème</li>
+          <li>L'élaboration de l'algorithme</li>
+          <li>L'implémentation de l'algorithme</li>
+          <li>L'exploitation et la maintenance</li>
+        </ol>
+      </section>
+
+      <section>
+        <h3>Analyse du problème</h3>
+        <p>Cette étape s'intéresse aux transformations (ou <strong>traitements</strong>) à effectuer sur les
+          <strong>entrées</strong> pour produire des <strong>sorties</strong> utiles.
+        </p>
+        <figure>
+          <img src="images/module01/analyse.png" alt="Analyse d'un problème">
+          <figcaption>Analyse</figcaption>
+        </figure>
+        <p><strong>Exemple</strong></p>
+        <p>Calculer et afficher la somme et le produit de deux entiers.</p>
+        <ul>
+          <li><strong>Données</strong> : a et b (deux entiers)</li>
+          <li><strong>Traitements</strong> : <code>s &larr; a + b</code> et <code>p &larr; a * b</code></li>
+          <li><strong>Sorties</strong> : Afficher la <strong>somme</strong> (<code>s</code>) et le
+            <strong>produit</strong> (<code>p</code>)</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Elaboration de l'algorithme</h3>
+        <p>Un <strong>algorithme</strong> est <strong>une suite finie d'étapes</strong> permettant de <strong>résoudre
+            un problème</strong>.</p>
+        <p>Un <strong>algorithme</strong> est écrit, souvent, en <strong>pseudo-code</strong> et il doit respecter la
+          syntaxe suivante :</p>
+        <div class="row align-items-center">
+          <div class="col-4">
+            <pre><code class="algorithm">Algorithme Nom
+Début  
+  Traitements
+Fin</code></pre>
+          </div>
+          <div class="col-5">
+            <figure>
+              <img src="images/module01/traitements.png" alt="Traitements informatiques">
+            </figure>
+          </div>
+          <div class="col-3">
+            <p class="text-center">TDO</p>
+            <table class="table table-bordered border-dark">
+              <thead class="table-light border-dark text-center">
+                <tr>
+                  <th>Objet</th>
+                  <th>Type</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <p><strong>Exemple</strong></p>
+        <p>Calculer et afficher la somme et le produit de deux entiers.</p>
+<div class="row align-items-center">
+          <div class="col-9">
+            <pre><code class="algorithm">Algorithme Somme_Prod
+Début  
+  Ecrire("Donner a ? ") ; Lire(a)
+  Ecrire("Donner b ? ") ; Lire(b)
+  s &larr; a + b
+  p &larr; a * b
+  Ecrire(a, "+", b, "=", s)
+  Ecrire(a, "*", b, "=", p)
+Fin</code></pre>
+          </div>
+          <div class="col-3">
+            <p class="text-center">TDO</p>
+            <table class="table table-bordered border-dark">
+              <thead class="table-light border-dark text-center">
+                <tr>
+                  <th>Objet</th>
+                  <th>Type</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>a, b, s, p</td>
+                  <td>entier</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </section>
+
+      <section>
+        <h3>Programme</h3>
+
+        <p>L'<strong>algorithme</strong> écrit en <strong>pseudo-code</strong> n'est pas exploitable sur un ordinateur.
+          Il doit être, par exemple, <strong>traduit</strong> en <strong>Python</strong>.</p>
+        <p><strong>Python</strong> est un <strong>langage de programmation</strong>, parmi d'autres.</p>
+
+        <p><strong>Exemple</strong></p>
+        <p>Calculer et afficher la somme et le produit de deux entiers.</p>
+
+        <pre><code class="python">a = int(input("Donner a ? "))
+b = int(input("Donner b ? "))
+s = a + b
+p = a * b
+print(a, "+", b, "=", s)
+print(a, "*", b, "=", p)</code></pre>
+      </section>
+
+      <section>
+        <h3>Exécution et tests</h3>
+
+        <p>Le <strong>programme</strong> est <strong>exécuté</strong>, <strong>corrigé</strong> et
+          <strong>débogué</strong> afin d'éliminer tous les disfonctionnements possibles.
+        </p>
+
+        <p><strong>Exemple</strong></p>
+        <p>Calculer et afficher la somme et le produit de deux entiers.</p>
+
+        <pre><code class="python"># Programme à corriger
+a = input("Donner a ? ")
+b = input("Donner b ? ")
+s = a + b
+print("a + b =", s)
+p = a * b
+print(a "*" b "=" p)</code></pre>
+      </section>
+    </article>
+
+    <article>
       <h2>Problèmes de logique</h2>
 
       <section>
@@ -246,7 +416,8 @@
           <div class="row">
             <div class="col-9">
               <div class="piliers">
-                <div class="pilier" v-bind:data-label="String.fromCharCode(65 + pilIdx)" v-for="disks, pilIdx in disks" @click="pilierClicked(pilIdx)">
+                <div class="pilier" v-bind:data-label="String.fromCharCode(65 + pilIdx)" v-for="disks, pilIdx in disks"
+                  @click="pilierClicked(pilIdx)">
                   <div class="disk" v-bind:class="'size-' + disk" v-for="disk, dskIdx in disks">{{disk}}</div>
                 </div>
               </div>
@@ -267,7 +438,7 @@
   </main>
   <footer class="d-print-none bg-dark text-white p-2">
     <div class="text-center">Page créée avec ♥ par Mohamed Anis MANI</div>
-    <div class="text-center small">Année scolaire : 2021/2022</div>
+    <div class="text-center small">Année scolaire : 2025/2026</div>
   </footer>
 
   <script src="assets/js/jquery.min.js"></script>
