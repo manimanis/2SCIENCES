@@ -68,7 +68,7 @@
       </section>
 
       <section>
-        <h3>Analyse du problème</h3>
+        <h3 class="p-break">Analyse du problème</h3>
         <p>Cette étape s'intéresse aux transformations (ou <strong>traitements</strong>) à effectuer sur les
           <strong>entrées</strong> pour produire des <strong>sorties</strong> utiles.
         </p>
@@ -82,7 +82,8 @@
           <li><strong>Données</strong> : a et b (deux entiers)</li>
           <li><strong>Traitements</strong> : <code>s &larr; a + b</code> et <code>p &larr; a * b</code></li>
           <li><strong>Sorties</strong> : Afficher la <strong>somme</strong> (<code>s</code>) et le
-            <strong>produit</strong> (<code>p</code>)</li>
+            <strong>produit</strong> (<code>p</code>)
+          </li>
         </ul>
       </section>
 
@@ -125,7 +126,7 @@ Fin</code></pre>
 
         <p><strong>Exemple</strong></p>
         <p>Calculer et afficher la somme et le produit de deux entiers.</p>
-<div class="row align-items-center">
+        <div class="row align-items-center">
           <div class="col-9">
             <pre><code class="algorithm">Algorithme Somme_Prod
 Début  
@@ -165,7 +166,7 @@ Fin</code></pre>
           Il doit être, par exemple, <strong>traduit</strong> en <strong>Python</strong>.</p>
         <p><strong>Python</strong> est un <strong>langage de programmation</strong>, parmi d'autres.</p>
 
-        <p><strong>Exemple</strong></p>
+        <p class="p-break"><strong>Exemple</strong></p>
         <p>Calculer et afficher la somme et le produit de deux entiers.</p>
 
         <pre><code class="python">a = int(input("Donner a ? "))
@@ -197,7 +198,21 @@ print(a "*" b "=" p)</code></pre>
     </article>
 
     <article>
-      <h2>Problèmes de logique</h2>
+      <h2 class="p-break">Problèmes de logique</h2>
+
+      <section>
+        <h3>Problème des deux cordes</h3>
+
+        <p>Tu as 2 cordes qui brûlent en exactement 60 minutes, mais pas de façon uniforme (elles peuvent brûler plus
+          vite à certains endroits).</p>
+
+        <p><strong>Question : </strong> Comment mesurer exactement 45 minutes avec ces deux cordes et un briquet ?</p>
+
+        <figure>
+          <img src="images/module01/prob_2_cordes.jpg" alt="Problème des deux cordes">
+          <figcaption>Problème des deux cordes</figcaption>
+        </figure>
+      </section>
 
       <section>
         <h3>Problème des neufs billes</h3>
@@ -331,7 +346,7 @@ print(a "*" b "=" p)</code></pre>
       </section>
 
       <section>
-        <h3>Problème de la rivière</h3>
+        <h3 class="p-break">Problème de la rivière</h3>
 
         <figure>
           <img src="images/module01/probleme_riviere.png" alt="Problème de la rivière">
@@ -346,7 +361,7 @@ print(a "*" b "=" p)</code></pre>
           <strong>l'agneau mangerait le chou</strong>; le loup, carnivore, ne mangeait pas de choux.
         </p>
 
-        <div id="probleme-riviere">
+        <div id="probleme-riviere" class="d-print-none">
           <h4>Démonstration</h4>
 
           <div class="row">
@@ -433,6 +448,50 @@ print(a "*" b "=" p)</code></pre>
             </div>
           </div>
         </div>
+      </section>
+
+      <section>
+        <h3>Problème des trois interrupteurs et de l'ampoule</h3>
+
+        <p>Tu es dans une pièce fermée avec 3 interrupteurs. Ces interrupteurs contrôlent une seule ampoule située dans
+          une autre pièce, que tu ne peux pas voir depuis ta position.</p>
+        <p>Tu peux :</p>
+        <ul>
+          <li>Actionner les interrupteurs autant de fois que tu veux.</li>
+          <li>Aller une seule fois dans la pièce où se trouve l’ampoule pour vérifier son état (allumée, éteinte).</li>
+        </ul>
+
+        <figure>
+          <img src="images/module01/probl_3_int_01.png" alt="Problème des trois interrupteurs et de l'ampoule">
+          <figcaption>Problème des trois interrupteurs et de l'ampoule</figcaption>
+        </figure>
+
+        <p><strong>Question :</strong> Comment déterminer quel interrupteur contrôle l’ampoule, en une seule visite dans
+          la pièce de l’ampoule ?</p>
+      </section>
+
+      <section>
+        <h3>Problème des 20 prisonniers</h3>
+
+        <figure>
+          <img src="images/module01/prob_20_prisonniers.jpg" alt="Problème des 20 prisonniers">
+          <figcaption>Problème des 20 prisonniers</figcaption>
+        </figure>
+
+        <p>Il y a <strong>20 prisonniers</strong> numérotés de <strong>1 à 20</strong>. Dans une pièce, il y a
+          <strong>20 tiroirs</strong>, chacun contenant un numéro unique de 1 à 20, placé aléatoirement.
+        </p>
+
+        <ul>
+          <li>Chaque prisonnier peut ouvrir jusqu’à 50 tiroirs pour essayer de trouver son propre numéro.</li>
+          <li>Ils ne peuvent pas communiquer une fois l’expérience commencée.</li>
+        </ul>
+        <p>Si tous les prisonniers trouvent leur numéro, ils sont tous libéré, sinon tous sont exécutés. </p>
+
+        <p><strong>Question :</strong> Quelle stratégie peuvent-ils utiliser pour maximiser leurs chances de survie ?
+        </p>
+
+
       </section>
     </article>
   </main>
