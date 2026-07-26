@@ -746,16 +746,16 @@
       <!-- Exercice 1 -->
       <section>
         <h3>Exercice 1 – Opérateurs numériques</h3>
-        <p>CompléterlCompléter le tableau ci-dessous (Exprèssion Python équivalente, Résultat et Type) :</p>
+        <p>CompléterlCompléter le tableau ci-dessous (Expression Python équivalente, Résultat et Type) :</p>
         <div class="table-responsive shadow-sm rounded border overflow-hidden my-3">
           <table class="table table-hover text-center align-middle mb-0" id="ex1-table">
             <thead style="background-color: #0f172a;" class="text-white">
               <tr>
-                <th style="width:30%; background-color:#334155;">Exprèssion en Algorithme</th>
-                <th style="width:25%; background-color:#0284c7;">Exprèssion en Python</th>
+                <th style="width:30%; background-color:#334155;">Expression en Algorithme</th>
+                <th style="width:25%; background-color:#0284c7;">Expression en Python</th>
                 <th style="width:20%; background-color:#16a34a;">Résultat</th>
                 <th style="width:15%; background-color:#7c3aed;">Type</th>
-                <th style="width:10%; background-color:#475569;">??"???</th>
+                <th style="width:10%; background-color:#475569;">✔️</th>
               </tr>
             </thead>
             <tbody class="bg-white">
@@ -853,33 +853,33 @@
           </table>
         </div>
         <div class="d-flex gap-2 mt-2">
-          <button id="btn-check-ex1" class="btn btn-primary fw-bold px-4">??"??? Vérifier mes réponses</button>
-          <button id="btn-show-ex1" class="btn btn-outline-secondary fw-bold px-4">&rarr;�~? Voir les réponses</button>
+          <button id="btn-check-ex1" class="btn btn-primary fw-bold px-4">✔️ Vérifier mes réponses</button>
+          <button id="btn-show-ex1" class="btn btn-outline-secondary fw-bold px-4">👁️ Voir les réponses</button>
         </div>
         <div id="ex1-score" class="mt-3"></div>
       </section>
 
       <!-- Exercice 2 -->
       <section>
-        <h3>Exercice 2 – Exprèssions numériques / logiques</h3>
-        <p>CompléterlCompléter le tableau ci-dessous. Les cellules grises sont données, les cases blanches sont é
+        <h3>Exercice 2 – Expressions numériques / logiques</h3>
+        <p>Compléter le tableau ci-dessous. Les cellules grises sont données, les cases blanches sont à
           remplir :</p>
         <div class="table-responsive shadow-sm rounded border overflow-hidden my-3">
           <table class="table table-hover text-center align-middle mb-0" id="ex2-table">
             <thead style="background-color: #0f172a;" class="text-white">
               <tr>
-                <th style="width:35%; background-color:#334155;">#</th>
-                <th style="width:28%; background-color:#0284c7;">Exprèssion en algorithme</th>
-                <th style="width:28%; background-color:#0369a1;">Exprèssion en Python</th>
-                <th style="width:12%; background-color:#16a34a;">Résultat</th>
+                <th style="width:5%; background-color:#334155;">#</th>
+                <th style="width:35%; background-color:#0284c7;">Expression en algorithme</th>
+                <th style="width:35%; background-color:#0369a1;">Expression en Python</th>
+                <th style="width:10%; background-color:#16a34a;">Résultat</th>
                 <th style="width:10%; background-color:#7c3aed;">Type</th>
-                <th style="width:8%; background-color:#475569;">??"???</th>
+                <th style="width:5%; background-color:#475569;">✔️</th>
               </tr>
             </thead>
             <tbody class="bg-white">
 
               <!-- Row 1: Python given -->
-              <tr data-algo="x �Y" < 15 + 3 * 2 + 5" data-res="26" data-type="int">
+              <tr data-algo="x ← 15 + 3 * 2 + 5" data-res="26" data-type="int">
                 <td class="text-start small text-muted">1</td>
                 <td><input type="text" class="form-control form-control-sm font-monospace text-center ex2-algo"
                     placeholder="Algorithme..."></td>
@@ -913,7 +913,7 @@
               </tr>
 
               <!-- Row 3: Python given -->
-              <tr data-algo="x �Y" < (13 mod 5) div 2" data-res="1" data-type="int">
+              <tr data-algo="x← (13 mod 5) div 2" data-res="1" data-type="int">
                 <td class="text-start small text-muted">3</td>
                 <td><input type="text" class="form-control form-control-sm font-monospace text-center ex2-algo"
                     placeholder="Algorithme..."></td>
@@ -947,7 +947,7 @@
               </tr>
 
               <!-- Row 5: Python given -->
-              <tr data-algo="a �Y" < 3 ; b &larr; 6&#10;x &larr; (a> b) * a + (a &larr; b) * b" data-res="6"
+              <tr data-algo="a ← 3 ; b &larr; 6&#10;x &larr; (a> b) * a + (a &larr; b) * b" data-res="6"
                 data-type="int">
                 <td class="text-start small text-muted">5</td>
                 <td><input type="text" class="form-control form-control-sm font-monospace text-center ex2-algo"
@@ -966,10 +966,10 @@
               </tr>
 
               <!-- Row 6: Algo given (uses a=3, b=6 from row 5) -->
-              <tr data-py="c = 8 ; d = 1&#10;x = abs(a-c) + abs(b-d)" data-res="10" data-type="int">
+              <tr data-py="c = 8 ; d = 1 ; x = abs(a-c) + abs(b-d)" data-res="10" data-type="int">
                 <td class="text-start small text-muted">6</td>
                 <td class="bg-light fw-semibold font-monospace text-primary small text-start px-2">c &larr; 8 ; d &larr;
-                  1<br>x &larr; Abs(a-c) + Abs(b-d)</td>
+                  1 ; x &larr; Abs(a-c) + Abs(b-d)</td>
                 <td><input type="text" class="form-control form-control-sm font-monospace text-center ex2-py"
                     placeholder="Python..."></td>
                 <td><input type="text" class="form-control form-control-sm text-center ex2-res" placeholder="?"></td>
@@ -984,10 +984,10 @@
               </tr>
 
               <!-- Row 7: Algo given (sqrt distance) -->
-              <tr data-py="x = int(sqrt((a-c)**2+(b-d)**2))" data-res="7" data-type="int">
+              <tr data-py="x = int(sqrt((a-c)*(a-c)+(b-d)*(b-d)))" data-res="7" data-type="int">
                 <td class="text-start small text-muted">7</td>
                 <td class="bg-light fw-semibold font-monospace text-primary small text-start px-2">x &larr;
-                  Ent(Racine((a-c)?,?+(b-d)?,?))</td>
+                  Ent(Racine((a-c)*(a-c)+(b-d)*(b-d)))</td>
                 <td><input type="text" class="form-control form-control-sm font-monospace text-center ex2-py"
                     placeholder="Python..."></td>
                 <td><input type="text" class="form-control form-control-sm text-center ex2-res" placeholder="?"></td>
@@ -1036,7 +1036,7 @@
               </tr>
 
               <!-- Row 10: Python given -->
-              <tr data-algo="x �Y" < (7 + Arrondi(14.36)) mod 2" data-res="1" data-type="int">
+              <tr data-algo="x ← (7 + Arrondi(14.36)) mod 2" data-res="1" data-type="int">
                 <td class="text-start small text-muted">10</td>
                 <td><input type="text" class="form-control form-control-sm font-monospace text-center ex2-algo"
                     placeholder="Algorithme..."></td>
@@ -1108,8 +1108,8 @@
           </table>
         </div>
         <div class="d-flex gap-2 mt-2">
-          <button id="btn-check-ex2" class="btn btn-primary fw-bold px-4">??"??? Vérifier mes réponses</button>
-          <button id="btn-show-ex2" class="btn btn-outline-secondary fw-bold px-4">&rarr;�~? Voir les réponses</button>
+          <button id="btn-check-ex2" class="btn btn-primary fw-bold px-4">✔️ Vérifier mes réponses</button>
+          <button id="btn-show-ex2" class="btn btn-outline-secondary fw-bold px-4">👁️ Voir les réponses</button>
         </div>
         <div id="ex2-score" class="mt-3"></div>
       </section>
@@ -1187,22 +1187,22 @@
               <tr>
                 <td>x &larr; Aléa(1, 6)</td>
                 <td><code>x = randint(1, 6)</code></td>
-                <td>1 &larr; X &larr; 6</td>
+                <td>1 &le; X &le; 6</td>
               </tr>
               <tr>
                 <td>x &larr; Aléa(1, 6) * 10</td>
                 <td><code>x = randint(1, 6) * 10</code></td>
-                <td>10 &larr; X &larr; 60</td>
+                <td>10 &le; X &le; 60</td>
               </tr>
               <tr>
                 <td>x &larr; Aléa(1, 6) * -2</td>
                 <td><code>x = randint(1, 6) * -2</code></td>
-                <td>-12 &larr; X &larr; -2</td>
+                <td>-12 &le; X &le; -2</td>
               </tr>
               <tr>
                 <td>x &larr; Aléa(1, 6) // 2</td>
                 <td><code>x = randint(1, 6) // 2</code></td>
-                <td>0 &larr; X &larr; 3</td>
+                <td>0 &le; X &le; 3</td>
               </tr>
             </tbody>
           </table>
