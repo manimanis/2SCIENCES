@@ -1,532 +1,524 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 1 : Étapes de résolution d'un problème - Informatique 2e Sciences</title>
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/css/default.css">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/module01.css">
-  <title>Etapes de résolution d'un problème</title>
+  <script src="assets/js/vue.min.js"></script>
 </head>
 
 <body>
   <aside>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#aside_navbar"
-        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span> Menu
-      </button>
-      <div class="collapse navbar-collapse" id="aside_navbar"></div>
+      <div class="container-fluid">
+        <a class="navbar-brand text-info fw-bold" href="index.html">🏠 Accueil</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#aside_navbar">
+          <span class="navbar-toggler-icon"></span> Menu
+        </button>
+        <div class="collapse navbar-collapse" id="aside_navbar"></div>
+      </div>
     </nav>
   </aside>
 
-  <main class="container my-3">
-    <h1>Etapes de résolution d'un problème</h1>
+  <main class="container my-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h1>Module 1 : Les étapes de résolution d'un problème</h1>
+      <a href="index.html" class="btn btn-outline-secondary">← Retour au sommaire</a>
+    </div>
 
     <article>
-      <h2>Etapes</h2>
+      <h2>Cours</h2>
 
       <section>
-        <h3>Présentation</h3>
+        <h3>1. Présentation</h3>
+        <p>L'informatique est un outil précieux dans tous les domaines : mathématiques, physiques, économie, astronomie,
+          énergie, médecine, enseignement, etc.</p>
 
-        <div class="clearfix">
-          <figure class="col-md-4 float-md-end mb-2 ms-md-2">
-            <img src="images/module01/informatique_domaines.jpg" alt="Domaines de l'informatique">
-            <figcaption>Quelques domaines d'utilisation de l'informatique</figcaption>
-          </figure>
-
-          <p>L'informatique est un outil précieux dans tous les domaines : mathématiques, physiques, économie,
-            astronomie,
-            énergie, médecine, enseignement, etc.</p>
-          <p>Les programmes informatiques sont développés dans le but de résoudre des problèmes de tous les genres et
-            les
-            tailles.</p>
-          <p>Un programme effectue le traitement des données selon un algorithme préétablit.</p>
-          <p>Ainsi, un problème peut être de petite taille (calculer la somme de deux entiers) ou de grande taille
-            (contrôler une navette spatiale ou un réacteur nucléaire à distance).</p>
+        <div class="text-center my-3">
+          <img src="images/module01/informatique_domaines.jpg" alt="Domaines d'application de l'informatique"
+            class="img-fluid rounded shadow-sm" style="max-width: 420px;">
         </div>
+
+        <p>Les programmes informatiques sont développés dans le but de résoudre des problèmes de tous les genres et de
+          toutes les tailles.</p>
+        <p>Un programme effectue le traitement des données selon un algorithme préétabli.</p>
+        <p>Ainsi, un problème peut être de petite taille (calculer la somme de deux entiers) ou de grande taille
+          (contrôler une navette spatiale ou un réacteur nucléaire à distance).</p>
       </section>
 
       <section>
-        <h3>Etapes de résolution d'un problème</h3>
+        <h3>2. Étapes de résolution</h3>
+        <p>Le processus de résolution d'un problème comprend <strong>4 étapes principales</strong> :</p>
 
-        <figure>
-          <img src="images/module01/etapes_resolution.png" alt="Etapes de résolution d'un problème">
-          <figcaption>Etapes de résolution d'un problème</figcaption>
-        </figure>
+        <div class="row text-center my-3">
+          <div class="col-md-3 mb-2">
+            <div class="card p-3 shadow-sm border-primary h-100">
+              <span class="fs-1 text-primary">1️⃣</span>
+              <h5 class="fw-bold mt-2">Analyse du problème</h5>
+              <p class="small text-muted mb-0">Déterminer les entrées, les traitements et les sorties.</p>
+            </div>
+          </div>
+          <div class="col-md-3 mb-2">
+            <div class="card p-3 shadow-sm border-success h-100">
+              <span class="fs-1 text-success">2️⃣</span>
+              <h5 class="fw-bold mt-2">Élaboration de l'algorithme</h5>
+              <p class="small text-muted mb-0">Écrire les instructions finies en pseudo-code.</p>
+            </div>
+          </div>
+          <div class="col-md-3 mb-2">
+            <div class="card p-3 shadow-sm border-warning h-100">
+              <span class="fs-1 text-warning">3️⃣</span>
+              <h5 class="fw-bold mt-2">Programmation (Python)</h5>
+              <p class="small text-muted mb-0">Traduire l'algorithme dans un langage de programmation.</p>
+            </div>
+          </div>
+          <div class="col-md-3 mb-2">
+            <div class="card p-3 shadow-sm border-info h-100">
+              <span class="fs-1 text-info">4️⃣</span>
+              <h5 class="fw-bold mt-2">Exécution et tests</h5>
+              <p class="small text-muted mb-0">Exécuter, corriger et déboguer le programme.</p>
+            </div>
+          </div>
+        </div>
 
-        <p>Le processus de résolution d'un problème comprend 4 étapes : </p>
-        <ol type="a">
-          <li>L'analyse du problème</li>
-          <li>L'élaboration de l'algorithme</li>
-          <li>L'implémentation de l'algorithme</li>
-          <li>L'exploitation et la maintenance</li>
-        </ol>
-      </section>
+        <div class="text-center my-4">
+          <img src="images/module01/etapes_resolution.png" alt="Schéma du cycle de résolution d'un problème"
+            class="img-fluid rounded shadow-sm" style="max-width: 420px;">
+        </div>
 
-      <section>
-        <h3 class="p-break">Analyse du problème</h3>
+        <h4 class="mt-4">a. Analyse du problème</h4>
         <p>Cette étape s'intéresse aux transformations (ou <strong>traitements</strong>) à effectuer sur les
           <strong>entrées</strong> pour produire des <strong>sorties</strong> utiles.
         </p>
-        <figure>
-          <img src="images/module01/analyse.png" alt="Analyse d'un problème">
-          <figcaption>Analyse</figcaption>
-        </figure>
-        <p><strong>Exemple</strong></p>
-        <p>Calculer et afficher la somme et le produit de deux entiers.</p>
-        <ul>
-          <li><strong>Données</strong> : a et b (deux entiers)</li>
-          <li><strong>Traitements</strong> : <code>s &larr; a + b</code> et <code>p &larr; a * b</code></li>
-          <li><strong>Sorties</strong> : Afficher la <strong>somme</strong> (<code>s</code>) et le
-            <strong>produit</strong> (<code>p</code>)
-          </li>
-        </ul>
-      </section>
-
-      <section>
-        <h3>Elaboration de l'algorithme</h3>
-        <p>Un <strong>algorithme</strong> est <strong>une suite finie d'étapes</strong> permettant de <strong>résoudre
-            un problème</strong>.</p>
-        <p>Un <strong>algorithme</strong> est écrit, souvent, en <strong>pseudo-code</strong> et il doit respecter la
-          syntaxe suivante :</p>
-        <div class="row align-items-center">
-          <div class="col-4">
-            <pre><code class="algorithm">Algorithme Nom
-Début  
-  Traitements
-Fin</code></pre>
-          </div>
-          <div class="col-5">
-            <figure>
-              <img src="images/module01/traitements.png" alt="Traitements informatiques">
-            </figure>
-          </div>
-          <div class="col-3">
-            <p class="text-center">TDO</p>
-            <table class="table table-bordered border-dark">
-              <thead class="table-light border-dark text-center">
-                <tr>
-                  <th>Objet</th>
-                  <th>Type</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>&nbsp;</td>
-                  <td>&nbsp;</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+        <div class="text-center my-3">
+          <img src="images/module01/analyse.png" alt="Schéma d'analyse : Entrées, Traitements, Sorties"
+            class="img-fluid rounded shadow-sm" style="max-width: 450px;">
         </div>
 
-        <p><strong>Exemple</strong></p>
-        <p>Calculer et afficher la somme et le produit de deux entiers.</p>
-        <div class="row align-items-center">
-          <div class="col-9">
-            <pre><code class="algorithm">Algorithme Somme_Prod
-Début  
-  Ecrire("Donner a ? ") ; Lire(a)
-  Ecrire("Donner b ? ") ; Lire(b)
-  s &larr; a + b
-  p &larr; a * b
-  Ecrire(a, "+", b, "=", s)
-  Ecrire(a, "*", b, "=", p)
+        <h4>b. L'algorithme</h4>
+        <p>Un <strong>algorithme</strong> est une suite finie d'étapes permettant de résoudre un problème. Il est écrit
+          souvent en pseudo-code et respecte la structure suivante :</p>
+        <pre><code class="language-algorithm">Algorithme Nom_Algorithme
+Début
+   // Traitements algorithmiques
 Fin</code></pre>
-          </div>
-          <div class="col-3">
-            <p class="text-center">TDO</p>
-            <table class="table table-bordered border-dark">
-              <thead class="table-light border-dark text-center">
-                <tr>
-                  <th>Objet</th>
-                  <th>Type</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>a, b, s, p</td>
-                  <td>entier</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+
+        <div class="text-center my-3">
+          <img src="images/module01/traitements.png" alt="Cartographie des traitements d'un algorithme"
+            class="img-fluid rounded shadow-sm" style="max-width: 420px;">
         </div>
 
-      </section>
+        <h4>c. Le programme</h4>
+        <p>L'algorithme écrit en pseudo-code n'est pas exploitable sur un ordinateur. Il doit être traduit, par exemple,
+          en <strong>Python</strong>.</p>
 
-      <section>
-        <h3>Programme</h3>
-
-        <p>L'<strong>algorithme</strong> écrit en <strong>pseudo-code</strong> n'est pas exploitable sur un ordinateur.
-          Il doit être, par exemple, <strong>traduit</strong> en <strong>Python</strong>.</p>
-        <p><strong>Python</strong> est un <strong>langage de programmation</strong>, parmi d'autres.</p>
-
-        <p class="p-break"><strong>Exemple</strong></p>
-        <p>Calculer et afficher la somme et le produit de deux entiers.</p>
-
-        <pre><code class="python">a = int(input("Donner a ? "))
-b = int(input("Donner b ? "))
-s = a + b
-p = a * b
-print(a, "+", b, "=", s)
-print(a, "*", b, "=", p)</code></pre>
-      </section>
-
-      <section>
-        <h3>Exécution et tests</h3>
-
-        <p>Le <strong>programme</strong> est <strong>exécuté</strong>, <strong>corrigé</strong> et
-          <strong>débogué</strong> afin d'éliminer tous les disfonctionnements possibles.
-        </p>
-
-        <p><strong>Exemple</strong></p>
-        <p>Calculer et afficher la somme et le produit de deux entiers.</p>
-
-        <pre><code class="python"># Programme à corriger
-a = input("Donner a ? ")
-b = input("Donner b ? ")
-s = a + b
-print("a + b =", s)
-p = a * b
-print(a "*" b "=" p)</code></pre>
+        <h4>d. Exécution et tests</h4>
+        <p>Le programme est exécuté, corrigé et débogué afin d'éliminer tous les dysfonctionnements possibles.</p>
       </section>
     </article>
 
-    <article>
-      <h2 class="p-break">Problèmes de logique</h2>
+    <article class="mt-5">
+      <h2>Exercices Interactifs</h2>
 
+      <!-- Exercice 1 -->
       <section>
-        <h3>Problème des deux cordes</h3>
-
+        <h3>Exercice 1 – Problème des deux cordes</h3>
         <p>Tu as 2 cordes qui brûlent en exactement 60 minutes, mais pas de façon uniforme (elles peuvent brûler plus
           vite à certains endroits).</p>
 
-        <p><strong>Question : </strong> Comment mesurer exactement 45 minutes avec ces deux cordes et un briquet ?</p>
-
-        <figure>
-          <img src="images/module01/prob_2_cordes.jpg" alt="Problème des deux cordes">
-          <figcaption>Problème des deux cordes</figcaption>
-        </figure>
-      </section>
-
-      <section>
-        <h3>Problème des neufs billes</h3>
-
-        <p>Vous avez 9 billes, dont 8 ont le même poids (100g) et une est plus légère (90g). Votre objectif est de
-          déterminer, en utilisant une balance à plateaux, quelle est la bille plus légère en seulement 2 pesées.</p>
-
-        <div id="nine-balls-app">
-          <h4>Démonstration</h4>
-
-          <template v-if="step == 0">
-            <p>Cliquer sur les billes pour les mettre dans les plateaux de la bascule.</p>
-
-            <div class="billes">
-              <div class="bille" v-for="ball, idx in balls" @click="addBall(idx)">{{ball.num}}</div>
-            </div>
-            <div class="balance equilibre">
-              <div class="plateau1">
-                <div class="billes">
-                  <div class="bille" v-for="ball, idx in ballsLeft" @click="removeBall(ballsLeft, idx)">{{ball.num}}
-                  </div>
-                </div>
-              </div>
-              <div class="plateau2">
-                <div class="billes">
-                  <div class="bille" v-for="ball, idx in ballsRight" @click="removeBall(ballsRight, idx)">{{ball.num}}
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div>
-              <button class="btn btn-primary" v-if="ballsLeft.length == 3 && ballsRight.length == 3"
-                @click="nextStep()">Peser</button>
-            </div>
-          </template>
-
-          <template v-if="step == 1">
-            <div class="billes">
-              <div class="bille" v-for="ball, idx in balls">{{ball.num}}</div>
-            </div>
-
-            <div class="balance"
-              v-bind:class="{'equilibre': plateau1 == plateau2, 'droite': plateau1 < plateau2, 'gauche': plateau1 > plateau2}">
-              <div class="plateau1">
-                <div class="billes">
-                  <div class="bille" v-for="ball, idx in ballsLeft" @click="removeBall(ballsLeft, idx)">{{ball.num}}
-                  </div>
-                </div>
-              </div>
-              <div class="plateau2">
-                <div class="billes">
-                  <div class="bille" v-for="ball, idx in ballsRight" @click="removeBall(ballsRight, idx)">{{ball.num}}
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <p v-if="plateau1 == plateau2"><strong>La bille cherchée est parmi les billes : <span
-                  v-for="ball in balls">{{ball.num}}, </span></strong></p>
-            <p v-if="plateau1 > plateau2"><strong>La bille cherchée est parmi les billes : <span
-                  v-for="ball in ballsRight">{{ball.num}}, </span></strong></p>
-            <p v-if="plateau1 < plateau2"><strong>La bille cherchée est parmi les billes : <span
-                  v-for="ball in ballsLeft">{{ball.num}}, </span></strong></p>
-
-            <div>
-              <button class="btn btn-primary" v-if="ballsLeft.length == 3 && ballsRight.length == 3"
-                @click="nextStep()">Continuer</button>
-            </div>
-          </template>
-
-          <template v-if="step == 2">
-            <p>Mettre une seule bille dans chacun des plateaux de la bascule.</p>
-
-            <div class="billes">
-              <div class="bille" v-for="ball, idx in balls" @click="addBall(idx)">{{ball.num}}</div>
-            </div>
-            <div class="balance equilibre">
-              <div class="plateau1">
-                <div class="billes">
-                  <div class="bille" v-for="ball, idx in ballsLeft" @click="removeBall(ballsLeft, idx)">{{ball.num}}
-                  </div>
-                </div>
-              </div>
-              <div class="plateau2">
-                <div class="billes">
-                  <div class="bille" v-for="ball, idx in ballsRight" @click="removeBall(ballsRight, idx)">{{ball.num}}
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div>
-              <button class="btn btn-primary" v-if="ballsLeft.length == 1 && ballsRight.length == 1"
-                @click="nextStep()">Peser</button>
-            </div>
-          </template>
-
-          <template v-if="step == 3">
-            <div class="billes">
-              <div class="bille" v-for="ball, idx in balls">{{ball.num}}</div>
-            </div>
-
-            <div class="balance"
-              v-bind:class="{'equilibre': plateau1 == plateau2, 'droite': plateau1 < plateau2, 'gauche': plateau1 > plateau2}">
-              <div class="plateau1">
-                <div class="billes">
-                  <div class="bille" v-for="ball, idx in ballsLeft" @click="removeBall(ballsLeft, idx)">{{ball.num}}
-                  </div>
-                </div>
-              </div>
-              <div class="plateau2">
-                <div class="billes">
-                  <div class="bille" v-for="ball, idx in ballsRight" @click="removeBall(ballsRight, idx)">{{ball.num}}
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <p v-if="plateau1 == plateau2"><strong>La bille cherchée est la bille numéro {{balls[0].num}} qui pèse
-                {{balls[0].weight}}g.</strong></p>
-            <p v-if="plateau1 > plateau2"><strong>La bille cherchée est la bille numéro {{ballsRight[0].num}} qui pèse
-                {{ballsRight[0].weight}}g.</strong></p>
-            <p v-if="plateau1 < plateau2"><strong>La bille cherchée est la bille numéro {{ballsLeft[0].num}} qui pèse
-                {{ballsLeft[0].weight}}g.</strong></p>
-
-            <div>
-              <button class="btn btn-primary" @click="init()">Reset</button>
-            </div>
-          </template>
+        <div class="text-center my-3">
+          <img src="images/module01/prob_2_cordes.jpg" alt="Problème des deux cordes"
+            class="img-fluid rounded shadow-sm" style="max-width: 380px;">
         </div>
 
-      </section>
+        <p><strong>Question :</strong> Comment mesurer exactement 45 minutes avec ces deux cordes et un briquet ?</p>
 
-      <section>
-        <h3 class="p-break">Problème de la rivière</h3>
-
-        <figure>
-          <img src="images/module01/probleme_riviere.png" alt="Problème de la rivière">
-          <figcaption>Problème de la rivière</figcaption>
-        </figure>
-
-        <p>Il y a longtemps, un fermier est allé au marché et a acheté <strong>un loup</strong> , <strong>un
-            agneau</strong> et <strong>un panier de choux</strong>. De retour chez lui, il arriva sur la rive d'une
-          rivière et loua une barque pour la traverser, mais <strong>la barque</strong> ne pouvait transporter (à part
-          lui) qu'<strong>un seul</strong> parmi le loup, l'agneau et le chou.</p>
-        <p>S'il était laissé seul <u>sans sa présence</u>, le <strong>loup mangerait l'agneau</strong>, ou
-          <strong>l'agneau mangerait le chou</strong>; le loup, carnivore, ne mangeait pas de choux.
-        </p>
-
-        <div id="probleme-riviere" class="d-print-none">
-          <h4>Démonstration</h4>
-
-          <div class="row">
-            <div class="col-9">
-              <div class="riviere">
-                <div class="choux" v-bind:class="objets.choux"></div>
-                <div class="agneau" v-bind:class="objets.agneau"></div>
-                <div class="loup" v-bind:class="objets.loup"></div>
-                <div class="passeur" v-bind:class="objets.passeur">
-                  <div v-if="barque != ''" v-bind:class="barque"></div>
-                </div>
-              </div>
-            </div>
-            <div class="col-3">
-              <div class="my-2">
-                <button class="btn btn-sm btn-secondary" @click="addStep('Charger(loup)')"
-                  v-bind:disabled="isControlButtonDisabled()">Charger(loup)</button>
-                <button class="btn btn-sm btn-secondary" @click="addStep('Charger(agneau)')"
-                  v-bind:disabled="isControlButtonDisabled()">Charger(agneau)</button>
-                <button class="btn btn-sm btn-secondary" @click="addStep('Charger(choux)')"
-                  v-bind:disabled="isControlButtonDisabled()">Charger(choux)</button>
-                <button class="btn btn-sm btn-secondary" @click="addStep('Décharger()')"
-                  v-bind:disabled="isControlButtonDisabled()">Décharger()</button>
-                <button class="btn btn-sm btn-secondary" @click="addStep('Passer()')"
-                  v-bind:disabled="isControlButtonDisabled()">Passer()</button>
-              </div>
-              <div class="my-2">
-                <div class="m-1" v-for="step, idx in steps">
-                  <template>
-                    <button @click="moveUp(idx)" v-bind:disabled="idx == 0 || isRunning">&uarr;</button>
-                    <button @click="moveDown(idx)"
-                      v-bind:disabled="idx == steps.length - 1 || isRunning">&darr;</button>
-                    <button @click="removeStep(idx)" v-bind:disabled="isRunning">&#x1F5D1;</button>
-                    <span
-                      v-bind:class="{'fw-bold': (isRunning || failed) && currStep == idx,'text-primary': isRunning && currStep == idx,'text-danger': failed && currStep == idx}">Etape
-                      {{idx + 1}} :</span>
-                    <button class="btn btn-sm btn-secondary">{{step}}</button>
-                  </template>
-                </div>
-                <p v-if="failed" class="text-danger"><strong>Perdu : {{message}}</strong></p>
-              </div>
-              <div class="my-2" v-if="this.steps.length > 0">
-                <button class="btn btn-primary" @click="run()" v-bind:disabled="isRunning">Jouer</button>
-                <button class="btn btn-warning" @click="init()" v-bind:disabled="isRunning">Reset</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <h3>Tours de Hanoï</h3>
-
-        <p>Le jeu des tours de Hanoï est constitué de trois piquets A, B et C, placés verticalement, et de n disques
-          de taille décroissante. Chacun des disques est percé en son centre pour être mis autour de l’un ou l’autre
-          des trois piquets. Les n disques sont initialement placés par taille décroissante autour du piquet A (celui
-          de gauche), formant ainsi une tour. Le but du jeu consiste à déplacer les disques jusqu’à parvenir à la
-          situation finale dans laquelle tous les disques se retrouvent autour du piquet C par ordre de taille
-          décroissante. Les disques peuvent aller et venir librement sur les piquets, en suivant deux règles :</p>
-
-        <ul>
-          <li>on ne déplace qu’un seul disque à la fois;</li>
-          <li>un disque ne peut jamais être posé sur un disque plus petit.</li>
-        </ul>
-
-        <div id="tour-hanoi">
-          <div class="row">
-            <div class="col-9">
-              <div class="piliers">
-                <div class="pilier" v-bind:data-label="String.fromCharCode(65 + pilIdx)" v-for="disks, pilIdx in disks"
-                  @click="pilierClicked(pilIdx)">
-                  <div class="disk" v-bind:class="'size-' + disk" v-for="disk, dskIdx in disks">{{disk}}</div>
-                </div>
-              </div>
-            </div>
-            <div class="col-3" v-if="operations.length > 0">
-              <p><strong>Opérations</strong></p>
+        <div class="interactive-box shadow-sm">
+          <h4 class="text-primary">🔥 Simulation interactive du temps</h4>
+          <p>Cliquez sur le bouton ci-dessous pour simuler l'allumage des cordes pas à pas :</p>
+          <button id="btn-start-ropes" class="btn btn-warning fw-bold">▶ Lancer la simulation d'allumage</button>
+          <div id="ropes-status" class="mt-3 alert alert-info d-none"></div>
+          <details class="mt-3">
+            <summary class="btn btn-sm btn-outline-info">💡 Voir la solution théorique</summary>
+            <div class="card card-body mt-2 bg-light">
               <ol>
-                <li class="my-1" v-for="op, idx in operations">{{op}}</li>
+                <li>Allumer la Corde 1 aux <strong>deux extrémités</strong> et la Corde 2 à <strong>une seule
+                    extrémité</strong> en même temps.</li>
+                <li>Quand la Corde 1 s'éteint complètement, exactement <strong>30 minutes</strong> se sont écoulées.
+                </li>
+                <li>À ce moment (t = 30 min), il reste 30 minutes de combustion à la Corde 2. On allume immédiatement la
+                  2ème extrémité de la Corde 2.</li>
+                <li>La Corde 2 va mettre <strong>15 minutes</strong> de plus pour s'éteindre. Total = 30 + 15 = 45
+                  minutes !</li>
               </ol>
-              <div class="my-2">
-                <button class="btn btn-secondary" @click="init()">Remise à zéro</button>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <!-- Exercice 2 -->
+      <section>
+        <h3>Exercice 2 – Problème des trois ampoules</h3>
+        <p>Tu es dans une pièce fermée avec 3 interrupteurs (1, 2, 3) qui contrôlent 3 lampes situées dans une autre
+          pièce non visible.</p>
+
+        <div class="text-center my-3">
+          <img src="images/module01/probl_3_int_01.png" alt="Problème des trois ampoules"
+            class="img-fluid rounded shadow-sm" style="max-width: 380px;">
+        </div>
+
+        <p><strong>Règles :</strong> Tu peux actionner les interrupteurs autant de fois que tu veux, mais tu ne peux
+          aller <strong>qu'une seule fois</strong> dans la pièce des ampoules.</p>
+
+        <div class="interactive-box shadow-sm">
+          <h4 class="text-primary">💡 Simulation interactive des interrupteurs</h4>
+          <div class="d-flex gap-2 flex-wrap mb-3">
+            <button class="btn btn-outline-secondary btn-toggle-switch" data-switch="1">Interrupteur 1 : ÉTEINT
+              (OFF)</button>
+            <button class="btn btn-outline-secondary btn-toggle-switch" data-switch="2">Interrupteur 2 : ÉTEINT
+              (OFF)</button>
+            <button class="btn btn-outline-secondary btn-toggle-switch" data-switch="3">Interrupteur 3 : ÉTEINT
+              (OFF)</button>
+          </div>
+          <button id="btn-enter-room" class="btn btn-primary fw-bold">🚶 Aller vérifier la pièce des ampoules</button>
+          <div id="room-result"></div>
+        </div>
+      </section>
+
+      <!-- Exercice 3 -->
+      <section>
+        <h3>Exercice 3 – Calcul Somme et Produit</h3>
+        <p>On veut écrire un programme Python qui calcule et affiche la somme et le produit de deux entiers
+          <code>a</code> et <code>b</code>.</p>
+
+        <!-- 1. Schéma d'analyse à remplir -->
+        <div class="interactive-box shadow-sm mb-4">
+          <h4 class="text-primary">📊 Schéma d'Analyse (à compléter par l'élève)</h4>
+          <p class="text-muted small">Remplissez les champs ci-dessous pour analyser le problème :</p>
+
+          <div class="row align-items-center text-center my-3 g-2">
+            <div class="col-md-3">
+              <div class="card border-primary p-3 bg-light h-100">
+                <span class="badge bg-primary fs-6 mb-2">Entrées</span>
+                <input type="text" id="ex3-input-entries" class="form-control text-center fw-bold"
+                  placeholder="ex: a, b">
+                <small class="text-muted mt-1">Données à saisir</small>
+              </div>
+            </div>
+            <div class="col-md-1 fs-3 text-primary d-none d-md-block">➔</div>
+            <div class="col-md-4">
+              <div class="card border-warning p-3 bg-light h-100">
+                <span class="badge bg-warning text-dark fs-6 mb-2">Traitements</span>
+                <input type="text" id="ex3-input-t1" class="form-control text-center fw-bold mb-1"
+                  placeholder="ex: s ← a + b">
+                <input type="text" id="ex3-input-t2" class="form-control text-center fw-bold"
+                  placeholder="ex: p ← a * b">
+                <small class="text-muted mt-1">Opérations & calculs</small>
+              </div>
+            </div>
+            <div class="col-md-1 fs-3 text-primary d-none d-md-block">➔</div>
+            <div class="col-md-3">
+              <div class="card border-success p-3 bg-light h-100">
+                <span class="badge bg-success fs-6 mb-2">Sorties</span>
+                <input type="text" id="ex3-input-sorties" class="form-control text-center fw-bold"
+                  placeholder="ex: s, p">
+                <small class="text-muted mt-1">Résultats à afficher</small>
+              </div>
+            </div>
+          </div>
+          <button id="btn-check-ex3-analysis" class="btn btn-outline-primary btn-sm">Vérifier l'analyse</button>
+          <div id="ex3-analysis-feedback" class="mt-2"></div>
+        </div>
+
+        <!-- 2. Tableau de Déclaration des Objets (TDO) -->
+        <div class="interactive-box shadow-sm mb-4">
+          <h4 class="text-primary">📋 Tableau de Déclaration des Objets (TDO)</h4>
+          <p class="text-muted small">Complétez le tableau avec les objets utilisés et leurs types respectifs :</p>
+
+          <div class="table-responsive">
+            <table class="table table-bordered align-middle text-center mx-auto" style="max-width: 500px;">
+              <thead class="table-secondary">
+                <tr>
+                  <th style="width: 50%;">Objet</th>
+                  <th style="width: 50%;">Type</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><input type="text" id="tdo-obj-1" class="form-control text-center" placeholder="ex: a, b"></td>
+                  <td>
+                    <select id="tdo-type-1" class="form-select text-center">
+                      <option value="">Choisir...</option>
+                      <option value="entier">entier</option>
+                      <option value="réel">réel</option>
+                      <option value="chaîne">chaîne</option>
+                      <option value="booléen">booléen</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td><input type="text" id="tdo-obj-2" class="form-control text-center" placeholder="ex: s, p"></td>
+                  <td>
+                    <select id="tdo-type-2" class="form-select text-center">
+                      <option value="">Choisir...</option>
+                      <option value="entier">entier</option>
+                      <option value="réel">réel</option>
+                      <option value="chaîne">chaîne</option>
+                      <option value="booléen">booléen</option>
+                    </select>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="text-center">
+            <button id="btn-check-ex3-tdo" class="btn btn-outline-primary btn-sm">Vérifier le TDO</button>
+            <div id="ex3-tdo-feedback" class="mt-2"></div>
+          </div>
+        </div>
+
+        <!-- 3. Simulation & Exécution (Visible) et Solution (Cachée) -->
+        <div class="interactive-box shadow-sm">
+          <h4 class="text-primary mb-3">⚙ Simulation & Exécution</h4>
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <label class="form-label fw-bold">Valeur de a :</label>
+              <input type="number" id="ex3-a" class="form-control" value="8">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label fw-bold">Valeur de b :</label>
+              <input type="number" id="ex3-b" class="form-control" value="5">
+            </div>
+          </div>
+          <button class="btn btn-success btn-run-code mb-3" data-target="code-ex3" data-input="ex3-a,ex3-b"
+            data-output="out-ex3">
+            ▶ Exécuter le programme Python
+          </button>
+          <div id="out-ex3" class="mb-3 d-none"></div>
+
+          <!-- Algorithme & Programme (Initialement cachés) -->
+          <details class="mt-3">
+            <summary class="btn btn-sm btn-outline-info fw-bold">💡 Voir la solution (Algorithme & Code Python)
+            </summary>
+
+            <div class="row mt-3 p-3 bg-light rounded border">
+              <div class="col-md-6">
+                <h5 class="fw-bold">Algorithme</h5>
+                <pre><code class="language-algorithm">Algorithme Somme_Produit
+Début
+   Ecrire("Donner a et b")
+   Lire(a, b)
+   s ← a + b
+   p ← a * b
+   Ecrire("Somme =", s)
+   Ecrire("Produit =", p)
+Fin</code></pre>
+              </div>
+              <div class="col-md-6">
+                <h5 class="fw-bold">Code Python</h5>
+                <textarea id="code-ex3" class="form-control bg-dark text-warning p-2" rows="6">a = int(input("a ? "))
+b = int(input("b ? "))
+s = a + b
+p = a * b
+print("Somme =", s)
+print("Produit =", p)</textarea>
+              </div>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <!-- Exercice 4 -->
+      <section>
+        <h3>Exercice 4 – Calcul d'aire (Forme H)</h3>
+        <p>La forme géométrique H est composée de 3 carrés de côté <code>a</code> et d'un rectangle de hauteur
+          <code>a/3</code> et de largeur <code>a</code>.
+        </p>
+
+        <div class="text-center my-3">
+          <img src="images/module01/forme_h.svg" alt="Illustration Forme H (Cotations, 3 carrés + 1 rectangle, 2 trapèzes + 1 rectangle)"
+            class="img-fluid rounded shadow-sm p-2 bg-white border" style="max-width: 800px;">
+        </div>
+
+        <div class="interactive-box shadow-sm">
+          <h4 class="text-primary">📐 Calculateur d'aire Forme H</h4>
+          <div class="row align-items-center mb-3">
+            <div class="col-md-4">
+              <label class="form-label fw-bold">Valeur du côté (a) :</label>
+              <input type="number" id="geo-a" class="form-control" value="6" min="1">
+            </div>
+            <div class="col-md-8">
+              <div id="geo-result" class="alert alert-success mb-0 fs-5">
+                Calcul en cours...
               </div>
             </div>
           </div>
         </div>
       </section>
 
+      <!-- Exercice 5 -->
       <section>
-        <h3>Problème des trois interrupteurs et de l'ampoule</h3>
+        <h3>Exercice 5 – Démarche de résolution d'un problème</h3>
+        <p>Compléter le schéma interactif ci-dessous en remettant les 4 étapes dans le bon ordre :</p>
 
-        <p>Tu es dans une pièce fermée avec 3 interrupteurs. Ces interrupteurs contrôlent une seule ampoule située dans
-          une autre pièce, que tu ne peux pas voir depuis ta position.</p>
-        <p>Tu peux :</p>
-        <ul>
-          <li>Actionner les interrupteurs autant de fois que tu veux.</li>
-          <li>Aller une seule fois dans la pièce où se trouve l’ampoule pour vérifier son état (allumée, éteinte).</li>
-        </ul>
+        <div class="qcm-container interactive-box shadow-sm">
+          <div class="qcm-question" data-answer="Analyse,Algorithme,Programme,Exécution et Test">
+            
+            <!-- Schema Graphique 4 Boîtes + Flèche de retour (Loop) -->
+            <div class="position-relative p-3 bg-white rounded border shadow-sm mb-4">
+              <div class="d-flex align-items-center justify-content-between flex-wrap flex-md-nowrap gap-2 py-2">
+                
+                <!-- Boîte 1 -->
+                <div class="flex-fill rounded-4 border border-2 border-dark p-3 bg-light shadow-sm text-center" style="min-width: 170px;">
+                  <label for="step1" class="form-label fw-bold text-dark small d-block mb-2">Étape 1</label>
+                  <select class="form-select form-select-sm step-select border-secondary text-center fw-bold" id="step1">
+                    <option value="">Choisir...</option>
+                    <option value="Analyse">Analyse du problème</option>
+                    <option value="Algorithme">Algorithme</option>
+                    <option value="Programme">Programme</option>
+                    <option value="Exécution et Test">Exécution et Test</option>
+                  </select>
+                </div>
 
-        <figure>
-          <img src="images/module01/probl_3_int_01.png" alt="Problème des trois interrupteurs et de l'ampoule">
-          <figcaption>Problème des trois interrupteurs et de l'ampoule</figcaption>
-        </figure>
+                <div class="fs-3 fw-bold text-dark d-none d-md-block">➔</div>
 
-        <p><strong>Question :</strong> Comment déterminer quel interrupteur contrôle l’ampoule, en une seule visite dans
-          la pièce de l’ampoule ?</p>
+                <!-- Boîte 2 -->
+                <div class="flex-fill rounded-4 border border-2 border-dark p-3 bg-light shadow-sm text-center" style="min-width: 170px;">
+                  <label for="step2" class="form-label fw-bold text-dark small d-block mb-2">Étape 2</label>
+                  <select class="form-select form-select-sm step-select border-secondary text-center fw-bold" id="step2">
+                    <option value="">Choisir...</option>
+                    <option value="Analyse">Analyse du problème</option>
+                    <option value="Algorithme">Algorithme</option>
+                    <option value="Programme">Programme</option>
+                    <option value="Exécution et Test">Exécution et Test</option>
+                  </select>
+                </div>
+
+                <div class="fs-3 fw-bold text-dark d-none d-md-block">➔</div>
+
+                <!-- Boîte 3 -->
+                <div class="flex-fill rounded-4 border border-2 border-dark p-3 bg-light shadow-sm text-center" style="min-width: 170px;">
+                  <label for="step3" class="form-label fw-bold text-dark small d-block mb-2">Étape 3</label>
+                  <select class="form-select form-select-sm step-select border-secondary text-center fw-bold" id="step3">
+                    <option value="">Choisir...</option>
+                    <option value="Analyse">Analyse du problème</option>
+                    <option value="Algorithme">Algorithme</option>
+                    <option value="Programme">Programme</option>
+                    <option value="Exécution et Test">Exécution et Test</option>
+                  </select>
+                </div>
+
+                <div class="fs-3 fw-bold text-dark d-none d-md-block">➔</div>
+
+                <!-- Boîte 4 -->
+                <div class="flex-fill rounded-4 border border-2 border-dark p-3 bg-light shadow-sm text-center" style="min-width: 170px;">
+                  <label for="step4" class="form-label fw-bold text-dark small d-block mb-2">Étape 4</label>
+                  <select class="form-select form-select-sm step-select border-secondary text-center fw-bold" id="step4">
+                    <option value="">Choisir...</option>
+                    <option value="Analyse">Analyse du problème</option>
+                    <option value="Algorithme">Algorithme</option>
+                    <option value="Programme">Programme</option>
+                    <option value="Exécution et Test">Exécution et Test</option>
+                  </select>
+                </div>
+
+              </div>
+
+              <!-- Ligne de boucle de retour (Bottom loop arrow) -->
+              <div class="d-none d-md-block mt-1">
+                <svg class="w-100" height="35" viewBox="0 0 850 35" preserveAspectRatio="none">
+                  <defs>
+                    <marker id="loop-arrow-head" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                      <path d="M 0 0 L 10 5 L 0 10 z" fill="#000"/>
+                    </marker>
+                  </defs>
+                  <path d="M 825,0 L 825,22 L 25,22 L 25,5" fill="none" stroke="#000" stroke-width="2.5" marker-end="url(#loop-arrow-head)"/>
+                </svg>
+              </div>
+            </div>
+
+            <div class="text-center">
+              <button id="btn-check-steps" class="btn btn-primary fw-bold">Vérifier l'ordre des étapes</button>
+              <div id="steps-feedback" class="mt-3"></div>
+            </div>
+
+          </div>
+        </div>
       </section>
 
+      <!-- Exercice 6 -->
       <section>
-        <h3>Problème des 20 prisonniers</h3>
+        <h3>Exercice 6 – Calcul d'aire (Forme R)</h3>
+        <p>Forme composée d'un quart de cercle de rayon <code>R</code>, d'un rectangle de dimensions <code>R × Y</code>
+          et d'un rectangle <code>X × R</code>.</p>
 
-        <figure>
-          <img src="images/module01/prob_20_prisonniers.jpg" alt="Problème des 20 prisonniers">
-          <figcaption>Problème des 20 prisonniers</figcaption>
-        </figure>
+        <div class="text-center my-3">
+          <img src="images/module01/forme_r.svg" alt="Illustration Forme R (Quart de cercle R, rectangles X et Y)"
+            class="img-fluid rounded shadow-sm p-2 bg-white border" style="max-width: 260px;">
+        </div>
 
-        <p>Il y a <strong>20 prisonniers</strong> numérotés de <strong>1 à 20</strong>. Dans une pièce, il y a
-          <strong>20 tiroirs</strong>, chacun contenant un numéro unique de 1 à 20, placé aléatoirement.
-        </p>
+        <div class="interactive-box shadow-sm">
+          <h4 class="text-primary">📐 Calculateur d'aire Forme R</h4>
+          <div class="row g-3 mb-3">
+            <div class="col-md-4">
+              <label class="form-label fw-bold">Rayon R :</label>
+              <input type="number" id="ex6-r" class="form-control" value="4">
+            </div>
+            <div class="col-md-4">
+              <label class="form-label fw-bold">Largeur X :</label>
+              <input type="number" id="ex6-x" class="form-control" value="2">
+            </div>
+            <div class="col-md-4">
+              <label class="form-label fw-bold">Hauteur Y :</label>
+              <input type="number" id="ex6-y" class="form-control" value="8">
+            </div>
+          </div>
+          <div id="ex6-result" class="alert alert-success fs-5 mb-0"></div>
+        </div>
+      </section>
 
-        <ul>
-          <li>Chaque prisonnier peut ouvrir jusqu’à 50 tiroirs pour essayer de trouver son propre numéro.</li>
-          <li>Ils ne peuvent pas communiquer une fois l’expérience commencée.</li>
-        </ul>
-        <p>Si tous les prisonniers trouvent leur numéro, ils sont tous libéré, sinon tous sont exécutés. </p>
+      <!-- Exercice 7 -->
+      <section>
+        <h3>Exercice 7 – Prédécesseur et Successeur</h3>
+        <p>Ecrire un programme qui saisit un nombre pair <code>a</code> puis calcule le nombre pair qui le précède et
+          celui qui le succède. Exemple : <code>a = 8 ➔ 6 – 8 – 10</code>.</p>
 
-        <p><strong>Question :</strong> Quelle stratégie peuvent-ils utiliser pour maximiser leurs chances de survie ?
-        </p>
+        <div class="text-center my-3">
+          <img src="images/module01/pred_succ.svg" alt="Illustration Prédécesseur (a - 2), Nombre pair (a), Successeur (a + 2)"
+            class="img-fluid rounded shadow-sm p-2 bg-white border" style="max-width: 600px;">
+        </div>
 
-
+        <div class="interactive-box shadow-sm">
+          <div class="input-group mb-3">
+            <input type="number" id="ex7-a" class="form-control" value="8" step="2"
+              placeholder="Saisir un nombre pair (ex: 8)">
+            <button id="btn-calc-pred-succ" class="btn btn-primary fw-bold">Calculer Prédécesseur & Successeur</button>
+          </div>
+          <div id="ex7-out"></div>
+        </div>
       </section>
     </article>
   </main>
-  <footer class="d-print-none bg-dark text-white p-2">
-    <div class="text-center">Page créée avec ♥ par Mohamed Anis MANI</div>
-    <div class="text-center small">Année scolaire : 2025/2026</div>
+
+  <footer class="bg-dark text-white p-3 text-center mt-5">
+    <div>Informatique 2e Sciences &bull; Enseignant: Mohamed Anis MANI</div>
   </footer>
 
-  <script src="assets/js/jquery.min.js"></script>
   <script src="assets/js/bootstrap.bundle.min.js"></script>
   <script src="assets/js/highlight.pack.js"></script>
   <script src="assets/js/hljs.algorithm.js"></script>
-  <script src="assets/js/clipboard.min.js"></script>
-  <script src="assets/js/vue.min.js"></script>
-  <script src="assets/apps/module01-apps.js"></script>
   <script src="assets/js/pages.js"></script>
+  <script src="assets/js/runner.js"></script>
+  <script src="assets/js/modules.js"></script>
+  <script src="assets/js/render_math.js"></script>
   <script>
-    hljs.initHighlightingOnLoad();
-
-    document.querySelectorAll('.language-algorithm,.language-python')
-      .forEach(item => {
-        const div = document.createElement('div');
-        div.className = 'bd-clipboard d-print-none';
-        const btn = document.createElement('button');
-        btn.className = 'btn-clipboard';
-        btn.textContent = "📋";
-        btn.title = "Copier";
-        div.appendChild(btn);
-        item.parentElement.insertBefore(div, item);
-      });
-    new ClipboardJS('.btn-clipboard', {
-      target: (trigger) => {
-        return trigger.parentElement.nextElementSibling;
-      }
-    });
+    hljs.highlightAll();
   </script>
 </body>
 

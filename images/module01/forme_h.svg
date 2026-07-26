@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 250" width="100%" height="auto">
+  <defs>
+    <style>
+      .caption { font-family: system-ui, -apple-system, sans-serif; font-size: 15px; font-weight: 500; fill: #111827; }
+      .dim-text { font-family: system-ui, -apple-system, sans-serif; font-size: 16px; font-weight: 600; fill: #000; }
+      .dash-line { stroke: #555; stroke-width: 1.2; stroke-dasharray: 4,3; }
+      .dim-line { stroke: #3b82f6; stroke-width: 1.5; marker-start: url(#arrow-start); marker-end: url(#arrow-end); }
+    </style>
+    <marker id="arrow-end" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1.5 L 10 5 L 0 8.5 z" fill="#3b82f6"/>
+    </marker>
+    <marker id="arrow-start" viewBox="0 0 10 10" refX="2" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 10 1.5 L 0 5 L 10 8.5 z" fill="#3b82f6"/>
+    </marker>
+  </defs>
+
+  <!-- ==================== DIAGRAMME 1 : Forme H avec cotations ==================== -->
+  <g transform="translate(10, 10)">
+    <!-- Polygone Forme H -->
+    <path d="M 20,180 
+             L 70,180 
+             L 70,130 
+             L 120,130 
+             L 120,180 
+             L 170,180 
+             L 170,113 
+             L 120,63 
+             L 120,113 
+             L 70,113 
+             L 70,63 
+             L 20,113 Z" 
+          fill="#6897cb" stroke="#6897cb" stroke-width="1.5"/>
+
+    <!-- Ligne intermédiaire subtile -->
+    <line x1="20" y1="130" x2="70" y2="130" stroke="#5c8bbd" stroke-width="1.5"/>
+    <line x1="120" y1="130" x2="170" y2="130" stroke="#5c8bbd" stroke-width="1.5"/>
+
+    <!-- Lignes de repère verticales droite -->
+    <line x1="170" y1="63" x2="188" y2="63" class="dash-line"/>
+    <line x1="170" y1="113" x2="188" y2="113" class="dash-line"/>
+    <line x1="170" y1="130" x2="188" y2="130" class="dash-line"/>
+    <line x1="170" y1="180" x2="188" y2="180" class="dash-line"/>
+
+    <!-- Flèches de cote hauteur droite -->
+    <line x1="184" y1="63" x2="184" y2="113" class="dim-line"/>
+    <text x="194" y="93" class="dim-text">a</text>
+
+    <line x1="184" y1="113" x2="184" y2="130" class="dim-line"/>
+    <text x="194" y="126" class="dim-text">a/3</text>
+
+    <line x1="184" y1="130" x2="184" y2="180" class="dim-line"/>
+    <text x="194" y="160" class="dim-text">a</text>
+
+    <!-- Lignes de repère horizontales bas -->
+    <line x1="20" y1="180" x2="20" y2="198" class="dash-line"/>
+    <line x1="70" y1="180" x2="70" y2="198" class="dash-line"/>
+    <line x1="120" y1="180" x2="120" y2="198" class="dash-line"/>
+    <line x1="170" y1="180" x2="170" y2="198" class="dash-line"/>
+
+    <!-- Flèches de cote largeur bas -->
+    <line x1="20" y1="194" x2="70" y2="194" class="dim-line"/>
+    <text x="45" y="214" text-anchor="middle" class="dim-text">a</text>
+
+    <line x1="70" y1="194" x2="120" y2="194" class="dim-line"/>
+    <text x="95" y="214" text-anchor="middle" class="dim-text">a</text>
+
+    <line x1="120" y1="194" x2="170" y2="194" class="dim-line"/>
+    <text x="145" y="214" text-anchor="middle" class="dim-text">a</text>
+  </g>
+
+  <!-- ==================== DIAGRAMME 2 : 3 carrés + 1 rectangle ==================== -->
+  <g transform="translate(300, 10)">
+    <!-- 2 Carrés jaunes bas -->
+    <rect x="20" y="130" width="50" height="50" fill="#ffe066" stroke="#000" stroke-width="2.5"/>
+    <rect x="120" y="130" width="50" height="50" fill="#ffe066" stroke="#000" stroke-width="2.5"/>
+
+    <!-- 1 Barre verte horizontale milieu -->
+    <rect x="20" y="113" width="150" height="17" fill="#b5f500" stroke="#000" stroke-width="2.5"/>
+
+    <!-- 2 Triangles roses haut -->
+    <polygon points="20,113 70,113 70,63" fill="#ff9999" stroke="#000" stroke-width="2.5"/>
+    <polygon points="120,113 170,113 120,63" fill="#ff9999" stroke="#000" stroke-width="2.5"/>
+
+    <!-- Légende -->
+    <text x="10" y="215" class="caption">3 carrés + 1 rectangle</text>
+  </g>
+
+  <!-- ==================== DIAGRAMME 3 : 2 trapèzes + 1 rectangle ==================== -->
+  <g transform="translate(580, 10)">
+    <!-- Trapèze vert gauche -->
+    <polygon points="20,180 70,180 70,63 20,113" fill="#b5f500" stroke="#000" stroke-width="2.5"/>
+
+    <!-- Rectangle rose milieu -->
+    <rect x="70" y="113" width="50" height="17" fill="#ffc0cb" stroke="#000" stroke-width="2.5"/>
+
+    <!-- Trapèze vert droit -->
+    <polygon points="120,180 170,180 170,113 120,63" fill="#b5f500" stroke="#000" stroke-width="2.5"/>
+
+    <!-- Légende -->
+    <text x="10" y="215" class="caption">2 trapèzes + 1 rectangle</text>
+  </g>
+</svg>

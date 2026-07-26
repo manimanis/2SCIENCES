@@ -1,0 +1,1387 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 3 : Les structures de données - Informatique 2e Sciences</title>
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/default.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/module01.css">
+  <script src="assets/js/vue.min.js"></script>
+</head>
+
+<body>
+  <aside>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand text-info fw-bold" href="index.html">🏠 Accueil</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#aside_navbar">
+          <span class="navbar-toggler-icon"></span> Menu
+        </button>
+        <div class="collapse navbar-collapse" id="aside_navbar"></div>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="container my-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h1>Module 3 : Les structures de données</h1>
+      <a href="index.html" class="btn btn-outline-secondary">📋 Retour au sommaire</a>
+    </div>
+
+    <article>
+      <h2>Cours</h2>
+
+      <!-- 1. Types numériques -->
+      <section>
+        <h3>1. Types numériques</h3>
+        <p>Un programme manipule des données stockées dans la mémoire centrale. Les types numériques incluent les
+          entiers (<code>int</code> $\mathbb{Z}$) et les réels (<code>float</code> $\mathbb{R}$).</p>
+
+        <!-- Encadré explicatif de la règle PEMDAS -->
+        <div class="alert alert-primary border-primary shadow-sm mb-3">
+          <h5 class="alert-heading font-monospace fw-bold text-primary mb-2">
+            📌 Règle Mnémonique PEMDAS : Ordre de priorité des opérations
+          </h5>
+          <p class="small mb-2">
+            En informatique comme en mathématiques, les expressions numériques sont évaluées selon l'ordre de priorité
+            <strong>PEMDAS</strong> :
+          </p>
+          <div class="d-flex flex-wrap gap-2 text-center">
+            <div class="px-3 py-2 bg-danger text-white rounded-3 shadow-sm fw-bold">
+              <strong>P</strong>arenthèses <span class="badge bg-white text-danger font-monospace fs-6 px-2 ms-1">(
+                )</span>
+            </div>
+            <div class="px-3 py-2 bg-warning text-dark rounded-3 shadow-sm fw-bold">
+              <strong>E</strong>xposants / Puissance <span
+                class="badge bg-dark text-warning font-monospace fs-6 px-2 ms-1">**</span>
+            </div>
+            <div class="px-3 py-2 bg-success text-white rounded-3 shadow-sm fw-bold">
+              <strong>M</strong>ultiplication <span
+                class="badge bg-white text-success font-monospace fs-6 px-2 ms-1">*</span>
+            </div>
+            <div class="px-3 py-2 bg-info text-dark rounded-3 shadow-sm fw-bold">
+              <strong>D</strong>ivision <span class="badge bg-dark text-info font-monospace fs-6 px-2 ms-1">/ , // ,
+                %</span>
+            </div>
+            <div class="px-3 py-2 bg-primary text-white rounded-3 shadow-sm fw-bold">
+              <strong>A</strong>ddition <span class="badge bg-white text-primary font-monospace fs-6 px-2 ms-1">+</span>
+            </div>
+            <div class="px-3 py-2 bg-secondary text-white rounded-3 shadow-sm fw-bold">
+              <strong>S</strong>oustraction <span
+                class="badge bg-white text-secondary font-monospace fs-6 px-2 ms-1">-</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="table-responsive my-4 shadow-sm rounded border overflow-hidden">
+          <table class="table table-hover text-center align-middle mb-0">
+            <thead class="text-white" style="background-color: #0f172a;">
+              <tr>
+                <th class="bg-primary text-white" style="width: 10%;">PEMDAS</th>
+                <th style="width: 25%;">Opération</th>
+                <th style="width: 15%;">Priorité</th>
+                <th style="width: 15%;">Algorithme</th>
+                <th style="width: 15%;">Python</th>
+                <th style="width: 20%;">Exemple</th>
+              </tr>
+            </thead>
+            <tbody class="bg-white">
+              <tr>
+                <td><span class="badge bg-danger fs-6 px-3">P</span></td>
+                <td class="fw-bold">Parenthèses</td>
+                <td><span class="badge bg-dark">1 (Max)</span></td>
+                <td><code>( )</code></td>
+                <td><code>( )</code></td>
+                <td><code>(1 + 5) * (3 - 5) &rarr; -12</code></td>
+              </tr>
+              <tr>
+                <td><span class="badge bg-warning text-dark fs-6 px-3">E</span></td>
+                <td class="fw-bold">Exposants / Puissance</td>
+                <td><span class="badge bg-dark">2</span></td>
+                <td><code>Puissance(x, n)</code></td>
+                <td><code>**</code></td>
+                <td><code>2 ** 3 &rarr; 8</code></td>
+              </tr>
+              <tr>
+                <td><span class="badge bg-success fs-6 px-3">M</span></td>
+                <td class="fw-bold">Multiplication</td>
+                <td><span class="badge bg-dark">3</span></td>
+                <td><code>*</code></td>
+                <td><code>*</code></td>
+                <td><code>2 * 3 &rarr; 6</code></td>
+              </tr>
+              <tr>
+                <td rowspan="3" class="align-middle bg-light"><span class="badge bg-info text-dark fs-6 px-3">D</span>
+                </td>
+                <td class="fw-bold">Division réelle</td>
+                <td><span class="badge bg-dark">3</span></td>
+                <td><code>/</code></td>
+                <td><code>/</code></td>
+                <td><code>5 / 2 &rarr; 2.5</code></td>
+              </tr>
+              <tr>
+                <td class="fw-bold">Division entière</td>
+                <td><span class="badge bg-dark">3</span></td>
+                <td><code>div</code></td>
+                <td><code>//</code></td>
+                <td><code>5 // 2 &rarr; 2</code></td>
+              </tr>
+              <tr>
+                <td class="fw-bold">Reste division (Modulo)</td>
+                <td><span class="badge bg-dark">3</span></td>
+                <td><code>mod</code></td>
+                <td><code>%</code></td>
+                <td><code>5 % 2 &rarr; 1</code></td>
+              </tr>
+              <tr>
+                <td><span class="badge bg-primary fs-6 px-3">A</span></td>
+                <td class="fw-bold">Addition</td>
+                <td><span class="badge bg-dark">4</span></td>
+                <td><code>+</code></td>
+                <td><code>+</code></td>
+                <td><code>5 + 3 &rarr; 8</code></td>
+              </tr>
+              <tr>
+                <td><span class="badge bg-secondary fs-6 px-3">S</span></td>
+                <td class="fw-bold">Soustraction</td>
+                <td><span class="badge bg-dark">4</span></td>
+                <td><code>-</code></td>
+                <td><code>-</code></td>
+                <td><code>5 - 3 &rarr; 2</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- b. Partie entière et partie décimale -->
+        <h4 class="mt-4">b. Partie entière et partie décimale</h4>
+        <div class="text-center my-3">
+          <img src="images/module03/partie_entiere_decimale.svg" alt="Illustration Partie entière et partie décimale"
+            class="img-fluid rounded shadow-sm p-2 bg-white border" style="max-width: 650px;">
+        </div>
+
+        <!-- c. Opérateurs de division & Division euclidienne -->
+        <h4 class="mt-4">c. Opérateurs de division &amp; Division euclidienne</h4>
+        <div class="text-center my-3">
+          <img src="images/module03/division_euclidienne.svg" alt="Illustration Division euclidienne"
+            class="img-fluid rounded shadow-sm p-2 bg-white border" style="max-width: 650px;">
+        </div>
+
+        <!-- d. Les fonctions prédéfinies sur les nombres -->
+        <h4 class="mt-4">d. Les fonctions prédéfinies sur les nombres</h4>
+        <div class="text-center my-3">
+          <img src="images/module03/round.png" alt="Illustration du fonctionnement de la fonction round(x) en Python"
+            class="img-fluid rounded shadow-sm p-2 bg-white border" style="max-width: 680px;">
+        </div>
+
+        <div class="table-responsive my-3 shadow-sm rounded border overflow-hidden">
+          <table class="table table-hover align-middle mb-0">
+            <thead class="table-dark text-center">
+              <tr>
+                <th>Algorithme</th>
+                <th>Python</th>
+                <th>Description</th>
+                <th>Exemple</th>
+              </tr>
+            </thead>
+            <tbody class="bg-white">
+              <tr>
+                <td><code>Ent(x)</code></td>
+                <td><code>int(x)</code></td>
+                <td>Retourne la partie entière</td>
+                <td><code>Ent(5.75) ⟶ 5</code></td>
+              </tr>
+              <tr>
+                <td><code>Arrondi(x)</code></td>
+                <td><code>round(x)</code></td>
+                <td>Retourne l'entier le plus proche (entier pair si .5)</td>
+                <td><code>round(3.5) ⟶ 4</code></td>
+              </tr>
+              <tr>
+                <td><code>Racine(x)</code></td>
+                <td><code>sqrt(x)</code> (from math)</td>
+                <td>Retourne la racine carrée d'un nombre positif</td>
+                <td><code>sqrt(25) ⟶ 5.0</code></td>
+              </tr>
+              <tr>
+                <td><code>Abs(x)</code></td>
+                <td><code>abs(x)</code></td>
+                <td>Retourne la valeur absolue de x</td>
+                <td><code>abs(-4) ⟶ 4</code></td>
+              </tr>
+              <tr>
+                <td><code>Aléa(a, b)</code></td>
+                <td><code>randint(a, b)</code> (from random)</td>
+                <td>Retourne un nombre aléatoire dans [a, b]</td>
+                <td><code>randint(1, 6) ⟶ 4</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 2. Type Booléen -->
+      <section>
+        <h3>2. Le type booléen</h3>
+        <p>Une variable booléenne ne peut prendre que la valeur <code>Faux</code> ou <code>Vrai</code>
+          (<code>False</code> / <code>True</code> en Python).</p>
+
+        <h4>Table de vérité des opérateurs logiques</h4>
+
+        <!-- Cartes des règles pédagogiques (Interrupteurs & LEDs) -->
+        <div class="row g-2 mb-3 text-center">
+          <div class="col-md-4">
+            <div class="p-2 border rounded bg-white shadow-sm border-danger h-100">
+              <span class="badge bg-danger mb-1 fs-6 px-3">NON (non x / not x)</span>
+              <div class="small fw-semibold text-secondary">
+                ⚡ Négation (Inverseur)<br>
+                <span><img src="images/module03/interrupteur_ferme.svg" alt="Fermé" style="height:18px;"
+                    class="me-1">Fermé ⟶ <img src="images/module03/diode_eteinte.svg" alt="éteinte" style="height:18px;"
+                    class="mx-1">éteinte</span> |
+                <span><img src="images/module03/interrupteur_ouvert.svg" alt="Ouvert" style="height:18px;"
+                    class="me-1">Ouvert ⟶ <img src="images/module03/diode_allumee.svg" alt="Allumée"
+                    style="height:18px;" class="mx-1">Allumée</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="p-2 border rounded bg-white shadow-sm border-success h-100">
+              <span class="badge bg-success mb-1 fs-6 px-3">ET (x et y / x and y)</span>
+              <div class="small fw-semibold text-secondary">
+                ⚡ Circuit Série<br>
+                <img src="images/module03/diode_allumee.svg" alt="Allumée" style="height:18px;" class="me-1">Allumée
+                <strong>uniquement si</strong> x <strong>ET</strong> y sont <img
+                  src="images/module03/interrupteur_ferme.svg" alt="Fermé" style="height:18px;"
+                  class="mx-1"><strong>Fermés</strong>.
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="p-2 border rounded bg-white shadow-sm border-info h-100">
+              <span class="badge bg-info text-dark mb-1 fs-6 px-3">OU (x ou y / x or y)</span>
+              <div class="small fw-semibold text-secondary">
+                ⚡ Circuit Parallèle<br>
+                <img src="images/module03/diode_allumee.svg" alt="Allumée" style="height:18px;" class="me-1">Allumée
+                <strong>dès qu'au moins</strong> x <strong>OU</strong> y est <img
+                  src="images/module03/interrupteur_ferme.svg" alt="Fermé" style="height:18px;"
+                  class="mx-1"><strong>Fermé</strong>.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="table-responsive my-3 shadow-sm rounded border overflow-hidden">
+          <table class="table table-hover text-center align-middle mb-0">
+            <thead class="text-white" style="background-color: #0f172a;">
+              <tr>
+                <th style="width: 17%; background-color: #334155;">Interrupteur x</th>
+                <th style="width: 17%; background-color: #334155;">Interrupteur y</th>
+                <th style="width: 22%; background-color: #dc2626;">NON (non x)</th>
+                <th style="width: 22%; background-color: #16a34a;">ET (x et y)</th>
+                <th style="width: 22%; background-color: #0284c7;">OU (x ou y)</th>
+              </tr>
+            </thead>
+            <tbody class="bg-white">
+              <tr>
+                <td><span class="badge bg-success-subtle text-success border border-success px-2 py-1 fs-6"><img
+                      src="images/module03/interrupteur_ferme.svg" alt="Fermé" style="height:20px;" class="me-1">Fermé
+                    (Vrai)</span></td>
+                <td><span class="badge bg-success-subtle text-success border border-success px-2 py-1 fs-6"><img
+                      src="images/module03/interrupteur_ferme.svg" alt="Fermé" style="height:20px;" class="me-1">Fermé
+                    (Vrai)</span></td>
+                <td><span class="badge bg-dark text-white-50 border border-secondary px-2 py-1 fs-6"><img
+                      src="images/module03/diode_eteinte.svg" alt="éteinte" style="height:20px;" class="me-1">éteinte
+                    (Faux)</span></td>
+                <td><span class="badge bg-success text-white px-2 py-1 fs-6 shadow-sm"><img
+                      src="images/module03/diode_allumee.svg" alt="Allumée" style="height:20px;" class="me-1">Allumée
+                    (Vrai)</span></td>
+                <td><span class="badge bg-success text-white px-2 py-1 fs-6 shadow-sm"><img
+                      src="images/module03/diode_allumee.svg" alt="Allumée" style="height:20px;" class="me-1">Allumée
+                    (Vrai)</span></td>
+              </tr>
+              <tr>
+                <td><span class="badge bg-success-subtle text-success border border-success px-2 py-1 fs-6"><img
+                      src="images/module03/interrupteur_ferme.svg" alt="Fermé" style="height:20px;" class="me-1">Fermé
+                    (Vrai)</span></td>
+                <td><span class="badge bg-danger-subtle text-danger border border-danger px-2 py-1 fs-6"><img
+                      src="images/module03/interrupteur_ouvert.svg" alt="Ouvert" style="height:20px;"
+                      class="me-1">Ouvert (Faux)</span></td>
+                <td><span class="badge bg-dark text-white-50 border border-secondary px-2 py-1 fs-6"><img
+                      src="images/module03/diode_eteinte.svg" alt="éteinte" style="height:20px;" class="me-1">éteinte
+                    (Faux)</span></td>
+                <td><span class="badge bg-dark text-white-50 border border-secondary px-2 py-1 fs-6"><img
+                      src="images/module03/diode_eteinte.svg" alt="éteinte" style="height:20px;" class="me-1">éteinte
+                    (Faux)</span></td>
+                <td><span class="badge bg-success text-white px-2 py-1 fs-6 shadow-sm"><img
+                      src="images/module03/diode_allumee.svg" alt="Allumée" style="height:20px;" class="me-1">Allumée
+                    (Vrai)</span></td>
+              </tr>
+              <tr>
+                <td><span class="badge bg-danger-subtle text-danger border border-danger px-2 py-1 fs-6"><img
+                      src="images/module03/interrupteur_ouvert.svg" alt="Ouvert" style="height:20px;"
+                      class="me-1">Ouvert (Faux)</span></td>
+                <td><span class="badge bg-success-subtle text-success border border-success px-2 py-1 fs-6"><img
+                      src="images/module03/interrupteur_ferme.svg" alt="Fermé" style="height:20px;" class="me-1">Fermé
+                    (Vrai)</span></td>
+                <td><span class="badge bg-success text-white px-2 py-1 fs-6 shadow-sm"><img
+                      src="images/module03/diode_allumee.svg" alt="Allumée" style="height:20px;" class="me-1">Allumée
+                    (Vrai)</span></td>
+                <td><span class="badge bg-dark text-white-50 border border-secondary px-2 py-1 fs-6"><img
+                      src="images/module03/diode_eteinte.svg" alt="éteinte" style="height:20px;" class="me-1">éteinte
+                    (Faux)</span></td>
+                <td><span class="badge bg-success text-white px-2 py-1 fs-6 shadow-sm"><img
+                      src="images/module03/diode_allumee.svg" alt="Allumée" style="height:20px;" class="me-1">Allumée
+                    (Vrai)</span></td>
+              </tr>
+              <tr>
+                <td><span class="badge bg-danger-subtle text-danger border border-danger px-2 py-1 fs-6"><img
+                      src="images/module03/interrupteur_ouvert.svg" alt="Ouvert" style="height:20px;"
+                      class="me-1">Ouvert (Faux)</span></td>
+                <td><span class="badge bg-danger-subtle text-danger border border-danger px-2 py-1 fs-6"><img
+                      src="images/module03/interrupteur_ouvert.svg" alt="Ouvert" style="height:20px;"
+                      class="me-1">Ouvert (Faux)</span></td>
+                <td><span class="badge bg-success text-white px-2 py-1 fs-6 shadow-sm"><img
+                      src="images/module03/diode_allumee.svg" alt="Allumée" style="height:20px;" class="me-1">Allumée
+                    (Vrai)</span></td>
+                <td><span class="badge bg-dark text-white-50 border border-secondary px-2 py-1 fs-6"><img
+                      src="images/module03/diode_eteinte.svg" alt="éteinte" style="height:20px;" class="me-1">éteinte
+                    (Faux)</span></td>
+                <td><span class="badge bg-dark text-white-50 border border-secondary px-2 py-1 fs-6"><img
+                      src="images/module03/diode_eteinte.svg" alt="éteinte" style="height:20px;" class="me-1">éteinte
+                    (Faux)</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Simulation Interactive des Opérateurs Logiques -->
+        <div class="interactive-box shadow-sm bg-white p-4 border rounded-3 my-4">
+          <h4 class="text-primary d-flex align-items-center gap-2 mb-3">
+            <span>⚡ Simulation Interactive des Opérateurs Logiques (Circuits &amp; Diodes)</span>
+          </h4>
+          <p class="small text-secondary mb-3">
+            Cliquez sur les interrupteurs <strong>X</strong> et <strong>Y</strong> pour basculer leur état (Ouvert /
+            Fermé) et observez en direct l'état des leds de sortie pour chaque opérateur !
+          </p>
+
+          <!-- Interrupteurs de contrôle interactifs -->
+          <div
+            class="d-flex justify-content-center align-items-center flex-wrap gap-4 p-3 bg-light rounded border mb-4">
+            <!-- Interrupteur X -->
+            <div class="text-center">
+              <label class="fw-bold d-block mb-1 text-dark">Interrupteur X :</label>
+              <button type="button" id="btn-toggle-x"
+                class="btn btn-outline-danger fw-bold d-inline-flex align-items-center gap-2 px-3 py-2 shadow-sm">
+                <img id="img-sw-x" src="images/module03/interrupteur_ouvert.svg" style="height: 24px;"
+                  alt="Interrupteur X">
+                <span id="lbl-sw-x">Ouvert (Faux / 0)</span>
+              </button>
+            </div>
+
+            <!-- Interrupteur Y -->
+            <div class="text-center">
+              <label class="fw-bold d-block mb-1 text-dark">Interrupteur Y :</label>
+              <button type="button" id="btn-toggle-y"
+                class="btn btn-outline-danger fw-bold d-inline-flex align-items-center gap-2 px-3 py-2 shadow-sm">
+                <img id="img-sw-y" src="images/module03/interrupteur_ouvert.svg" style="height: 24px;"
+                  alt="Interrupteur Y">
+                <span id="lbl-sw-y">Ouvert (Faux / 0)</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Affichage en direct des 3 Opérateurs (NON, ET, OU) -->
+          <div class="row g-3">
+            <!-- Opérateur NON -->
+            <div class="col-md-4">
+              <div class="card h-100 border-danger shadow-sm">
+                <div class="card-header bg-danger text-white fw-bold d-flex justify-content-between align-items-center">
+                  <span>1. Opérateur NON</span>
+                  <span class="badge bg-white text-danger font-monospace">non x</span>
+                </div>
+                <div class="card-body text-center d-flex flex-column justify-content-between p-3">
+                  <div class="mb-2">
+                    <div class="small text-muted mb-2">Circuit Inverseur</div>
+                    <img id="sim-led-non" src="images/module03/diode_allumee.svg" style="height: 48px;" alt="Diode NON">
+                  </div>
+                  <div id="status-non" class="alert alert-success py-2 mb-0 fw-bold small">
+                    ⚡ Diode ALLUMÉE (Vrai)
+                  </div>
+                  <div class="mt-2 font-monospace small text-secondary">
+                    <code>not (<span id="val-x-non">False</span>)</code> ⟶ <strong id="res-non"
+                      class="text-success">True</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Opérateur ET -->
+            <div class="col-md-4">
+              <div class="card h-100 border-success shadow-sm">
+                <div
+                  class="card-header bg-success text-white fw-bold d-flex justify-content-between align-items-center">
+                  <span>2. Opérateur ET</span>
+                  <span class="badge bg-white text-success font-monospace">x et y</span>
+                </div>
+                <div class="card-body text-center d-flex flex-column justify-content-between p-3">
+                  <div class="mb-2">
+                    <div class="small text-muted mb-2">Circuit en Série</div>
+                    <img id="sim-led-et" src="images/module03/diode_eteinte.svg" style="height: 48px;" alt="Diode ET">
+                  </div>
+                  <div id="status-et" class="alert alert-secondary py-2 mb-0 fw-bold small text-muted">
+                    ⚡ Diode ÉTEINTE (Faux)
+                  </div>
+                  <div class="mt-2 font-monospace small text-secondary">
+                    <code><span id="val-x-et">False</span> and <span id="val-y-et">False</span></code> ⟶ <strong
+                      id="res-et" class="text-danger">False</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Opérateur OU -->
+            <div class="col-md-4">
+              <div class="card h-100 border-info shadow-sm">
+                <div class="card-header bg-info text-dark fw-bold d-flex justify-content-between align-items-center">
+                  <span>3. Opérateur OU</span>
+                  <span class="badge bg-dark text-info font-monospace">x ou y</span>
+                </div>
+                <div class="card-body text-center d-flex flex-column justify-content-between p-3">
+                  <div class="mb-2">
+                    <div class="small text-muted mb-2">Circuit en Parallèle</div>
+                    <img id="sim-led-ou" src="images/module03/diode_eteinte.svg" style="height: 48px;" alt="Diode OU">
+                  </div>
+                  <div id="status-ou" class="alert alert-secondary py-2 mb-0 fw-bold small text-muted">
+                    ⚡ Diode ÉTEINTE (Faux)
+                  </div>
+                  <div class="mt-2 font-monospace small text-secondary">
+                    <code><span id="val-x-ou">False</span> or <span id="val-y-ou">False</span></code> ⟶ <strong
+                      id="res-ou" class="text-danger">False</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h4 class="mt-4">🔢 Ordre d'évaluation des opérateurs de Comparaison et des opérateurs logiques</h4>
+        <div class="table-responsive my-4 shadow-sm rounded border overflow-hidden">
+          <table class="table table-hover text-center align-middle mb-0">
+            <thead class="text-white" style="background-color: #0f172a;">
+              <tr>
+                <th style="width: 12%; background-color: #0284c7;" class="text-white">Priorité</th>
+                <th style="width: 28%;">Catégorie d'opérateurs</th>
+                <th style="width: 20%;">Algorithme</th>
+                <th style="width: 20%;">Python</th>
+                <th style="width: 20%;">Exemple d'évaluation</th>
+              </tr>
+            </thead>
+            <tbody class="bg-white">
+              <tr>
+                <td><span class="badge bg-danger fs-6 px-3">1 (Max)</span></td>
+                <td class="fw-bold">Parenthèses</td>
+                <td><code>( )</code></td>
+                <td><code>( )</code></td>
+                <td><code>(5 &gt; 2) et (3 &lt; 4) &rarr; Vrai</code></td>
+              </tr>
+              <tr>
+                <td><span class="badge bg-warning text-dark fs-6 px-3">2</span></td>
+                <td class="fw-bold">Opérateurs Arithmétiques</td>
+                <td><code>+ , - , * , / , mod , div</code></td>
+                <td><code>+ , - , * , / , % , //</code></td>
+                <td><code>5 + 3 &gt; 7 &rarr; 8 &gt; 7 &rarr; Vrai</code></td>
+              </tr>
+              <tr>
+                <td><span class="badge bg-primary fs-6 px-3">3</span></td>
+                <td class="fw-bold text-primary">Opérateurs de Comparaison</td>
+                <td><code>= , &ne; , &gt; , &ge; , &lt; , &le;</code></td>
+                <td><code>== , != , &gt; , &gt;= , &lt; , &lt;=</code></td>
+                <td><code>x == 5 , age &gt;= 18</code></td>
+              </tr>
+              <tr>
+                <td><span class="badge bg-dark fs-6 px-3">4</span></td>
+                <td class="fw-bold text-danger">NON Logique (Négation)</td>
+                <td><code>non</code></td>
+                <td><code>not</code></td>
+                <td><code>not (5 &gt; 2) &rarr; False</code></td>
+              </tr>
+              <tr>
+                <td><span class="badge bg-dark fs-6 px-3">5</span></td>
+                <td class="fw-bold text-success">ET Logique (Conjonction)</td>
+                <td><code>et</code></td>
+                <td><code>and</code></td>
+                <td><code>Vrai and Faux &rarr; False</code></td>
+              </tr>
+              <tr>
+                <td><span class="badge bg-dark fs-6 px-3">6 (Min)</span></td>
+                <td class="fw-bold text-info">OU Logique (Disjonction)</td>
+                <td><code>ou</code></td>
+                <td><code>or</code></td>
+                <td><code>Vrai or Faux &rarr; True</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 3. Types textuels - Introduction -->
+      <section>
+        <h3>3. Les types textuels</h3>
+        <p>Les données textuelles sont stockées, en algorithmique, dans des variables de type :</p>
+        <ul>
+          <li><strong>Caractére</strong> ;</li>
+          <li><strong>Chaîne</strong>.</li>
+        </ul>
+        <p>En <strong>Python</strong>, on dispose uniquement du type <code>str</code>.</p>
+      </section>
+
+      <!-- 4. Le type caractére -->
+      <section>
+        <h3>a. Le type caractére</h3>
+        <h5 class="text-secondary fs-6 fw-bold">i. Présentation</h5>
+        <p>Le type <strong>caractére</strong> représente <strong>un seul caractére</strong> qui peut étre :</p>
+        <ul>
+          <li>Une <strong>lettre</strong> : majuscule (<code>"A"</code>, <code>"B"</code>, ??,??) ou minuscule
+            (<code>"a"</code>, <code>"b"</code>, ??,??)</li>
+          <li>Un <strong>chiffre</strong> : <code>"0"</code>, <code>"1"</code>, <code>"2"</code>, ??,??,
+            <code>"9"</code>
+          </li>
+          <li>Un <strong>symbole</strong> : <code>"!"</code>, <code>"\""</code>, <code>"#"</code>, <code>"$"</code>,
+            <code>"%"</code>, ??,??
+          </li>
+        </ul>
+
+        <h5 class="text-secondary fs-6 fw-bold mt-3">ii. Table ASCII</h5>
+        <p>Dans la mémoire de l'ordinateur, un caractére est représenté par son <strong>code ASCII</strong>
+          (<em>American Standard Code for Information Interchange</em>). Ainsi, chaque caractére posséde un code (un
+          nombre) correspondant :</p>
+
+        <div class="interactive-box shadow-sm mb-4">
+          <h5 class="text-primary fw-bold">🔎 Recherche interactive Table ASCII (Standard 32-127)</h5>
+          <input type="text" id="ascii-search" class="form-control mb-2"
+            placeholder="Tapez un mot (ex: BAC) ou des codes ASCII séparés par des espaces/virgules (ex: 65, 66, 67)...">
+          <div id="ascii-result" class="alert alert-primary py-2 px-3 my-2 fw-bold d-none shadow-sm"></div>
+          <div class="table-responsive shadow-sm rounded border overflow-hidden">
+            <table class="table table-sm table-hover text-center align-middle mb-0" style="font-size: 0.82rem;">
+              <thead class="table-dark">
+                <tr>
+                  <th>Code</th>
+                  <th>Car.</th>
+                  <th>Code</th>
+                  <th>Car.</th>
+                  <th>Code</th>
+                  <th>Car.</th>
+                  <th>Code</th>
+                  <th>Car.</th>
+                  <th>Code</th>
+                  <th>Car.</th>
+                  <th>Code</th>
+                  <th>Car.</th>
+                  <th>Code</th>
+                  <th>Car.</th>
+                  <th>Code</th>
+                  <th>Car.</th>
+                </tr>
+              </thead>
+              <tbody id="ascii-table-body" class="bg-white">
+                <tr>
+                  <td>48</td>
+                  <td>0</td>
+                  <td>65</td>
+                  <td>A</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <h5 class="text-secondary fs-6 fw-bold mt-3">iii. Les fonctions prédéfinies sur les caractéres</h5>
+        <div class="table-responsive my-3 shadow-sm rounded border overflow-hidden">
+          <table class="table table-hover align-middle mb-0">
+            <thead class="table-dark text-center">
+              <tr>
+                <th>Algorithme</th>
+                <th>Python</th>
+                <th>Description</th>
+                <th>Exemple</th>
+              </tr>
+            </thead>
+            <tbody class="bg-white">
+              <tr>
+                <td><code>ord(car)</code></td>
+                <td><code>ord(car)</code></td>
+                <td>Retourne le code ASCII du caractére car.</td>
+                <td><code>ord("A") &rarr; 65</code></td>
+              </tr>
+              <tr>
+                <td><code>chr(code)</code></td>
+                <td><code>chr(code)</code></td>
+                <td>Retourne le caractére ASCII équivalent é code.</td>
+                <td><code>chr(65) &rarr; "A"</code></td>
+              </tr>
+              <tr>
+                <td><code>majus(car)</code></td>
+                <td><code>car.upper()</code></td>
+                <td>Convertit une lettre car en majuscules.</td>
+                <td><code>majus("b") &rarr; "B"</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="alert alert-warning border-warning shadow-sm my-3 d-flex align-items-center gap-3">
+          <div class="fs-2">⚠️</div>
+          <div>
+            <strong>Important :</strong> En algorithme, il n'y a pas de fonction <code>minus(car)</code>.<br>
+            Pour convertir une lettre majuscule <code>car</code> en minuscule, on peut écrire :<br>
+            <code class="fs-6 fw-bold text-dark bg-white px-2 py-1 rounded border">chr(ord(car) + 32)</code>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. Le type Chaîne -->
+      <section>
+        <h3>b. Le type Chaîne</h3>
+        <h5 class="text-secondary fs-6 fw-bold">i. Présentation</h5>
+        <p>Une Chaîne de caractéres est la succession de <strong>n caractéres ASCII</strong> ($n \ge 0$).</p>
+        <ul>
+          <li>Si $n$ est nulle ($n = 0$), on parle d'une <strong>Chaîne vide</strong> :
+            <code class="ms-2">ch &larr; ""&nbsp;&nbsp;// Chaîne vide</code>
+            <div class="my-3">
+              <img src="images/module03/chaine_vide.svg" alt="Illustration Chaîne vide vs Chaîne non vide"
+                class="img-fluid rounded shadow-sm border" style="max-width: 100%;">
+            </div>
+          </li>
+
+          <li class="mt-3">On peut accéder au $i^e$ caractére ($0 \le i &lt; n$) d'une Chaîne <code>ch</code> en
+            utilisant la notation : <code>ch[i]</code>
+            <div class="my-3">
+              <img src="images/module03/chaine_indexation.svg" alt="Schéma d'indexation de la Chaîne Youssef"
+                class="img-fluid rounded shadow-sm border" style="max-width: 100%;">
+            </div>
+          </li>
+
+          <li class="mt-3">Pour <strong>concaténer</strong> (coller) deux Chaînes, on utilise l'opérateur <code>+</code>
+            :
+            <div class="my-3">
+              <img src="images/module03/chaine_concatenation.svg" alt="Schéma de concaténation Langage + Py + thon"
+                class="img-fluid rounded shadow-sm border" style="max-width: 100%;">
+            </div>
+          </li>
+        </ul>
+
+        <h5 class="text-secondary fs-6 fw-bold mt-3">ii. Les fonctions prédéfinies sur les Chaînes</h5>
+        <div class="table-responsive my-3 shadow-sm rounded border overflow-hidden">
+          <table class="table table-hover align-middle mb-0">
+            <thead class="table-dark text-center">
+              <tr>
+                <th>Algorithme</th>
+                <th>Python</th>
+                <th>Description</th>
+                <th>Exemple</th>
+              </tr>
+            </thead>
+            <tbody class="bg-white">
+              <tr>
+                <td><code>long(ch)</code></td>
+                <td><code>len(ch)</code></td>
+                <td>Calcule la longueur de la Chaîne ch.</td>
+                <td><code>long("BAC26") &rarr; 5</code><br><code>long("") &rarr; 0</code></td>
+              </tr>
+              <tr>
+                <td><code>Pos(ch1, ch2)</code></td>
+                <td><code>ch2.find(ch1)</code></td>
+                <td>Retourne la 1ére occurrence de ch1 dans ch2.</td>
+                <td><code>Pos("25", "BAC26") &rarr; 3</code><br><code>Pos("Hi", "BAC26") &rarr; -1</code></td>
+              </tr>
+              <tr>
+                <td><code>ConvCh(x)</code></td>
+                <td><code>str(x)</code></td>
+                <td>Convertir une valeur numérique x en Chaîne.</td>
+                <td><code>ConvCh(10) &rarr; "10"</code><br><code>ConvCh(17.5) &rarr; "17.5"</code></td>
+              </tr>
+              <tr>
+                <td><code>Valeur(ch)</code></td>
+                <td><code>int(ch)</code><br><code>float(ch)</code></td>
+                <td>Convertit une Chaîne en une valeur numérique, sinon provoque une erreur.</td>
+                <td><code>Valeur("10") &rarr; 10</code><br><code>Valeur("17.5") &rarr; 17.5</code></td>
+              </tr>
+              <tr>
+                <td><code>EstNum(ch)</code></td>
+                <td><code>Ch.isdecimal()</code></td>
+                <td>Vérifie si la Chaîne ch est Compléterosée uniquement de chiffres.</td>
+                <td><code>EstNum("10") &rarr; Vrai</code><br><code>EstNum("2k") &rarr; Faux</code></td>
+              </tr>
+              <tr>
+                <td><code>sous_chaîne(ch, d, f)</code></td>
+                <td><code>ch[d:f]</code></td>
+                <td>Extrait de la Chaîne ch les caractéres situés entre la position d (incluse) et f (non incluse).</td>
+                <td><code>sous_chaîne("BAC26", 3, 5) &rarr; "26"</code></td>
+              </tr>
+              <tr>
+                <td><code>effacer(ch, d, f)</code></td>
+                <td><code>ch[:d] + ch[f:]</code></td>
+                <td>Efface de la Chaîne ch les caractéres situés entre la position d (incluse) et f (non incluse).</td>
+                <td><code>effacer("BAC26", 3, 5) &rarr; "BAC"</code></td>
+              </tr>
+              <tr>
+                <td><code>majus(ch)</code></td>
+                <td><code>ch.upper()</code></td>
+                <td>Convertit la Chaîne ch en majuscules.</td>
+                <td><code>majus("bac 26") &rarr; "BAC 26"</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </article>
+
+    <article class="mt-5">
+      <h2>Exercices Interactifs</h2>
+
+      <!-- Exercice 1 -->
+      <section>
+        <h3>Exercice 1 – Opérateurs numériques</h3>
+        <p>CompléterlCompléter le tableau ci-dessous (Exprèssion Python équivalente, Résultat et Type) :</p>
+        <div class="table-responsive shadow-sm rounded border overflow-hidden my-3">
+          <table class="table table-hover text-center align-middle mb-0" id="ex1-table">
+            <thead style="background-color: #0f172a;" class="text-white">
+              <tr>
+                <th style="width:30%; background-color:#334155;">Exprèssion en Algorithme</th>
+                <th style="width:25%; background-color:#0284c7;">Exprèssion en Python</th>
+                <th style="width:20%; background-color:#16a34a;">Résultat</th>
+                <th style="width:15%; background-color:#7c3aed;">Type</th>
+                <th style="width:10%; background-color:#475569;">??"???</th>
+              </tr>
+            </thead>
+            <tbody class="bg-white">
+              <!-- Row 1: algo given, rest blank -->
+              <tr data-py="5 + 6" data-res="11" data-type="int">
+                <td class="fw-semibold font-monospace">5 + 6</td>
+                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex1-py"
+                    placeholder="Python..."></td>
+                <td><input type="text" class="form-control form-control-sm text-center ex1-res" placeholder="?"></td>
+                <td><input type="text" class="form-control form-control-sm text-center ex1-type" placeholder="type">
+                </td>
+                <td class="ex1-status"></td>
+              </tr>
+              <!-- Row 2 -->
+              <tr data-py="4.5 - 2.5" data-res="2.0" data-type="float">
+                <td class="fw-semibold font-monospace">4.5 - 2.5</td>
+                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex1-py"
+                    placeholder="Python..."></td>
+                <td><input type="text" class="form-control form-control-sm text-center ex1-res" placeholder="?"></td>
+                <td><input type="text" class="form-control form-control-sm text-center ex1-type" placeholder="type">
+                </td>
+                <td class="ex1-status"></td>
+              </tr>
+              <!-- Row 3 -->
+              <tr data-py="12 / 4" data-res="3.0" data-type="float">
+                <td class="fw-semibold font-monospace">12 / 4</td>
+                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex1-py"
+                    placeholder="Python..."></td>
+                <td><input type="text" class="form-control form-control-sm text-center ex1-res" placeholder="?"></td>
+                <td><input type="text" class="form-control form-control-sm text-center ex1-type" placeholder="type">
+                </td>
+                <td class="ex1-status"></td>
+              </tr>
+              <!-- Row 4 -->
+              <tr data-py="11 % 4" data-res="3" data-type="int">
+                <td class="fw-semibold font-monospace">11 mod 4</td>
+                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex1-py"
+                    placeholder="Python..."></td>
+                <td><input type="text" class="form-control form-control-sm text-center ex1-res" placeholder="?"></td>
+                <td><input type="text" class="form-control form-control-sm text-center ex1-type" placeholder="type">
+                </td>
+                <td class="ex1-status"></td>
+              </tr>
+              <!-- Row 5 -->
+              <tr data-py="11 // 5" data-res="2" data-type="int">
+                <td class="fw-semibold font-monospace">11 div 5</td>
+                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex1-py"
+                    placeholder="Python..."></td>
+                <td><input type="text" class="form-control form-control-sm text-center ex1-res" placeholder="?"></td>
+                <td><input type="text" class="form-control form-control-sm text-center ex1-type" placeholder="type">
+                </td>
+                <td class="ex1-status"></td>
+              </tr>
+              <!-- Row 6 -->
+              <tr data-py="12 != (10+2)" data-res="False" data-type="bool">
+                <td class="fw-semibold font-monospace">12 &larr; (10+2)</td>
+                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex1-py"
+                    placeholder="Python..."></td>
+                <td><input type="text" class="form-control form-control-sm text-center ex1-res" placeholder="?"></td>
+                <td><input type="text" class="form-control form-control-sm text-center ex1-type" placeholder="type">
+                </td>
+                <td class="ex1-status"></td>
+              </tr>
+              <!-- Row 7 (NEW) -->
+              <tr data-py="4 <= 4" data-res="True" data-type="bool">
+                <td class="fw-semibold font-monospace">4 &larr; 4</td>
+                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex1-py"
+                    placeholder="Python..."></td>
+                <td><input type="text" class="form-control form-control-sm text-center ex1-res" placeholder="?"></td>
+                <td><input type="text" class="form-control form-control-sm text-center ex1-type" placeholder="type">
+                </td>
+                <td class="ex1-status"></td>
+              </tr>
+              <!-- Row 8 (NEW) -->
+              <tr data-py="5 in [12, 6, -3, 5, 7]" data-res="True" data-type="bool">
+                <td class="fw-semibold font-monospace">5 &larr; {12, 6, -3, 5, 7}</td>
+                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex1-py"
+                    placeholder="Python..."></td>
+                <td><input type="text" class="form-control form-control-sm text-center ex1-res" placeholder="?"></td>
+                <td><input type="text" class="form-control form-control-sm text-center ex1-type" placeholder="type">
+                </td>
+                <td class="ex1-status"></td>
+              </tr>
+              <!-- Row 9 (NEW) -->
+              <tr data-py="1+2 == 3-0" data-res="True" data-type="bool">
+                <td class="fw-semibold font-monospace">1+2 = 3-0</td>
+                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex1-py"
+                    placeholder="Python..."></td>
+                <td><input type="text" class="form-control form-control-sm text-center ex1-res" placeholder="?"></td>
+                <td><input type="text" class="form-control form-control-sm text-center ex1-type" placeholder="type">
+                </td>
+                <td class="ex1-status"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="d-flex gap-2 mt-2">
+          <button id="btn-check-ex1" class="btn btn-primary fw-bold px-4">??"??? Vérifier mes réponses</button>
+          <button id="btn-show-ex1" class="btn btn-outline-secondary fw-bold px-4">&rarr;�~? Voir les réponses</button>
+        </div>
+        <div id="ex1-score" class="mt-3"></div>
+      </section>
+
+      <!-- Exercice 2 -->
+      <section>
+        <h3>Exercice 2 – Exprèssions numériques / logiques</h3>
+        <p>CompléterlCompléter le tableau ci-dessous. Les cellules grises sont données, les cases blanches sont é
+          remplir :</p>
+        <div class="table-responsive shadow-sm rounded border overflow-hidden my-3">
+          <table class="table table-hover text-center align-middle mb-0" id="ex2-table">
+            <thead style="background-color: #0f172a;" class="text-white">
+              <tr>
+                <th style="width:35%; background-color:#334155;">#</th>
+                <th style="width:28%; background-color:#0284c7;">Exprèssion en algorithme</th>
+                <th style="width:28%; background-color:#0369a1;">Exprèssion en Python</th>
+                <th style="width:12%; background-color:#16a34a;">Résultat</th>
+                <th style="width:10%; background-color:#7c3aed;">Type</th>
+                <th style="width:8%; background-color:#475569;">??"???</th>
+              </tr>
+            </thead>
+            <tbody class="bg-white">
+
+              <!-- Row 1: Python given -->
+              <tr data-algo="x �Y" < 15 + 3 * 2 + 5" data-res="26" data-type="int">
+                <td class="text-start small text-muted">1</td>
+                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex2-algo"
+                    placeholder="Algorithme..."></td>
+                <td class="bg-light fw-semibold font-monospace text-primary small">x = 15 + 3 * 2 + 5</td>
+                <td><input type="text" class="form-control form-control-sm text-center ex2-res" placeholder="?"></td>
+                <td><select class="form-select form-select-sm text-center ex2-type">
+                    <option value="">-- type --</option>
+                    <option value="int">int</option>
+                    <option value="float">float</option>
+                    <option value="bool">bool</option>
+                    <option value="str">str</option>
+                  </select></td>
+                <td class="ex2-status"></td>
+              </tr>
+
+              <!-- Row 2: Algo given -->
+              <tr data-py="x = (18 % 5) / 2" data-res="1.5" data-type="float">
+                <td class="text-start small text-muted">2</td>
+                <td class="bg-light fw-semibold font-monospace text-primary small">x &larr; (18 mod 5) / 2</td>
+                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex2-py"
+                    placeholder="Python..."></td>
+                <td><input type="text" class="form-control form-control-sm text-center ex2-res" placeholder="?"></td>
+                <td><select class="form-select form-select-sm text-center ex2-type">
+                    <option value="">-- type --</option>
+                    <option value="int">int</option>
+                    <option value="float">float</option>
+                    <option value="bool">bool</option>
+                    <option value="str">str</option>
+                  </select></td>
+                <td class="ex2-status"></td>
+              </tr>
+
+              <!-- Row 3: Python given -->
+              <tr data-algo="x �Y" < (13 mod 5) div 2" data-res="1" data-type="int">
+                <td class="text-start small text-muted">3</td>
+                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex2-algo"
+                    placeholder="Algorithme..."></td>
+                <td class="bg-light fw-semibold font-monospace text-primary small">x = (13 % 5) // 2</td>
+                <td><input type="text" class="form-control form-control-sm text-center ex2-res" placeholder="?"></td>
+                <td><select class="form-select form-select-sm text-center ex2-type">
+                    <option value="">-- type --</option>
+                    <option value="int">int</option>
+                    <option value="float">float</option>
+                    <option value="bool">bool</option>
+                    <option value="str">str</option>
+                  </select></td>
+                <td class="ex2-status"></td>
+              </tr>
+
+              <!-- Row 4: Algo given -->
+              <tr data-py="x = abs(-12.5)+3" data-res="15.5" data-type="float">
+                <td class="text-start small text-muted">4</td>
+                <td class="bg-light fw-semibold font-monospace text-primary small">x &larr; Abs(-12.5)+3</td>
+                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex2-py"
+                    placeholder="Python..."></td>
+                <td><input type="text" class="form-control form-control-sm text-center ex2-res" placeholder="?"></td>
+                <td><select class="form-select form-select-sm text-center ex2-type">
+                    <option value="">-- type --</option>
+                    <option value="int">int</option>
+                    <option value="float">float</option>
+                    <option value="bool">bool</option>
+                    <option value="str">str</option>
+                  </select></td>
+                <td class="ex2-status"></td>
+              </tr>
+
+              <!-- Row 5: Python given -->
+              <tr data-algo="a �Y" < 3 ; b &larr; 6&#10;x &larr; (a> b) * a + (a &larr; b) * b" data-res="6"
+                data-type="int">
+                <td class="text-start small text-muted">5</td>
+                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex2-algo"
+                    placeholder="Algorithme..."></td>
+                <td class="bg-light fw-semibold font-monospace text-primary small text-start px-2">a = 3 ; b = 6<br>x
+                  = (a &gt; b) * a + (a &lt;= b) * b</td>
+                <td><input type="text" class="form-control form-control-sm text-center ex2-res" placeholder="?"></td>
+                <td><select class="form-select form-select-sm text-center ex2-type">
+                    <option value="">-- type --</option>
+                    <option value="int">int</option>
+                    <option value="float">float</option>
+                    <option value="bool">bool</option>
+                    <option value="str">str</option>
+                  </select></td>
+                <td class="ex2-status"></td>
+              </tr>
+
+              <!-- Row 6: Algo given (uses a=3, b=6 from row 5) -->
+              <tr data-py="c = 8 ; d = 1&#10;x = abs(a-c) + abs(b-d)" data-res="10" data-type="int">
+                <td class="text-start small text-muted">6</td>
+                <td class="bg-light fw-semibold font-monospace text-primary small text-start px-2">c &larr; 8 ; d &larr;
+                  1<br>x &larr; Abs(a-c) + Abs(b-d)</td>
+                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex2-py"
+                    placeholder="Python..."></td>
+                <td><input type="text" class="form-control form-control-sm text-center ex2-res" placeholder="?"></td>
+                <td><select class="form-select form-select-sm text-center ex2-type">
+                    <option value="">-- type --</option>
+                    <option value="int">int</option>
+                    <option value="float">float</option>
+                    <option value="bool">bool</option>
+                    <option value="str">str</option>
+                  </select></td>
+                <td class="ex2-status"></td>
+              </tr>
+
+              <!-- Row 7: Algo given (sqrt distance) -->
+              <tr data-py="x = int(sqrt((a-c)**2+(b-d)**2))" data-res="7" data-type="int">
+                <td class="text-start small text-muted">7</td>
+                <td class="bg-light fw-semibold font-monospace text-primary small text-start px-2">x &larr;
+                  Ent(Racine((a-c)?,?+(b-d)?,?))</td>
+                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex2-py"
+                    placeholder="Python..."></td>
+                <td><input type="text" class="form-control form-control-sm text-center ex2-res" placeholder="?"></td>
+                <td><select class="form-select form-select-sm text-center ex2-type">
+                    <option value="">-- type --</option>
+                    <option value="int">int</option>
+                    <option value="float">float</option>
+                    <option value="bool">bool</option>
+                    <option value="str">str</option>
+                  </select></td>
+                <td class="ex2-status"></td>
+              </tr>
+
+              <!-- Row 8: Algo given -->
+              <tr data-py="x = 15 + 3 * 2 + int(5.56)" data-res="26" data-type="int">
+                <td class="text-start small text-muted">8</td>
+                <td class="bg-light fw-semibold font-monospace text-primary small">x &larr; 15 + 3 * 2 + Ent(5.56)</td>
+                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex2-py"
+                    placeholder="Python..."></td>
+                <td><input type="text" class="form-control form-control-sm text-center ex2-res" placeholder="?"></td>
+                <td><select class="form-select form-select-sm text-center ex2-type">
+                    <option value="">-- type --</option>
+                    <option value="int">int</option>
+                    <option value="float">float</option>
+                    <option value="bool">bool</option>
+                    <option value="str">str</option>
+                  </select></td>
+                <td class="ex2-status"></td>
+              </tr>
+
+              <!-- Row 9: Algo given (15. makes it float) -->
+              <tr data-py="x = 15. + 3 * 2 + int(5.56)" data-res="26.0" data-type="float">
+                <td class="text-start small text-muted">9</td>
+                <td class="bg-light fw-semibold font-monospace text-primary small">x &larr; 15. + 3 * 2 + Ent(5.56)</td>
+                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex2-py"
+                    placeholder="Python..."></td>
+                <td><input type="text" class="form-control form-control-sm text-center ex2-res" placeholder="?"></td>
+                <td><select class="form-select form-select-sm text-center ex2-type">
+                    <option value="">-- type --</option>
+                    <option value="int">int</option>
+                    <option value="float">float</option>
+                    <option value="bool">bool</option>
+                    <option value="str">str</option>
+                  </select></td>
+                <td class="ex2-status"></td>
+              </tr>
+
+              <!-- Row 10: Python given -->
+              <tr data-algo="x �Y" < (7 + Arrondi(14.36)) mod 2" data-res="1" data-type="int">
+                <td class="text-start small text-muted">10</td>
+                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex2-algo"
+                    placeholder="Algorithme..."></td>
+                <td class="bg-light fw-semibold font-monospace text-primary small">x = (7+ round(14.36)) % 2</td>
+                <td><input type="text" class="form-control form-control-sm text-center ex2-res" placeholder="?"></td>
+                <td><select class="form-select form-select-sm text-center ex2-type">
+                    <option value="">-- type --</option>
+                    <option value="int">int</option>
+                    <option value="float">float</option>
+                    <option value="bool">bool</option>
+                    <option value="str">str</option>
+                  </select></td>
+                <td class="ex2-status"></td>
+              </tr>
+
+              <!-- Row 11: Algo given -->
+              <tr data-py="x = 20 > 10 * 1.5" data-res="True" data-type="bool">
+                <td class="text-start small text-muted">11</td>
+                <td class="bg-light fw-semibold font-monospace text-primary small">x &larr; 20 &gt; 10 * 1.5</td>
+                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex2-py"
+                    placeholder="Python..."></td>
+                <td><input type="text" class="form-control form-control-sm text-center ex2-res" placeholder="?"></td>
+                <td><select class="form-select form-select-sm text-center ex2-type">
+                    <option value="">-- type --</option>
+                    <option value="int">int</option>
+                    <option value="float">float</option>
+                    <option value="bool">bool</option>
+                    <option value="str">str</option>
+                  </select></td>
+                <td class="ex2-status"></td>
+              </tr>
+
+              <!-- Row 12: Algo given -->
+              <tr data-py="x = randint(10, 20) > 30" data-res="False" data-type="bool">
+                <td class="text-start small text-muted">12</td>
+                <td class="bg-light fw-semibold font-monospace text-primary small">x &larr; Aléa(10, 20) &gt; 30</td>
+                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex2-py"
+                    placeholder="Python..."></td>
+                <td><input type="text" class="form-control form-control-sm text-center ex2-res" placeholder="?"></td>
+                <td><select class="form-select form-select-sm text-center ex2-type">
+                    <option value="">-- type --</option>
+                    <option value="int">int</option>
+                    <option value="float">float</option>
+                    <option value="bool">bool</option>
+                    <option value="str">str</option>
+                  </select></td>
+                <td class="ex2-status"></td>
+              </tr>
+
+              <!-- Row 13: Algo given -->
+              <tr data-py="x = round(abs(-12.9)) + sqrt(16)" data-res="17.0" data-type="float">
+                <td class="text-start small text-muted">13</td>
+                <td class="bg-light fw-semibold font-monospace text-primary small">x &larr; Arrondi(Abs(-12.9)) +
+                  Racine(16)</td>
+                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex2-py"
+                    placeholder="Python..."></td>
+                <td><input type="text" class="form-control form-control-sm text-center ex2-res" placeholder="?"></td>
+                <td><select class="form-select form-select-sm text-center ex2-type">
+                    <option value="">-- type --</option>
+                    <option value="int">int</option>
+                    <option value="float">float</option>
+                    <option value="bool">bool</option>
+                    <option value="str">str</option>
+                  </select></td>
+                <td class="ex2-status"></td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+        <div class="d-flex gap-2 mt-2">
+          <button id="btn-check-ex2" class="btn btn-primary fw-bold px-4">??"??? Vérifier mes réponses</button>
+          <button id="btn-show-ex2" class="btn btn-outline-secondary fw-bold px-4">&rarr;�~? Voir les réponses</button>
+        </div>
+        <div id="ex2-score" class="mt-3"></div>
+      </section>
+
+      <!-- Exercice 3 -->
+      <section>
+        <h3>Exercice 3 – Exécution manuelle (Trace mémoire)</h3>
+        <p>Donner la trace d'exécution des variables X, Y et Z :</p>
+        <div class="table-responsive">
+          <table class="table table-bordered text-center align-middle">
+            <thead class="table-dark">
+              <tr>
+                <th>Instruction</th>
+                <th>X</th>
+                <th>Y</th>
+                <th>Z</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>X &larr; 10</td>
+                <td>10</td>
+                <td>-</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>Y &larr; 2</td>
+                <td>10</td>
+                <td>2</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>X &larr; X + Y * 2</td>
+                <td>14</td>
+                <td>2</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>Z &larr; X div 2 + Y</td>
+                <td>14</td>
+                <td>2</td>
+                <td>9</td>
+              </tr>
+              <tr>
+                <td>Y &larr; (Z + X) mod 2</td>
+                <td>14</td>
+                <td>1</td>
+                <td>9</td>
+              </tr>
+              <tr>
+                <td>Z &larr; X * 3 + 4 mod 2</td>
+                <td>14</td>
+                <td>1</td>
+                <td>42</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Exercice 4 -->
+      <section>
+        <h3>Exercice 4 – Fonction Aléa</h3>
+        <p>Intervalle de variation de la variable X :</p>
+        <div class="table-responsive">
+          <table class="table table-bordered text-center">
+            <thead class="table-dark">
+              <tr>
+                <th>Instruction Algorithme</th>
+                <th>Instruction Python</th>
+                <th>Intervalle</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>x &larr; Aléa(1, 6)</td>
+                <td><code>x = randint(1, 6)</code></td>
+                <td>1 &larr; X &larr; 6</td>
+              </tr>
+              <tr>
+                <td>x &larr; Aléa(1, 6) * 10</td>
+                <td><code>x = randint(1, 6) * 10</code></td>
+                <td>10 &larr; X &larr; 60</td>
+              </tr>
+              <tr>
+                <td>x &larr; Aléa(1, 6) * -2</td>
+                <td><code>x = randint(1, 6) * -2</code></td>
+                <td>-12 &larr; X &larr; -2</td>
+              </tr>
+              <tr>
+                <td>x &larr; Aléa(1, 6) // 2</td>
+                <td><code>x = randint(1, 6) // 2</code></td>
+                <td>0 &larr; X &larr; 3</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Exercice 5 -->
+      <section>
+        <h3>Exercice 5 – Concaténation de Chaînes</h3>
+        <p>Variables : <code>ch1 = "python"</code>, <code>ch2 = "javascript"</code>, <code>ch3 = "uml"</code>,
+          <code>ch4 = "perl"</code>.
+        </p>
+        <div class="interactive-box shadow-sm">
+          <button id="btn-eval-concat" class="btn btn-success fw-bold">Afficher les résultats de concaténation</button>
+          <div id="concat-out" class="mt-3"></div>
+        </div>
+      </section>
+
+      <!-- Exercice 6 -->
+      <section>
+        <h3>Exercice 6 – Manipulation de Chaînes</h3>
+        <p>Variables : <code>ch1 = "Algorithmique"</code>, <code>ch2 = "Python"</code>, <code>ch3 = "4502"</code>.</p>
+        <div class="interactive-box shadow-sm">
+          <button id="btn-eval-manip" class="btn btn-info text-dark fw-bold">é??valuer la séquence de
+            manipulation</button>
+          <div id="manip-out" class="mt-3"></div>
+        </div>
+      </section>
+
+      <!-- Exercice 7 -->
+      <section>
+        <h3>Exercice 7 – Fonctions prédéfinies Chaînes (QCM)</h3>
+        <div class="qcm-container interactive-box shadow-sm">
+          <div class="qcm-question" data-answer="a,b" data-explanation="Ent(12.33) retourne l'entier 12.">
+            <h5 class="fw-bold">1. Soit l'instruction X &larr; Ent(12.33) :</h5>
+            <div class="form-check"><input class="form-check-input" type="checkbox" value="a" id="c7q1a"><label
+                class="form-check-label" for="c7q1a">Elle permet d'affecter é X la valeur 12</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" value="b" id="c7q1b"><label
+                class="form-check-label" for="c7q1b">La variable X contiendra une valeur de type entier</label>
+            </div>
+            <div class="qcm-feedback mt-2 d-none alert"></div>
+          </div>
+          <button class="btn btn-primary btn-check-qcm">Vérifier mes réponses</button>
+          <div class="qcm-score mt-3 d-none"></div>
+        </div>
+      </section>
+
+      <!-- Exercice 8 -->
+      <section>
+        <h3>Exercice 8 – Password</h3>
+        <p>Générateur de mot de passe aléatoire de 6 caractéres (2 chiffres, 2 majuscules, 2 minuscules).</p>
+        <div class="interactive-box shadow-sm">
+          <div class="input-group mb-3">
+            <input type="text" id="pass-result"
+              class="form-control fs-4 font-monospace text-center bg-dark text-warning" readonly value="Ex: 49RMaz">
+            <button id="btn-gen-pass" class="btn btn-warning fw-bold">?s? Générer un mot de passe</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Exercice 9 -->
+      <section>
+        <h3>Exercice 9 – Permutation des chiffres</h3>
+        <p>Saisir un entier <code>a</code> Compléterosé de 2 chiffres et permuter ses chiffres pour obtenir
+          <code>b</code> (ex: 49 ?z??? 94).
+        </p>
+        <div class="interactive-box shadow-sm">
+          <div class="input-group mb-3">
+            <input type="number" id="perm-a" class="form-control" value="49" min="10" max="99">
+            <button id="btn-permute" class="btn btn-primary fw-bold">Permuter les chiffres</button>
+          </div>
+          <div id="perm-out" class="alert alert-info mb-0 fs-5 d-none"></div>
+        </div>
+      </section>
+
+      <!-- Exercice 10 -->
+      <section>
+        <h3>Exercice 10 – Autonomie de la batterie</h3>
+        <p>Calculer la distance maximale <code>dm</code> qu'un véhicule électrique peut parcourir avec le niveau actuel
+          de batterie.</p>
+        <div class="interactive-box shadow-sm">
+          <div class="row g-3 mb-3">
+            <div class="col-md-3"><label class="form-label fw-bold">Initial batterie (nib %) :</label><input
+                type="number" id="bat-nib" class="form-control" value="80"></div>
+            <div class="col-md-3"><label class="form-label fw-bold">Initial km (ikd) :</label><input type="number"
+                id="bat-ikd" class="form-control" value="25000"></div>
+            <div class="col-md-3"><label class="form-label fw-bold">Final batterie (nfb %) :</label><input type="number"
+                id="bat-nfb" class="form-control" value="60"></div>
+            <div class="col-md-3"><label class="form-label fw-bold">Final km (ikf) :</label><input type="number"
+                id="bat-ikf" class="form-control" value="25100"></div>
+          </div>
+          <button id="btn-calc-bat" class="btn btn-success fw-bold">Calculer l'autonomie</button>
+          <div id="bat-out" class="mt-3 alert alert-success fs-5 d-none"></div>
+        </div>
+      </section>
+
+      <!-- Exercice 11 -->
+      <section>
+        <h3>Exercice 11 – Logic gates (Portes logiques)</h3>
+        <p>Circuit logique d'équation : <strong>$$L = a \cdot \bar{c} + b \cdot c$$</strong></p>
+        <div class="interactive-box shadow-sm text-center">
+          <div class="d-flex justify-content-center gap-4 my-3">
+            <div class="form-check form-switch fs-5">
+              <input class="form-check-input gate-input" type="checkbox" id="gate-a">
+              <label class="form-check-label" for="gate-a">Bouton a : <span id="val-a">FAUX (0)</span></label>
+            </div>
+            <div class="form-check form-switch fs-5">
+              <input class="form-check-input gate-input" type="checkbox" id="gate-b">
+              <label class="form-check-label" for="gate-b">Bouton b : <span id="val-b">FAUX (0)</span></label>
+            </div>
+            <div class="form-check form-switch fs-5">
+              <input class="form-check-input gate-input" type="checkbox" id="gate-c">
+              <label class="form-check-label" for="gate-c">Bouton c : <span id="val-c">FAUX (0)</span></label>
+            </div>
+          </div>
+          <div class="my-4">
+            <span id="gate-bulb" style="font-size: 5rem; transition: all 0.3s ease;">&rarr;�T?</span>
+            <div class="mt-2 fs-4">é??tat de la Lampe L : <span id="val-L" class="text-danger fw-bold">FAUX (0)</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Exercice 12 -->
+      <section>
+        <h3>Exercice 12 – Citerne d'huile</h3>
+        <p>Camion de 30 caisses de 12 bouteilles (1L). Saisir la quantité d'huile (litres), calculer le nombre de
+          caisses et de voyages nécessaires.</p>
+        <div class="interactive-box shadow-sm">
+          <div class="input-group mb-3">
+            <input type="number" id="oil-litres" class="form-control" value="1000">
+            <button id="btn-calc-oil" class="btn btn-warning text-dark fw-bold">Calculer Caisses & Voyages</button>
+          </div>
+          <div id="oil-out" class="alert alert-warning text-dark mb-0 fs-5 d-none"></div>
+        </div>
+      </section>
+
+      <!-- Exercice 13 -->
+      <section>
+        <h3>Exercice 13 – Fonctions sur les Chaînes</h3>
+        <p>Soit <code>ch = "programme 2025"</code>. é??valuation d'instructions sur les Chaînes.</p>
+        <div class="interactive-box shadow-sm">
+          <button id="btn-eval-ch-func" class="btn btn-primary fw-bold">é??valuer les fonctions sur les Chaînes</button>
+          <div id="ch-func-out" class="mt-3"></div>
+        </div>
+      </section>
+
+      <!-- Exercice 14 -->
+      <section>
+        <h3>Exercice 14 – Pseudonymes</h3>
+        <p>Générer un pseudonyme automatisé lors de la création d'un Compléterte.</p>
+        <div class="interactive-box shadow-sm">
+          <div class="row g-3 mb-3">
+            <div class="col-md-6"><label class="form-label fw-bold">Nom :</label><input type="text" id="pseudo-nom"
+                class="form-control" value="Salah"></div>
+            <div class="col-md-6"><label class="form-label fw-bold">Prénom :</label><input type="text"
+                id="pseudo-prenom" class="form-control" value="Sami"></div>
+          </div>
+          <button id="btn-gen-pseudo" class="btn btn-primary fw-bold">Générer le Pseudonyme</button>
+          <div id="pseudo-out" class="alert alert-info mt-3 fs-5 d-none"></div>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <footer class="bg-dark text-white p-3 text-center mt-5">
+    <div>Informatique 2e Sciences &bull; Enseignant: Mohamed Anis MANI</div>
+  </footer>
+
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/highlight.pack.js"></script>
+  <script src="assets/js/hljs.algorithm.js"></script>
+  <script src="assets/js/pages.js"></script>
+  <script src="assets/js/runner.js"></script>
+  <script src="assets/js/modules.js"></script>
+  <script src="assets/js/render_math.js"></script>
+  <script>
+    hljs.highlightAll();
+  </script>
+</body>
+
+</html>

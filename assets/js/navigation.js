@@ -1,41 +1,53 @@
-$(() => {
-  const qNav = $('#question-navigation');
-  const ul = $('ul.pagination', qNav);
-  const questions = $('.question');
-  const topics = $('.topic');
+/**
+ * Question Navigation Engine - Vue / Vanilla JS Edition
+ */
+document.addEventListener('DOMContentLoaded', () => {
+  const qNav = document.getElementById('question-navigation');
+  if (!qNav) return;
+  
+  const ul = qNav.querySelector('ul.pagination');
+  const questions = document.querySelectorAll('.question');
+  const topics = document.querySelectorAll('.topic');
+  if (!ul || !questions.length) return;
 
   function displayQuestion(index) {
-    topics.hide();
-    questions.hide();
-    const question = questions.eq(index);
-    question
-      .show();
-    question
-      .closest('.topic').show();
-    $('li', qNav)
-      .removeClass('active')
-      .eq(index)
-      .addClass('active');
+    topics.forEach(t => t.style.display = 'none');
+    questions.forEach(q => q.style.display = 'none');
+    
+    const targetQ = questions[index];
+    if (targetQ) {
+      targetQ.style.display = 'block';
+      const topic = targetQ.closest('.topic');
+      if (topic) topic.style.display = 'block';
+    }
+    
+    const lis = qNav.querySelectorAll('li');
+    lis.forEach((li, idx) => {
+      if (idx === index) {
+        li.classList.add('active');
+      } else {
+        li.classList.remove('active');
+      }
+    });
   }
 
-  questions.each(function (index) {
-    const question = $(this);
-    const isAnswered = question.hasClass('text-success');
-    const li = $('<li>')
-      .addClass('page-item')
-      .appendTo(ul);
-    const a = $('<a>')
-      .addClass('page-link')
-      .attr('href', '#q_' + index)
-      .html(`${(isAnswered) ? '<u>' : ''}${index +1}${(isAnswered) ? '</u>' : ''}`)
-      .appendTo(li)
-      .click((e) => {
-        e.preventDefault();
-        const target = e.currentTarget;
-        const href = $(target).attr('href');
-        const numq = parseInt(href.substr(3));
-        displayQuestion(numq);
-      });
+  questions.forEach((qElem, index) => {
+    const isAnswered = qElem.classList.contains('text-success');
+    const li = document.createElement('li');
+    li.className = 'page-item';
+    
+    const a = document.createElement('a');
+    a.className = 'page-link';
+    a.href = '#q_' + index;
+    a.innerHTML = isAnswered ? `<u>${index + 1}</u>` : `${index + 1}`;
+    
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      displayQuestion(index);
+    });
+    
+    li.appendChild(a);
+    ul.appendChild(li);
   });
 
   displayQuestion(0);

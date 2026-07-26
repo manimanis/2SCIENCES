@@ -166,12 +166,23 @@ input:checked+.slider:before {
   border-radius: 0.5rem;
 }
 
-.language-algorithm::before {
-  content: "Algorithme";
+/* Supprimer les étiquettes doublonnées à l'intérieur des tableaux */
+table .language-algorithm::before,
+table .language-python::before {
+  display: none !important;
 }
 
-.language-python::before {
-  content: "Python";
+/* Embellissement des blocs de code dans les tableaux */
+table pre {
+  margin: 0;
+  padding: 0;
+  background: transparent !important;
+}
+
+table code {
+  border-radius: 6px;
+  font-family: 'Fira Code', 'Consolas', monospace;
+  font-size: 0.9rem;
 }
 
 pre > code.shell.python.nohighlight {
@@ -371,3 +382,108 @@ table.col-20 td {
     padding: 0 0.5em !important;
   }
 }
+
+/* ======================================================
+   Modern Interactive Extensions & Design System
+   ====================================================== */
+:root {
+  --primary-color: #0d6efd;
+  --secondary-color: #6c757d;
+  --accent-color: #f16930;
+  --bg-gradient: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.hero-banner {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  color: #ffffff;
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
+}
+
+.hero-banner h1 {
+  color: #38bdf8 !important;
+  font-weight: 800;
+}
+
+.card-module {
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.card-module:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 20px -3px rgba(0, 0, 0, 0.1);
+}
+
+.card-module .card-body {
+  padding: 1.15rem;
+}
+
+.card-module h4 {
+  font-size: 1.15rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-module p.card-text {
+  font-size: 0.875rem;
+  line-height: 1.4;
+  margin-bottom: 0.75rem;
+}
+
+.card-module ul {
+  margin-bottom: 0;
+}
+
+.qcm-question {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+  border: 2px solid #e9ecef;
+  transition: border-color 0.2s ease;
+}
+
+.interactive-box {
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.interactive-box h4 {
+  color: #1e293b;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.badge-python {
+  background-color: #3776ab;
+  color: white;
+}
+
+.badge-algo {
+  background-color: #e54d2e;
+  color: white;
+}
+
+.code-output {
+  background-color: #0f172a;
+  color: #38bdf8;
+  font-family: 'Courier New', Courier, monospace;
+  padding: 1rem;
+  border-radius: 8px;
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+canvas.interactive-canvas {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+}

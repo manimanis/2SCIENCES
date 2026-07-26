@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 180" width="100%" height="auto">
+  <defs>
+    <style>
+      .num-box { font-family: system-ui, -apple-system, sans-serif; font-size: 18px; font-weight: bold; }
+      .sub-label { font-family: system-ui, -apple-system, sans-serif; font-size: 13px; font-weight: 600; }
+      .arrow-text { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; font-weight: bold; }
+    </style>
+    <marker id="arrow-left" viewBox="0 0 10 10" refX="2" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 10 1.5 L 0 5 L 10 8.5 z" fill="#ef4444"/>
+    </marker>
+    <marker id="arrow-right" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1.5 L 10 5 L 0 8.5 z" fill="#10b981"/>
+    </marker>
+  </defs>
+
+  <g transform="translate(25, 15)">
+    <!-- Axis line -->
+    <line x1="30" y1="95" x2="570" y2="95" stroke="#cbd5e1" stroke-width="4" stroke-linecap="round"/>
+
+    <!-- Curved Arrow Left: Prédécesseur (a - 2) -->
+    <path d="M 285,68 Q 200,20 115,68" fill="none" stroke="#ef4444" stroke-width="2.5" stroke-dasharray="5,3" marker-end="url(#arrow-left)"/>
+    <rect x="175" y="15" width="50" height="24" rx="6" fill="#fef2f2" stroke="#ef4444" stroke-width="1.5"/>
+    <text x="200" y="32" text-anchor="middle" class="arrow-text" fill="#dc2626">- 2</text>
+
+    <!-- Curved Arrow Right: Successeur (a + 2) -->
+    <path d="M 315,68 Q 400,20 485,68" fill="none" stroke="#10b981" stroke-width="2.5" stroke-dasharray="5,3" marker-end="url(#arrow-right)"/>
+    <rect x="375" y="15" width="50" height="24" rx="6" fill="#ecfdf5" stroke="#10b981" stroke-width="1.5"/>
+    <text x="400" y="32" text-anchor="middle" class="arrow-text" fill="#059669">+ 2</text>
+
+    <!-- Node 1: Prédécesseur (a - 2 = 6) -->
+    <g transform="translate(100, 95)">
+      <circle cx="0" cy="0" r="28" fill="#3b82f6" stroke="#1d4ed8" stroke-width="2.5"/>
+      <text x="0" y="6" text-anchor="middle" class="num-box" fill="#ffffff">a - 2</text>
+      <text x="0" y="48" text-anchor="middle" class="sub-label" fill="#1e40af">Prédécesseur (ex: 6)</text>
+    </g>
+
+    <!-- Node 2: Nombre Pair (a = 8) -->
+    <g transform="translate(300, 95)">
+      <circle cx="0" cy="0" r="34" fill="#f59e0b" stroke="#d97706" stroke-width="3"/>
+      <text x="0" y="7" text-anchor="middle" class="num-box" fill="#ffffff" font-size="22">a</text>
+      <text x="0" y="54" text-anchor="middle" class="sub-label" fill="#b45309" font-size="14">Nombre Pair (ex: 8)</text>
+    </g>
+
+    <!-- Node 3: Successeur (a + 2 = 10) -->
+    <g transform="translate(500, 95)">
+      <circle cx="0" cy="0" r="28" fill="#10b981" stroke="#047857" stroke-width="2.5"/>
+      <text x="0" y="6" text-anchor="middle" class="num-box" fill="#ffffff">a + 2</text>
+      <text x="0" y="48" text-anchor="middle" class="sub-label" fill="#065f46">Successeur (ex: 10)</text>
+    </g>
+
+    <!-- Ticks & Surrounding Numbers -->
+    <text x="20" y="100" text-anchor="middle" class="sub-label" fill="#94a3b8">...</text>
+    <text x="580" y="100" text-anchor="middle" class="sub-label" fill="#94a3b8">...</text>
+  </g>
+</svg>

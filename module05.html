@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 5 : Structure itérative complète - Informatique 2e Sciences</title>
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/default.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/module01.css">
+  <script src="assets/js/vue.min.js"></script>
+</head>
+
+<body>
+  <aside>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand text-info fw-bold" href="index.html">🏠 Accueil</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#aside_navbar">
+          <span class="navbar-toggler-icon"></span> Menu
+        </button>
+        <div class="collapse navbar-collapse" id="aside_navbar"></div>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="container my-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h1>Module 5 : Structure itérative complète</h1>
+      <a href="index.html" class="btn btn-outline-secondary">← Retour au sommaire</a>
+    </div>
+
+    <article>
+      <h2>Cours</h2>
+
+      <!-- Syntaxe -->
+      <section>
+        <h3>1. Présentation & Syntaxe</h3>
+        <p>Les structures de contrôles itératives (ou répétitives) sont indispensables lorsque le traitement doit être répété un nombre connu de fois.</p>
+
+        <div class="row g-3 my-3">
+          <div class="col-md-6">
+            <div class="card p-3 shadow-sm border-primary h-100">
+              <h5 class="fw-bold text-primary">Algorithme</h5>
+              <pre><code class="language-algorithm">// Compteur avec pas p
+Pour cpt de Vi à Vf Faire [Pas=p]
+   // Traitement répété
+Fin Pour</code></pre>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card p-3 shadow-sm border-success h-100">
+              <h5 class="fw-bold text-success">Python</h5>
+              <pre><code class="language-python"># Compteur avec pas p
+for cpt in range(Vi, Vf + 1, p):
+    # Traitement répété</code></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+    </article>
+
+    <article class="mt-5">
+      <h2>Exercices Interactifs</h2>
+
+      <!-- Exercice 1 -->
+      <section>
+        <h3>Exercice 1 – Fonction range</h3>
+        <p>Découvrez la suite générée par <code>range(debut, fin, pas)</code> en Python :</p>
+        <div class="interactive-box shadow-sm">
+          <div class="row g-3 mb-3">
+            <div class="col-md-4"><label class="form-label fw-bold">Vi (Début) :</label><input type="number" id="rng-start" class="form-control" value="1"></div>
+            <div class="col-md-4"><label class="form-label fw-bold">Vf (Fin non incluse) :</label><input type="number" id="rng-end" class="form-control" value="10"></div>
+            <div class="col-md-4"><label class="form-label fw-bold">Pas (Step) :</label><input type="number" id="rng-step" class="form-control" value="2"></div>
+          </div>
+          <div id="rng-out" class="alert alert-success fs-5"></div>
+        </div>
+      </section>
+
+      <!-- Exercice 2 -->
+      <section>
+        <h3>Exercice 2 – Bonjour</h3>
+        <p>1. Saisir un entier <code>n</code> puis afficher "Hello" <code>n</code> fois.<br>
+        2. Alterne entre "Hello", "Bonjour" et "Asselema".</p>
+        <div class="interactive-box shadow-sm">
+          <div class="input-group mb-3">
+            <input type="number" id="ex2-n" class="form-control" value="5" min="1">
+            <button id="btn-gen-bonjour" class="btn btn-primary fw-bold">Générer les salutations</button>
+          </div>
+          <div id="ex2-bonjour-out" class="alert alert-info mb-0 d-none"></div>
+        </div>
+      </section>
+
+      <!-- Exercice 3 -->
+      <section>
+        <h3>Exercice 3 – Somme nombres impairs</h3>
+        <p>Calculer et afficher la somme de tous les entiers impairs de l'intervalle $[a, b]$ avec $b > a$.</p>
+        <div class="interactive-box shadow-sm">
+          <div class="row g-3 mb-3">
+            <div class="col-md-6"><label class="form-label fw-bold">Borne a :</label><input type="number" id="imp-a" class="form-control" value="5"></div>
+            <div class="col-md-6"><label class="form-label fw-bold">Borne b :</label><input type="number" id="imp-b" class="form-control" value="11"></div>
+          </div>
+          <button id="btn-calc-imp" class="btn btn-success fw-bold">Calculer Somme Impairs</button>
+          <div id="imp-out" class="alert alert-success mt-3 fs-5 d-none"></div>
+        </div>
+      </section>
+
+      <!-- Exercice 4 -->
+      <section>
+        <h3>Exercice 4 – Nombre de voyelles et de consonnes</h3>
+        <p>Saisir une chaîne non vide <code>ch</code>, puis calculer et afficher le nombre de voyelles et de consonnes.</p>
+        <div class="interactive-box shadow-sm">
+          <input type="text" id="vow-txt" class="form-control mb-3" value="Mariouma" placeholder="Saisissez un mot ou texte...">
+          <div id="vow-out" class="alert alert-info mb-0 fs-5"></div>
+        </div>
+      </section>
+
+      <!-- Exercice 5 -->
+      <section>
+        <h3>Exercice 5 – Filtrage des lettres et des chiffres</h3>
+        <p>Construire deux chaînes : <code>chl</code> (lettres uniquement) et <code>chc</code> (chiffres uniquement).</p>
+        <div class="interactive-box shadow-sm">
+          <div class="input-group mb-3">
+            <input type="text" id="filter-str" class="form-control" value="IA2DAY4TMRW">
+            <button id="btn-do-filter" class="btn btn-warning text-dark fw-bold">Filtrer Lettres & Chiffres</button>
+          </div>
+          <div id="filter-out" class="alert alert-warning text-dark mb-0 fs-5 d-none"></div>
+        </div>
+      </section>
+
+      <!-- Exercice 6 -->
+      <section>
+        <h3>Exercice 6 – QCM (Boucles for)</h3>
+        <div class="qcm-container interactive-box shadow-sm">
+          <div class="qcm-question" data-answer="a" data-explanation="x = 0 + 1 + 2 + 3 = 6.">
+            <h5 class="fw-bold">1. pour i in range(1, 4): x = x + i. Le programme affiche :</h5>
+            <div class="form-check"><input class="form-check-input" type="checkbox" value="a" id="m5q1a"><label class="form-check-label" for="m5q1a">x = 6</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" value="b" id="m5q1b"><label class="form-check-label" for="m5q1b">x = 15</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" value="c" id="m5q1c"><label class="form-check-label" for="m5q1c">x = 10</label></div>
+            <div class="qcm-feedback mt-2 d-none alert"></div>
+          </div>
+          <button class="btn btn-primary btn-check-qcm">Vérifier mes réponses</button>
+          <div class="qcm-score mt-3 d-none"></div>
+        </div>
+      </section>
+
+      <!-- Exercice 7 -->
+      <section>
+        <h3>Exercice 7 – Nombre abondant / Nombre déficient / Nombre parfait</h3>
+        <p>Un nombre entier $N > 0$ est Parfait ($SD = N$), Abondant ($SD > N$), ou Déficient ($SD < N$).</p>
+        <div class="interactive-box shadow-sm">
+          <div class="input-group mb-3">
+            <input type="number" id="num-n" class="form-control" value="6" min="1">
+            <button id="btn-check-num" class="btn btn-primary fw-bold">Analyser le nombre</button>
+          </div>
+          <div id="num-out"></div>
+        </div>
+      </section>
+
+      <!-- Exercice 8 -->
+      <section>
+        <h3>Exercice 8 – Nombre Poly-divisible</h3>
+        <p>Un numéro de caisse à 10 chiffres est gagnant s'il est poly-divisible.</p>
+        <div class="interactive-box shadow-sm">
+          <div class="input-group mb-3">
+            <input type="text" id="poly-num" class="form-control" value="1624560840" maxlength="10">
+            <button id="btn-check-poly" class="btn btn-success fw-bold">Vérifier le ticket</button>
+          </div>
+          <div id="poly-out"></div>
+        </div>
+      </section>
+
+      <!-- Exercice 9 -->
+      <section>
+        <h3>Exercice 9 – Série numérique</h3>
+        <p>Saisir $n \ge 1$, calculer et afficher la somme $S_n = 1^1 - 2^2 + 3^3 - 4^4 + \dots + (-1)^{n+1} n^n$.</p>
+        <div class="interactive-box shadow-sm">
+          <div class="input-group mb-3">
+            <input type="number" id="serie-n" class="form-control" value="4" min="1" max="10">
+            <button id="btn-calc-serie" class="btn btn-primary fw-bold">Calculer la somme Sn</button>
+          </div>
+          <div id="serie-out" class="alert alert-info mb-0 fs-5 d-none"></div>
+        </div>
+      </section>
+
+      <!-- Exercice 10 -->
+      <section>
+        <h3>Exercice 10 – Carte de fidélité</h3>
+        <p>Vérifier si le numéro d'une carte de fidélité ("Check_card") est valide (longueur $\ge 8$, somme chiffres div par 3 ou 7, etc.).</p>
+        <div class="interactive-box shadow-sm">
+          <div class="input-group mb-3">
+            <input type="text" id="card-num" class="form-control" value="A3B79A2T" placeholder="Ex: A3B79A2T">
+            <button id="btn-check-card" class="btn btn-success fw-bold">Vérifier la Carte</button>
+          </div>
+          <div id="card-out" class="alert alert-success mb-0 fs-5 d-none"></div>
+        </div>
+      </section>
+
+      <!-- Exercice 11 -->
+      <section>
+        <h3>Exercice 11 – Progression Croissante / Décroissante</h3>
+        <p>Saisir un nombre strictement positif et afficher s'il forme une suite de chiffres croissante, décroissante ou ni l'un ni l'autre.</p>
+        <div class="interactive-box shadow-sm">
+          <div class="input-group mb-3">
+            <input type="number" id="prog-num" class="form-control" value="1234">
+            <button id="btn-check-prog" class="btn btn-primary fw-bold">Vérifier la Progression</button>
+          </div>
+          <div id="prog-out" class="alert alert-primary mb-0 fs-5 d-none"></div>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <footer class="bg-dark text-white p-3 text-center mt-5">
+    <div>Informatique 2e Sciences &bull; Enseignant: Mohamed Anis MANI</div>
+  </footer>
+
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/highlight.pack.js"></script>
+  <script src="assets/js/hljs.algorithm.js"></script>
+  <script src="assets/js/pages.js"></script>
+  <script src="assets/js/runner.js"></script>
+  <script src="assets/js/modules.js"></script>
+  <script src="assets/js/render_math.js"></script>
+  <script>
+    hljs.highlightAll();
+  </script>
+</body>
+
+</html>

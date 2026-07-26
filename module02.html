@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 2 : Les structures simples - Informatique 2e Sciences</title>
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/default.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/module01.css">
+  <script src="assets/js/vue.min.js"></script>
+</head>
+
+<body>
+  <aside>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand text-info fw-bold" href="index.html">🏠 Accueil</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#aside_navbar">
+          <span class="navbar-toggler-icon"></span> Menu
+        </button>
+        <div class="collapse navbar-collapse" id="aside_navbar"></div>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="container my-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h1>Module 2 : Les structures simples</h1>
+      <a href="index.html" class="btn btn-outline-secondary">← Retour au sommaire</a>
+    </div>
+
+    <article>
+      <h2>Cours</h2>
+
+      <!-- 1. La sortie -->
+      <section>
+        <h3>1. La sortie</h3>
+        <p>La sortie, ou l'affichage, se fait par défaut sur le périphérique de sortie standard : l'écran.</p>
+        <p>L'opération de sortie se fait en <strong>algorithme</strong> à l'aide de la procédure
+          <code>Écrire(...)</code>.
+        </p>
+        <p>En <strong>Python</strong>, elle se fait à l'aide de la fonction <code>print(...)</code>.</p>
+
+        <div class="text-center my-3">
+          <img src="images/module02/la_sortie.svg" alt="Illustration de la Sortie (Écran / Affichage / print)"
+            class="img-fluid rounded shadow-sm p-2 bg-white border" style="max-width: 580px;">
+        </div>
+
+        <div class="table-responsive my-4 shadow-sm rounded border overflow-hidden">
+          <table class="table table-hover align-middle mb-0">
+            <thead class="text-center text-white">
+              <tr>
+                <th style="width: 38%; background-color: #0284c7;" class="py-2 fs-6">📐 Algorithme (Écrire)</th>
+                <th style="width: 38%; background-color: #0f172a;" class="py-2 fs-6">🐍 Python (print)</th>
+                <th style="width: 24%; background-color: #334155;" class="py-2 fs-6">💡 Description</th>
+              </tr>
+            </thead>
+            <tbody class="bg-white">
+              <tr>
+                <td class="p-2">
+                  <pre class="m-0"><code class="language-algorithm">// Affichage d'un message
+Ecrire("Votre message")</code></pre>
+                </td>
+                <td class="p-2">
+                  <pre class="m-0"><code class="language-python"># Affichage d'un message
+print("Votre message")</code></pre>
+                </td>
+                <td class="fw-semibold text-secondary px-3">Affichage d'un message texte simple</td>
+              </tr>
+              <tr>
+                <td class="p-2">
+                  <pre class="m-0"><code class="language-algorithm">x ← 4
+y ← 7
+// Affichage d'une variable
+Ecrire(x)</code></pre>
+                </td>
+                <td class="p-2">
+                  <pre class="m-0"><code class="language-python">x = 4
+y = 7
+# Affichage d'une variable
+print(x)</code></pre>
+                </td>
+                <td class="fw-semibold text-secondary px-3">Affichage de la valeur stockée dans une variable</td>
+              </tr>
+              <tr>
+                <td class="p-2">
+                  <pre class="m-0"><code class="language-algorithm">// Affichage mixte
+Ecrire(x, y)
+Ecrire("x = ", x)</code></pre>
+                </td>
+                <td class="p-2">
+                  <pre class="m-0"><code class="language-python"># Affichage mixte
+print(x, y)
+print("x =", x)</code></pre>
+                </td>
+                <td class="fw-semibold text-secondary px-3">Affichage mixte de texte et de variables</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 2. L'entrée -->
+      <section>
+        <h3>2. L'entrée</h3>
+        <p>L'entrée, ou la saisie, des données utilisateur est effectuée à partir du périphérique d'entrée standard : le
+          clavier.</p>
+        <p>On utilise, en <strong>algorithme</strong>, <code>Lire(nom_var)</code> pour affecter les entrées de
+          l'utilisateur à la variable <code>nom_var</code>.</p>
+        <p>En <strong>Python</strong>, l'entrée des données est effectuée à l'aide de la fonction
+          <code>input(message)</code>. Cette fonction retourne toujours une chaîne de caractères (type
+          <code>str</code>).
+        </p>
+
+        <div class="text-center my-3">
+          <img src="images/module02/l_entree.svg" alt="Illustration de l'Entrée (Clavier / Lire / input)"
+            class="img-fluid rounded shadow-sm p-2 bg-white border" style="max-width: 580px;">
+        </div>
+
+        <div class="table-responsive my-4 shadow-sm rounded border overflow-hidden">
+          <table class="table table-hover align-middle mb-0">
+            <thead class="text-center text-white">
+              <tr>
+                <th style="width: 38%; background-color: #0284c7;" class="py-2 fs-6">📐 Algorithme (Lire)</th>
+                <th style="width: 38%; background-color: #0f172a;" class="py-2 fs-6">🐍 Python (input)</th>
+                <th style="width: 24%; background-color: #334155;" class="py-2 fs-6">💡 Type de donnée</th>
+              </tr>
+            </thead>
+            <tbody class="bg-white">
+              <tr>
+                <td class="p-2">
+                  <pre class="m-0"><code class="language-algorithm">// Saisie d'une chaîne
+Écrire("Prénom ? ") ; Lire(ch)</code></pre>
+                </td>
+                <td class="p-2">
+                  <pre class="m-0"><code class="language-python"># Saisie d'une chaîne
+ch = input("Prénom ? ")</code></pre>
+                </td>
+                <td class="fw-semibold text-secondary px-3">Chaîne de caractères (str)</td>
+              </tr>
+              <tr>
+                <td class="p-2">
+                  <pre class="m-0"><code class="language-algorithm">// Saisie d'un nombre entier
+Écrire("Âge ? ") ; Lire(age)</code></pre>
+                </td>
+                <td class="p-2">
+                  <pre class="m-0"><code class="language-python"># Saisie d'un nombre entier
+age = int(input("Âge ? "))</code></pre>
+                </td>
+                <td class="fw-semibold text-secondary px-3">Entier relatif (int)</td>
+              </tr>
+              <tr>
+                <td class="p-2">
+                  <pre class="m-0"><code class="language-algorithm">// Saisie d'un nombre réel
+Écrire("Moyenne ? ") ; Lire(moy)</code></pre>
+                </td>
+                <td class="p-2">
+                  <pre class="m-0"><code class="language-python"># Saisie d'un nombre réel
+moy = float(input("Moyenne ? "))</code></pre>
+                </td>
+                <td class="fw-semibold text-secondary px-3">Nombre réel (float)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 3. L'affectation -->
+      <section>
+        <h3>3. L'affectation</h3>
+        <p>L'affectation permet de donner une valeur à une variable.</p>
+        <p>En <strong>algorithme</strong>, on utilise le signe d'affectation <code>←</code> comme suit :
+          <code>variable ← valeur</code>.
+        </p>
+        <p>En <strong>Python</strong>, l'affectation se fait à l'aide de l'opérateur <code>=</code> comme suit :
+          <code>variable = valeur</code>.
+        </p>
+
+        <div class="text-center my-3">
+          <img src="images/module02/l_affectation.svg" alt="Illustration de l'Affectation (Variable <- Valeur / =)"
+            class="img-fluid rounded shadow-sm p-2 bg-white border" style="max-width: 580px;">
+        </div>
+
+        <p>La valeur affectée à une variable peut-être :</p>
+        <ul>
+          <li>Une <strong>constante</strong> (ex: <code>a ← 5</code>)</li>
+          <li>La valeur d'une <strong>autre variable</strong> (ex: <code>b ← a</code>)</li>
+          <li>Le résultat d'une <strong>expression</strong> (ex: <code>d ← a / 3</code>)</li>
+        </ul>
+      </section>
+    </article>
+
+    <article class="mt-5">
+      <h2>Exercices Interactifs</h2>
+
+      <!-- Exercice 1 -->
+      <section>
+        <h3>Exercice 1 – QCM</h3>
+        <div class="qcm-container interactive-box shadow-sm">
+
+          <div class="qcm-question mb-4" data-answer="b,d"
+            data-explanation="Un algorithme est une suite finie d'étapes construite AVANT l'écriture du programme.">
+            <h5 class="fw-bold">1. Un algorithme est :</h5>
+            <div class="form-check"><input class="form-check-input" type="checkbox" value="a" id="mod2q1a"><label
+                class="form-check-label" for="mod2q1a">un programme écrit en Python</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" value="b" id="mod2q1b"><label
+                class="form-check-label" for="mod2q1b">une suite finie d'étapes</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" value="c" id="mod2q1c"><label
+                class="form-check-label" for="mod2q1c">construit après l'écriture du programme</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" value="d" id="mod2q1d"><label
+                class="form-check-label" for="mod2q1d">construit avant l'écriture du programme</label></div>
+            
+            <details class="mt-2">
+              <summary class="btn btn-sm btn-outline-info fw-bold py-0 px-2">💡 Indice</summary>
+              <div class="alert alert-light border-info mt-2 p-2 small mb-0 text-dark">
+                Pensez aux étapes préparatoires de la résolution d'un problème avant d'ouvrir un éditeur de code.
+              </div>
+            </details>
+            <div class="qcm-feedback mt-2 d-none alert"></div>
+          </div>
+
+          <div class="qcm-question mb-4" data-answer="a"
+            data-explanation="Un langage permet de traduire l'algorithme sous forme compréhensible par la machine.">
+            <h5 class="fw-bold">2. Un langage de programmation est utile pour :</h5>
+            <div class="form-check"><input class="form-check-input" type="checkbox" value="a" id="mod2q2a"><label
+                class="form-check-label" for="mod2q2a">traduire un algorithme d'une manière compréhensible par la
+                machine</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" value="b" id="mod2q2b"><label
+                class="form-check-label" for="mod2q2b">tester la validité d'un algorithme et opérer les modifications
+                nécessaires</label></div>
+            
+            <details class="mt-2">
+              <summary class="btn btn-sm btn-outline-info fw-bold py-0 px-2">💡 Indice</summary>
+              <div class="alert alert-light border-info mt-2 p-2 small mb-0 text-dark">
+                L'ordinateur ne comprend pas le langage naturel ; le langage sert d'intermédiaire de traduction vers la machine.
+              </div>
+            </details>
+            <div class="qcm-feedback mt-2 d-none alert"></div>
+          </div>
+
+          <div class="qcm-question mb-4" data-answer="b,c"
+            data-explanation="En Python, un nom de variable ne doit pas commencer par un chiffre et ne doit pas contenir de symboles spéciaux (@, $, &...).">
+            <h5 class="fw-bold">3. Le nom d'une variable :</h5>
+            <div class="form-check"><input class="form-check-input" type="checkbox" value="a" id="mod2q3a"><label
+                class="form-check-label" for="mod2q3a">doit toujours commencer par un chiffre</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" value="b" id="mod2q3b"><label
+                class="form-check-label" for="mod2q3b">ne doit pas contenir les symboles : @, $, &...</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" value="c" id="mod2q3c"><label
+                class="form-check-label" for="mod2q3c">peut commencer par un souligné _ (ex: _var)</label></div>
+            
+            <details class="mt-2">
+              <summary class="btn btn-sm btn-outline-info fw-bold py-0 px-2">💡 Indice</summary>
+              <div class="alert alert-light border-info mt-2 p-2 small mb-0 text-dark">
+                Rappelez-vous le premier caractère autorisé et l'interdiction des symboles spéciaux.
+              </div>
+            </details>
+            <div class="qcm-feedback mt-2 d-none alert"></div>
+          </div>
+
+          <div class="qcm-question mb-4" data-answer="b,c"
+            data-explanation="Une constante possède un nom, un type et une valeur fixe qui ne peut pas être modifiée par la suite.">
+            <h5 class="fw-bold">4. Une constante :</h5>
+            <div class="form-check"><input class="form-check-input" type="checkbox" value="a" id="mod2q4a"><label
+                class="form-check-label" for="mod2q4a">peut prendre des valeurs différentes lors de l'exécution</label>
+            </div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" value="b" id="mod2q4b"><label
+                class="form-check-label" for="mod2q4b">doit être déclarée et affectée une seule fois</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" value="c" id="mod2q4c"><label
+                class="form-check-label" for="mod2q4c">possède un nom, un type et une valeur</label></div>
+            
+            <details class="mt-2">
+              <summary class="btn btn-sm btn-outline-info fw-bold py-0 px-2">💡 Indice</summary>
+              <div class="alert alert-light border-info mt-2 p-2 small mb-0 text-dark">
+                Contrairement à une variable dont le contenu varie, la valeur d'une constante demeure invariable.
+              </div>
+            </details>
+            <div class="qcm-feedback mt-2 d-none alert"></div>
+          </div>
+
+          <div class="qcm-question mb-4" data-answer="a,b,c,d"
+            data-explanation="Toutes ces valeurs valides peuvent être affectées à une variable.">
+            <h5 class="fw-bold">5. On peut affecter à une variable :</h5>
+            <div class="form-check"><input class="form-check-input" type="checkbox" value="a" id="mod2q5a"><label
+                class="form-check-label" for="mod2q5a">le résultat d'une expression</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" value="b" id="mod2q5b"><label
+                class="form-check-label" for="mod2q5b">la valeur d'une autre variable</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" value="c" id="mod2q5c"><label
+                class="form-check-label" for="mod2q5c">une constante de type compatible</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" value="d" id="mod2q5d"><label
+                class="form-check-label" for="mod2q5d">une valeur saisie par l'utilisateur</label></div>
+            
+            <details class="mt-2">
+              <summary class="btn btn-sm btn-outline-info fw-bold py-0 px-2">💡 Indice</summary>
+              <div class="alert alert-light border-info mt-2 p-2 small mb-0 text-dark">
+                Examinez si la mémoire d'une variable peut recevoir des données calculées, lues ou prédéfinies.
+              </div>
+            </details>
+            <div class="qcm-feedback mt-2 d-none alert"></div>
+          </div>
+
+          <div class="qcm-question mb-4" data-answer="a,d"
+            data-explanation="En algorithme on utilise ←, en Python on utilise =.">
+            <h5 class="fw-bold">6. L'opérateur utilisé pour stocker une valeur dans une variable est :</h5>
+            <div class="form-check"><input class="form-check-input" type="checkbox" value="a" id="mod2q6a"><label
+                class="form-check-label" for="mod2q6a">← (en algorithme)</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" value="b" id="mod2q6b"><label
+                class="form-check-label" for="mod2q6b">= (en algorithme)</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" value="c" id="mod2q6c"><label
+                class="form-check-label" for="mod2q6c">← (en Python)</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" value="d" id="mod2q6d"><label
+                class="form-check-label" for="mod2q6d">= (en Python)</label></div>
+            
+            <details class="mt-2">
+              <summary class="btn btn-sm btn-outline-info fw-bold py-0 px-2">💡 Indice</summary>
+              <div class="alert alert-light border-info mt-2 p-2 small mb-0 text-dark">
+                Distinguez le symbole d'affectation en pseudocode (flèche) et celui du langage Python.
+              </div>
+            </details>
+            <div class="qcm-feedback mt-2 d-none alert"></div>
+          </div>
+
+          <div class="qcm-question mb-4" data-answer="a,d"
+            data-explanation="En algorithmique, x + 2 -> a est incorrect (l'expression doit être à droite) et a = 5 est incorrect (on utilise la flèche).">
+            <h5 class="fw-bold">7. L'instruction d'affectation incorrecte, en algorithmique, est :</h5>
+            <div class="form-check"><input class="form-check-input" type="checkbox" value="a" id="mod2q7a"><label
+                class="form-check-label" for="mod2q7a">x + 2 → a</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" value="b" id="mod2q7b"><label
+                class="form-check-label" for="mod2q7b">a ← 2 * x</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" value="c" id="mod2q7c"><label
+                class="form-check-label" for="mod2q7c">5 ← a</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" value="d" id="mod2q7d"><label
+                class="form-check-label" for="mod2q7d">a = 5</label></div>
+            
+            <details class="mt-2">
+              <summary class="btn btn-sm btn-outline-info fw-bold py-0 px-2">💡 Indice</summary>
+              <div class="alert alert-light border-info mt-2 p-2 small mb-0 text-dark">
+                En algorithme, la variable de destination doit se situer à gauche de la flèche d'affectation <code>←</code>.
+              </div>
+            </details>
+            <div class="qcm-feedback mt-2 d-none alert"></div>
+          </div>
+
+          <button class="btn btn-primary btn-check-qcm">Vérifier mes réponses</button>
+          <div class="qcm-score mt-3 d-none"></div>
+        </div>
+      </section>
+
+      <!-- Exercice 2 -->
+      <section>
+        <h3>Exercice 2 – Noms de variables</h3>
+        <p>Parmi les mots suivants, cliquez sur ceux qui <strong>NE SONT PAS</strong> des noms valides pour une variable
+          en Python (cliquer pour barrer les nom invalides) :</p>
+
+        <!-- Encadré d'aide sur les mots clés et règles de nommage Python -->
+        <div class="alert alert-info border-info shadow-sm mb-3">
+          <h5 class="alert-heading font-monospace fw-bold text-primary">💡 Rappel : Règles des variables & Mots réservés Python</h5>
+          <ul class="mb-0 small">
+            <li><strong>Règles de nommage :</strong> Un nom de variable doit commencer par une lettre ou <code>_</code>. Il ne peut pas commencer par un chiffre, ni contenir d'espaces ou de symboles (<code>#</code>, <code>-</code>, <code>!</code>, <code>@</code>...).</li>
+            <li><strong>Mots clés réservés Python (Invalides comme nom de variable) :</strong> Ces mots sont strictement réservés par le langage et ne peuvent pas être utilisés comme identificateurs.</li>
+          </ul>
+        </div>
+
+        <!-- Encadré exhaustif des 35 Mots Clés Réservés de Python (Sans omission ni exception) -->
+        <div class="alert alert-warning border-warning shadow-sm mb-3">
+          <h6 class="font-monospace fw-bold text-dark mb-2">
+            🔑 Liste Exhaustive des 35 Mots Clés Réservés en Python (Python Keywords) :
+          </h6>
+          <div class="d-flex flex-wrap gap-1 font-monospace">
+            <span class="badge bg-dark text-warning fs-6">False</span>
+            <span class="badge bg-dark text-warning fs-6">None</span>
+            <span class="badge bg-dark text-warning fs-6">True</span>
+            <span class="badge bg-dark text-info fs-6">and</span>
+            <span class="badge bg-dark text-info fs-6">as</span>
+            <span class="badge bg-dark text-info fs-6">assert</span>
+            <span class="badge bg-dark text-info fs-6">async</span>
+            <span class="badge bg-dark text-info fs-6">await</span>
+            <span class="badge bg-dark text-info fs-6">break</span>
+            <span class="badge bg-dark text-info fs-6">class</span>
+            <span class="badge bg-dark text-info fs-6">continue</span>
+            <span class="badge bg-dark text-info fs-6">def</span>
+            <span class="badge bg-dark text-info fs-6">del</span>
+            <span class="badge bg-dark text-info fs-6">elif</span>
+            <span class="badge bg-dark text-info fs-6">else</span>
+            <span class="badge bg-dark text-info fs-6">except</span>
+            <span class="badge bg-dark text-info fs-6">finally</span>
+            <span class="badge bg-dark text-info fs-6">for</span>
+            <span class="badge bg-dark text-info fs-6">from</span>
+            <span class="badge bg-dark text-info fs-6">global</span>
+            <span class="badge bg-dark text-info fs-6">if</span>
+            <span class="badge bg-dark text-info fs-6">import</span>
+            <span class="badge bg-dark text-info fs-6">in</span>
+            <span class="badge bg-dark text-info fs-6">is</span>
+            <span class="badge bg-dark text-info fs-6">lambda</span>
+            <span class="badge bg-dark text-info fs-6">nonlocal</span>
+            <span class="badge bg-dark text-info fs-6">not</span>
+            <span class="badge bg-dark text-info fs-6">or</span>
+            <span class="badge bg-dark text-info fs-6">pass</span>
+            <span class="badge bg-dark text-info fs-6">raise</span>
+            <span class="badge bg-dark text-info fs-6">return</span>
+            <span class="badge bg-dark text-info fs-6">try</span>
+            <span class="badge bg-dark text-info fs-6">while</span>
+            <span class="badge bg-dark text-info fs-6">with</span>
+            <span class="badge bg-dark text-info fs-6">yield</span>
+          </div>
+        </div>
+
+        <div class="interactive-box shadow-sm">
+          <div class="d-flex flex-wrap gap-2" id="var-words-container">
+            <button class="btn btn-outline-secondary word-btn" data-valid="true">bonjour</button>
+            <button class="btn btn-outline-secondary word-btn" data-valid="false">au revoir</button>
+            <button class="btn btn-outline-secondary word-btn" data-valid="false">def</button>
+            <button class="btn btn-outline-secondary word-btn" data-valid="true">oui</button>
+            <button class="btn btn-outline-secondary word-btn" data-valid="false">6hello6</button>
+            <button class="btn btn-outline-secondary word-btn" data-valid="true">good_mor</button>
+            <button class="btn btn-outline-secondary word-btn" data-valid="false">if</button>
+            <button class="btn btn-outline-secondary word-btn" data-valid="false">and</button>
+            <button class="btn btn-outline-secondary word-btn" data-valid="false">break</button>
+            <button class="btn btn-outline-secondary word-btn" data-valid="true">salem</button>
+            <button class="btn btn-outline-secondary word-btn" data-valid="true">Non</button>
+            <button class="btn btn-outline-secondary word-btn" data-valid="false">Hi!</button>
+            <button class="btn btn-outline-secondary word-btn" data-valid="false">for</button>
+            <button class="btn btn-outline-secondary word-btn" data-valid="false">#Bonsoir</button>
+            <button class="btn btn-outline-secondary word-btn" data-valid="false">good-afternoon</button>
+            <button class="btn btn-outline-secondary word-btn" data-valid="true">_iot__Py</button>
+            <button class="btn btn-outline-secondary word-btn" data-valid="true">bye_bye</button>
+          </div>
+          <button id="btn-check-vars" class="btn btn-primary mt-3 fw-bold">Vérifier l'identification</button>
+          <div id="vars-feedback" class="mt-2"></div>
+        </div>
+      </section>
+
+      <!-- Exercice 3 -->
+      <section>
+        <h3>Exercice 3 – Aire & Périmètre d'un rectangle</h3>
+        <p>On désire faire le programme qui demande la longueur (<code>x</code>) et la largeur (<code>y</code>) d'un
+          rectangle et calcule son périmètre (<code>p = (x + y)*2</code>) et son aire (<code>s = x * y</code>).</p>
+
+        <div class="interactive-box shadow-sm">
+          <h4 class="text-primary mb-3">📐 Calculateur &amp; Illustration interactive</h4>
+          
+          <!-- Zone d'illustration SVG réactive -->
+          <div class="text-center my-3 p-2 bg-white rounded border shadow-sm mx-auto" style="max-width: 480px;">
+            <div id="rec-svg-preview"></div>
+          </div>
+
+          <div class="row g-3 mb-3">
+            <div class="col-md-6">
+              <label class="form-label fw-bold">Longueur (x) :</label>
+              <input type="number" id="rec-x" class="form-control" value="10" min="0.1" step="0.5">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label fw-bold">Largeur (y) :</label>
+              <input type="number" id="rec-y" class="form-control" value="4" min="0.1" step="0.5">
+            </div>
+          </div>
+          <div id="rec-out" class="alert alert-info mb-0 fs-5 text-center"></div>
+        </div>
+      </section>
+
+      <!-- Exercice 4 -->
+      <section>
+        <h3>Exercice 4 – Aire d'une ellipse</h3>
+        <p>On désire calculer l'aire d'une ellipse en appliquant la formule : <strong>$$\text{Aire} = a \cdot b \cdot
+            \pi$$</strong></p>
+
+        <div class="interactive-box shadow-sm">
+          <h4 class="text-success mb-3">📐 Calculateur &amp; Illustration interactive Ellipse</h4>
+
+          <!-- Zone d'illustration SVG réactive -->
+          <div class="text-center my-3 p-2 bg-white rounded border shadow-sm mx-auto" style="max-width: 480px;">
+            <div id="ell-svg-preview"></div>
+          </div>
+
+          <div class="row g-3 mb-3">
+            <div class="col-md-6">
+              <label class="form-label fw-bold">Demi-grand axe (a) :</label>
+              <input type="number" id="ell-a" class="form-control" value="5" min="0.1" step="0.5">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label fw-bold">Demi-petit axe (b) :</label>
+              <input type="number" id="ell-b" class="form-control" value="3" min="0.1" step="0.5">
+            </div>
+          </div>
+          <div id="ell-out" class="alert alert-success mb-0 fs-5 text-center"></div>
+        </div>
+      </section>
+
+      <!-- Exercice 5 -->
+      <section>
+        <h3>Exercice 5 – Moyenne d'informatique</h3>
+        <p>Ecrire l'algorithme du programme "Moyenne" qui calcule et affiche la moyenne d'un élève sachant sa note
+          globale (<code>NG</code>) et sa note de synthèse (<code>NS</code>) : <code>Moy = (NG + NS) / 2</code>.</p>
+
+        <div class="interactive-box shadow-sm">
+          <h4 class="text-warning text-dark">📊 Calculateur de Moyenne</h4>
+          <div class="row g-3 mb-3">
+            <div class="col-md-6">
+              <label class="form-label fw-bold">Note Globale (NG) :</label>
+              <input type="number" id="moy-ng" class="form-control" value="16" min="0" max="20">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label fw-bold">Note Synthèse (NS) :</label>
+              <input type="number" id="moy-ns" class="form-control" value="14" min="0" max="20">
+            </div>
+          </div>
+          <div id="moy-out" class="alert alert-warning text-dark mb-0 fs-5"></div>
+        </div>
+      </section>
+
+      <!-- Exercice 6 -->
+      <section>
+        <h3>Exercice 6 – Raideur d'un ressort</h3>
+        <p>Pour mesurer la raideur <code>k</code> d'un ressort, on lui accroche un objet de masse <code>m</code> et on
+          mesure son allongement <code>x</code>. À l'équilibre : $m \cdot g = k \cdot x \implies k = \frac{m \cdot
+          g}{x}$ avec $g = 10 \text{ N/kg}$.</p>
+
+        <div class="interactive-box shadow-sm">
+          <h4 class="text-danger mb-3">⚖ Calculateur &amp; Illustration interactive du Ressort</h4>
+
+          <!-- Zone d'illustration SVG réactive du Ressort -->
+          <div class="text-center my-3 p-2 bg-white rounded border shadow-sm mx-auto" style="max-width: 480px;">
+            <div id="res-svg-preview"></div>
+          </div>
+
+          <div class="row g-3 mb-3">
+            <div class="col-md-6">
+              <label class="form-label fw-bold">Masse m (kg) :</label>
+              <input type="number" id="res-m" class="form-control" value="0.5" step="0.1" min="0.01">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label fw-bold">Allongement x (m) :</label>
+              <input type="number" id="res-x" class="form-control" value="0.05" step="0.01" min="0.001">
+            </div>
+          </div>
+          <div id="res-out" class="alert alert-danger mb-0 fs-5 text-center"></div>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <footer class="bg-dark text-white p-3 text-center mt-5">
+    <div>Informatique 2e Sciences &bull; Enseignant: Mohamed Anis MANI</div>
+  </footer>
+
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/highlight.pack.js"></script>
+  <script src="assets/js/hljs.algorithm.js"></script>
+  <script src="assets/js/pages.js"></script>
+  <script src="assets/js/runner.js"></script>
+  <script src="assets/js/modules.js"></script>
+  <script src="assets/js/render_math.js"></script>
+  <script>
+    hljs.highlightAll();
+  </script>
+</body>
+
+</html>

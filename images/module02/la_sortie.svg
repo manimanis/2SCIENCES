@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 200" width="100%" height="auto">
+  <defs>
+    <style>
+      .title { font-family: system-ui, -apple-system, sans-serif; font-size: 15px; font-weight: bold; fill: #2563eb; }
+      .code { font-family: monospace; font-size: 13px; font-weight: bold; }
+      .label { font-family: system-ui, -apple-system, sans-serif; font-size: 13px; font-weight: 700; fill: #2563eb; }
+      .sublabel { font-family: system-ui, -apple-system, sans-serif; font-size: 12px; font-weight: 600; fill: #3b82f6; }
+    </style>
+    <marker id="arrow-out" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1.5 L 10 5 L 0 8.5 z" fill="#2563eb"/>
+    </marker>
+  </defs>
+
+  <!-- Background container -->
+  <rect x="5" y="5" width="590" height="190" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+
+  <!-- Left: Program / CPU Code Block -->
+  <g transform="translate(30, 25)">
+    <rect x="0" y="0" width="180" height="110" rx="8" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
+    <text x="15" y="25" font-family="sans-serif" font-size="13" font-weight="bold" fill="#f8fafc">💻 Programme</text>
+    <text x="15" y="55" class="code" fill="#38bdf8">Ecrire("Bonjour")</text>
+    <text x="15" y="80" class="code" fill="#4ade80">print("Résultat:", x)</text>
+    <text x="90" y="132" text-anchor="middle" class="label">Instructions de sortie</text>
+  </g>
+
+  <!-- Middle Arrow -->
+  <g transform="translate(220, 65)">
+    <line x1="10" y1="18" x2="110" y2="18" stroke="#2563eb" stroke-width="3.5" stroke-dasharray="6,4" marker-end="url(#arrow-out)"/>
+    <text x="60" y="-2" text-anchor="middle" class="title">Affichage</text>
+  </g>
+
+  <!-- Right: Screen / Monitor (Standard Output) -->
+  <g transform="translate(360, 25)">
+    <!-- Monitor Body -->
+    <rect x="0" y="0" width="200" height="120" rx="6" fill="#0f172a" stroke="#3b82f6" stroke-width="2.5"/>
+    <!-- Screen Display Area -->
+    <rect x="10" y="10" width="180" height="100" rx="4" fill="#020617"/>
+    <text x="20" y="35" class="code" fill="#4ade80">> Bonjour</text>
+    <text x="20" y="65" class="code" fill="#4ade80">> Résultat: 15</text>
+    <!-- Cursor -->
+    <rect x="120" y="53" width="8" height="14" fill="#4ade80"/>
+
+    <!-- Monitor Stand -->
+    <path d="M 80,120 L 120,120 L 130,138 L 70,138 Z" fill="#334155"/>
+    <rect x="60" y="138" width="80" height="6" rx="2" fill="#475569"/>
+    
+    <text x="100" y="164" text-anchor="middle" class="label">Écran (Périphérique de sortie)</text>
+  </g>
+</svg>

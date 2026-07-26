@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 220" width="100%" height="auto">
+  <defs>
+    <style>
+      .title-box { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; font-weight: bold; fill: #1e293b; }
+      .num-box { font-family: monospace, system-ui; font-size: 26px; font-weight: bold; }
+      .label-sub { font-family: system-ui, -apple-system, sans-serif; font-size: 12px; font-weight: 600; fill: #475569; }
+      .code-tag { font-family: monospace; font-size: 13px; font-weight: bold; }
+    </style>
+  </defs>
+
+  <!-- Background Container -->
+  <rect x="5" y="5" width="640" height="210" rx="12" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+
+  <!-- Left: Division Reelle vs Division Entiere Cards -->
+  <g transform="translate(25, 20)">
+    <!-- Card 1: Division réelle -->
+    <rect x="0" y="0" width="240" height="80" rx="8" fill="#ffffff" stroke="#0284c7" stroke-width="2"/>
+    <text x="15" y="24" class="title-box" fill="#0369a1">➗ Division réelle ( / )</text>
+    <text x="15" y="55" class="code-tag" fill="#0284c7">q ← 5 / 2</text>
+    <text x="140" y="55" class="num-box" fill="#0284c7">⇒ 2.5</text>
+    <text x="15" y="72" class="label-sub">Résultat réel (float)</text>
+
+    <!-- Card 2: Division entière (div) & Modulo (mod) -->
+    <rect x="0" y="95" width="240" height="80" rx="8" fill="#ffffff" stroke="#16a34a" stroke-width="2"/>
+    <text x="15" y="118" class="title-box" fill="#15803d">🔢 Division entière &amp; Modulo</text>
+    <text x="15" y="145" class="code-tag" fill="#16a34a">q ← 5 div 2</text>
+    <text x="140" y="145" class="num-box" fill="#16a34a">⇒ 2</text>
+    <text x="15" y="165" class="code-tag" fill="#dc2626">r ← 5 mod 2</text>
+    <text x="140" y="165" class="num-box" fill="#dc2626">⇒ 1</text>
+  </g>
+
+  <!-- Right: Euclidean Division Pose SVG Diagram -->
+  <g transform="translate(320, 20)">
+    <!-- Container Card for Poser Division -->
+    <rect x="0" y="0" width="300" height="175" rx="8" fill="#ffffff" stroke="#334155" stroke-width="2"/>
+    <text x="150" y="25" text-anchor="middle" class="title-box" fill="#0f172a">📐 Schéma de la Division Euclidienne</text>
+
+    <!-- Division Lines -->
+    <line x1="140" y1="40" x2="140" y2="155" stroke="#334155" stroke-width="3"/>
+    <line x1="140" y1="95" x2="270" y2="95" stroke="#334155" stroke-width="3"/>
+
+    <!-- Dividend (5) -->
+    <g transform="translate(70, 70)">
+      <text x="0" y="0" text-anchor="middle" class="num-box" fill="#0284c7" font-size="34">5</text>
+      <text x="0" y="20" text-anchor="middle" class="label-sub">Dividende</text>
+    </g>
+
+    <!-- Divisor (2) -->
+    <g transform="translate(205, 70)">
+      <text x="0" y="0" text-anchor="middle" class="num-box" fill="#334155" font-size="34">2</text>
+      <text x="0" y="20" text-anchor="middle" class="label-sub">Diviseur</text>
+    </g>
+
+    <!-- Quotient (2) -->
+    <g transform="translate(205, 132)">
+      <text x="0" y="0" text-anchor="middle" class="num-box" fill="#16a34a" font-size="34">2</text>
+      <text x="0" y="18" text-anchor="middle" class="code-tag" fill="#16a34a">5 div 2 (//)</text>
+    </g>
+
+    <!-- Remainder (1) -->
+    <g transform="translate(70, 132)">
+      <text x="0" y="0" text-anchor="middle" class="num-box" fill="#dc2626" font-size="34">1</text>
+      <text x="0" y="18" text-anchor="middle" class="code-tag" fill="#dc2626">5 mod 2 (%)</text>
+    </g>
+  </g>
+</svg>

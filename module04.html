@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 4 : Les structures conditionnelles - Informatique 2e Sciences</title>
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/default.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/module01.css">
+  <script src="assets/js/vue.min.js"></script>
+</head>
+
+<body>
+  <aside>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand text-info fw-bold" href="index.html">🏠 Accueil</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#aside_navbar">
+          <span class="navbar-toggler-icon"></span> Menu
+        </button>
+        <div class="collapse navbar-collapse" id="aside_navbar"></div>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="container my-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h1>Module 4 : Les structures conditionnelles</h1>
+      <a href="index.html" class="btn btn-outline-secondary">← Retour au sommaire</a>
+    </div>
+
+    <article>
+      <h2>Cours</h2>
+
+      <!-- 1. Formes -->
+      <section>
+        <h3>1. Formes des structures conditionnelles</h3>
+        <p>L'exécution d'un traitement dépend d'une condition.</p>
+
+        <div class="row g-3 my-3">
+          <div class="col-md-6">
+            <div class="card p-3 shadow-sm border-primary h-100">
+              <h5 class="fw-bold text-primary">Forme Réduite</h5>
+              <p>Un seul traitement exécuté si la condition est VRAIE.</p>
+              <pre><code class="language-algorithm">Si condition Alors
+   Traitements
+Fin Si</code></pre>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card p-3 shadow-sm border-success h-100">
+              <h5 class="fw-bold text-success">Forme Alternative (Complète)</h5>
+              <p>Deux traitements : un pour VRAI, un pour FAUX.</p>
+              <pre><code class="language-algorithm">Si condition Alors
+   Traitement 1
+Sinon
+   Traitement 2
+Fin Si</code></pre>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card p-3 shadow-sm border-warning h-100">
+              <h5 class="fw-bold text-warning text-dark">Forme Généralisée</h5>
+              <p>Trois traitements ou plus selon plusieurs conditions.</p>
+              <pre><code class="language-algorithm">Si condition1 Alors
+   Traitement 1
+Sinon Si condition2 Alors
+   Traitement 2
+Sinon
+   Traitement 3
+Fin Si</code></pre>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card p-3 shadow-sm border-info h-100">
+              <h5 class="fw-bold text-info">Choix Multiples (Selon / match case)</h5>
+              <p>Sélection selon la valeur d'une variable scalaire.</p>
+              <pre><code class="language-algorithm">Selon mois Faire
+   1,3,5,7,8,10,12 : nbj ← 31
+   4,6,9,11 : nbj ← 30
+   2 : nbj ← 28
+   Sinon : nbj ← -1
+Fin Selon</code></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+    </article>
+
+    <article class="mt-5">
+      <h2>Exercices Interactifs</h2>
+
+      <!-- Exercice 1 -->
+      <section>
+        <h3>Exercice 1 – QCM 1</h3>
+        <div class="qcm-container interactive-box shadow-sm">
+          <div class="qcm-question" data-answer="a" data-explanation="Une personne est majeure si age >= 18.">
+            <h5 class="fw-bold">1. Une personne est majeure si son âge dépasse 18 ans :</h5>
+            <div class="form-check"><input class="form-check-input" type="checkbox" value="a" id="c4q1a"><label class="form-check-label" for="c4q1a">age >= 18</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" value="b" id="c4q1b"><label class="form-check-label" for="c4q1b">age &lt;= 18</label></div>
+            <div class="qcm-feedback mt-2 d-none alert"></div>
+          </div>
+          <button class="btn btn-primary btn-check-qcm">Vérifier mes réponses</button>
+          <div class="qcm-score mt-3 d-none"></div>
+        </div>
+      </section>
+
+      <!-- Exercice 2 -->
+      <section>
+        <h3>Exercice 2 – QCM 2</h3>
+        <div class="qcm-container interactive-box shadow-sm">
+          <div class="qcm-question" data-answer="d" data-explanation="n = 12 => n > 10 => n1 = 12 - 10 = 2.">
+            <h5 class="fw-bold">1. La valeur finale de n1 pour n = 12 est :</h5>
+            <div class="form-check"><input class="form-check-input" type="checkbox" value="a" id="c4q2a"><label class="form-check-label" for="c4q2a">n = 7, n1 = -7</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" value="d" id="c4q2d"><label class="form-check-label" for="c4q2d">n = 12, n1 = 2</label></div>
+            <div class="qcm-feedback mt-2 d-none alert"></div>
+          </div>
+          <button class="btn btn-primary btn-check-qcm">Vérifier mes réponses</button>
+          <div class="qcm-score mt-3 d-none"></div>
+        </div>
+      </section>
+
+      <!-- Exercice 3 -->
+      <section>
+        <h3>Exercice 3 – QCM 3 (Expressions booléennes)</h3>
+        <p>Association des expressions booléennes aux propositions correctes.</p>
+        <div class="interactive-box shadow-sm">
+          <button id="btn-show-qcm3" class="btn btn-info text-dark fw-bold">Afficher la table de correspondance</button>
+          <div id="qcm3-out" class="mt-3"></div>
+        </div>
+      </section>
+
+      <!-- Exercice 4 -->
+      <section>
+        <h3>Exercice 4 – Exécution Manuelle (Forme conditionnelle)</h3>
+        <p>Analyse de la forme et du rôle des algorithmes conditionnels.</p>
+        <div class="interactive-box shadow-sm">
+          <div class="alert alert-secondary">
+            <strong>Algorithme 1 :</strong> Échange la valeur de a et b si a > b. (Forme Réduite)<br>
+            <strong>Algorithme 2 :</strong> Affiche si n est pair ou impair. (Forme Alternative)<br>
+            <strong>Algorithme 3 :</strong> Génère un caractère selon v (chiffre, majuscule, minuscule). (Forme Généralisée)
+          </div>
+        </div>
+      </section>
+
+      <!-- Exercice 5 -->
+      <section>
+        <h3>Exercice 5 – Signe & Parité</h3>
+        <p>Ecrire un programme qui saisit un entier <code>n</code>, puis affiche son signe (positif ou négatif) et sa parité (pair ou impair).</p>
+        <div class="interactive-box shadow-sm">
+          <div class="input-group mb-3">
+            <input type="number" id="sign-n" class="form-control" value="-6">
+            <button id="btn-check-sign" class="btn btn-primary fw-bold">Analyser le nombre</button>
+          </div>
+          <div id="sign-out" class="alert alert-info mb-0 fs-5 d-none"></div>
+        </div>
+      </section>
+
+      <!-- Exercice 6 -->
+      <section>
+        <h3>Exercice 6 – Nombre cubique</h3>
+        <p>Un nombre positif de 3 chiffres est <strong>cubique</strong> s'il est égal à la somme des cubes de ses chiffres (ex: $153 = 1^3 + 5^3 + 3^3$).</p>
+        <div class="interactive-box shadow-sm">
+          <div class="input-group mb-3">
+            <input type="number" id="cube-n" class="form-control" value="153" placeholder="Ex: 153, 370, 371, 407">
+            <button id="btn-check-cube" class="btn btn-success fw-bold">Vérifier s'il est cubique</button>
+          </div>
+          <div id="cube-out"></div>
+        </div>
+      </section>
+
+      <!-- Exercice 7 -->
+      <section>
+        <h3>Exercice 7 – Formes d'une structure conditionnelle</h3>
+        <p>Réécriture de <code>Si (x > 1) et (x <= 12)</code> en forme réduite et analyse du code caractère.</p>
+        <div class="interactive-box shadow-sm">
+          <div class="alert alert-secondary">
+            <code>y ← x - 1</code><br>
+            <code>Si (x > 1) et (x <= 12) Alors y ← x + 1 Fin Si</code>
+          </div>
+        </div>
+      </section>
+
+      <!-- Exercice 8 -->
+      <section>
+        <h3>Exercice 8 – Type d'un caractère ASCII</h3>
+        <p>Saisir un caractère puis déterminer et afficher son type (Majuscule, Minuscule, Chiffre ou Symbole).</p>
+        <div class="interactive-box shadow-sm">
+          <div class="input-group mb-3">
+            <input type="text" id="char-val" class="form-control text-center fs-4" maxlength="1" value="A">
+            <button id="btn-check-char" class="btn btn-primary fw-bold">Déterminer le type du caractère</button>
+          </div>
+          <div id="char-out" class="alert alert-info mb-0 fs-5 d-none"></div>
+        </div>
+      </section>
+
+      <!-- Exercice 9 -->
+      <section>
+        <h3>Exercice 9 – Calculatrice</h3>
+        <p>Calculer une expression de la forme <code>A op B</code> avec prévision de la division par zéro.</p>
+        <div class="interactive-box shadow-sm">
+          <div class="row g-3 mb-3">
+            <div class="col-md-4"><label class="form-label fw-bold">Nombre A :</label><input type="number" id="calc-a" class="form-control" value="15"></div>
+            <div class="col-md-4"><label class="form-label fw-bold">Opérateur :</label>
+              <select id="calc-op" class="form-select">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+              </select>
+            </div>
+            <div class="col-md-4"><label class="form-label fw-bold">Nombre B :</label><input type="number" id="calc-b" class="form-control" value="3"></div>
+          </div>
+          <button id="btn-do-calc" class="btn btn-success fw-bold">Calculer l'opération</button>
+          <div id="calc-out" class="mt-3 fs-5"></div>
+        </div>
+      </section>
+
+      <!-- Exercice 10 -->
+      <section>
+        <h3>Exercice 10 – Potentiel Hydrogène (pH)</h3>
+        <p>Saisir la valeur du pH d'une solution et afficher sa nature (Acide fort, Acide faible, Neutre, Base faible, Base forte).</p>
+        <div class="interactive-box shadow-sm">
+          <label class="form-label fw-bold">Valeur du pH : <span id="ph-val-display" class="badge bg-dark fs-6">7.0</span></label>
+          <input type="range" class="form-range" id="ph-slider" min="0" max="14" step="0.1" value="7.0">
+          <div id="ph-nature-result" class="card p-3 mt-2 text-center fs-5 bg-success text-white">
+            Nature : Neutre (ex: Eau pure)
+          </div>
+        </div>
+      </section>
+
+      <!-- Exercice 11 -->
+      <section>
+        <h3>Exercice 11 – Évaluation d'une structure conditionnelle</h3>
+        <p>Quelles sont les valeurs de A et B après l'exécution de chaque bloc ?</p>
+        <div class="table-responsive">
+          <table class="table table-bordered text-center">
+            <thead class="table-dark">
+              <tr><th>Bloc 1</th><th>Bloc 2</th><th>Bloc 3</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>A = 3 , B = 2</td><td>A = 2 , B = 3</td><td>A = 0 , B = 2</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Exercice 12 -->
+      <section>
+        <h3>Exercice 12 – Année bissextile</h3>
+        <p>Une année est bissextile si elle est divisible par 4 et non par 100, ou si elle est divisible par 400.</p>
+        <div class="interactive-box shadow-sm">
+          <div class="input-group mb-3">
+            <input type="number" id="leap-year" class="form-control" value="2024">
+            <button id="btn-check-leap" class="btn btn-primary fw-bold">Vérifier l'année</button>
+          </div>
+          <div id="leap-out" class="alert alert-info mb-0 fs-5 d-none"></div>
+        </div>
+      </section>
+
+      <!-- Exercice 13 -->
+      <section>
+        <h3>Exercice 13 – Salutations</h3>
+        <p>Saisir l'heure actuelle <code>t</code> et afficher la salutation appropriée.</p>
+        <div class="interactive-box shadow-sm">
+          <div class="input-group mb-3">
+            <input type="number" id="salut-t" class="form-control" value="14" min="0" max="23">
+            <button id="btn-check-salut" class="btn btn-warning text-dark fw-bold">Afficher Salutation</button>
+          </div>
+          <div id="salut-out" class="alert alert-warning text-dark mb-0 fs-5 d-none"></div>
+        </div>
+      </section>
+
+      <!-- Exercice 14 -->
+      <section>
+        <h3>Exercice 14 – Score d'un match</h3>
+        <p>Saisir les noms et les scores de deux équipes de football, afficher l'équipe gagnante ou "Match nul".</p>
+        <div class="interactive-box shadow-sm">
+          <div class="row g-3 mb-3">
+            <div class="col-md-3"><label class="form-label fw-bold">Équipe 1 :</label><input type="text" id="eq1-name" class="form-control" value="Real"></div>
+            <div class="col-md-3"><label class="form-label fw-bold">Score 1 :</label><input type="number" id="eq1-score" class="form-control" value="2"></div>
+            <div class="col-md-3"><label class="form-label fw-bold">Équipe 2 :</label><input type="text" id="eq2-name" class="form-control" value="Barça"></div>
+            <div class="col-md-3"><label class="form-label fw-bold">Score 2 :</label><input type="number" id="eq2-score" class="form-control" value="1"></div>
+          </div>
+          <button id="btn-match-result" class="btn btn-success fw-bold">Afficher Résultat du Match</button>
+          <div id="match-out" class="alert alert-success mt-3 fs-5 d-none"></div>
+        </div>
+      </section>
+
+      <!-- Exercice 15 -->
+      <section>
+        <h3>Exercice 15 – Équation du 1er degré</h3>
+        <p>Résoudre l'équation du 1er degré : <strong>$$a \cdot x + b = 0$$</strong></p>
+        <div class="interactive-box shadow-sm">
+          <div class="row g-3 mb-3">
+            <div class="col-md-6"><label class="form-label fw-bold">Coefficient a :</label><input type="number" id="eq1d-a" class="form-control" value="2"></div>
+            <div class="col-md-6"><label class="form-label fw-bold">Coefficient b :</label><input type="number" id="eq1d-b" class="form-control" value="-6"></div>
+          </div>
+          <button id="btn-calc-eq1d" class="btn btn-primary fw-bold">Résoudre l'équation</button>
+          <div id="eq1d-out" class="alert alert-info mt-3 fs-5 d-none"></div>
+        </div>
+      </section>
+
+      <!-- Exercice 16 -->
+      <section>
+        <h3>Exercice 16 – Nature d'un triangle</h3>
+        <p>Vérifier la validité des côtés et déterminer si le triangle est Équilatéral, Isocèle, Rectangle ou Quelconque.</p>
+        <div class="interactive-box shadow-sm">
+          <div class="row g-3 mb-3">
+            <div class="col-md-4"><label class="form-label fw-bold">Côté a :</label><input type="number" id="tri-a" class="form-control" value="3"></div>
+            <div class="col-md-4"><label class="form-label fw-bold">Côté b :</label><input type="number" id="tri-b" class="form-control" value="4"></div>
+            <div class="col-md-4"><label class="form-label fw-bold">Côté c :</label><input type="number" id="tri-c" class="form-control" value="5"></div>
+          </div>
+          <button id="btn-calc-tri" class="btn btn-primary fw-bold">Déterminer la Nature du Triangle</button>
+          <div id="tri-out" class="alert alert-primary mt-3 fs-5 d-none"></div>
+        </div>
+      </section>
+
+      <!-- Exercice 17 -->
+      <section>
+        <h3>Exercice 17 – Équation du 2nd degré</h3>
+        <p>Résoudre l'équation : <strong>$$a \cdot x^2 + b \cdot x + c = 0$$</strong></p>
+        <div class="interactive-box shadow-sm">
+          <div class="row g-3 mb-3">
+            <div class="col-md-4"><label class="form-label fw-bold">Coefficient a :</label><input type="number" id="eq-a" class="form-control" value="1"></div>
+            <div class="col-md-4"><label class="form-label fw-bold">Coefficient b :</label><input type="number" id="eq-b" class="form-control" value="-5"></div>
+            <div class="col-md-4"><label class="form-label fw-bold">Coefficient c :</label><input type="number" id="eq-c" class="form-control" value="6"></div>
+          </div>
+          <button id="btn-calc-eq" class="btn btn-primary fw-bold">Calculer les solutions (Δ)</button>
+          <div id="eq-out" class="mt-3"></div>
+        </div>
+      </section>
+
+      <!-- Exercice 18 -->
+      <section>
+        <h3>Exercice 18 – Les alcools</h3>
+        <p>Calcul de la masse molaire et identification du nom de l'alcool ($C_n H_{2n+2} O$).</p>
+        <div class="interactive-box shadow-sm">
+          <div class="input-group mb-3">
+            <input type="text" id="alc-formula" class="form-control" value="C2H6O" placeholder="Ex: CH4O, C2H6O, C3H8O">
+            <button id="btn-check-alcohol" class="btn btn-danger fw-bold">Identifier l'Alcool</button>
+          </div>
+          <div id="alc-out" class="alert alert-danger mb-0 fs-5 d-none"></div>
+        </div>
+      </section>
+
+      <!-- Exercice 19 -->
+      <section>
+        <h3>Exercice 19 – Intersection de deux droites</h3>
+        <p>Graphique 2D et position relative de deux droites affines ($D_1 : y = a_1 x + b_1$, $D_2 : y = a_2 x + b_2$).</p>
+        <div class="interactive-box shadow-sm">
+          <div class="row g-3 mb-3">
+            <div class="col-md-3"><label class="form-label fw-bold text-primary">Droite 1 (a1) :</label><input type="number" id="a1-val" class="form-control affine-input" value="2" step="0.5"></div>
+            <div class="col-md-3"><label class="form-label fw-bold text-primary">Droite 1 (b1) :</label><input type="number" id="b1-val" class="form-control affine-input" value="-1" step="0.5"></div>
+            <div class="col-md-3"><label class="form-label fw-bold text-danger">Droite 2 (a2) :</label><input type="number" id="a2-val" class="form-control affine-input" value="-0.5" step="0.5"></div>
+            <div class="col-md-3"><label class="form-label fw-bold text-danger">Droite 2 (b2) :</label><input type="number" id="b2-val" class="form-control affine-input" value="1.5" step="0.5"></div>
+          </div>
+          <div class="text-center">
+            <canvas id="affine-canvas" width="500" height="300" class="interactive-canvas mb-3"></canvas>
+            <div id="lines-result" class="alert alert-info fs-5"></div>
+          </div>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <footer class="bg-dark text-white p-3 text-center mt-5">
+    <div>Informatique 2e Sciences &bull; Enseignant: Mohamed Anis MANI</div>
+  </footer>
+
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/highlight.pack.js"></script>
+  <script src="assets/js/hljs.algorithm.js"></script>
+  <script src="assets/js/pages.js"></script>
+  <script src="assets/js/runner.js"></script>
+  <script src="assets/js/modules.js"></script>
+  <script src="assets/js/render_math.js"></script>
+  <script>
+    hljs.highlightAll();
+  </script>
+</body>
+
+</html>

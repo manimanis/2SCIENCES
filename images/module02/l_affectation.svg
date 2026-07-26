@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 200" width="100%" height="auto">
+  <defs>
+    <style>
+      .title { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; font-weight: bold; fill: #1e293b; }
+      .code { font-family: monospace; font-size: 15px; font-weight: bold; fill: #0f172a; }
+      .label { font-family: system-ui, -apple-system, sans-serif; font-size: 12px; font-weight: 600; fill: #475569; }
+    </style>
+    <marker id="arrow-assign" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1.5 L 10 5 L 0 8.5 z" fill="#8b5cf6"/>
+    </marker>
+  </defs>
+
+  <!-- Background container -->
+  <rect x="5" y="5" width="590" height="190" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+
+  <!-- Left: Source Value / Expression (Ex: 10 + 5 = 15) -->
+  <g transform="translate(30, 25)">
+    <rect x="0" y="0" width="180" height="120" rx="8" fill="#ffffff" stroke="#8b5cf6" stroke-width="2.5"/>
+    <path d="M 0,8 C 0,3.5 3.5,0 8,0 L 172,0 C 176.5,0 180,3.5 180,8 L 180,35 L 0,35 Z" fill="#8b5cf6"/>
+    <text x="90" y="24" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#ffffff">Valeur ou Expression</text>
+    
+    <rect x="15" y="50" width="150" height="50" rx="6" fill="#f5f3ff" stroke="#ddd6fe" stroke-width="1.5"/>
+    <text x="90" y="80" text-anchor="middle" class="code" font-size="20" fill="#6d28d9">15  (ou  a + b)</text>
+
+    <text x="90" y="145" text-anchor="middle" class="label">Donnée à affecter</text>
+  </g>
+
+  <!-- Middle Arrow: Affectation (← en Algo / = en Python) -->
+  <g transform="translate(220, 65)">
+    <line x1="10" y1="20" x2="110" y2="20" stroke="#8b5cf6" stroke-width="3.5" marker-end="url(#arrow-assign)"/>
+    <text x="60" y="-2" text-anchor="middle" class="code" font-size="18" fill="#6d28d9">←  /  =</text>
+    <text x="60" y="42" text-anchor="middle" class="label" fill="#7c3aed">Opération d'Affectation</text>
+  </g>
+
+  <!-- Right: Target Variable Box -->
+  <g transform="translate(360, 25)">
+    <!-- Variable Box -->
+    <rect x="0" y="0" width="200" height="120" rx="8" fill="#ffffff" stroke="#7c3aed" stroke-width="3"/>
+    
+    <!-- Variable Tag / Label -->
+    <path d="M 0,8 C 0,3.5 3.5,0 8,0 L 192,0 C 196.5,0 200,3.5 200,8 L 200,35 L 0,35 Z" fill="#7c3aed"/>
+    <text x="100" y="24" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#ffffff">Variable 'val' (Mémoire)</text>
+
+    <!-- Variable Content Slot -->
+    <rect x="25" y="50" width="150" height="50" rx="6" fill="#f5f3ff" stroke="#ddd6fe" stroke-width="2"/>
+    <text x="100" y="82" text-anchor="middle" class="code" font-size="24" fill="#5b21b6">15</text>
+
+    <text x="100" y="145" text-anchor="middle" class="label">Reçoit et conserve la valeur</text>
+  </g>
+</svg>

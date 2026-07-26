@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 160" width="100%" height="120">
+  <defs>
+    <linearGradient id="bg5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7" />
+      <stop offset="100%" stop-color="#0369a1" />
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="400" height="160" rx="12" fill="url(#bg5)" />
+
+  <!-- Loop Arrow Path -->
+  <path d="M 120 80 A 50 50 0 1 1 280 80 A 50 50 0 1 1 120 80" stroke="#38bdf8" stroke-width="4" stroke-dasharray="8 6" fill="none" />
+  
+  <!-- Counter Box in Center -->
+  <rect x="145" y="55" width="110" height="50" rx="8" fill="#ffffff" fill-opacity="0.95" />
+  <text x="200" y="78" fill="#0369a1" font-family="monospace" font-weight="bold" font-size="14" text-anchor="middle">for i in range</text>
+  <text x="200" y="96" fill="#0284c7" font-family="sans-serif" font-weight="bold" font-size="12" text-anchor="middle">i = 0 ➔ 1 ➔ 2...</text>
+
+  <!-- Cycle Badges -->
+  <circle cx="115" cy="80" r="14" fill="#fbbf24" />
+  <text x="115" y="85" fill="#78350f" font-family="sans-serif" font-weight="bold" font-size="12" text-anchor="middle">Vi</text>
+
+  <circle cx="285" cy="80" r="14" fill="#34d399" />
+  <text x="285" y="85" fill="#064e3b" font-family="sans-serif" font-weight="bold" font-size="12" text-anchor="middle">Vf</text>
+</svg>

@@ -1,99 +1,204 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Informatique 2e Sciences - Cours & Exercices Interactifs</title>
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/css/default.css">
   <link rel="stylesheet" href="assets/css/style.css">
-  <title>Cours Pensée Computationnelle</title>
+  <script src="assets/js/vue.min.js"></script>
 </head>
 
-<body>
-  <aside>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#aside_navbar"
-        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span> Menu
+<body class="bg-light">
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-bold text-info" href="index.html">
+        💻 2ᵉ SCIENCES - INFORMATIQUE
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="aside_navbar"></div>
-    </nav>
-  </aside>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Accueil</a></li>
+          <li class="nav-item"><a class="nav-link" href="module01.html" target="_blank" rel="noopener noreferrer">Module 1</a></li>
+          <li class="nav-item"><a class="nav-link" href="module02.html" target="_blank" rel="noopener noreferrer">Module 2</a></li>
+          <li class="nav-item"><a class="nav-link" href="module03.html" target="_blank" rel="noopener noreferrer">Module 3</a></li>
+          <li class="nav-item"><a class="nav-link" href="module04.html" target="_blank" rel="noopener noreferrer">Module 4</a></li>
+          <li class="nav-item"><a class="nav-link" href="module05.html" target="_blank" rel="noopener noreferrer">Module 5</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-  <main class="container my-3">
-    <h1>Cours Pensée Computationnelle</h1>
+  <main class="container my-4">
+    <!-- Hero Banner -->
+    <div class="hero-banner text-center py-4 px-3 mb-4">
+      <h1 class="display-6 mb-2">Informatique 2ᵉ Sciences</h1>
+      <p class="lead mb-2 text-light">Plateforme d'Apprentissage Interactive & Exercices Pratiques</p>
+      <span class="badge bg-info text-dark fs-6 px-3 py-1">Enseignant : Mohamed Anis MANI</span>
+    </div>
 
-    <article>
-      <h2>Programmation Python</h2>
+    <!-- Playground Quick Console -->
+    <div class="interactive-box shadow-sm mb-4 py-3">
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <h4 class="m-0 text-primary fs-5">⚡ Console d'Essai Rapide (Algorithmique & Python)</h4>
+        <span class="badge bg-secondary">Bac & 2e Sciences</span>
+      </div>
+      <p class="text-muted small mb-2">Saisissez un code pseudo-code ou Python et testez immédiatement son exécution.</p>
+      <div class="mb-2">
+        <textarea id="playground-code" class="form-family-monospace form-control bg-dark text-warning p-2" rows="3" placeholder="# Saisissez du code Python
+x = 15
+y = 7
+print('Somme =', x + y)"></textarea>
+      </div>
+      <div class="d-flex gap-2">
+        <button class="btn btn-sm btn-success btn-run-code" data-target="playground-code" data-output="playground-out" data-lang="python">
+          ▶ Exécuter le code
+        </button>
+      </div>
+      <div id="playground-out" class="mt-2 d-none"></div>
+    </div>
 
-      <section>
-        <h3>Cours</h3>
+    <!-- Modules Grid -->
+    <h2 class="fw-bold mb-3 border-bottom pb-2 fs-3">📚 Programme Officiel des Modules</h2>
 
-        <figure><img src="images/index/python_classic.jpg" alt="Cigle Python"></figure>
-
-
-
-        <div class="row">
-          <div class="col-md-6 col-lg-4 col-xxl-3 my-2">
-            <div class="card h-100">
-              <img src="images/module01/etapes.png" class="card-img-top border-bottom border-secondary"
-                alt="Etapes de résolution d'un problème">
-              <div class="card-body">
-                <h5 class="card-title">Introduction</h5>
-                <p class="card-text">On va découvrir l'algorithmique à l'aide de jeux faciles.</p>
-              </div>
-              <div class="d-flex justify-content-between card-body">
-                <div>
-                  <a href="module01.html" class="btn btn-primary" target="_blank"
-                    rel="noopener noreferrer">Ouvrir...</a>
-                </div>
-                <ul class="pagination">
-                  <li class="page-item disabled">
-                    <a class="page-link">QCM</a>
-                  </li>
-                  <li class="page-item"><a class="page-link" href="#" target="_blank" rel="noopener noreferrer"></a>
-                  </li>
-                </ul>
-              </div>
+    <div class="row g-4">
+      <!-- Module 1 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 card-module shadow-sm border-0">
+          <img src="images/module01_banner.svg" class="card-img-top p-2 rounded" alt="Illustration Module 01">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <span class="badge bg-primary">Module 01</span>
+              <span class="badge bg-light text-dark border">7 Exercices</span>
             </div>
+            <h4 class="card-title fw-bold">Étapes de Résolution d'un Problème</h4>
+            <p class="card-text text-muted">
+              Découvrez l'analyse (Entrées, Traitements, Sorties), l'algorithme, la traduction Python et les tests.
+            </p>
+            <ul class="small text-secondary ps-3">
+              <li>2 cordes & 3 ampoules</li>
+              <li>Calcul de somme, produit et aires</li>
+            </ul>
+          </div>
+          <div class="card-footer bg-white border-0 pt-0 pb-3">
+            <a href="module01.html" class="btn btn-sm btn-outline-primary w-100 fw-bold" target="_blank" rel="noopener noreferrer">Accéder au Module 1 ➔</a>
           </div>
         </div>
-      </section>
-    </article>
+      </div>
+
+      <!-- Module 2 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 card-module shadow-sm border-0">
+          <img src="images/module02_banner.svg" class="card-img-top p-2 rounded" alt="Illustration Module 02">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <span class="badge bg-success">Module 02</span>
+              <span class="badge bg-light text-dark border">6 Exercices</span>
+            </div>
+            <h4 class="card-title fw-bold">Les Structures Simples</h4>
+            <p class="card-text text-muted">
+              Maîtrisez la sortie (<code>print</code>), l'entrée (<code>input</code>) et l'affectation (<code>=</code>).
+            </p>
+            <ul class="small text-secondary ps-3">
+              <li>QCM d'auto-évaluation</li>
+              <li>Mots clés & variables Python</li>
+            </ul>
+          </div>
+          <div class="card-footer bg-white border-0 pt-0 pb-3">
+            <a href="module02.html" class="btn btn-sm btn-outline-success w-100 fw-bold" target="_blank" rel="noopener noreferrer">Accéder au Module 2 ➔</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Module 3 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 card-module shadow-sm border-0">
+          <img src="images/module03_banner.svg" class="card-img-top p-2 rounded" alt="Illustration Module 03">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <span class="badge bg-warning text-dark">Module 03</span>
+              <span class="badge bg-light text-dark border">14 Exercices</span>
+            </div>
+            <h4 class="card-title fw-bold">Les Structures de Données</h4>
+            <p class="card-text text-muted">
+              Types numériques, booléens, caractères (ASCII), chaînes et fonctions prédéfinies.
+            </p>
+            <ul class="small text-secondary ps-3">
+              <li>Portes logiques & Table ASCII</li>
+              <li>Mots de passe & Pseudonymes</li>
+            </ul>
+          </div>
+          <div class="card-footer bg-white border-0 pt-0 pb-3">
+            <a href="module03.html" class="btn btn-sm btn-outline-warning text-dark w-100 fw-bold" target="_blank" rel="noopener noreferrer">Accéder au Module 3 ➔</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Module 4 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 card-module shadow-sm border-0">
+          <img src="images/module04_banner.svg" class="card-img-top p-2 rounded" alt="Illustration Module 04">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <span class="badge bg-danger">Module 04</span>
+              <span class="badge bg-light text-dark border">19 Exercices</span>
+            </div>
+            <h4 class="card-title fw-bold">Les Structures Conditionnelles</h4>
+            <p class="card-text text-muted">
+              Formes réduite, alternative, généralisée et à choix multiples (<code>match/case</code>).
+            </p>
+            <ul class="small text-secondary ps-3">
+              <li>Équations 1er & 2nd degré ($\Delta$)</li>
+              <li>Droites affines (Canvas 2D)</li>
+            </ul>
+          </div>
+          <div class="card-footer bg-white border-0 pt-0 pb-3">
+            <a href="module04.html" class="btn btn-sm btn-outline-danger w-100 fw-bold" target="_blank" rel="noopener noreferrer">Accéder au Module 4 ➔</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Module 5 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 card-module shadow-sm border-0">
+          <img src="images/module05_banner.svg" class="card-img-top p-2 rounded" alt="Illustration Module 05">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <span class="badge bg-info text-dark">Module 05</span>
+              <span class="badge bg-light text-dark border">11 Exercices</span>
+            </div>
+            <h4 class="card-title fw-bold">Structure Itérative Complète</h4>
+            <p class="card-text text-muted">
+              Boucle itérative <code>Pour</code> et sa traduction Python <code>for in range(...)</code>.
+            </p>
+            <ul class="small text-secondary ps-3">
+              <li>Visualiseur <code>range()</code></li>
+              <li>Nombres Parfaits & Poly-divisibles</li>
+            </ul>
+          </div>
+          <div class="card-footer bg-white border-0 pt-0 pb-3">
+            <a href="module05.html" class="btn btn-sm btn-outline-info text-dark w-100 fw-bold" target="_blank" rel="noopener noreferrer">Accéder au Module 5 ➔</a>
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
-  <footer class="d-print-none bg-dark text-white p-2">
-    <div class="text-center">Page créée avec ♥ par Mohamed Anis MANI</div>
-    <div class="text-center small">Année scolaire : 2025/2026</div>
+
+  <footer class="bg-dark text-white p-3 mt-5">
+    <div class="container text-center">
+      <div class="mb-1">Cours Informatique 2ᵉ Sciences - Lycée</div>
+      <div class="text-secondary small">Conçu par Mohamed Anis MANI &bull; Année scolaire : 2025/2026</div>
+    </div>
   </footer>
 
-  <script src="assets/js/jquery.min.js"></script>
   <script src="assets/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/js/highlight.pack.js"></script>
-  <script src="assets/js/hljs.algorithm.js"></script>
-  <script src="assets/js/clipboard.min.js"></script>
-  <script src="assets/js/pages.js"></script>
-  <script>
-    hljs.initHighlightingOnLoad();
-
-    document.querySelectorAll('.language-algorithm,.language-python')
-      .forEach(item => {
-        const div = document.createElement('div');
-        div.className = 'bd-clipboard d-print-none';
-        const btn = document.createElement('button');
-        btn.className = 'btn-clipboard';
-        btn.textContent = "📋";
-        btn.title = "Copier";
-        div.appendChild(btn);
-        item.parentElement.insertBefore(div, item);
-      });
-    new ClipboardJS('.btn-clipboard', {
-      target: (trigger) => {
-        return trigger.parentElement.nextElementSibling;
-      }
-    });
-  </script>
+  <script src="assets/js/runner.js"></script>
 </body>
 
 </html>

@@ -1,21 +1,40 @@
 hljs.registerLanguage('algorithm', (hljs) => {
   return {
     name: 'algorithm',
-    case_insensitive: true, 
-    aliases: ['alg'],
-    lexemes : '[\\\'àéèêâäöüÄÖÜßa-zA-Z]+',
+    aliases: ['alg', 'pseudo', 'pseudocode'],
+    case_insensitive: true,
     keywords: {
-      keyword: 'algorithme retourner programme fonction procédure début ecrire écrire afficher lire si alors sinon fin tantque faire répéter jusqu\'à mod div pour de à pas non et ou ouex',
-      literal: 'faux vrai nul'
+      $pattern: /[a-zA-Z_À-ÿ']+/ ,
+      keyword: [
+        'algorithme', 'retourner', 'programme', 'fonction', 'procédure', 'procedure',
+        'début', 'debut', 'ecrire', 'écrire', 'afficher', 'lire', 'saisir',
+        'si', 'alors', 'sinon', 'fin', 'finsi', 'tantque', 'faire', 'répéter', 'repeter',
+        'jusqu\'à', 'jusqua', 'mod', 'div', 'pour', 'de', 'à', 'pas',
+        'non', 'et', 'ou', 'ouex', 'selon', 'cas', 'finselon', 'match', 'case'
+      ],
+      literal: ['faux', 'vrai', 'nul', 'true', 'false'],
+      type: ['entier', 'réel', 'reel', 'chaine', 'chaîne', 'caractère', 'caractere', 'booléen', 'booleen', 'tableau']
     },
     contains: [
       {
-        className: 'string',
-        begin: '"', end: '"'
+        scope: 'string',
+        begin: '"',
+        end: '"',
+        contains: [hljs.BACKSLASH_ESCAPE]
+      },
+      {
+        scope: 'string',
+        begin: "'",
+        end: "'",
+        contains: [hljs.BACKSLASH_ESCAPE]
       },
       hljs.C_LINE_COMMENT_MODE,
-      hljs.C_NUMBER_MODE
+      hljs.C_BLOCK_COMMENT_MODE,
+      hljs.C_NUMBER_MODE,
+      {
+        scope: 'operator',
+        begin: /←|->|<-|<=|>=|!=|=|≠|\+|-|\*|\//
+      }
     ]
   };
 });
-
