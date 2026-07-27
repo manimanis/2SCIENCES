@@ -29,7 +29,7 @@
   <main class="container my-4">
     <div class="d-flex justify-content-between align-items-center mb-3">
       <h1>Module 3 : Les structures de données</h1>
-      <a href="index.html" class="btn btn-outline-secondary">📋 Retour au sommaire</a>
+      <a href="index.html" class="btn btn-outline-secondary">&larr; Retour au sommaire</a>
     </div>
 
     <article>
@@ -537,13 +537,15 @@
           <li><strong>Chaîne</strong>.</li>
         </ul>
         <p>En <strong>Python</strong>, on dispose uniquement du type <code>str</code>.</p>
+        <img src="images/module03/diff_chaine_car.png" alt="Différence entre chaîne et caractére"
+          class="img-fluid rounded shadow-sm p-2 bg-white border" style="width: 650px;">
       </section>
 
-      <!-- 4. Le type caractére -->
+      <!-- 4. Le type caractère -->
       <section>
         <h3>a. Le type caractére</h3>
         <h5 class="text-secondary fs-6 fw-bold">i. Présentation</h5>
-        <p>Le type <strong>caractére</strong> représente <strong>un seul caractére</strong> qui peut étre :</p>
+        <p>Le type <strong>caractére</strong> représente <strong>un seul caractére</strong> qui peut être :</p>
         <ul>
           <li>Une <strong>lettre</strong> : majuscule (<code>"A"</code>, <code>"B"</code>, ??,??) ou minuscule
             (<code>"a"</code>, <code>"b"</code>, ??,??)</li>
@@ -556,8 +558,8 @@
         </ul>
 
         <h5 class="text-secondary fs-6 fw-bold mt-3">ii. Table ASCII</h5>
-        <p>Dans la mémoire de l'ordinateur, un caractére est représenté par son <strong>code ASCII</strong>
-          (<em>American Standard Code for Information Interchange</em>). Ainsi, chaque caractére posséde un code (un
+        <p>Dans la mémoire de l'ordinateur, un caractère est représenté par son <strong>code ASCII</strong>
+          (<em>American Standard Code for Information Interchange</em>). Ainsi, chaque caractère possède un code (un
           nombre) correspondant :</p>
 
         <div class="interactive-box shadow-sm mb-4">
@@ -599,7 +601,7 @@
           </div>
         </div>
 
-        <h5 class="text-secondary fs-6 fw-bold mt-3">iii. Les fonctions prédéfinies sur les caractéres</h5>
+        <h5 class="text-secondary fs-6 fw-bold mt-3">iii. Les fonctions prédéfinies sur les caractères</h5>
         <div class="table-responsive my-3 shadow-sm rounded border overflow-hidden">
           <table class="table table-hover align-middle mb-0">
             <thead class="table-dark text-center">
@@ -614,13 +616,13 @@
               <tr>
                 <td><code>ord(car)</code></td>
                 <td><code>ord(car)</code></td>
-                <td>Retourne le code ASCII du caractére car.</td>
+                <td>Retourne le code ASCII du caractère car.</td>
                 <td><code>ord("A") &rarr; 65</code></td>
               </tr>
               <tr>
                 <td><code>chr(code)</code></td>
                 <td><code>chr(code)</code></td>
-                <td>Retourne le caractére ASCII équivalent é code.</td>
+                <td>Retourne le caractère ASCII équivalent é code.</td>
                 <td><code>chr(65) &rarr; "A"</code></td>
               </tr>
               <tr>
@@ -647,7 +649,7 @@
       <section>
         <h3>b. Le type Chaîne</h3>
         <h5 class="text-secondary fs-6 fw-bold">i. Présentation</h5>
-        <p>Une Chaîne de caractéres est la succession de <strong>n caractéres ASCII</strong> ($n \ge 0$).</p>
+        <p>Une Chaîne de caractères est la succession de <strong>n caractères ASCII</strong> ($n \ge 0$).</p>
         <ul>
           <li>Si $n$ est nulle ($n = 0$), on parle d'une <strong>Chaîne vide</strong> :
             <code class="ms-2">ch &larr; ""&nbsp;&nbsp;// Chaîne vide</code>
@@ -657,7 +659,7 @@
             </div>
           </li>
 
-          <li class="mt-3">On peut accéder au $i^e$ caractére ($0 \le i &lt; n$) d'une Chaîne <code>ch</code> en
+          <li class="mt-3">On peut accéder au $i^e$ caractère ($0 \le i &lt; n$) d'une Chaîne <code>ch</code> en
             utilisant la notation : <code>ch[i]</code>
             <div class="my-3">
               <img src="images/module03/chaine_indexation.svg" alt="Schéma d'indexation de la Chaîne Youssef"
@@ -719,13 +721,13 @@
               <tr>
                 <td><code>sous_chaîne(ch, d, f)</code></td>
                 <td><code>ch[d:f]</code></td>
-                <td>Extrait de la Chaîne ch les caractéres situés entre la position d (incluse) et f (non incluse).</td>
+                <td>Extrait de la Chaîne ch les caractères situés entre la position d (incluse) et f (non incluse).</td>
                 <td><code>sous_chaîne("BAC26", 3, 5) &rarr; "26"</code></td>
               </tr>
               <tr>
                 <td><code>effacer(ch, d, f)</code></td>
                 <td><code>ch[:d] + ch[f:]</code></td>
-                <td>Efface de la Chaîne ch les caractéres situés entre la position d (incluse) et f (non incluse).</td>
+                <td>Efface de la Chaîne ch les caractères situés entre la position d (incluse) et f (non incluse).</td>
                 <td><code>effacer("BAC26", 3, 5) &rarr; "BAC"</code></td>
               </tr>
               <tr>
@@ -746,7 +748,7 @@
       <!-- Exercice 1 -->
       <section>
         <h3>Exercice 1 – Opérateurs numériques</h3>
-        <p>CompléterlCompléter le tableau ci-dessous (Expression Python équivalente, Résultat et Type) :</p>
+        <p>Compléter le tableau ci-dessous (Expression Python équivalente, Résultat et Type) :</p>
         <div class="table-responsive shadow-sm rounded border overflow-hidden my-3">
           <table class="table table-hover text-center align-middle mb-0" id="ex1-table">
             <thead style="background-color: #0f172a;" class="text-white">
@@ -1117,13 +1119,15 @@
       <!-- Exercice 3 -->
       <section>
         <h3>Exercice 3 – Exécution manuelle (Trace mémoire)</h3>
-        <p>Donner la trace d'exécution des variables <code>X</code>, <code>Y</code> et <code>Z</code> après l'exécution de chaque instruction :</p>
+        <p>Donner la trace d'exécution des variables <code>X</code>, <code>Y</code> et <code>Z</code> après l'exécution
+          de chaque instruction :</p>
         <div class="alert alert-info border-start border-info border-4 shadow-sm mb-3">
           <h6 class="fw-bold text-primary mb-2">💡 Indications :</h6>
           <ul class="mb-0 small text-dark">
             <li>Si une variable n'a pas encore été initialisée, indiquer un tiret <code>-</code> (ou laisser vide).</li>
             <li>Une variable conserve sa valeur précédente tant qu'une nouvelle affectation ne la modifie pas.</li>
-            <li>Respecter la priorité des opérateurs : <code>*</code>, <code>div</code>, et <code>mod</code> sont prioritaires sur <code>+</code> et <code>-</code>.</li>
+            <li>Respecter la priorité des opérateurs : <code>*</code>, <code>div</code>, et <code>mod</code> sont
+              prioritaires sur <code>+</code> et <code>-</code>.</li>
           </ul>
         </div>
         <div class="table-responsive shadow-sm rounded border overflow-hidden my-3">
@@ -1143,54 +1147,72 @@
               <tr data-x="10" data-y="-" data-z="-">
                 <td class="text-start small text-muted">1</td>
                 <td class="fw-semibold font-monospace text-primary text-start px-3">X &larr; 10</td>
-                <td><input type="text" class="form-control form-control-sm text-center font-monospace ex3-x" placeholder="X"></td>
-                <td><input type="text" class="form-control form-control-sm text-center font-monospace ex3-y" placeholder="Y"></td>
-                <td><input type="text" class="form-control form-control-sm text-center font-monospace ex3-z" placeholder="Z"></td>
+                <td><input type="text" class="form-control form-control-sm text-center font-monospace ex3-x"
+                    placeholder="X"></td>
+                <td><input type="text" class="form-control form-control-sm text-center font-monospace ex3-y"
+                    placeholder="Y"></td>
+                <td><input type="text" class="form-control form-control-sm text-center font-monospace ex3-z"
+                    placeholder="Z"></td>
                 <td class="ex3-status"></td>
               </tr>
               <!-- Row 2 -->
               <tr data-x="10" data-y="2" data-z="-">
                 <td class="text-start small text-muted">2</td>
                 <td class="fw-semibold font-monospace text-primary text-start px-3">Y &larr; 2</td>
-                <td><input type="text" class="form-control form-control-sm text-center font-monospace ex3-x" placeholder="X"></td>
-                <td><input type="text" class="form-control form-control-sm text-center font-monospace ex3-y" placeholder="Y"></td>
-                <td><input type="text" class="form-control form-control-sm text-center font-monospace ex3-z" placeholder="Z"></td>
+                <td><input type="text" class="form-control form-control-sm text-center font-monospace ex3-x"
+                    placeholder="X"></td>
+                <td><input type="text" class="form-control form-control-sm text-center font-monospace ex3-y"
+                    placeholder="Y"></td>
+                <td><input type="text" class="form-control form-control-sm text-center font-monospace ex3-z"
+                    placeholder="Z"></td>
                 <td class="ex3-status"></td>
               </tr>
               <!-- Row 3 -->
               <tr data-x="14" data-y="2" data-z="-">
                 <td class="text-start small text-muted">3</td>
                 <td class="fw-semibold font-monospace text-primary text-start px-3">X &larr; X + Y * 2</td>
-                <td><input type="text" class="form-control form-control-sm text-center font-monospace ex3-x" placeholder="X"></td>
-                <td><input type="text" class="form-control form-control-sm text-center font-monospace ex3-y" placeholder="Y"></td>
-                <td><input type="text" class="form-control form-control-sm text-center font-monospace ex3-z" placeholder="Z"></td>
+                <td><input type="text" class="form-control form-control-sm text-center font-monospace ex3-x"
+                    placeholder="X"></td>
+                <td><input type="text" class="form-control form-control-sm text-center font-monospace ex3-y"
+                    placeholder="Y"></td>
+                <td><input type="text" class="form-control form-control-sm text-center font-monospace ex3-z"
+                    placeholder="Z"></td>
                 <td class="ex3-status"></td>
               </tr>
               <!-- Row 4 -->
               <tr data-x="14" data-y="2" data-z="9">
                 <td class="text-start small text-muted">4</td>
                 <td class="fw-semibold font-monospace text-primary text-start px-3">Z &larr; X div 2 + Y</td>
-                <td><input type="text" class="form-control form-control-sm text-center font-monospace ex3-x" placeholder="X"></td>
-                <td><input type="text" class="form-control form-control-sm text-center font-monospace ex3-y" placeholder="Y"></td>
-                <td><input type="text" class="form-control form-control-sm text-center font-monospace ex3-z" placeholder="Z"></td>
+                <td><input type="text" class="form-control form-control-sm text-center font-monospace ex3-x"
+                    placeholder="X"></td>
+                <td><input type="text" class="form-control form-control-sm text-center font-monospace ex3-y"
+                    placeholder="Y"></td>
+                <td><input type="text" class="form-control form-control-sm text-center font-monospace ex3-z"
+                    placeholder="Z"></td>
                 <td class="ex3-status"></td>
               </tr>
               <!-- Row 5 -->
               <tr data-x="14" data-y="1" data-z="9">
                 <td class="text-start small text-muted">5</td>
                 <td class="fw-semibold font-monospace text-primary text-start px-3">Y &larr; (Z + X) mod 2</td>
-                <td><input type="text" class="form-control form-control-sm text-center font-monospace ex3-x" placeholder="X"></td>
-                <td><input type="text" class="form-control form-control-sm text-center font-monospace ex3-y" placeholder="Y"></td>
-                <td><input type="text" class="form-control form-control-sm text-center font-monospace ex3-z" placeholder="Z"></td>
+                <td><input type="text" class="form-control form-control-sm text-center font-monospace ex3-x"
+                    placeholder="X"></td>
+                <td><input type="text" class="form-control form-control-sm text-center font-monospace ex3-y"
+                    placeholder="Y"></td>
+                <td><input type="text" class="form-control form-control-sm text-center font-monospace ex3-z"
+                    placeholder="Z"></td>
                 <td class="ex3-status"></td>
               </tr>
               <!-- Row 6 -->
               <tr data-x="14" data-y="1" data-z="42">
                 <td class="text-start small text-muted">6</td>
                 <td class="fw-semibold font-monospace text-primary text-start px-3">Z &larr; X * 3 + 4 mod 2</td>
-                <td><input type="text" class="form-control form-control-sm text-center font-monospace ex3-x" placeholder="X"></td>
-                <td><input type="text" class="form-control form-control-sm text-center font-monospace ex3-y" placeholder="Y"></td>
-                <td><input type="text" class="form-control form-control-sm text-center font-monospace ex3-z" placeholder="Z"></td>
+                <td><input type="text" class="form-control form-control-sm text-center font-monospace ex3-x"
+                    placeholder="X"></td>
+                <td><input type="text" class="form-control form-control-sm text-center font-monospace ex3-y"
+                    placeholder="Y"></td>
+                <td><input type="text" class="form-control form-control-sm text-center font-monospace ex3-z"
+                    placeholder="Z"></td>
                 <td class="ex3-status"></td>
               </tr>
             </tbody>
@@ -1206,13 +1228,19 @@
       <!-- Exercice 4 -->
       <section>
         <h3>Exercice 4 – Fonction Aléa</h3>
-        <p>Compléter le tableau ci-dessous avec l'instruction Python équivalente et l'intervalle de variation de la variable X :</p>
+        <p>Compléter le tableau ci-dessous avec l'instruction Python équivalente et l'intervalle de variation de la
+          variable X :</p>
         <div class="alert alert-info border-start border-info border-4 shadow-sm mb-3">
           <h6 class="fw-bold text-primary mb-2">💡 Indications :</h6>
           <ul class="mb-0 small text-dark">
-            <li>La fonction algorithmique <code>Aléa(a, b)</code> se traduit en Python par <code>x = randint(a, b)</code> (bibliothèque <code>random</code>).</li>
-            <li>L'intervalle de variation s'obtient en déterminant les valeurs minimale et maximale possibles pour <code>X</code>.</li>
-            <li>Attention aux opérations avec un nombre négatif (ex: <code>* -2</code>) : les bornes s'inversent car la valeur min provient de la plus grande valeur d'origine.</li>
+            <li>La fonction algorithmique <code>Aléa(a, b)</code> se traduit en Python par
+              <code>x = randint(a, b)</code> (bibliothèque <code>random</code>).
+            </li>
+            <li>L'intervalle de variation s'obtient en déterminant les valeurs minimale et maximale possibles pour
+              <code>X</code>.
+            </li>
+            <li>Attention aux opérations avec un nombre négatif (ex: <code>* -2</code>) : les bornes s'inversent car la
+              valeur min provient de la plus grande valeur d'origine.</li>
           </ul>
         </div>
         <div class="table-responsive shadow-sm rounded border overflow-hidden my-3">
@@ -1230,13 +1258,17 @@
               <!-- Row 1 -->
               <tr data-py="x = randint(1, 6)" data-min="1" data-max="6">
                 <td class="text-start small text-muted">1</td>
-                <td class="bg-light fw-semibold font-monospace text-primary small text-start px-3">x &larr; Aléa(1, 6)</td>
-                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex4-py" placeholder="Python..."></td>
+                <td class="bg-light fw-semibold font-monospace text-primary small text-start px-3">x &larr; Aléa(1, 6)
+                </td>
+                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex4-py"
+                    placeholder="Python..."></td>
                 <td>
                   <div class="d-flex align-items-center justify-content-center gap-1">
-                    <input type="text" class="form-control form-control-sm text-center font-monospace ex4-min" style="width:75px;" placeholder="min">
+                    <input type="text" class="form-control form-control-sm text-center font-monospace ex4-min"
+                      style="width:75px;" placeholder="min">
                     <span class="fw-bold">&le; X &le;</span>
-                    <input type="text" class="form-control form-control-sm text-center font-monospace ex4-max" style="width:75px;" placeholder="max">
+                    <input type="text" class="form-control form-control-sm text-center font-monospace ex4-max"
+                      style="width:75px;" placeholder="max">
                   </div>
                 </td>
                 <td class="ex4-status"></td>
@@ -1244,13 +1276,17 @@
               <!-- Row 2 -->
               <tr data-py="x = randint(1, 6) * 10" data-min="10" data-max="60">
                 <td class="text-start small text-muted">2</td>
-                <td class="bg-light fw-semibold font-monospace text-primary small text-start px-3">x &larr; Aléa(1, 6) * 10</td>
-                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex4-py" placeholder="Python..."></td>
+                <td class="bg-light fw-semibold font-monospace text-primary small text-start px-3">x &larr; Aléa(1, 6) *
+                  10</td>
+                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex4-py"
+                    placeholder="Python..."></td>
                 <td>
                   <div class="d-flex align-items-center justify-content-center gap-1">
-                    <input type="text" class="form-control form-control-sm text-center font-monospace ex4-min" style="width:75px;" placeholder="min">
+                    <input type="text" class="form-control form-control-sm text-center font-monospace ex4-min"
+                      style="width:75px;" placeholder="min">
                     <span class="fw-bold">&le; X &le;</span>
-                    <input type="text" class="form-control form-control-sm text-center font-monospace ex4-max" style="width:75px;" placeholder="max">
+                    <input type="text" class="form-control form-control-sm text-center font-monospace ex4-max"
+                      style="width:75px;" placeholder="max">
                   </div>
                 </td>
                 <td class="ex4-status"></td>
@@ -1258,13 +1294,17 @@
               <!-- Row 3 -->
               <tr data-py="x = randint(1, 6) * -2" data-min="-12" data-max="-2">
                 <td class="text-start small text-muted">3</td>
-                <td class="bg-light fw-semibold font-monospace text-primary small text-start px-3">x &larr; Aléa(1, 6) * -2</td>
-                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex4-py" placeholder="Python..."></td>
+                <td class="bg-light fw-semibold font-monospace text-primary small text-start px-3">x &larr; Aléa(1, 6) *
+                  -2</td>
+                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex4-py"
+                    placeholder="Python..."></td>
                 <td>
                   <div class="d-flex align-items-center justify-content-center gap-1">
-                    <input type="text" class="form-control form-control-sm text-center font-monospace ex4-min" style="width:75px;" placeholder="min">
+                    <input type="text" class="form-control form-control-sm text-center font-monospace ex4-min"
+                      style="width:75px;" placeholder="min">
                     <span class="fw-bold">&le; X &le;</span>
-                    <input type="text" class="form-control form-control-sm text-center font-monospace ex4-max" style="width:75px;" placeholder="max">
+                    <input type="text" class="form-control form-control-sm text-center font-monospace ex4-max"
+                      style="width:75px;" placeholder="max">
                   </div>
                 </td>
                 <td class="ex4-status"></td>
@@ -1272,13 +1312,17 @@
               <!-- Row 4 -->
               <tr data-py="x = randint(1, 6) // 2" data-min="0" data-max="3">
                 <td class="text-start small text-muted">4</td>
-                <td class="bg-light fw-semibold font-monospace text-primary small text-start px-3">x &larr; Aléa(1, 6) // 2</td>
-                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex4-py" placeholder="Python..."></td>
+                <td class="bg-light fw-semibold font-monospace text-primary small text-start px-3">x &larr; Aléa(1, 6)
+                  // 2</td>
+                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex4-py"
+                    placeholder="Python..."></td>
                 <td>
                   <div class="d-flex align-items-center justify-content-center gap-1">
-                    <input type="text" class="form-control form-control-sm text-center font-monospace ex4-min" style="width:75px;" placeholder="min">
+                    <input type="text" class="form-control form-control-sm text-center font-monospace ex4-min"
+                      style="width:75px;" placeholder="min">
                     <span class="fw-bold">&le; X &le;</span>
-                    <input type="text" class="form-control form-control-sm text-center font-monospace ex4-max" style="width:75px;" placeholder="max">
+                    <input type="text" class="form-control form-control-sm text-center font-monospace ex4-max"
+                      style="width:75px;" placeholder="max">
                   </div>
                 </td>
                 <td class="ex4-status"></td>
@@ -1286,13 +1330,17 @@
               <!-- Row 5 -->
               <tr data-py="x = randint(1, 6) * randint(0, 2)" data-min="0" data-max="12">
                 <td class="text-start small text-muted">5</td>
-                <td class="bg-light fw-semibold font-monospace text-primary small text-start px-3">x &larr; Aléa(1, 6) * Aléa(0, 2)</td>
-                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex4-py" placeholder="Python..."></td>
+                <td class="bg-light fw-semibold font-monospace text-primary small text-start px-3">x &larr; Aléa(1, 6) *
+                  Aléa(0, 2)</td>
+                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex4-py"
+                    placeholder="Python..."></td>
                 <td>
                   <div class="d-flex align-items-center justify-content-center gap-1">
-                    <input type="text" class="form-control form-control-sm text-center font-monospace ex4-min" style="width:75px;" placeholder="min">
+                    <input type="text" class="form-control form-control-sm text-center font-monospace ex4-min"
+                      style="width:75px;" placeholder="min">
                     <span class="fw-bold">&le; X &le;</span>
-                    <input type="text" class="form-control form-control-sm text-center font-monospace ex4-max" style="width:75px;" placeholder="max">
+                    <input type="text" class="form-control form-control-sm text-center font-monospace ex4-max"
+                      style="width:75px;" placeholder="max">
                   </div>
                 </td>
                 <td class="ex4-status"></td>
@@ -1300,13 +1348,17 @@
               <!-- Row 6 -->
               <tr data-py="x = randint(10, 90) / randint(1, 9)" data-min="1.11" data-max="90">
                 <td class="text-start small text-muted">6</td>
-                <td class="bg-light fw-semibold font-monospace text-primary small text-start px-3">x &larr; Aléa(10, 90) / Aléa(1, 9)</td>
-                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex4-py" placeholder="Python..."></td>
+                <td class="bg-light fw-semibold font-monospace text-primary small text-start px-3">x &larr; Aléa(10, 90)
+                  / Aléa(1, 9)</td>
+                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex4-py"
+                    placeholder="Python..."></td>
                 <td>
                   <div class="d-flex align-items-center justify-content-center gap-1">
-                    <input type="text" class="form-control form-control-sm text-center font-monospace ex4-min" style="width:75px;" placeholder="min">
+                    <input type="text" class="form-control form-control-sm text-center font-monospace ex4-min"
+                      style="width:75px;" placeholder="min">
                     <span class="fw-bold">&le; X &le;</span>
-                    <input type="text" class="form-control form-control-sm text-center font-monospace ex4-max" style="width:75px;" placeholder="max">
+                    <input type="text" class="form-control form-control-sm text-center font-monospace ex4-max"
+                      style="width:75px;" placeholder="max">
                   </div>
                 </td>
                 <td class="ex4-status"></td>
@@ -1324,7 +1376,9 @@
       <!-- Exercice 5 -->
       <section>
         <h3>Exercice 5 – Concaténation de Chaînes</h3>
-        <p>Soient les variables Python : <code>ch1 = "python"</code>, <code>ch2 = "javascript"</code>, <code>ch3 = "uml"</code> et <code>ch4 = "perl"</code>.</p>
+        <p>Soient les variables Python : <code>ch1 = "python"</code>, <code>ch2 = "javascript"</code>,
+          <code>ch3 = "uml"</code> et <code>ch4 = "perl"</code>.
+        </p>
 
         <!-- Illustration des chaînes et de leurs indices -->
         <div class="card bg-dark text-white border-0 shadow-sm my-3">
@@ -1339,27 +1393,33 @@
                   <div class="fw-bold font-monospace mb-2" style="color: #38bdf8;">ch1 = "python"</div>
                   <div class="d-inline-flex gap-1 font-monospace justify-content-center">
                     <div class="d-flex flex-column align-items-center">
-                      <span class="badge bg-dark text-light font-monospace small px-1 mb-1" style="font-size:0.65rem;">0</span>
+                      <span class="badge bg-dark text-light font-monospace small px-1 mb-1"
+                        style="font-size:0.65rem;">0</span>
                       <span class="badge bg-info text-dark font-monospace fs-6 px-2 py-1">p</span>
                     </div>
                     <div class="d-flex flex-column align-items-center">
-                      <span class="badge bg-dark text-light font-monospace small px-1 mb-1" style="font-size:0.65rem;">1</span>
+                      <span class="badge bg-dark text-light font-monospace small px-1 mb-1"
+                        style="font-size:0.65rem;">1</span>
                       <span class="badge bg-info text-dark font-monospace fs-6 px-2 py-1">y</span>
                     </div>
                     <div class="d-flex flex-column align-items-center">
-                      <span class="badge bg-dark text-light font-monospace small px-1 mb-1" style="font-size:0.65rem;">2</span>
+                      <span class="badge bg-dark text-light font-monospace small px-1 mb-1"
+                        style="font-size:0.65rem;">2</span>
                       <span class="badge bg-info text-dark font-monospace fs-6 px-2 py-1">t</span>
                     </div>
                     <div class="d-flex flex-column align-items-center">
-                      <span class="badge bg-dark text-light font-monospace small px-1 mb-1" style="font-size:0.65rem;">3</span>
+                      <span class="badge bg-dark text-light font-monospace small px-1 mb-1"
+                        style="font-size:0.65rem;">3</span>
                       <span class="badge bg-info text-dark font-monospace fs-6 px-2 py-1">h</span>
                     </div>
                     <div class="d-flex flex-column align-items-center">
-                      <span class="badge bg-dark text-light font-monospace small px-1 mb-1" style="font-size:0.65rem;">4</span>
+                      <span class="badge bg-dark text-light font-monospace small px-1 mb-1"
+                        style="font-size:0.65rem;">4</span>
                       <span class="badge bg-info text-dark font-monospace fs-6 px-2 py-1">o</span>
                     </div>
                     <div class="d-flex flex-column align-items-center">
-                      <span class="badge bg-dark text-light font-monospace small px-1 mb-1" style="font-size:0.65rem;">5</span>
+                      <span class="badge bg-dark text-light font-monospace small px-1 mb-1"
+                        style="font-size:0.65rem;">5</span>
                       <span class="badge bg-info text-dark font-monospace fs-6 px-2 py-1">n</span>
                     </div>
                   </div>
@@ -1372,44 +1432,64 @@
                   <div class="fw-bold font-monospace mb-2" style="color: #4ade80;">ch2 = "javascript"</div>
                   <div class="d-inline-flex gap-1 font-monospace flex-wrap justify-content-center">
                     <div class="d-flex flex-column align-items-center">
-                      <span class="badge bg-dark text-light font-monospace small px-1 mb-1" style="font-size:0.65rem;">0</span>
-                      <span class="badge text-dark font-monospace fs-6 px-2 py-1" style="background-color: #4ade80;">j</span>
+                      <span class="badge bg-dark text-light font-monospace small px-1 mb-1"
+                        style="font-size:0.65rem;">0</span>
+                      <span class="badge text-dark font-monospace fs-6 px-2 py-1"
+                        style="background-color: #4ade80;">j</span>
                     </div>
                     <div class="d-flex flex-column align-items-center">
-                      <span class="badge bg-dark text-light font-monospace small px-1 mb-1" style="font-size:0.65rem;">1</span>
-                      <span class="badge text-dark font-monospace fs-6 px-2 py-1" style="background-color: #4ade80;">a</span>
+                      <span class="badge bg-dark text-light font-monospace small px-1 mb-1"
+                        style="font-size:0.65rem;">1</span>
+                      <span class="badge text-dark font-monospace fs-6 px-2 py-1"
+                        style="background-color: #4ade80;">a</span>
                     </div>
                     <div class="d-flex flex-column align-items-center">
-                      <span class="badge bg-dark text-light font-monospace small px-1 mb-1" style="font-size:0.65rem;">2</span>
-                      <span class="badge text-dark font-monospace fs-6 px-2 py-1" style="background-color: #4ade80;">v</span>
+                      <span class="badge bg-dark text-light font-monospace small px-1 mb-1"
+                        style="font-size:0.65rem;">2</span>
+                      <span class="badge text-dark font-monospace fs-6 px-2 py-1"
+                        style="background-color: #4ade80;">v</span>
                     </div>
                     <div class="d-flex flex-column align-items-center">
-                      <span class="badge bg-dark text-light font-monospace small px-1 mb-1" style="font-size:0.65rem;">3</span>
-                      <span class="badge text-dark font-monospace fs-6 px-2 py-1" style="background-color: #4ade80;">a</span>
+                      <span class="badge bg-dark text-light font-monospace small px-1 mb-1"
+                        style="font-size:0.65rem;">3</span>
+                      <span class="badge text-dark font-monospace fs-6 px-2 py-1"
+                        style="background-color: #4ade80;">a</span>
                     </div>
                     <div class="d-flex flex-column align-items-center">
-                      <span class="badge bg-dark text-light font-monospace small px-1 mb-1" style="font-size:0.65rem;">4</span>
-                      <span class="badge text-dark font-monospace fs-6 px-2 py-1" style="background-color: #4ade80;">s</span>
+                      <span class="badge bg-dark text-light font-monospace small px-1 mb-1"
+                        style="font-size:0.65rem;">4</span>
+                      <span class="badge text-dark font-monospace fs-6 px-2 py-1"
+                        style="background-color: #4ade80;">s</span>
                     </div>
                     <div class="d-flex flex-column align-items-center">
-                      <span class="badge bg-dark text-light font-monospace small px-1 mb-1" style="font-size:0.65rem;">5</span>
-                      <span class="badge text-dark font-monospace fs-6 px-2 py-1" style="background-color: #4ade80;">c</span>
+                      <span class="badge bg-dark text-light font-monospace small px-1 mb-1"
+                        style="font-size:0.65rem;">5</span>
+                      <span class="badge text-dark font-monospace fs-6 px-2 py-1"
+                        style="background-color: #4ade80;">c</span>
                     </div>
                     <div class="d-flex flex-column align-items-center">
-                      <span class="badge bg-dark text-light font-monospace small px-1 mb-1" style="font-size:0.65rem;">6</span>
-                      <span class="badge text-dark font-monospace fs-6 px-2 py-1" style="background-color: #4ade80;">r</span>
+                      <span class="badge bg-dark text-light font-monospace small px-1 mb-1"
+                        style="font-size:0.65rem;">6</span>
+                      <span class="badge text-dark font-monospace fs-6 px-2 py-1"
+                        style="background-color: #4ade80;">r</span>
                     </div>
                     <div class="d-flex flex-column align-items-center">
-                      <span class="badge bg-dark text-light font-monospace small px-1 mb-1" style="font-size:0.65rem;">7</span>
-                      <span class="badge text-dark font-monospace fs-6 px-2 py-1" style="background-color: #4ade80;">i</span>
+                      <span class="badge bg-dark text-light font-monospace small px-1 mb-1"
+                        style="font-size:0.65rem;">7</span>
+                      <span class="badge text-dark font-monospace fs-6 px-2 py-1"
+                        style="background-color: #4ade80;">i</span>
                     </div>
                     <div class="d-flex flex-column align-items-center">
-                      <span class="badge bg-dark text-light font-monospace small px-1 mb-1" style="font-size:0.65rem;">8</span>
-                      <span class="badge text-dark font-monospace fs-6 px-2 py-1" style="background-color: #4ade80;">p</span>
+                      <span class="badge bg-dark text-light font-monospace small px-1 mb-1"
+                        style="font-size:0.65rem;">8</span>
+                      <span class="badge text-dark font-monospace fs-6 px-2 py-1"
+                        style="background-color: #4ade80;">p</span>
                     </div>
                     <div class="d-flex flex-column align-items-center">
-                      <span class="badge bg-dark text-light font-monospace small px-1 mb-1" style="font-size:0.65rem;">9</span>
-                      <span class="badge text-dark font-monospace fs-6 px-2 py-1" style="background-color: #4ade80;">t</span>
+                      <span class="badge bg-dark text-light font-monospace small px-1 mb-1"
+                        style="font-size:0.65rem;">9</span>
+                      <span class="badge text-dark font-monospace fs-6 px-2 py-1"
+                        style="background-color: #4ade80;">t</span>
                     </div>
                   </div>
                 </div>
@@ -1421,15 +1501,18 @@
                   <div class="fw-bold font-monospace mb-2" style="color: #fbbf24;">ch3 = "uml"</div>
                   <div class="d-inline-flex gap-1 font-monospace justify-content-center">
                     <div class="d-flex flex-column align-items-center">
-                      <span class="badge bg-dark text-light font-monospace small px-1 mb-1" style="font-size:0.65rem;">0</span>
+                      <span class="badge bg-dark text-light font-monospace small px-1 mb-1"
+                        style="font-size:0.65rem;">0</span>
                       <span class="badge bg-warning text-dark font-monospace fs-6 px-2 py-1">u</span>
                     </div>
                     <div class="d-flex flex-column align-items-center">
-                      <span class="badge bg-dark text-light font-monospace small px-1 mb-1" style="font-size:0.65rem;">1</span>
+                      <span class="badge bg-dark text-light font-monospace small px-1 mb-1"
+                        style="font-size:0.65rem;">1</span>
                       <span class="badge bg-warning text-dark font-monospace fs-6 px-2 py-1">m</span>
                     </div>
                     <div class="d-flex flex-column align-items-center">
-                      <span class="badge bg-dark text-light font-monospace small px-1 mb-1" style="font-size:0.65rem;">2</span>
+                      <span class="badge bg-dark text-light font-monospace small px-1 mb-1"
+                        style="font-size:0.65rem;">2</span>
                       <span class="badge bg-warning text-dark font-monospace fs-6 px-2 py-1">l</span>
                     </div>
                   </div>
@@ -1442,20 +1525,28 @@
                   <div class="fw-bold font-monospace mb-2" style="color: #f87171;">ch4 = "perl"</div>
                   <div class="d-inline-flex gap-1 font-monospace justify-content-center">
                     <div class="d-flex flex-column align-items-center">
-                      <span class="badge bg-dark text-light font-monospace small px-1 mb-1" style="font-size:0.65rem;">0</span>
-                      <span class="badge text-white font-monospace fs-6 px-2 py-1" style="background-color: #ef4444;">p</span>
+                      <span class="badge bg-dark text-light font-monospace small px-1 mb-1"
+                        style="font-size:0.65rem;">0</span>
+                      <span class="badge text-white font-monospace fs-6 px-2 py-1"
+                        style="background-color: #ef4444;">p</span>
                     </div>
                     <div class="d-flex flex-column align-items-center">
-                      <span class="badge bg-dark text-light font-monospace small px-1 mb-1" style="font-size:0.65rem;">1</span>
-                      <span class="badge text-white font-monospace fs-6 px-2 py-1" style="background-color: #ef4444;">e</span>
+                      <span class="badge bg-dark text-light font-monospace small px-1 mb-1"
+                        style="font-size:0.65rem;">1</span>
+                      <span class="badge text-white font-monospace fs-6 px-2 py-1"
+                        style="background-color: #ef4444;">e</span>
                     </div>
                     <div class="d-flex flex-column align-items-center">
-                      <span class="badge bg-dark text-light font-monospace small px-1 mb-1" style="font-size:0.65rem;">2</span>
-                      <span class="badge text-white font-monospace fs-6 px-2 py-1" style="background-color: #ef4444;">r</span>
+                      <span class="badge bg-dark text-light font-monospace small px-1 mb-1"
+                        style="font-size:0.65rem;">2</span>
+                      <span class="badge text-white font-monospace fs-6 px-2 py-1"
+                        style="background-color: #ef4444;">r</span>
                     </div>
                     <div class="d-flex flex-column align-items-center">
-                      <span class="badge bg-dark text-light font-monospace small px-1 mb-1" style="font-size:0.65rem;">3</span>
-                      <span class="badge text-white font-monospace fs-6 px-2 py-1" style="background-color: #ef4444;">l</span>
+                      <span class="badge bg-dark text-light font-monospace small px-1 mb-1"
+                        style="font-size:0.65rem;">3</span>
+                      <span class="badge text-white font-monospace fs-6 px-2 py-1"
+                        style="background-color: #ef4444;">l</span>
                     </div>
                   </div>
                 </div>
@@ -1470,24 +1561,35 @@
           <h6 class="fw-bold text-primary mb-2">💡 Indices de résolution pour les expressions complexes :</h6>
           <ul class="mb-0 small text-dark space-y-1">
             <li class="mb-2">
-              <strong>Expression 4 :</strong> <code>ch2[9].upper()</code> donne <code>'T'</code>, <code>ch1[2].upper()</code> donne <code>'T'</code>. Assembler dans l'ordre avec les lettres <code>ch2[7]</code> ('i'), <code>ch2[8]</code> ('p'), <code>ch1[4]</code> ('o'), <code>ch1[0]</code> ('p').
+              <strong>Expression 4 :</strong> <code>ch2[9].upper()</code> donne <code>'T'</code>,
+              <code>ch1[2].upper()</code> donne <code>'T'</code>. Assembler dans l'ordre avec les lettres
+              <code>ch2[7]</code> ('i'), <code>ch2[8]</code> ('p'), <code>ch1[4]</code> ('o'), <code>ch1[0]</code>
+              ('p').
             </li>
             <li class="mb-2">
-              <strong>Expression 5 :</strong> 
-              <code>len(ch1) - len(ch4) = 6 - 4 = 2</code> &rarr; <code>str(2) = "2"</code>. 
-              Pour le terme <code>chr(ord(ch1[3]) - 3)</code> : <code>ch1[3]</code> est <code>'h'</code> (code ASCII 104), et $104 - 3 = 101$ qui correspond au caractère <code>'e'</code>.
+              <strong>Expression 5 :</strong>
+              <code>len(ch1) - len(ch4) = 6 - 4 = 2</code> &rarr; <code>str(2) = "2"</code>.
+              Pour le terme <code>chr(ord(ch1[3]) - 3)</code> : <code>ch1[3]</code> est <code>'h'</code> (code ASCII
+              104), et $104 - 3 = 101$ qui correspond au caractère <code>'e'</code>.
             </li>
             <li>
-              <strong>Expression 6 :</strong> Évaluer les longueurs : <code>len(ch3) = 3</code> et <code>len(ch4) = 4</code>.
+              <strong>Expression 6 :</strong> Évaluer les longueurs : <code>len(ch3) = 3</code> et
+              <code>len(ch4) = 4</code>.
               <ul class="mt-1 mb-0 ps-3">
-                <li><code>ch3[len(ch3)-1]</code> &rarr; <code>ch3[2]</code> = <code>'l'</code> &bull; <code>ch2[len(ch3)]</code> &rarr; <code>ch2[3]</code> = <code>'a'</code> &bull; <code>ch4[len(ch4)-2]</code> &rarr; <code>ch4[2]</code> = <code>'r'</code></li>
-                <li><code>ch3[3 // 2]</code> &rarr; <code>ch3[1]</code> = <code>'m'</code> &bull; <code>ch4[4 - 3]</code> &rarr; <code>ch4[1]</code> = <code>'e'</code>.</li>
+                <li><code>ch3[len(ch3)-1]</code> &rarr; <code>ch3[2]</code> = <code>'l'</code> &bull;
+                  <code>ch2[len(ch3)]</code> &rarr; <code>ch2[3]</code> = <code>'a'</code> &bull;
+                  <code>ch4[len(ch4)-2]</code> &rarr; <code>ch4[2]</code> = <code>'r'</code>
+                </li>
+                <li><code>ch3[3 // 2]</code> &rarr; <code>ch3[1]</code> = <code>'m'</code> &bull;
+                  <code>ch4[4 - 3]</code> &rarr; <code>ch4[1]</code> = <code>'e'</code>.
+                </li>
               </ul>
             </li>
           </ul>
         </div>
 
-        <p>Remplir le tableau ci-dessous par l'affichage de chacune des instructions (résultat sans les guillemets) :</p>
+        <p>Remplir le tableau ci-dessous par l'affichage de chacune des instructions (résultat sans les guillemets) :
+        </p>
         <div class="table-responsive shadow-sm rounded border overflow-hidden my-3">
           <table class="table table-hover text-center align-middle mb-0" id="ex5-table">
             <thead style="background-color: #0f172a;" class="text-white">
@@ -1503,42 +1605,52 @@
               <tr data-res="p">
                 <td class="text-start small text-muted">1</td>
                 <td class="bg-light fw-semibold font-monospace text-primary text-start px-3">print(ch1[0])</td>
-                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex5-res" placeholder="Résultat..."></td>
+                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex5-res"
+                    placeholder="Résultat..."></td>
                 <td class="ex5-status"></td>
               </tr>
               <!-- Row 2 -->
               <tr data-res="JAVASCRIPT">
                 <td class="text-start small text-muted">2</td>
                 <td class="bg-light fw-semibold font-monospace text-primary text-start px-3">print(ch2.upper())</td>
-                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex5-res" placeholder="Résultat..."></td>
+                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex5-res"
+                    placeholder="Résultat..."></td>
                 <td class="ex5-status"></td>
               </tr>
               <!-- Row 3 -->
               <tr data-res="puce">
                 <td class="text-start small text-muted">3</td>
-                <td class="bg-light fw-semibold font-monospace text-primary text-start px-3">print(ch1[0] + ch3[0] + ch2[5] + ch4[1])</td>
-                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex5-res" placeholder="Résultat..."></td>
+                <td class="bg-light fw-semibold font-monospace text-primary text-start px-3">print(ch1[0] + ch3[0] +
+                  ch2[5] + ch4[1])</td>
+                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex5-res"
+                    placeholder="Résultat..."></td>
                 <td class="ex5-status"></td>
               </tr>
               <!-- Row 4 -->
               <tr data-res="TipTop">
                 <td class="text-start small text-muted">4</td>
-                <td class="bg-light fw-semibold font-monospace text-primary text-start px-3">print(ch2[9].upper() + ch2[7] + ch2[8] + ch1[2].upper() + ch1[4] + ch1[0])</td>
-                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex5-res" placeholder="Résultat..."></td>
+                <td class="bg-light fw-semibold font-monospace text-primary text-start px-3">print(ch2[9].upper() +
+                  ch2[7] + ch2[8] + ch1[2].upper() + ch1[4] + ch1[0])</td>
+                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex5-res"
+                    placeholder="Résultat..."></td>
                 <td class="ex5-status"></td>
               </tr>
               <!-- Row 5 -->
               <tr data-res="2e scien">
                 <td class="text-start small text-muted">5</td>
-                <td class="bg-light fw-semibold font-monospace text-primary text-start px-3">print(str(len(ch1) - len(ch4)) + ch4[1] + " " + ch2[4] + ch2[5] + ch2[7] + chr(ord(ch1[3]) - 3) + ch1[5])</td>
-                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex5-res" placeholder="Résultat..."></td>
+                <td class="bg-light fw-semibold font-monospace text-primary text-start px-3">print(str(len(ch1) -
+                  len(ch4)) + ch4[1] + " " + ch2[4] + ch2[5] + ch2[7] + chr(ord(ch1[3]) - 3) + ch1[5])</td>
+                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex5-res"
+                    placeholder="Résultat..."></td>
                 <td class="ex5-status"></td>
               </tr>
               <!-- Row 6 -->
               <tr data-res="larme">
                 <td class="text-start small text-muted">6</td>
-                <td class="bg-light fw-semibold font-monospace text-primary text-start px-3">print(ch3[len(ch3) - 1] + ch2[len(ch3)] + ch4[len(ch4) - 2] + ch3[len(ch3) // 2] + ch4[len(ch4) - len(ch3)])</td>
-                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex5-res" placeholder="Résultat..."></td>
+                <td class="bg-light fw-semibold font-monospace text-primary text-start px-3">print(ch3[len(ch3) - 1] +
+                  ch2[len(ch3)] + ch4[len(ch4) - 2] + ch3[len(ch3) // 2] + ch4[len(ch4) - len(ch3)])</td>
+                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex5-res"
+                    placeholder="Résultat..."></td>
                 <td class="ex5-status"></td>
               </tr>
             </tbody>
@@ -1554,16 +1666,184 @@
       <!-- Exercice 6 -->
       <section>
         <h3>Exercice 6 – Manipulation de Chaînes</h3>
-        <p>Soient les variables : <code>ch1 = "Algorithmique"</code>, <code>ch2 = "Python"</code>, et <code>ch3 = "4502"</code>.</p>
+        <p>Soient les variables : <code>ch1 = "Algorithmique"</code>, <code>ch2 = "Python"</code>, et
+          <code>ch3 = "4502"</code>.
+        </p>
+
+        <!-- Illustration des chaînes et de leurs indices -->
+        <div class="card bg-dark text-white border-0 shadow-sm my-3">
+          <div class="card-header bg-primary text-white fw-bold py-2">
+            📊 Représentation visuelle des chaînes et des indices de leurs caractères (0 à n-1)
+          </div>
+          <div class="card-body p-3">
+            <div class="row g-3">
+              <!-- ch1 -->
+              <div class="col-12 col-lg-6">
+                <div class="p-2 rounded bg-secondary bg-opacity-25 border border-secondary text-center">
+                  <div class="fw-bold font-monospace mb-2" style="color: #38bdf8;">ch1 = "Algorithmique"</div>
+                  <div class="d-inline-flex gap-1 font-monospace flex-wrap justify-content-center">
+                    <div class="d-flex flex-column align-items-center">
+                      <span class="badge bg-dark text-light font-monospace small px-1 mb-1"
+                        style="font-size:0.65rem;">0</span>
+                      <span class="badge bg-info text-dark font-monospace fs-6 px-2 py-1">A</span>
+                    </div>
+                    <div class="d-flex flex-column align-items-center">
+                      <span class="badge bg-dark text-light font-monospace small px-1 mb-1"
+                        style="font-size:0.65rem;">1</span>
+                      <span class="badge bg-info text-dark font-monospace fs-6 px-2 py-1">l</span>
+                    </div>
+                    <div class="d-flex flex-column align-items-center">
+                      <span class="badge bg-dark text-light font-monospace small px-1 mb-1"
+                        style="font-size:0.65rem;">2</span>
+                      <span class="badge bg-info text-dark font-monospace fs-6 px-2 py-1">g</span>
+                    </div>
+                    <div class="d-flex flex-column align-items-center">
+                      <span class="badge bg-dark text-light font-monospace small px-1 mb-1"
+                        style="font-size:0.65rem;">3</span>
+                      <span class="badge bg-info text-dark font-monospace fs-6 px-2 py-1">o</span>
+                    </div>
+                    <div class="d-flex flex-column align-items-center">
+                      <span class="badge bg-dark text-light font-monospace small px-1 mb-1"
+                        style="font-size:0.65rem;">4</span>
+                      <span class="badge bg-info text-dark font-monospace fs-6 px-2 py-1">r</span>
+                    </div>
+                    <div class="d-flex flex-column align-items-center">
+                      <span class="badge bg-dark text-light font-monospace small px-1 mb-1"
+                        style="font-size:0.65rem;">5</span>
+                      <span class="badge bg-info text-dark font-monospace fs-6 px-2 py-1">i</span>
+                    </div>
+                    <div class="d-flex flex-column align-items-center">
+                      <span class="badge bg-dark text-light font-monospace small px-1 mb-1"
+                        style="font-size:0.65rem;">6</span>
+                      <span class="badge bg-info text-dark font-monospace fs-6 px-2 py-1">t</span>
+                    </div>
+                    <div class="d-flex flex-column align-items-center">
+                      <span class="badge bg-dark text-light font-monospace small px-1 mb-1"
+                        style="font-size:0.65rem;">7</span>
+                      <span class="badge bg-info text-dark font-monospace fs-6 px-2 py-1">h</span>
+                    </div>
+                    <div class="d-flex flex-column align-items-center">
+                      <span class="badge bg-dark text-light font-monospace small px-1 mb-1"
+                        style="font-size:0.65rem;">8</span>
+                      <span class="badge bg-info text-dark font-monospace fs-6 px-2 py-1">m</span>
+                    </div>
+                    <div class="d-flex flex-column align-items-center">
+                      <span class="badge bg-dark text-light font-monospace small px-1 mb-1"
+                        style="font-size:0.65rem;">9</span>
+                      <span class="badge bg-info text-dark font-monospace fs-6 px-2 py-1">i</span>
+                    </div>
+                    <div class="d-flex flex-column align-items-center">
+                      <span class="badge bg-dark text-light font-monospace small px-1 mb-1"
+                        style="font-size:0.65rem;">10</span>
+                      <span class="badge bg-info text-dark font-monospace fs-6 px-2 py-1">q</span>
+                    </div>
+                    <div class="d-flex flex-column align-items-center">
+                      <span class="badge bg-dark text-light font-monospace small px-1 mb-1"
+                        style="font-size:0.65rem;">11</span>
+                      <span class="badge bg-info text-dark font-monospace fs-6 px-2 py-1">u</span>
+                    </div>
+                    <div class="d-flex flex-column align-items-center">
+                      <span class="badge bg-dark text-light font-monospace small px-1 mb-1"
+                        style="font-size:0.65rem;">12</span>
+                      <span class="badge bg-info text-dark font-monospace fs-6 px-2 py-1">e</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ch2 -->
+              <div class="col-md-6 col-lg-3">
+                <div class="p-2 rounded bg-secondary bg-opacity-25 border border-secondary text-center">
+                  <div class="fw-bold font-monospace mb-2" style="color: #4ade80;">ch2 = "Python"</div>
+                  <div class="d-inline-flex gap-1 font-monospace flex-wrap justify-content-center">
+                    <div class="d-flex flex-column align-items-center">
+                      <span class="badge bg-dark text-light font-monospace small px-1 mb-1"
+                        style="font-size:0.65rem;">0</span>
+                      <span class="badge text-dark font-monospace fs-6 px-2 py-1"
+                        style="background-color: #4ade80;">P</span>
+                    </div>
+                    <div class="d-flex flex-column align-items-center">
+                      <span class="badge bg-dark text-light font-monospace small px-1 mb-1"
+                        style="font-size:0.65rem;">1</span>
+                      <span class="badge text-dark font-monospace fs-6 px-2 py-1"
+                        style="background-color: #4ade80;">y</span>
+                    </div>
+                    <div class="d-flex flex-column align-items-center">
+                      <span class="badge bg-dark text-light font-monospace small px-1 mb-1"
+                        style="font-size:0.65rem;">2</span>
+                      <span class="badge text-dark font-monospace fs-6 px-2 py-1"
+                        style="background-color: #4ade80;">t</span>
+                    </div>
+                    <div class="d-flex flex-column align-items-center">
+                      <span class="badge bg-dark text-light font-monospace small px-1 mb-1"
+                        style="font-size:0.65rem;">3</span>
+                      <span class="badge text-dark font-monospace fs-6 px-2 py-1"
+                        style="background-color: #4ade80;">h</span>
+                    </div>
+                    <div class="d-flex flex-column align-items-center">
+                      <span class="badge bg-dark text-light font-monospace small px-1 mb-1"
+                        style="font-size:0.65rem;">4</span>
+                      <span class="badge text-dark font-monospace fs-6 px-2 py-1"
+                        style="background-color: #4ade80;">o</span>
+                    </div>
+                    <div class="d-flex flex-column align-items-center">
+                      <span class="badge bg-dark text-light font-monospace small px-1 mb-1"
+                        style="font-size:0.65rem;">5</span>
+                      <span class="badge text-dark font-monospace fs-6 px-2 py-1"
+                        style="background-color: #4ade80;">n</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ch3 -->
+              <div class="col-md-6 col-lg-3">
+                <div class="p-2 rounded bg-secondary bg-opacity-25 border border-secondary text-center">
+                  <div class="fw-bold font-monospace mb-2" style="color: #fbbf24;">ch3 = "4502"</div>
+                  <div class="d-inline-flex gap-1 font-monospace flex-wrap justify-content-center">
+                    <div class="d-flex flex-column align-items-center">
+                      <span class="badge bg-dark text-light font-monospace small px-1 mb-1"
+                        style="font-size:0.65rem;">0</span>
+                      <span class="badge bg-warning text-dark font-monospace fs-6 px-2 py-1">4</span>
+                    </div>
+                    <div class="d-flex flex-column align-items-center">
+                      <span class="badge bg-dark text-light font-monospace small px-1 mb-1"
+                        style="font-size:0.65rem;">1</span>
+                      <span class="badge bg-warning text-dark font-monospace fs-6 px-2 py-1">5</span>
+                    </div>
+                    <div class="d-flex flex-column align-items-center">
+                      <span class="badge bg-dark text-light font-monospace small px-1 mb-1"
+                        style="font-size:0.65rem;">2</span>
+                      <span class="badge bg-warning text-dark font-monospace fs-6 px-2 py-1">0</span>
+                    </div>
+                    <div class="d-flex flex-column align-items-center">
+                      <span class="badge bg-dark text-light font-monospace small px-1 mb-1"
+                        style="font-size:0.65rem;">3</span>
+                      <span class="badge bg-warning text-dark font-monospace fs-6 px-2 py-1">2</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
         <p>Compléter le tableau ci-dessous en évaluant chaque instruction :</p>
-        
+
         <div class="alert alert-info border-start border-info border-4 shadow-sm my-3">
           <h6 class="fw-bold text-primary mb-2">💡 Indications :</h6>
           <ul class="mb-0 small text-dark">
-            <li><code>sous_chaine(ch, d, f)</code> en Algorithme équivaut au découpage <code>ch[d:f]</code> en Python.</li>
-            <li><code>Effacer(ch, d, f)</code> supprime les caractères de l'indice <code>d</code> à <code>f</code> (ex: <code>Effacer(F, 0, 2)</code> supprime les 2 premiers caractères &rarr; <code>F[2:]</code>).</li>
-            <li><code>ch1.find(sub)</code> retourne l'indice de la 1ère occurrence de <code>sub</code>, ou <code>-1</code> si la sous-chaîne n'est pas trouvée.</li>
-            <li>En Python, <code>isdecimal()</code> retourne <code>True</code> (évalué comme <code>1</code> dans un calcul) ou <code>False</code> (évalué comme <code>0</code>).</li>
+            <li><code>sous_chaine(ch, d, f)</code> en Algorithme équivaut au découpage <code>ch[d:f]</code> en Python.
+            </li>
+            <li><code>Effacer(ch, d, f)</code> supprime les caractères de l'indice <code>d</code> à <code>f</code> (ex:
+              <code>Effacer(F, 0, 2)</code> supprime les 2 premiers caractères &rarr; <code>F[2:]</code>).
+            </li>
+            <li><code>ch1.find(sub)</code> retourne l'indice de la 1ère occurrence de <code>sub</code>, ou
+              <code>-1</code> si la sous-chaîne n'est pas trouvée.
+            </li>
+            <li>En Python, <code>isdecimal()</code> retourne <code>True</code> (évalué comme <code>1</code> dans un
+              calcul) ou <code>False</code> (évalué comme <code>0</code>).</li>
           </ul>
         </div>
 
@@ -1583,9 +1863,12 @@
               <!-- Row 1 -->
               <tr data-py="A = len(ch1) ; B = len(ch2)" data-res="A = 13, B = 6" data-type="int">
                 <td class="text-start small text-muted">1</td>
-                <td class="bg-light fw-semibold font-monospace text-primary text-start px-2 small">A &larr; Long(ch1)<br>B &larr; Long(ch2)</td>
-                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex6-py" placeholder="A = len(ch1)..."></td>
-                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex6-res" placeholder="A=13, B=6"></td>
+                <td class="bg-light fw-semibold font-monospace text-primary text-start px-2 small">A &larr;
+                  Long(ch1)<br>B &larr; Long(ch2)</td>
+                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex6-py"
+                    placeholder="A = len(ch1)..."></td>
+                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex6-res"
+                    placeholder="A=13, B=6"></td>
                 <td>
                   <select class="form-select form-select-sm text-center ex6-type">
                     <option value="">-- type --</option>
@@ -1600,9 +1883,12 @@
               <!-- Row 2 -->
               <tr data-py="C = str(A) + str(B)" data-res="136" data-type="str">
                 <td class="text-start small text-muted">2</td>
-                <td class="bg-light fw-semibold font-monospace text-primary text-start px-2 small">C &larr; ConvCh(A) + ConvCh(B)</td>
-                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex6-py" placeholder="Python..."></td>
-                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex6-res" placeholder="?"></td>
+                <td class="bg-light fw-semibold font-monospace text-primary text-start px-2 small">C &larr; ConvCh(A) +
+                  ConvCh(B)</td>
+                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex6-py"
+                    placeholder="Python..."></td>
+                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex6-res"
+                    placeholder="?"></td>
                 <td>
                   <select class="form-select form-select-sm text-center ex6-type">
                     <option value="">-- type --</option>
@@ -1617,9 +1903,12 @@
               <!-- Row 3 -->
               <tr data-py="D = int(str(B) + str(A))" data-res="613" data-type="int">
                 <td class="text-start small text-muted">3</td>
-                <td class="bg-light fw-semibold font-monospace text-primary text-start px-2 small">D &larr; Valeur(ConvCh(B) + ConvCh(A))</td>
-                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex6-py" placeholder="Python..."></td>
-                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex6-res" placeholder="?"></td>
+                <td class="bg-light fw-semibold font-monospace text-primary text-start px-2 small">D &larr;
+                  Valeur(ConvCh(B) + ConvCh(A))</td>
+                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex6-py"
+                    placeholder="Python..."></td>
+                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex6-res"
+                    placeholder="?"></td>
                 <td>
                   <select class="form-select form-select-sm text-center ex6-type">
                     <option value="">-- type --</option>
@@ -1634,9 +1923,11 @@
               <!-- Row 4 -->
               <tr data-algo="E ← D - Réel(C)" data-res="477.0" data-type="float">
                 <td class="text-start small text-muted">4</td>
-                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex6-algo" placeholder="Algorithme..."></td>
+                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex6-algo"
+                    placeholder="Algorithme..."></td>
                 <td class="bg-light fw-semibold font-monospace text-primary text-start px-2 small">E = D - float(C)</td>
-                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex6-res" placeholder="?"></td>
+                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex6-res"
+                    placeholder="?"></td>
                 <td>
                   <select class="form-select form-select-sm text-center ex6-type">
                     <option value="">-- type --</option>
@@ -1651,9 +1942,12 @@
               <!-- Row 5 -->
               <tr data-py="F = ch1[len(ch3):len(ch1)]" data-res="rithmique" data-type="str">
                 <td class="text-start small text-muted">5</td>
-                <td class="bg-light fw-semibold font-monospace text-primary text-start px-2 small">F &larr; sous_chaine(ch1, Long(ch3), Long(ch1))</td>
-                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex6-py" placeholder="Python..."></td>
-                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex6-res" placeholder="?"></td>
+                <td class="bg-light fw-semibold font-monospace text-primary text-start px-2 small">F &larr;
+                  sous_chaine(ch1, Long(ch3), Long(ch1))</td>
+                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex6-py"
+                    placeholder="Python..."></td>
+                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex6-res"
+                    placeholder="?"></td>
                 <td>
                   <select class="form-select form-select-sm text-center ex6-type">
                     <option value="">-- type --</option>
@@ -1668,9 +1962,12 @@
               <!-- Row 6 -->
               <tr data-py="G = F[0].upper() + chr(int(C) - 15) + F[2:]" data-res="Rhythmique" data-type="str">
                 <td class="text-start small text-muted">6</td>
-                <td class="bg-light fw-semibold font-monospace text-primary text-start px-2 small">G &larr; Majus(F[0]) + Chr(Valeur(C) - 15) + Effacer(F, 0, 2)</td>
-                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex6-py" placeholder="Python..."></td>
-                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex6-res" placeholder="?"></td>
+                <td class="bg-light fw-semibold font-monospace text-primary text-start px-2 small">G &larr; Majus(F[0])
+                  + Chr(Valeur(C) - 15) + Effacer(F, 0, 2)</td>
+                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex6-py"
+                    placeholder="Python..."></td>
+                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex6-res"
+                    placeholder="?"></td>
                 <td>
                   <select class="form-select form-select-sm text-center ex6-type">
                     <option value="">-- type --</option>
@@ -1685,9 +1982,12 @@
               <!-- Row 7 -->
               <tr data-algo="H ← EstNum(C) * Long(C) + EstNum(G) * Long(G)" data-res="3" data-type="int">
                 <td class="text-start small text-muted">7</td>
-                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex6-algo" placeholder="Algorithme..."></td>
-                <td class="bg-light fw-semibold font-monospace text-primary text-start px-2 small">H = C.isdecimal() * len(C) + G.isdecimal() * len(G)</td>
-                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex6-res" placeholder="?"></td>
+                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex6-algo"
+                    placeholder="Algorithme..."></td>
+                <td class="bg-light fw-semibold font-monospace text-primary text-start px-2 small">H = C.isdecimal() *
+                  len(C) + G.isdecimal() * len(G)</td>
+                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex6-res"
+                    placeholder="?"></td>
                 <td>
                   <select class="form-select form-select-sm text-center ex6-type">
                     <option value="">-- type --</option>
@@ -1700,11 +2000,15 @@
                 <td class="ex6-status"></td>
               </tr>
               <!-- Row 8 -->
-              <tr data-algo="I ← Pos(&quot;go&quot;, ch1) ; J ← Pos(&quot;me&quot;, ch1)" data-res="I = -1, J = 11" data-type="int">
+              <tr data-algo="I ← Pos(&quot;go&quot;, ch1) ; J ← Pos(&quot;me&quot;, ch1)" data-res="I = -1, J = 11"
+                data-type="int">
                 <td class="text-start small text-muted">8</td>
-                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex6-algo" placeholder="Algorithme..."></td>
-                <td class="bg-light fw-semibold font-monospace text-primary text-start px-2 small">I = ch1.find("go")<br>J = ch1.find("me")</td>
-                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex6-res" placeholder="I=-1, J=11"></td>
+                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex6-algo"
+                    placeholder="Algorithme..."></td>
+                <td class="bg-light fw-semibold font-monospace text-primary text-start px-2 small">I =
+                  ch1.find("go")<br>J = ch1.find("me")</td>
+                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex6-res"
+                    placeholder="I=-1, J=11"></td>
                 <td>
                   <select class="form-select form-select-sm text-center ex6-type">
                     <option value="">-- type --</option>
@@ -1719,9 +2023,12 @@
               <!-- Row 9 -->
               <tr data-py="K = int(ch3) - int(E) - int(ch3[3]) * 1000" data-res="2025" data-type="int">
                 <td class="text-start small text-muted">9</td>
-                <td class="bg-light fw-semibold font-monospace text-primary text-start px-2 small">K &larr; Valeur(ch3) – Ent(E) – Valeur(ch3[3]) * 1000</td>
-                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex6-py" placeholder="Python..."></td>
-                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex6-res" placeholder="?"></td>
+                <td class="bg-light fw-semibold font-monospace text-primary text-start px-2 small">K &larr; Valeur(ch3)
+                  – Ent(E) – Valeur(ch3[3]) * 1000</td>
+                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex6-py"
+                    placeholder="Python..."></td>
+                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex6-res"
+                    placeholder="?"></td>
                 <td>
                   <select class="form-select form-select-sm text-center ex6-type">
                     <option value="">-- type --</option>
@@ -1736,9 +2043,12 @@
               <!-- Row 10 -->
               <tr data-py="L = ch1[:I+2] + str(K) + ch1[J:]" data-res="A2025me" data-type="str">
                 <td class="text-start small text-muted">10</td>
-                <td class="bg-light fw-semibold font-monospace text-primary text-start px-2 small">L &larr; Effacer(ch1, I+2, Long(ch1)) + ConvCh(K) + Effacer(ch1, 0, J)</td>
-                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex6-py" placeholder="Python..."></td>
-                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex6-res" placeholder="?"></td>
+                <td class="bg-light fw-semibold font-monospace text-primary text-start px-2 small">L &larr; Effacer(ch1,
+                  I+2, Long(ch1)) + ConvCh(K) + Effacer(ch1, 0, J)</td>
+                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex6-py"
+                    placeholder="Python..."></td>
+                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex6-res"
+                    placeholder="?"></td>
                 <td>
                   <select class="form-select form-select-sm text-center ex6-type">
                     <option value="">-- type --</option>
@@ -1763,10 +2073,11 @@
       <!-- Exercice 7 -->
       <section>
         <h3>Exercice 7 – Fonctions prédéfinies Chaînes (QCM)</h3>
-        
+
         <!-- Simulateur graphique SVG des fonctions prédéfinies -->
         <div class="card bg-dark text-white border-0 shadow-sm my-4 overflow-hidden">
-          <div class="card-header bg-primary text-white fw-bold d-flex justify-content-between align-items-center py-2 px-3">
+          <div
+            class="card-header bg-primary text-white fw-bold d-flex justify-content-between align-items-center py-2 px-3">
             <span>🧪 Simulateur Graphique SVG des Fonctions Prédéfinies</span>
             <span class="badge bg-warning text-dark font-monospace">Mode Interactif</span>
           </div>
@@ -1788,17 +2099,20 @@
             </div>
 
             <!-- Conteneur SVG Dynamique -->
-            <div id="ex7-svg-container" class="rounded p-2 text-center border border-secondary" style="background-color: #0b1120; min-height: 200px;">
+            <div id="ex7-svg-container" class="rounded p-2 text-center border border-secondary"
+              style="background-color: #0b1120; min-height: 200px;">
               <!-- Dynamic SVG artwork rendered by JS -->
             </div>
           </div>
         </div>
 
-        <p class="fw-bold text-secondary">Cocher la ou les bonnes réponses pour chacune des propositions ci-dessous :</p>
-        
+        <p class="fw-bold text-secondary">Cocher la ou les bonnes réponses pour chacune des propositions ci-dessous :
+        </p>
+
         <div class="qcm-container interactive-box shadow-sm p-4 bg-white rounded border">
           <!-- Question 1 -->
-          <div class="qcm-question mb-4 pb-3 border-bottom" data-answer="a,b" data-explanation="Ent(12.33) retourne l'entier 12. Le résultat est de type entier.">
+          <div class="qcm-question mb-4 pb-3 border-bottom" data-answer="a,b"
+            data-explanation="Ent(12.33) retourne l'entier 12. Le résultat est de type entier.">
             <h5 class="fw-bold text-dark">1. Soit l'instruction <code>X &larr; Ent(12.33)</code> :</h5>
             <div class="form-check my-1">
               <input class="form-check-input" type="checkbox" value="a" id="c7q1a">
@@ -1815,15 +2129,18 @@
             <details class="mt-2">
               <summary class="btn btn-sm btn-outline-info py-0 px-2 fw-semibold">💡 Afficher l'indication</summary>
               <div class="alert alert-info py-2 px-3 mt-2 mb-0 border-start border-info border-3 small">
-                <strong>Indication :</strong> La fonction <code>Ent(x)</code> extrait la partie entière d'un nombre réel (ex : <code>Ent(12.33) = 12</code>). Le résultat obtenu est toujours un nombre entier.
+                <strong>Indication :</strong> La fonction <code>Ent(x)</code> extrait la partie entière d'un nombre réel
+                (ex : <code>Ent(12.33) = 12</code>). Le résultat obtenu est toujours un nombre entier.
               </div>
             </details>
             <div class="qcm-feedback mt-2 d-none alert"></div>
           </div>
 
           <!-- Question 2 -->
-          <div class="qcm-question mb-4 pb-3 border-bottom" data-answer="b" data-explanation="Arrondi(12.75) retourne l'entier le plus proche : 13.">
-            <h5 class="fw-bold text-dark">2. L'instruction <code>R &larr; arrondi(12.75)</code> permet d'affecter à la variable R :</h5>
+          <div class="qcm-question mb-4 pb-3 border-bottom" data-answer="b"
+            data-explanation="Arrondi(12.75) retourne l'entier le plus proche : 13.">
+            <h5 class="fw-bold text-dark">2. L'instruction <code>R &larr; arrondi(12.75)</code> permet d'affecter à la
+              variable R :</h5>
             <div class="form-check my-1">
               <input class="form-check-input" type="checkbox" value="a" id="c7q2a">
               <label class="form-check-label" for="c7q2a">a. L'entier 12</label>
@@ -1839,15 +2156,19 @@
             <details class="mt-2">
               <summary class="btn btn-sm btn-outline-info py-0 px-2 fw-semibold">💡 Afficher l'indication</summary>
               <div class="alert alert-info py-2 px-3 mt-2 mb-0 border-start border-info border-3 small">
-                <strong>Indication :</strong> La fonction <code>Arrondi(x)</code> arrondit au nombre entier le plus proche. Comme la partie décimale 0.75 est supérieure ou égale à 0.5, 12.75 s'arrondit à 13.
+                <strong>Indication :</strong> La fonction <code>Arrondi(x)</code> arrondit au nombre entier le plus
+                proche. Comme la partie décimale 0.75 est supérieure ou égale à 0.5, 12.75 s'arrondit à 13.
               </div>
             </details>
             <div class="qcm-feedback mt-2 d-none alert"></div>
           </div>
 
           <!-- Question 3 -->
-          <div class="qcm-question mb-4 pb-3 border-bottom" data-answer="a,c" data-explanation="sous_chaine('informatique', 2, 3) extrait 'for' et le résultat est de type chaîne de caractères.">
-            <h5 class="fw-bold text-dark">3. Soit l'instruction : <code>C &larr; sous_chaine("informatique", 2, 3)</code> :</h5>
+          <div class="qcm-question mb-4 pb-3 border-bottom" data-answer="a,c"
+            data-explanation="sous_chaine('informatique', 2, 3) extrait 'for' et le résultat est de type chaîne de caractères.">
+            <h5 class="fw-bold text-dark">3. Soit l'instruction :
+              <code>C &larr; sous_chaine("informatique", 2, 3)</code> :
+            </h5>
             <div class="form-check my-1">
               <input class="form-check-input" type="checkbox" value="a" id="c7q3a">
               <label class="form-check-label" for="c7q3a">a. Elle permet d'affecter à C la valeur "for"</label>
@@ -1858,19 +2179,23 @@
             </div>
             <div class="form-check my-1">
               <input class="form-check-input" type="checkbox" value="c" id="c7q3c">
-              <label class="form-check-label" for="c7q3c">c. La variable C doit être de type chaîne de caractères</label>
+              <label class="form-check-label" for="c7q3c">c. La variable C doit être de type chaîne de
+                caractères</label>
             </div>
             <details class="mt-2">
               <summary class="btn btn-sm btn-outline-info py-0 px-2 fw-semibold">💡 Afficher l'indication</summary>
               <div class="alert alert-info py-2 px-3 mt-2 mb-0 border-start border-info border-3 small">
-                <strong>Indication :</strong> <code>sous_chaine("informatique", 2, 3)</code> extrait la sous-chaîne de longueur 3 à partir de la position 2, ce qui donne <code>"for"</code>. Le résultat d'une fonction <code>sous_chaine</code> est toujours une chaîne de caractères (string).
+                <strong>Indication :</strong> <code>sous_chaine("informatique", 2, 3)</code> extrait la sous-chaîne de
+                longueur 3 à partir de la position 2, ce qui donne <code>"for"</code>. Le résultat d'une fonction
+                <code>sous_chaine</code> est toujours une chaîne de caractères (string).
               </div>
             </details>
             <div class="qcm-feedback mt-2 d-none alert"></div>
           </div>
 
           <!-- Question 4 -->
-          <div class="qcm-question mb-4 pb-3 border-bottom" data-answer="c" data-explanation="EstNum('123') vérifie si la chaîne est numérique et retourne VRAI.">
+          <div class="qcm-question mb-4 pb-3 border-bottom" data-answer="c"
+            data-explanation="EstNum('123') vérifie si la chaîne est numérique et retourne VRAI.">
             <h5 class="fw-bold text-dark">4. L'instruction <code>T &larr; EstNum("123")</code> affecte à T :</h5>
             <div class="form-check my-1">
               <input class="form-check-input" type="checkbox" value="a" id="c7q4a">
@@ -1887,14 +2212,17 @@
             <details class="mt-2">
               <summary class="btn btn-sm btn-outline-info py-0 px-2 fw-semibold">💡 Afficher l'indication</summary>
               <div class="alert alert-info py-2 px-3 mt-2 mb-0 border-start border-info border-3 small">
-                <strong>Indication :</strong> La fonction <code>EstNum(ch)</code> vérifie si la chaîne est composée exclusivement de chiffres. Elle renvoie un résultat booléen (<code>VRAI</code> ou <code>FAUX</code>). Pour <code>"123"</code>, elle renvoie <code>VRAI</code>.
+                <strong>Indication :</strong> La fonction <code>EstNum(ch)</code> vérifie si la chaîne est composée
+                exclusivement de chiffres. Elle renvoie un résultat booléen (<code>VRAI</code> ou <code>FAUX</code>).
+                Pour <code>"123"</code>, elle renvoie <code>VRAI</code>.
               </div>
             </details>
             <div class="qcm-feedback mt-2 d-none alert"></div>
           </div>
 
           <!-- Question 5 -->
-          <div class="qcm-question mb-4 pb-3" data-answer="a,c" data-explanation="Pos('2', 'FIFA 2022') retourne 5 et la position est toujours de type entier.">
+          <div class="qcm-question mb-4 pb-3" data-answer="a,c"
+            data-explanation="Pos('2', 'FIFA 2022') retourne 5 et la position est toujours de type entier.">
             <h5 class="fw-bold text-dark">5. Soit l'instruction : <code>P &larr; Pos("2", "FIFA 2022")</code> :</h5>
             <div class="form-check my-1">
               <input class="form-check-input" type="checkbox" value="a" id="c7q5a">
@@ -1911,7 +2239,9 @@
             <details class="mt-2">
               <summary class="btn btn-sm btn-outline-info py-0 px-2 fw-semibold">💡 Afficher l'indication</summary>
               <div class="alert alert-info py-2 px-3 mt-2 mb-0 border-start border-info border-3 small">
-                <strong>Indication :</strong> La fonction <code>Pos(ch1, ch2)</code> recherche l'indice de la première occurrence de <code>ch1</code> dans <code>ch2</code>. Dans <code>"FIFA 2022"</code>, le premier <code>'2'</code> se trouve à l'indice 5. Une position/indice est toujours de type entier.
+                <strong>Indication :</strong> La fonction <code>Pos(ch1, ch2)</code> recherche l'indice de la première
+                occurrence de <code>ch1</code> dans <code>ch2</code>. Dans <code>"FIFA 2022"</code>, le premier
+                <code>'2'</code> se trouve à l'indice 5. Une position/indice est toujours de type entier.
               </div>
             </details>
             <div class="qcm-feedback mt-2 d-none alert"></div>
@@ -1927,25 +2257,30 @@
       <!-- Exercice 8 -->
       <section>
         <h3>Exercice 8 – Générateur de Mot de Passe (Password)</h3>
-        <p>Création d'un mot de passe <code>mp</code> de 6 caractères composé de <strong>2 chiffres</strong> (0 &rarr; 9), <strong>2 majuscules</strong> ("A" &rarr; "Z") et <strong>2 minuscules</strong> ("a" &rarr; "z") :</p>
-        
+        <p>Création d'un mot de passe <code>mp</code> de 6 caractères composé de <strong>2 chiffres</strong> (0 &rarr;
+          9), <strong>2 majuscules</strong> ("A" &rarr; "Z") et <strong>2 minuscules</strong> ("a" &rarr; "z") :</p>
+
         <div class="interactive-box shadow-sm p-4 bg-dark text-white rounded border border-secondary my-3">
           <div class="row align-items-center g-3 mb-3">
             <div class="col-md-7">
               <div class="input-group">
                 <span class="input-group-text bg-secondary text-light fw-bold">🔑 Mot de passe :</span>
-                <input type="text" id="pass-result" class="form-control fs-3 font-monospace text-center bg-black text-warning fw-bold border-warning" readonly value="49RMaz">
+                <input type="text" id="pass-result"
+                  class="form-control fs-3 font-monospace text-center bg-black text-warning fw-bold border-warning"
+                  readonly value="49RMaz">
               </div>
             </div>
             <div class="col-md-5">
-              <button id="btn-gen-pass" class="btn btn-warning btn-lg w-100 fw-bold shadow-sm d-flex align-items-center justify-content-center gap-2">
+              <button id="btn-gen-pass"
+                class="btn btn-warning btn-lg w-100 fw-bold shadow-sm d-flex align-items-center justify-content-center gap-2">
                 <span>🎲</span> Générer un mot de passe
               </button>
             </div>
           </div>
 
           <!-- Conteneur SVG d'illustration du Password -->
-          <div id="ex8-svg-container" class="rounded p-2 text-center border border-secondary" style="background-color: #0b1120; min-height: 220px;">
+          <div id="ex8-svg-container" class="rounded p-2 text-center border border-secondary"
+            style="background-color: #0b1120; min-height: 220px;">
             <!-- Dynamic SVG rendered by JS -->
           </div>
         </div>
@@ -1954,28 +2289,34 @@
       <!-- Exercice 9 -->
       <section>
         <h3>Exercice 9 – Permutation des Chiffres</h3>
-        <p>Saisir un entier <code>a</code> composé de 2 chiffres (10 &rarr; 99) et permuter ses chiffres pour obtenir <code>b</code> (ex: 49 &rarr; 94) :</p>
-        
+        <p>Saisir un entier <code>a</code> composé de 2 chiffres (10 &rarr; 99) et permuter ses chiffres pour obtenir
+          <code>b</code> (ex: 49 &rarr; 94) :
+        </p>
+
         <div class="interactive-box shadow-sm p-4 bg-dark text-white rounded border border-secondary my-3">
           <div class="row align-items-center g-3 mb-3">
             <div class="col-md-6">
               <div class="input-group">
                 <span class="input-group-text bg-secondary text-light fw-bold">Entier a =</span>
-                <input type="number" id="perm-a" class="form-control fs-4 font-monospace text-center bg-black text-info fw-bold border-info" value="49" min="10" max="99">
+                <input type="number" id="perm-a"
+                  class="form-control fs-4 font-monospace text-center bg-black text-info fw-bold border-info" value="49"
+                  min="10" max="99">
               </div>
             </div>
             <div class="col-md-6">
-              <button id="btn-permute" class="btn btn-info btn-lg w-100 fw-bold shadow-sm text-dark d-flex align-items-center justify-content-center gap-2">
+              <button id="btn-permute"
+                class="btn btn-info btn-lg w-100 fw-bold shadow-sm text-dark d-flex align-items-center justify-content-center gap-2">
                 <span>🔀</span> Permuter les chiffres
               </button>
             </div>
           </div>
 
           <!-- Conteneur SVG d'illustration de la Permutation -->
-          <div id="ex9-svg-container" class="rounded p-2 text-center border border-secondary" style="background-color: #0b1120; min-height: 220px;">
+          <div id="ex9-svg-container" class="rounded p-2 text-center border border-secondary"
+            style="background-color: #0b1120; min-height: 220px;">
             <!-- Dynamic SVG rendered by JS -->
           </div>
-          
+
           <div id="perm-out" class="mt-3"></div>
         </div>
       </section>
@@ -1983,36 +2324,49 @@
       <!-- Exercice 10 -->
       <section>
         <h3>Exercice 10 – Autonomie de la Batterie</h3>
-        <p>Calculer la consommation moyenne (en % aux 100 km) et la distance maximale <code>dm</code> (autonomie restante en km) qu'un véhicule électrique peut parcourir avec le niveau de batterie actuel :</p>
-        
+        <p>Calculer la consommation moyenne (en % aux 100 km) et la distance maximale <code>dm</code> (autonomie
+          restante en km) qu'un véhicule électrique peut parcourir avec le niveau de batterie actuel :</p>
+
+        <figure class="text-center">
+          <img src="images/module03/autonomie_batterie.png" alt="Autonomie de la Batterie"
+            class="img-fluid rounded shadow-sm p-2 bg-white border">
+          <figcaption>Autonomie de la Batterie</figcaption>
+        </figure>
+
         <div class="interactive-box shadow-sm p-4 bg-dark text-white rounded border border-secondary my-3">
           <div class="row g-3 mb-3">
             <div class="col-md-3">
               <label class="form-label fw-bold text-info small mb-1">Batterie initiale (nib %) :</label>
-              <input type="number" id="bat-nib" class="form-control font-monospace text-center fw-bold fs-5" style="color: #fbbf24; background-color: #090d16; border-color: #fbbf24;" value="80" min="1" max="100">
+              <input type="number" id="bat-nib" class="form-control font-monospace text-center fw-bold fs-5"
+                style="color: #fbbf24; background-color: #090d16; border-color: #fbbf24;" value="80" min="1" max="100">
             </div>
             <div class="col-md-3">
               <label class="form-label fw-bold text-info small mb-1">Km initial (ikd km) :</label>
-              <input type="number" id="bat-ikd" class="form-control font-monospace text-center fw-bold fs-5" style="color: #38bdf8; background-color: #090d16; border-color: #38bdf8;" value="25000" min="0">
+              <input type="number" id="bat-ikd" class="form-control font-monospace text-center fw-bold fs-5"
+                style="color: #38bdf8; background-color: #090d16; border-color: #38bdf8;" value="25000" min="0">
             </div>
             <div class="col-md-3">
               <label class="form-label fw-bold text-info small mb-1">Batterie finale (nfb %) :</label>
-              <input type="number" id="bat-nfb" class="form-control font-monospace text-center fw-bold fs-5" style="color: #4ade80; background-color: #090d16; border-color: #4ade80;" value="60" min="0" max="100">
+              <input type="number" id="bat-nfb" class="form-control font-monospace text-center fw-bold fs-5"
+                style="color: #4ade80; background-color: #090d16; border-color: #4ade80;" value="60" min="0" max="100">
             </div>
             <div class="col-md-3">
               <label class="form-label fw-bold text-info small mb-1">Km final (ikf km) :</label>
-              <input type="number" id="bat-ikf" class="form-control font-monospace text-center fw-bold fs-5" style="color: #38bdf8; background-color: #090d16; border-color: #38bdf8;" value="25100" min="0">
+              <input type="number" id="bat-ikf" class="form-control font-monospace text-center fw-bold fs-5"
+                style="color: #38bdf8; background-color: #090d16; border-color: #38bdf8;" value="25100" min="0">
             </div>
           </div>
 
           <div class="mb-3">
-            <button id="btn-calc-bat" class="btn btn-success btn-lg w-100 fw-bold shadow-sm d-flex align-items-center justify-content-center gap-2">
+            <button id="btn-calc-bat"
+              class="btn btn-success btn-lg w-100 fw-bold shadow-sm d-flex align-items-center justify-content-center gap-2">
               <span>🔋</span> Calculer l'autonomie et la consommation
             </button>
           </div>
 
           <!-- Conteneur SVG d'illustration du tableau de bord batterie -->
-          <div id="ex10-svg-container" class="rounded p-2 text-center border border-secondary" style="background-color: #0b1120; min-height: 220px;">
+          <div id="ex10-svg-container" class="rounded p-2 text-center border border-secondary"
+            style="background-color: #0b1120; min-height: 220px;">
             <!-- Dynamic SVG rendered by JS -->
           </div>
 
@@ -2023,38 +2377,47 @@
       <!-- Exercice 11 -->
       <section>
         <h3>Exercice 11 – Circuit Logique et Portes Logiques</h3>
-        <p>Simulation du circuit logique de l'équation booleénne : <strong>$$L = (a \cdot \bar{c}) + (b \cdot c)$$</strong></p>
-        
+        <p>Simulation du circuit logique de l'équation booleénne : <strong>$$L = (a \cdot \bar{c}) + (b \cdot
+            c)$$</strong></p>
+
         <div class="interactive-box shadow-sm p-4 bg-dark text-white rounded border border-secondary my-3">
           <div class="d-flex justify-content-center flex-wrap gap-4 mb-4">
-            <div class="form-check form-switch fs-5 bg-slate-800 px-4 py-2 rounded border border-secondary">
+            <div class="form-check form-switch fs-5 bg-slate-800 py-2 rounded border border-secondary">
               <input class="form-check-input gate-input" type="checkbox" id="gate-a">
-              <label class="form-check-label fw-bold text-info" for="gate-a">Bouton a : <span id="val-a" class="badge bg-secondary">0 (FAUX)</span></label>
+              <label class="form-check-label fw-bold text-info" for="gate-a">a : <span id="val-a"
+                  class="badge bg-secondary">0 (FAUX)</span></label>
             </div>
-            <div class="form-check form-switch fs-5 bg-slate-800 px-4 py-2 rounded border border-secondary">
+            <div class="form-check form-switch fs-5 bg-slate-800 py-2 rounded border border-secondary">
               <input class="form-check-input gate-input" type="checkbox" id="gate-b">
-              <label class="form-check-label fw-bold text-warning" for="gate-b">Bouton b : <span id="val-b" class="badge bg-secondary">0 (FAUX)</span></label>
+              <label class="form-check-label fw-bold text-warning" for="gate-b">b : <span id="val-b"
+                  class="badge bg-secondary">0 (FAUX)</span></label>
             </div>
-            <div class="form-check form-switch fs-5 bg-slate-800 px-4 py-2 rounded border border-secondary">
+            <div class="form-check form-switch fs-5 bg-slate-800 py-2 rounded border border-secondary">
               <input class="form-check-input gate-input" type="checkbox" id="gate-c">
-              <label class="form-check-label fw-bold text-success" for="gate-c">Bouton c : <span id="val-c" class="badge bg-secondary">0 (FAUX)</span></label>
+              <label class="form-check-label fw-bold text-success" for="gate-c">c : <span id="val-c"
+                  class="badge bg-secondary">0 (FAUX)</span></label>
             </div>
           </div>
 
           <!-- Conteneur SVG d'illustration du Circuit Logique -->
-          <div id="ex11-svg-container" class="rounded p-2 text-center border border-secondary" style="background-color: #0b1120; min-height: 240px;">
+          <div id="ex11-svg-container" class="rounded p-2 text-center border border-secondary"
+            style="background-color: #0b1120; min-height: 240px;">
             <!-- Dynamic SVG rendered by JS -->
           </div>
 
           <div class="mt-3 text-center">
-            <span class="fs-4 fw-bold">État de la Lampe L : <span id="val-L" class="badge bg-danger fs-5 px-3 py-2">FAUX (0) — Éteinte 🔴</span></span>
+            <span class="fs-4 fw-bold">État de la Lampe L : <span id="val-L" class="badge bg-danger fs-5 px-3 py-2">FAUX
+                (0) — Éteinte 🔴</span></span>
           </div>
 
           <!-- Table de Vérité de L = a . NOT(c) + b . c -->
           <div class="mt-4">
-            <h6 class="fw-bold text-info mb-2 text-start">📊 Table de Vérité de la fonction $L = (a \cdot \bar{c}) + (b \cdot c)$ :</h6>
+            <h6 class="fw-bold text-info mb-2 text-start">📊 Table de Vérité de la fonction $L = (a \cdot \bar{c}) + (b
+              \cdot c)$ :</h6>
             <div class="table-responsive rounded border border-secondary">
-              <table class="table table-dark table-hover table-bordered text-center align-middle mb-0 small font-monospace" id="ex11-truth-table">
+              <table
+                class="table table-dark table-hover table-bordered text-center align-middle mb-0 small font-monospace"
+                id="ex11-truth-table">
                 <thead style="background-color: #0f172a;">
                   <tr>
                     <th style="color: #38bdf8;">a</th>
@@ -2067,14 +2430,78 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr data-row="0,0,0"><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td class="fw-bold text-danger">0</td></tr>
-                  <tr data-row="0,0,1"><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td class="fw-bold text-danger">0</td></tr>
-                  <tr data-row="0,1,0"><td>0</td><td>1</td><td>0</td><td>1</td><td>0</td><td>0</td><td class="fw-bold text-danger">0</td></tr>
-                  <tr data-row="0,1,1"><td>0</td><td>1</td><td>1</td><td>0</td><td>0</td><td>1</td><td class="fw-bold text-success">1</td></tr>
-                  <tr data-row="1,0,0"><td>1</td><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td><td class="fw-bold text-success">1</td></tr>
-                  <tr data-row="1,0,1"><td>1</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td class="fw-bold text-danger">0</td></tr>
-                  <tr data-row="1,1,0"><td>1</td><td>1</td><td>0</td><td>1</td><td>1</td><td>0</td><td class="fw-bold text-success">1</td></tr>
-                  <tr data-row="1,1,1"><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td><td>1</td><td class="fw-bold text-success">1</td></tr>
+                  <tr data-row="0,0,0">
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>1</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td class="fw-bold text-danger">0</td>
+                  </tr>
+                  <tr data-row="0,0,1">
+                    <td>0</td>
+                    <td>0</td>
+                    <td>1</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td class="fw-bold text-danger">0</td>
+                  </tr>
+                  <tr data-row="0,1,0">
+                    <td>0</td>
+                    <td>1</td>
+                    <td>0</td>
+                    <td>1</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td class="fw-bold text-danger">0</td>
+                  </tr>
+                  <tr data-row="0,1,1">
+                    <td>0</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>1</td>
+                    <td class="fw-bold text-success">1</td>
+                  </tr>
+                  <tr data-row="1,0,0">
+                    <td>1</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>0</td>
+                    <td class="fw-bold text-success">1</td>
+                  </tr>
+                  <tr data-row="1,0,1">
+                    <td>1</td>
+                    <td>0</td>
+                    <td>1</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td class="fw-bold text-danger">0</td>
+                  </tr>
+                  <tr data-row="1,1,0">
+                    <td>1</td>
+                    <td>1</td>
+                    <td>0</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>0</td>
+                    <td class="fw-bold text-success">1</td>
+                  </tr>
+                  <tr data-row="1,1,1">
+                    <td>1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>1</td>
+                    <td class="fw-bold text-success">1</td>
+                  </tr>
                 </tbody>
               </table>
             </div>
@@ -2085,36 +2512,46 @@
       <!-- Exercice 12 -->
       <section>
         <h3>Exercice 12 – Citerne d'Huile et Logistique de Transport</h3>
-        <p>Un oléiculteur dispose d'une quantité d'huile <code>Q</code> (Litres). L'huile est mise en bouteilles de 1L, rangées dans des <strong>caisses de 12 bouteilles</strong>, puis transportées par un <strong>camion de 30 caisses max</strong> par voyage :</p>
-        
+        <p>Un oléiculteur dispose d'une quantité d'huile <code>Q</code> (Litres). L'huile est mise en bouteilles de 1L,
+          rangées dans des <strong>caisses de 12 bouteilles</strong>, puis transportées par un <strong>camion de 30
+            caisses max</strong> par voyage :</p>
+
         <div class="interactive-box shadow-sm p-4 bg-dark text-white rounded border border-secondary my-3">
           <div class="row g-3 mb-3">
             <div class="col-md-3">
               <label class="form-label fw-bold text-info small mb-1">🛢️ Quantité d'huile Q (L) :</label>
-              <input type="number" id="oil-litres" class="form-control font-monospace text-center fw-bold fs-5" style="color: #fbbf24; background-color: #090d16; border-color: #fbbf24;" value="1000" min="0.5" step="0.5">
+              <input type="number" id="oil-litres" class="form-control font-monospace text-center fw-bold fs-5"
+                style="color: #fbbf24; background-color: #090d16; border-color: #fbbf24;" value="1000" min="0.5"
+                step="0.5">
             </div>
             <div class="col-md-3">
               <label class="form-label fw-bold text-info small mb-1">🍾 Volume / Bouteille (L) :</label>
-              <input type="number" id="oil-bot-vol" class="form-control font-monospace text-center fw-bold fs-5" style="color: #38bdf8; background-color: #090d16; border-color: #38bdf8;" value="1" min="0.1" step="0.1">
+              <input type="number" id="oil-bot-vol" class="form-control font-monospace text-center fw-bold fs-5"
+                style="color: #38bdf8; background-color: #090d16; border-color: #38bdf8;" value="1" min="0.1"
+                step="0.1">
             </div>
             <div class="col-md-3">
               <label class="form-label fw-bold text-info small mb-1">📦 Bouteilles par caisse :</label>
-              <input type="number" id="oil-box-size" class="form-control font-monospace text-center fw-bold fs-5" style="color: #4ade80; background-color: #090d16; border-color: #4ade80;" value="12" min="1">
+              <input type="number" id="oil-box-size" class="form-control font-monospace text-center fw-bold fs-5"
+                style="color: #4ade80; background-color: #090d16; border-color: #4ade80;" value="12" min="1">
             </div>
             <div class="col-md-3">
               <label class="form-label fw-bold text-info small mb-1">🚛 Capacité camion (caisses) :</label>
-              <input type="number" id="oil-truck-cap" class="form-control font-monospace text-center fw-bold fs-5" style="color: #f43f5e; background-color: #090d16; border-color: #f43f5e;" value="30" min="1">
+              <input type="number" id="oil-truck-cap" class="form-control font-monospace text-center fw-bold fs-5"
+                style="color: #f43f5e; background-color: #090d16; border-color: #f43f5e;" value="30" min="1">
             </div>
           </div>
 
           <div class="mb-3">
-            <button id="btn-calc-oil" class="btn btn-warning btn-lg w-100 fw-bold shadow-sm d-flex align-items-center justify-content-center gap-2 text-dark">
+            <button id="btn-calc-oil"
+              class="btn btn-warning btn-lg w-100 fw-bold shadow-sm d-flex align-items-center justify-content-center gap-2 text-dark">
               <span>🚛</span> Calculer Bouteilles, Caisses & Voyages
             </button>
           </div>
 
           <!-- Conteneur SVG d'illustration de la Logistique -->
-          <div id="ex12-svg-container" class="rounded p-2 text-center border border-secondary" style="background-color: #0b1120; min-height: 220px;">
+          <div id="ex12-svg-container" class="rounded p-2 text-center border border-secondary"
+            style="background-color: #0b1120; min-height: 220px;">
             <!-- Dynamic SVG rendered by JS -->
           </div>
 
@@ -2125,16 +2562,21 @@
       <!-- Exercice 13 -->
       <section>
         <h3>Exercice 13 – Fonctions sur les Chaînes</h3>
-        <p>Compléter le tableau ci-dessous avec la chaîne <code class="bg-dark text-warning px-2 py-1 rounded font-monospace fw-bold border border-warning">ch &larr; "programme 2025"</code> :</p>
-        
+        <p>Compléter le tableau ci-dessous avec la chaîne <code
+            class="bg-dark text-warning px-2 py-1 rounded font-monospace fw-bold border border-warning">ch &larr; "programme 2025"</code>
+          :</p>
+
         <!-- Card Illustration SVG de la chaîne ch (Style Exercice 7) -->
         <div class="card bg-dark text-white border-0 shadow-sm mb-3 overflow-hidden">
-          <div class="card-header bg-primary text-white fw-bold d-flex justify-content-between align-items-center py-2 px-3">
-            <span>🔤 Visualisation de la chaîne <code class="bg-dark text-warning px-2 py-1 rounded font-monospace fs-6 shadow-sm border border-warning">ch &larr; "programme 2025"</code></span>
+          <div
+            class="card-header bg-primary text-white fw-bold d-flex justify-content-between align-items-center py-2 px-3">
+            <span>🔤 Visualisation de la chaîne <code
+                class="bg-dark text-warning px-2 py-1 rounded font-monospace fs-6 shadow-sm border border-warning">ch &larr; "programme 2025"</code></span>
             <span class="badge bg-warning text-dark font-monospace">14 Caractères (indices 0 à 13)</span>
           </div>
           <div class="card-body p-2 text-center">
-            <div id="ex13-svg-container" class="rounded p-2 text-center border border-secondary" style="background-color: #0b1120; min-height: 90px;">
+            <div id="ex13-svg-container" class="rounded p-2 text-center border border-secondary"
+              style="background-color: #0b1120; min-height: 90px;">
               <!-- Dynamic SVG rendered by JS -->
             </div>
           </div>
@@ -2154,56 +2596,75 @@
             <tbody class="bg-white">
               <tr data-type="Caractère" data-res="'d'">
                 <td class="fw-semibold font-monospace text-start">a &larr; chr(ent(100.5))</td>
-                <td><input type="text" class="form-control form-control-sm text-center ex13-type" placeholder="type"></td>
-                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex13-res" placeholder="?"></td>
+                <td><input type="text" class="form-control form-control-sm text-center ex13-type" placeholder="type">
+                </td>
+                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex13-res"
+                    placeholder="?"></td>
                 <td class="ex13-status"></td>
               </tr>
               <tr data-type="Chaîne" data-res='"Page"'>
                 <td class="fw-semibold font-monospace text-start">b &larr; majus(ch[0]) + ch[5] + ch[3] + ch[8]</td>
-                <td><input type="text" class="form-control form-control-sm text-center ex13-type" placeholder="type"></td>
-                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex13-res" placeholder="?"></td>
+                <td><input type="text" class="form-control form-control-sm text-center ex13-type" placeholder="type">
+                </td>
+                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex13-res"
+                    placeholder="?"></td>
                 <td class="ex13-status"></td>
               </tr>
               <tr data-type="Chaîne" data-res='"gramme "'>
                 <td class="fw-semibold font-monospace text-start">c &larr; sous_chaine(ch, 3, 9)</td>
-                <td><input type="text" class="form-control form-control-sm text-center ex13-type" placeholder="type"></td>
-                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex13-res" placeholder="?"></td>
+                <td><input type="text" class="form-control form-control-sm text-center ex13-type" placeholder="type">
+                </td>
+                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex13-res"
+                    placeholder="?"></td>
                 <td class="ex13-status"></td>
               </tr>
               <tr data-type="Chaîne" data-res='"pro2025"'>
                 <td class="fw-semibold font-monospace text-start">d &larr; effacer(ch, 3, 9)</td>
-                <td><input type="text" class="form-control form-control-sm text-center ex13-type" placeholder="type"></td>
-                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex13-res" placeholder="?"></td>
+                <td><input type="text" class="form-control form-control-sm text-center ex13-type" placeholder="type">
+                </td>
+                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex13-res"
+                    placeholder="?"></td>
                 <td class="ex13-status"></td>
               </tr>
               <tr data-type="Caractère" data-res="'K'">
                 <td class="fw-semibold font-monospace text-start">e &larr; chr(65 + alea(0, 25))</td>
-                <td><input type="text" class="form-control form-control-sm text-center ex13-type" placeholder="type"></td>
-                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex13-res" placeholder="?"></td>
+                <td><input type="text" class="form-control form-control-sm text-center ex13-type" placeholder="type">
+                </td>
+                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex13-res"
+                    placeholder="?"></td>
                 <td class="ex13-status"></td>
               </tr>
               <tr data-type="Chaîne" data-res='"8"'>
-                <td class="fw-semibold font-monospace text-start">f &larr; convch(45 div 10 + 15 mod 2 + arrondi(3.2))</td>
-                <td><input type="text" class="form-control form-control-sm text-center ex13-type" placeholder="type"></td>
-                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex13-res" placeholder="?"></td>
+                <td class="fw-semibold font-monospace text-start">f &larr; convch(45 div 10 + 15 mod 2 + arrondi(3.2))
+                </td>
+                <td><input type="text" class="form-control form-control-sm text-center ex13-type" placeholder="type">
+                </td>
+                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex13-res"
+                    placeholder="?"></td>
                 <td class="ex13-status"></td>
               </tr>
               <tr data-type="Booleen" data-res="VRAI">
                 <td class="fw-semibold font-monospace text-start">g &larr; "A" &le; e &le; "Z"</td>
-                <td><input type="text" class="form-control form-control-sm text-center ex13-type" placeholder="type"></td>
-                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex13-res" placeholder="?"></td>
+                <td><input type="text" class="form-control form-control-sm text-center ex13-type" placeholder="type">
+                </td>
+                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex13-res"
+                    placeholder="?"></td>
                 <td class="ex13-status"></td>
               </tr>
               <tr data-type="Entier" data-res="5202">
                 <td class="fw-semibold font-monospace text-start">i &larr; valeur(ch[13] + sous_chaine(ch, 10, 12))</td>
-                <td><input type="text" class="form-control form-control-sm text-center ex13-type" placeholder="type"></td>
-                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex13-res" placeholder="?"></td>
+                <td><input type="text" class="form-control form-control-sm text-center ex13-type" placeholder="type">
+                </td>
+                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex13-res"
+                    placeholder="?"></td>
                 <td class="ex13-status"></td>
               </tr>
               <tr data-type="Entier" data-res="111">
                 <td class="fw-semibold font-monospace text-start">j &larr; ord(ch[2])</td>
-                <td><input type="text" class="form-control form-control-sm text-center ex13-type" placeholder="type"></td>
-                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex13-res" placeholder="?"></td>
+                <td><input type="text" class="form-control form-control-sm text-center ex13-type" placeholder="type">
+                </td>
+                <td><input type="text" class="form-control form-control-sm font-monospace text-center ex13-res"
+                    placeholder="?"></td>
                 <td class="ex13-status"></td>
               </tr>
             </tbody>
@@ -2226,23 +2687,30 @@
       <section>
         <h3>Exercice 14 – Générateur de Pseudonymes</h3>
         <p>Un site propose des pseudonymes automatisés lors de la création d'un compte.<br>
-        Le pseudonyme est composé par les <strong>trois premières lettres du prénom</strong> suivies par la <strong>longueur du prénom</strong>, les <strong>trois dernières lettres du nom</strong> suivies par la <strong>longueur du nom</strong>, le tout succédé par un <strong>nombre aléatoire de 2 chiffres</strong>.<br>
-        <em>Exemple : Nom & Prénom = "Sami Ben Salah" &rarr; Pseudonyme proposé : <code class="bg-dark text-warning px-2 py-1 rounded font-monospace fw-bold border border-warning">SAM4_LAH9_31</code></em></p>
-        
+          Le pseudonyme est composé par les <strong>trois premières lettres du prénom</strong> suivies par la
+          <strong>longueur du prénom</strong>, les <strong>trois dernières lettres du nom</strong> suivies par la
+          <strong>longueur du nom</strong>, le tout succédé par un <strong>nombre aléatoire de 2 chiffres</strong>.<br>
+          <em>Exemple : Nom & Prénom = "Sami Ben Salah" &rarr; Pseudonyme proposé : <code
+              class="bg-dark text-warning px-2 py-1 rounded font-monospace fw-bold border border-warning">SAM4_LAH9_31</code></em>
+        </p>
+
         <!-- Interactive Simulator Card -->
         <div class="card bg-dark text-white border-0 shadow-sm mb-4 overflow-hidden">
-          <div class="card-header bg-primary text-white fw-bold d-flex justify-content-between align-items-center py-2 px-3">
+          <div
+            class="card-header bg-primary text-white fw-bold d-flex justify-content-between align-items-center py-2 px-3">
             <span>🧪 Simulateur Interactif de Pseudonymes</span>
             <span class="badge bg-warning text-dark font-monospace">Chaîne Unique (Prénom Nom)</span>
           </div>
           <div class="card-body p-3">
             <div class="mb-3">
               <label class="form-label fw-bold text-info">Nom & Prénom de l'utilisateur (une seule chaîne) :</label>
-              <input type="text" id="pseudo-np" class="form-control font-monospace fw-bold fs-5" value="Sami Ben Salah" placeholder="Ex: Sami Ben Salah">
+              <input type="text" id="pseudo-np" class="form-control font-monospace fw-bold fs-5" value="Sami Ben Salah"
+                placeholder="Ex: Sami Ben Salah">
             </div>
 
             <div class="mb-3">
-              <button id="btn-gen-pseudo" class="btn btn-warning btn-lg w-100 fw-bold shadow-sm text-dark d-flex align-items-center justify-content-center gap-2">
+              <button id="btn-gen-pseudo"
+                class="btn btn-warning btn-lg w-100 fw-bold shadow-sm text-dark d-flex align-items-center justify-content-center gap-2">
                 <span>⚡</span> Générer le Pseudonyme Automatisé
               </button>
             </div>
@@ -2258,7 +2726,8 @@
 
         <!-- Toggle Solution Button -->
         <div class="my-3">
-          <button class="btn btn-outline-primary fw-bold px-4 d-inline-flex align-items-center gap-2" type="button" data-bs-toggle="collapse" data-bs-target="#ex14-solution" aria-expanded="false">
+          <button class="btn btn-outline-primary fw-bold px-4 d-inline-flex align-items-center gap-2" type="button"
+            data-bs-toggle="collapse" data-bs-target="#ex14-solution" aria-expanded="false">
             <span>👁️</span> Afficher la correction (Algorithme & Code Python)
           </button>
         </div>
@@ -2273,7 +2742,8 @@
               <div class="row g-3">
                 <div class="col-md-6">
                   <h6 class="fw-bold text-primary mb-2">📜 En Algorithme :</h6>
-                  <pre class="bg-dark text-white p-3 rounded mb-0 font-monospace small" style="border: 1px solid #334155;"><code>Algorithme Pseudonyme
+                  <pre class="bg-dark text-white p-3 rounded mb-0 font-monospace small"
+                    style="border: 1px solid #334155;"><code>Algorithme Pseudonyme
 Variables
     ch, prenom, nom, p1, p2, p3, pseudo : Chaîne
     p : Entier
@@ -2293,7 +2763,8 @@ Fin</code></pre>
                 </div>
                 <div class="col-md-6">
                   <h6 class="fw-bold text-success mb-2">🐍 En Python :</h6>
-                  <pre class="bg-dark text-white p-3 rounded mb-0 font-monospace small" style="border: 1px solid #334155;"><code>import random
+                  <pre class="bg-dark text-white p-3 rounded mb-0 font-monospace small"
+                    style="border: 1px solid #334155;"><code>import random
 
 ch = input("Nom & Prénom : ")
 p = ch.find(" ")
@@ -2315,7 +2786,7 @@ print("Pseudonyme proposé :", pseudo)</code></pre>
         <!-- Practice Exercise Table -->
         <h5 class="fw-bold text-dark mt-4">✍️ Exercice d'entraînement : Compléter le tableau</h5>
         <p>Appliquer les règles de génération pour trouver les composantes et le pseudonyme de chaque utilisateur :</p>
-        
+
         <div class="table-responsive shadow-sm rounded border overflow-hidden my-3">
           <table class="table table-hover text-center align-middle mb-0" id="ex14-table">
             <thead style="background-color: #0f172a;" class="text-white">
@@ -2330,30 +2801,42 @@ print("Pseudonyme proposé :", pseudo)</code></pre>
             <tbody class="bg-white">
               <tr data-p1="SAM4" data-p2="LAH9" data-pseudo-prefix="SAM4_LAH9">
                 <td class="fw-semibold font-monospace">Sami Ben Salah</td>
-                <td><input type="text" class="form-control form-control-sm text-center font-monospace ex14-p1" placeholder="p1 (ex: SAM4)"></td>
-                <td><input type="text" class="form-control form-control-sm text-center font-monospace ex14-p2" placeholder="p2 (ex: LAH9)"></td>
-                <td><input type="text" class="form-control form-control-sm text-center font-monospace ex14-pseudo" placeholder="SAM4_LAH9_XX"></td>
+                <td><input type="text" class="form-control form-control-sm text-center font-monospace ex14-p1"
+                    placeholder="p1 (ex: SAM4)"></td>
+                <td><input type="text" class="form-control form-control-sm text-center font-monospace ex14-p2"
+                    placeholder="p2 (ex: LAH9)"></td>
+                <td><input type="text" class="form-control form-control-sm text-center font-monospace ex14-pseudo"
+                    placeholder="SAM4_LAH9_XX"></td>
                 <td class="ex14-status"></td>
               </tr>
               <tr data-p1="MOH7" data-p2="ANI4" data-pseudo-prefix="MOH7_ANI4">
                 <td class="fw-semibold font-monospace">Mohamed Mani</td>
-                <td><input type="text" class="form-control form-control-sm text-center font-monospace ex14-p1" placeholder="p1"></td>
-                <td><input type="text" class="form-control form-control-sm text-center font-monospace ex14-p2" placeholder="p2"></td>
-                <td><input type="text" class="form-control form-control-sm text-center font-monospace ex14-pseudo" placeholder="MOH7_ANI4_XX"></td>
+                <td><input type="text" class="form-control form-control-sm text-center font-monospace ex14-p1"
+                    placeholder="p1"></td>
+                <td><input type="text" class="form-control form-control-sm text-center font-monospace ex14-p2"
+                    placeholder="p2"></td>
+                <td><input type="text" class="form-control form-control-sm text-center font-monospace ex14-pseudo"
+                    placeholder="MOH7_ANI4_XX"></td>
                 <td class="ex14-status"></td>
               </tr>
               <tr data-p1="ALI3" data-p2="IZI8" data-pseudo-prefix="ALI3_IZI8">
                 <td class="fw-semibold font-monospace">Ali Bouazizi</td>
-                <td><input type="text" class="form-control form-control-sm text-center font-monospace ex14-p1" placeholder="p1"></td>
-                <td><input type="text" class="form-control form-control-sm text-center font-monospace ex14-p2" placeholder="p2"></td>
-                <td><input type="text" class="form-control form-control-sm text-center font-monospace ex14-pseudo" placeholder="ALI3_IZI8_XX"></td>
+                <td><input type="text" class="form-control form-control-sm text-center font-monospace ex14-p1"
+                    placeholder="p1"></td>
+                <td><input type="text" class="form-control form-control-sm text-center font-monospace ex14-p2"
+                    placeholder="p2"></td>
+                <td><input type="text" class="form-control form-control-sm text-center font-monospace ex14-pseudo"
+                    placeholder="ALI3_IZI8_XX"></td>
                 <td class="ex14-status"></td>
               </tr>
               <tr data-p1="YAS7" data-p2="LSI8" data-pseudo-prefix="YAS7_LSI8">
                 <td class="fw-semibold font-monospace">Yassine Trabelsi</td>
-                <td><input type="text" class="form-control form-control-sm text-center font-monospace ex14-p1" placeholder="p1"></td>
-                <td><input type="text" class="form-control form-control-sm text-center font-monospace ex14-p2" placeholder="p2"></td>
-                <td><input type="text" class="form-control form-control-sm text-center font-monospace ex14-pseudo" placeholder="YAS7_LSI8_XX"></td>
+                <td><input type="text" class="form-control form-control-sm text-center font-monospace ex14-p1"
+                    placeholder="p1"></td>
+                <td><input type="text" class="form-control form-control-sm text-center font-monospace ex14-p2"
+                    placeholder="p2"></td>
+                <td><input type="text" class="form-control form-control-sm text-center font-monospace ex14-pseudo"
+                    placeholder="YAS7_LSI8_XX"></td>
                 <td class="ex14-status"></td>
               </tr>
             </tbody>

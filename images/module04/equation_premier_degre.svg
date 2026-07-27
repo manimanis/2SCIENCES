@@ -1,0 +1,164 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480" width="100%" height="100%">
+  <defs>
+    <!-- Shadows -->
+    <filter id="drop-shadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="2" dy="4" stdDeviation="4" flood-opacity="0.15" />
+    </filter>
+    
+    <!-- Gradients -->
+    <linearGradient id="hdr-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+
+    <linearGradient id="cond-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6" />
+      <stop offset="100%" stop-color="#1d4ed8" />
+    </linearGradient>
+
+    <linearGradient id="subcond-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7" />
+      <stop offset="100%" stop-color="#0369a1" />
+    </linearGradient>
+
+    <linearGradient id="sol-unique-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#047857" />
+    </linearGradient>
+
+    <linearGradient id="sol-inf-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06b6d4" />
+      <stop offset="100%" stop-color="#0e7490" />
+    </linearGradient>
+
+    <linearGradient id="sol-empty-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ef4444" />
+      <stop offset="100%" stop-color="#b91c1c" />
+    </linearGradient>
+
+    <!-- Markers -->
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#475569" />
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#059669" />
+    </marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#dc2626" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="480" fill="#f8fafc" rx="12" />
+
+  <!-- Header Card -->
+  <rect x="20" y="20" width="860" height="54" rx="8" fill="url(#hdr-grad)" filter="url(#drop-shadow)" />
+  <text x="450" y="53" text-anchor="middle" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-weight="bold" font-size="18">
+    📐 Arbre de décision : Résolution d'une Équation du 1er degré (a · x + b = 0)
+  </text>
+
+  <!-- Enlarged Input Node -->
+  <rect x="310" y="92" width="280" height="50" rx="25" fill="#ffffff" stroke="#0284c7" stroke-width="2.5" filter="url(#drop-shadow)" />
+  <text x="450" y="123" text-anchor="middle" fill="#0f172a" font-family="Consolas, monospace" font-weight="bold" font-size="16">
+    Saisir a et b (a, b ∈ ℝ)
+  </text>
+
+  <!-- Line Input -> First Decision -->
+  <path d="M 450 142 L 450 168" stroke="#475569" stroke-width="2.5" marker-end="url(#arrow)" />
+
+  <!-- First Decision Node: a ≠ 0 -->
+  <polygon points="450,170 560,215 450,260 340,215" fill="url(#cond-grad)" filter="url(#drop-shadow)" />
+  <text x="450" y="210" text-anchor="middle" fill="#ffffff" font-family="Consolas, monospace" font-weight="bold" font-size="16">
+    a ≠ 0 ?
+  </text>
+  <text x="450" y="230" text-anchor="middle" fill="#dbeafe" font-family="system-ui, sans-serif" font-size="12">
+    (Coefficient de x)
+  </text>
+
+  <!-- Left Branch (Oui: a ≠ 0) -->
+  <path d="M 340 215 L 170 215 L 170 290" stroke="#059669" stroke-width="2.5" fill="none" marker-end="url(#arrow-green)" />
+  <rect x="200" y="190" width="75" height="22" rx="4" fill="#d1fae5" stroke="#059669" stroke-width="1.5" />
+  <text x="237" y="206" text-anchor="middle" fill="#047857" font-family="system-ui, sans-serif" font-weight="bold" font-size="12">
+    Oui (a ≠ 0)
+  </text>
+
+  <!-- Node Result 1: Solution unique x = -b/a -->
+  <g filter="url(#drop-shadow)">
+    <rect x="60" y="295" width="220" height="150" rx="10" fill="#ffffff" stroke="#10b981" stroke-width="2.5" />
+    <rect x="60" y="295" width="220" height="38" rx="8" fill="url(#sol-unique-grad)" />
+    <text x="170" y="320" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-weight="bold" font-size="15">
+      Solution Unique (S = {-b/a})
+    </text>
+    <text x="170" y="358" text-anchor="middle" fill="#065f46" font-family="Consolas, monospace" font-weight="bold" font-size="18">
+      x ← -b / a
+    </text>
+    <line x1="80" y1="375" x2="260" y2="375" stroke="#e2e8f0" stroke-width="1" />
+    <text x="170" y="398" text-anchor="middle" fill="#475569" font-family="system-ui, sans-serif" font-size="13">
+      Ex: 2x + 6 = 0
+    </text>
+    <text x="170" y="420" text-anchor="middle" fill="#047857" font-family="Consolas, monospace" font-weight="bold" font-size="13">
+      x = -6/2 = -3.0
+    </text>
+  </g>
+
+  <!-- Right Branch (Non: a = 0) -->
+  <path d="M 560 215 L 650 215 L 650 268" stroke="#dc2626" stroke-width="2.5" fill="none" marker-end="url(#arrow-red)" />
+  <rect x="572" y="190" width="70" height="22" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5" />
+  <text x="607" y="206" text-anchor="middle" fill="#b91c1c" font-family="system-ui, sans-serif" font-weight="bold" font-size="12">
+    Non (a = 0)
+  </text>
+
+  <!-- Second Decision Node: b = 0 -->
+  <polygon points="650,270 740,305 650,340 560,305" fill="url(#subcond-grad)" filter="url(#drop-shadow)" />
+  <text x="650" y="303" text-anchor="middle" fill="#ffffff" font-family="Consolas, monospace" font-weight="bold" font-size="15">
+    b = 0 ?
+  </text>
+  <text x="650" y="320" text-anchor="middle" fill="#e0f2fe" font-family="system-ui, sans-serif" font-size="11">
+    (Terme constant)
+  </text>
+
+  <!-- Sub-branch Left (Oui: b = 0) -->
+  <path d="M 560 305 L 465 305 L 465 363" stroke="#0891b2" stroke-width="2" fill="none" marker-end="url(#arrow)" />
+  <rect x="480" y="285" width="65" height="20" rx="4" fill="#cff4fc" stroke="#0891b2" stroke-width="1" />
+  <text x="512" y="299" text-anchor="middle" fill="#0e7490" font-family="system-ui, sans-serif" font-weight="bold" font-size="11">
+    Oui (b = 0)
+  </text>
+
+  <!-- Result Node 2: Infinité de solutions S = IR -->
+  <g filter="url(#drop-shadow)">
+    <rect x="365" y="370" width="200" height="90" rx="8" fill="#ffffff" stroke="#06b6d4" stroke-width="2" />
+    <rect x="365" y="370" width="200" height="30" rx="6" fill="url(#sol-inf-grad)" />
+    <text x="465" y="390" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-weight="bold" font-size="13">
+      Infinité de solutions (S = ℝ)
+    </text>
+    <text x="465" y="420" text-anchor="middle" fill="#0e7490" font-family="Consolas, monospace" font-weight="bold" font-size="13">
+      0 · x + 0 = 0
+    </text>
+    <text x="465" y="442" text-anchor="middle" fill="#64748b" font-family="system-ui, sans-serif" font-size="11">
+      Tout x ∈ ℝ est solution
+    </text>
+  </g>
+
+  <!-- Sub-branch Right (Non: b ≠ 0) -->
+  <path d="M 740 305 L 785 305 L 785 363" stroke="#dc2626" stroke-width="2" fill="none" marker-end="url(#arrow-red)" />
+  <rect x="742" y="285" width="65" height="20" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1" />
+  <text x="774" y="299" text-anchor="middle" fill="#b91c1c" font-family="system-ui, sans-serif" font-weight="bold" font-size="11">
+    Non (b ≠ 0)
+  </text>
+
+  <!-- Result Node 3: Aucune solution S = ∅ -->
+  <g filter="url(#drop-shadow)">
+    <rect x="685" y="370" width="200" height="90" rx="8" fill="#ffffff" stroke="#ef4444" stroke-width="2" />
+    <rect x="685" y="370" width="200" height="30" rx="6" fill="url(#sol-empty-grad)" />
+    <text x="785" y="390" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-weight="bold" font-size="13">
+      Aucune solution (S = ∅)
+    </text>
+    <text x="785" y="420" text-anchor="middle" fill="#b91c1c" font-family="Consolas, monospace" font-weight="bold" font-size="13">
+      0 · x + b = 0 (b ≠ 0)
+    </text>
+    <text x="785" y="442" text-anchor="middle" fill="#64748b" font-family="system-ui, sans-serif" font-size="11">
+      Équation impossible
+    </text>
+  </g>
+
+</svg>

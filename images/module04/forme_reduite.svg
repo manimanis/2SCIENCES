@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 270" width="100%" height="auto">
+  <defs>
+    <style>
+      .cond-text { font-family: 'Segoe UI', system-ui, sans-serif; font-size: 14px; font-weight: 600; fill: #0369a1; text-anchor: middle; }
+      .proc-text { font-family: 'Segoe UI', system-ui, sans-serif; font-size: 13px; font-weight: 600; fill: #0f172a; text-anchor: middle; }
+      .init-text { font-family: 'Segoe UI', system-ui, sans-serif; font-size: 12px; font-weight: 600; fill: #334155; text-anchor: middle; }
+      .label-vrai { font-family: 'Segoe UI', system-ui, sans-serif; font-size: 12px; font-weight: 700; fill: #16a34a; }
+      .label-faux { font-family: 'Segoe UI', system-ui, sans-serif; font-size: 12px; font-weight: 700; fill: #dc2626; }
+      .flow-line { stroke: #475569; stroke-width: 2; fill: none; }
+    </style>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#475569" />
+    </marker>
+  </defs>
+
+  <g>
+    <!-- Init Box -->
+    <rect x="120" y="8" width="120" height="30" rx="5" fill="#f8fafc" stroke="#64748b" stroke-width="1.5"/>
+    <text x="180" y="28" class="init-text">absx ← x</text>
+
+    <!-- Arrow to condition -->
+    <line x1="180" y1="38" x2="180" y2="53" class="flow-line" marker-end="url(#arrow-red)"/>
+
+    <!-- Condition Diamond -->
+    <polygon points="180,55 240,80 180,105 120,80" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+    <text x="180" y="85" class="cond-text">x &lt; 0</text>
+
+    <!-- Branch VRAI (Down) -->
+    <line x1="180" y1="105" x2="180" y2="148" class="flow-line" marker-end="url(#arrow-red)"/>
+    <text x="188" y="128" class="label-vrai">Vrai</text>
+
+    <!-- Traitement Box -->
+    <rect x="115" y="150" width="130" height="40" rx="6" fill="#f0f9ff" stroke="#0284c7" stroke-width="2"/>
+    <text x="180" y="175" class="proc-text">absx ← -x</text>
+
+    <!-- Branch FAUX (Bypass Left) -->
+    <polyline points="120,80 50,80 50,210 170,210" class="flow-line" marker-end="url(#arrow-red)"/>
+    <text x="75" y="72" class="label-faux">Faux</text>
+
+    <!-- Exit from Traitement -->
+    <line x1="180" y1="190" x2="180" y2="210" class="flow-line"/>
+
+    <!-- Output Box -->
+    <line x1="180" y1="210" x2="180" y2="228" class="flow-line" marker-end="url(#arrow-red)"/>
+    <circle cx="180" cy="210" r="4" fill="#475569"/>
+
+    <rect x="80" y="230" width="200" height="32" rx="5" fill="#f8fafc" stroke="#64748b" stroke-width="1.5"/>
+    <text x="180" y="251" class="init-text">Ecrire("abs(", x, ")=", absx)</text>
+  </g>
+</svg>

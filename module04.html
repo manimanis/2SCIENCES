@@ -35,57 +35,201 @@
     <article>
       <h2>Cours</h2>
 
-      <!-- 1. Formes -->
-      <section>
-        <h3>1. Formes des structures conditionnelles</h3>
-        <p>L'exécution d'un traitement dépend d'une condition.</p>
+      <!-- 1. Présentation -->
+      <section class="mb-4">
+        <h3>1. Présentation</h3>
+        <div class="alert alert-info border-start border-info border-4 shadow-sm my-3">
+          <p class="mb-2">
+            Souvent, l'exécution d'un traitement dépend d'une condition. Dans ce cas, on utilise les <strong>structures
+              conditionnelles</strong>.
+            Ces dernières se déclinent, en fonction du nombre de conditions et de traitements, en trois formes :
+            <strong>réduite</strong>, <strong>alternative (ou complète)</strong> et <strong>généralisée</strong>.
+          </p>
+          <p class="mb-0">
+            Lorsque le traitement dépend d'une valeur de type scalaire (entier, caractère ou booléen), on peut utiliser
+            une structure de contrôle conditionnelle à <strong>choix multiples</strong>.
+          </p>
+        </div>
+      </section>
 
-        <div class="row g-3 my-3">
-          <div class="col-md-6">
-            <div class="card p-3 shadow-sm border-primary h-100">
-              <h5 class="fw-bold text-primary">Forme Réduite</h5>
-              <p>Un seul traitement exécuté si la condition est VRAIE.</p>
-              <pre><code class="language-algorithm">Si condition Alors
-   Traitements
-Fin Si</code></pre>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="card p-3 shadow-sm border-success h-100">
-              <h5 class="fw-bold text-success">Forme Alternative (Complète)</h5>
-              <p>Deux traitements : un pour VRAI, un pour FAUX.</p>
-              <pre><code class="language-algorithm">Si condition Alors
-   Traitement 1
+      <!-- 2. Forme réduite -->
+      <section class="mb-4">
+        <h3>2. Forme réduite</h3>
+        <p>Une structure conditionnelle à forme réduite admet un seul traitement qui sera exécuté uniquement si la
+          condition est vraie.</p>
+
+        <div class="text-center my-3">
+          <img src="images/module04/forme_reduite.svg" alt="Schéma Organigramme - Forme Réduite"
+            class="img-fluid rounded shadow-sm p-2 bg-white border" style="max-width: 520px;">
+        </div>
+
+        <div class="table-responsive my-4 shadow-sm rounded border overflow-hidden">
+          <table class="table table-hover align-middle mb-0">
+            <thead class="text-center text-white">
+              <tr>
+                <th style="width: 50%; background-color: #0284c7;" class="py-2 fs-6">📐 Algorithme</th>
+                <th style="width: 50%; background-color: #0f172a;" class="py-2 fs-6">🐍 Python</th>
+              </tr>
+            </thead>
+            <tbody class="bg-white">
+              <tr>
+                <td class="p-2">
+                  <pre class="m-0"><code class="language-algorithm">// Valeur absolue d'un nombre x
+absx ← x
+Si x &lt; 0 Alors
+    absx ← -x
+Fin Si
+Ecrire("abs(", x, ")=", absx)</code></pre>
+                </td>
+                <td class="p-2">
+                  <pre class="m-0"><code class="language-python"># Valeur absolue d'un nombre x
+absx = x
+if x &lt; 0:
+    absx = -x
+print("abs(", x, ")=", absx)</code></pre>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 3. Forme alternative -->
+      <section class="mb-4">
+        <h3>3. Forme alternative</h3>
+        <p>Une structure conditionnelle à forme alternative admet deux traitements différents :</p>
+        <ul class="mb-3">
+          <li>Le premier traitement est exécuté uniquement si la condition est vraie.</li>
+          <li>Le second traitement est exécuté uniquement si la condition est fausse.</li>
+        </ul>
+
+        <div class="text-center my-3">
+          <img src="images/module04/forme_alternative.svg" alt="Schéma Organigramme - Forme Alternative"
+            class="img-fluid rounded shadow-sm p-2 bg-white border" style="max-width: 540px;">
+        </div>
+
+        <div class="table-responsive my-4 shadow-sm rounded border overflow-hidden">
+          <table class="table table-hover align-middle mb-0">
+            <thead class="text-center text-white">
+              <tr>
+                <th style="width: 50%; background-color: #16a34a;" class="py-2 fs-6">📐 Algorithme</th>
+                <th style="width: 50%; background-color: #0f172a;" class="py-2 fs-6">🐍 Python</th>
+              </tr>
+            </thead>
+            <tbody class="bg-white">
+              <tr>
+                <td class="p-2">
+                  <pre class="m-0"><code class="language-algorithm">// Parité d'un nombre n
+Si n mod 2 = 0 Alors
+    Ecrire(n, "est pair.")
 Sinon
-   Traitement 2
+    Ecrire(n, "est impair.")
 Fin Si</code></pre>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="card p-3 shadow-sm border-warning h-100">
-              <h5 class="fw-bold text-warning text-dark">Forme Généralisée</h5>
-              <p>Trois traitements ou plus selon plusieurs conditions.</p>
-              <pre><code class="language-algorithm">Si condition1 Alors
-   Traitement 1
-Sinon Si condition2 Alors
-   Traitement 2
+                </td>
+                <td class="p-2">
+                  <pre class="m-0"><code class="language-python"># Parité d'un nombre n
+if n % 2 == 0:
+    print(n, "est pair.")
+else:
+    print(n, "est impair.")</code></pre>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 4. Forme généralisée -->
+      <section class="mb-4">
+        <h3>4. Forme généralisée</h3>
+        <p>Une structure conditionnelle simple à forme généralisée admet trois traitements différents ou plus qui seront
+          exécutés en fonction de plusieurs conditions.</p>
+
+        <div class="text-center my-3">
+          <img src="images/module04/forme_generalisee.svg" alt="Schéma Organigramme - Forme Généralisée"
+            class="img-fluid rounded shadow-sm p-2 bg-white border" style="max-width: 600px;">
+        </div>
+
+        <div class="table-responsive my-4 shadow-sm rounded border overflow-hidden">
+          <table class="table table-hover align-middle mb-0">
+            <thead class="text-center text-white">
+              <tr>
+                <th style="width: 50%; background-color: #d97706;" class="py-2 fs-6">📐 Algorithme</th>
+                <th style="width: 50%; background-color: #0f172a;" class="py-2 fs-6">🐍 Python</th>
+              </tr>
+            </thead>
+            <tbody class="bg-white">
+              <tr>
+                <td class="p-2">
+                  <pre class="m-0"><code class="language-algorithm">// Comparaison entre deux nombres
+Si a &gt; b Alors
+    eq ← "&gt;"
+Sinon Si a &lt; b Alors
+    eq ← "&lt;"
 Sinon
-   Traitement 3
-Fin Si</code></pre>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="card p-3 shadow-sm border-info h-100">
-              <h5 class="fw-bold text-info">Choix Multiples (Selon / match case)</h5>
-              <p>Sélection selon la valeur d'une variable scalaire.</p>
-              <pre><code class="language-algorithm">Selon mois Faire
-   1,3,5,7,8,10,12 : nbj ← 31
-   4,6,9,11 : nbj ← 30
-   2 : nbj ← 28
-   Sinon : nbj ← -1
-Fin Selon</code></pre>
-            </div>
-          </div>
+    eq ← "="
+Fin Si
+Ecrire(a, eq, b)</code></pre>
+                </td>
+                <td class="p-2">
+                  <pre class="m-0"><code class="language-python"># Comparaison entre deux nombres
+if a &gt; b:
+    eq = "&gt;"
+elif a &lt; b:
+    eq = "&lt;"
+else:
+    eq = "="
+print(a, eq, b)</code></pre>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 5. Structure à choix multiples -->
+      <section class="mb-4">
+        <h3>5. Structure à choix multiples</h3>
+        <p>Une structure de contrôle conditionnelle à choix multiples est utilisée de préférence lorsque le traitement
+          dépend uniquement d'une ou de plusieurs valeurs d'un sélecteur scalaire.</p>
+
+        <div class="text-center my-3">
+          <img src="images/module04/forme_choix_multiples.svg" alt="Schéma Organigramme - Choix Multiples"
+            class="img-fluid rounded shadow-sm p-2 bg-white border" style="max-width: 640px;">
+        </div>
+
+        <div class="table-responsive my-4 shadow-sm rounded border overflow-hidden">
+          <table class="table table-hover align-middle mb-0">
+            <thead class="text-center text-white">
+              <tr>
+                <th style="width: 50%; background-color: #0284c7;" class="py-2 fs-6">📐 Algorithme</th>
+                <th style="width: 50%; background-color: #0f172a;" class="py-2 fs-6">🐍 Python</th>
+              </tr>
+            </thead>
+            <tbody class="bg-white">
+              <tr>
+                <td class="p-2">
+                  <pre class="m-0"><code class="language-algorithm">// Calcul du nombre de jours
+Selon mois
+    1, 3, 5, 7, 8, 10, 12: nbjours ← 31
+    4, 6, 9, 11: nbjours ← 30
+    2: nbjours ← 28
+    Sinon nbjours ← -1
+Fin Selon
+Ecrire(nbjours)</code></pre>
+                </td>
+                <td class="p-2">
+                  <pre class="m-0"><code class="language-python"># Calcul du nombre de jours
+match mois:
+    case 1|3|5|7|8|10|12: nbjours = 31
+    case 4|6|9|11: nbjours = 30
+    case 2: nbjours = 28
+    case _: nbjours = -1
+print(nbjours)</code></pre>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </section>
     </article>
@@ -96,14 +240,235 @@ Fin Selon</code></pre>
       <!-- Exercice 1 -->
       <section>
         <h3>Exercice 1 – QCM 1</h3>
-        <div class="qcm-container interactive-box shadow-sm">
-          <div class="qcm-question" data-answer="a" data-explanation="Une personne est majeure si age >= 18.">
-            <h5 class="fw-bold">1. Une personne est majeure si son âge dépasse 18 ans :</h5>
-            <div class="form-check"><input class="form-check-input" type="checkbox" value="a" id="c4q1a"><label class="form-check-label" for="c4q1a">age >= 18</label></div>
-            <div class="form-check"><input class="form-check-input" type="checkbox" value="b" id="c4q1b"><label class="form-check-label" for="c4q1b">age &lt;= 18</label></div>
+        <p class="text-muted">Cocher la ou les bonnes réponses pour chaque question.</p>
+        <div class="qcm-container interactive-box shadow-sm p-4 bg-white rounded border">
+
+          <!-- Q1 -->
+          <div class="qcm-question mb-4 p-3 border rounded bg-light" data-answer="a,c"
+            data-explanation="&quot;age &ge; 18&quot; et &quot;age / 18 &ge; 1&quot; (pour un âge positif) sont deux conditions équivalentes.">
+            <h5 class="fw-bold text-primary mb-3">1. Une personne est considérée majeure si son âge dépasse les 18 ans.
+              La condition qui peut compléter l'algorithme ci-dessous est :</h5>
+            <pre class="bg-white text-dark p-2 rounded border shadow-sm mb-3" style="font-size: 0.85rem;"><code class="language-algorithm">Si condition Alors
+    Ecrire("Vous êtes majeur(e)")
+Sinon
+    Ecrire("Vous êtes mineur(e)")
+Fin Si</code></pre>
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" value="a" id="c4q1a">
+              <label class="form-check-label font-monospace" for="c4q1a">age &ge; 18</label>
+            </div>
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" value="b" id="c4q1b">
+              <label class="form-check-label font-monospace" for="c4q1b">age &le; 18</label>
+            </div>
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" value="c" id="c4q1c">
+              <label class="form-check-label font-monospace" for="c4q1c">age / 18 &ge; 1</label>
+            </div>
+            <details class="mt-2">
+              <summary class="btn btn-sm btn-outline-info fw-bold py-0 px-2">💡 Indice</summary>
+              <div class="alert alert-light border-info mt-2 p-2 small mb-0 text-dark">
+                Pensez à la comparaison directe avec le seuil 18, et observez le résultat d'un quotient lorsqu'un nombre
+                est supérieur ou égal à 18.
+              </div>
+            </details>
             <div class="qcm-feedback mt-2 d-none alert"></div>
           </div>
-          <button class="btn btn-primary btn-check-qcm">Vérifier mes réponses</button>
+
+          <!-- Q2 -->
+          <div class="qcm-question mb-4 p-3 border rounded bg-light" data-answer="a,c"
+            data-explanation="&quot;long(ch) mod 3 = 0&quot; et &quot;non(long(ch) mod 3 &ne; 0)&quot; sont deux conditions logiques équivalentes.">
+            <h5 class="fw-bold text-primary mb-3">2. La condition qu'on peut utiliser pour vérifier si la longueur d'une
+              chaîne de caractères <code>ch</code> est multiple de 3 est :</h5>
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" value="a" id="c4q2a">
+              <label class="form-check-label font-monospace" for="c4q2a">long(ch) mod 3 = 0</label>
+            </div>
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" value="b" id="c4q2b">
+              <label class="form-check-label font-monospace" for="c4q2b">long(ch) mod 3 &ne; 0</label>
+            </div>
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" value="c" id="c4q2c">
+              <label class="form-check-label font-monospace" for="c4q2c">non(long(ch) mod 3 &ne; 0)</label>
+            </div>
+            <details class="mt-2">
+              <summary class="btn btn-sm btn-outline-info fw-bold py-0 px-2">💡 Indice</summary>
+              <div class="alert alert-light border-info mt-2 p-2 small mb-0 text-dark">
+                Un nombre est multiple de 3 si le reste de la division entière par 3 (<code>mod 3</code>) vaut 0.
+                Rappelez-vous aussi qu'une condition logique et sa double négation sont équivalentes.
+              </div>
+            </details>
+            <div class="qcm-feedback mt-2 d-none alert"></div>
+          </div>
+
+          <!-- Q3 -->
+          <div class="qcm-question mb-4 p-3 border rounded bg-light" data-answer="a,b"
+            data-explanation="Les propositions (a) et (b) sont toutes deux correctes : la première utilise la forme réduite avec une valeur par défaut, et la deuxième la forme alternative via un booléen.">
+            <h5 class="fw-bold text-primary mb-3">3. Pour déterminer si un entier <code>n</code> est pair ou impair,
+              quelle(s) séquence(s) est/sont correcte(s) ?</h5>
+            <div class="form-check mb-3">
+              <input class="form-check-input" type="checkbox" value="a" id="c4q3a">
+              <label class="form-check-label w-100" for="c4q3a">
+                <pre class="bg-white text-dark p-2 rounded border shadow-sm m-0 mt-1" style="font-size: 0.8rem;"><code class="language-algorithm">nat ← "Pair"
+Si n mod 2 ≠ 0 Alors
+    nat ← "Impair"
+Fin Si
+Ecrire(n, "est", nat)</code></pre>
+              </label>
+            </div>
+            <div class="form-check mb-3">
+              <input class="form-check-input" type="checkbox" value="b" id="c4q3b">
+              <label class="form-check-label w-100" for="c4q3b">
+                <pre class="bg-white text-dark p-2 rounded border shadow-sm m-0 mt-1" style="font-size: 0.8rem;"><code class="language-algorithm">p ← (n mod 2 = 0)
+Si p Alors
+    nat ← "Pair"
+Sinon
+    nat ← "Impair"
+Fin Si
+Ecrire(n, "est", nat)</code></pre>
+              </label>
+            </div>
+            <div class="form-check mb-3">
+              <input class="form-check-input" type="checkbox" value="c" id="c4q3c">
+              <label class="form-check-label w-100" for="c4q3c">
+                <pre class="bg-white text-dark p-2 rounded border shadow-sm m-0 mt-1" style="font-size: 0.8rem;"><code class="language-algorithm">Si n mod 2 = 0 Alors
+    nat ← "Pair"
+    nat ← "Impair"
+Fin Si
+Ecrire(n, "est", nat)</code></pre>
+              </label>
+            </div>
+            <details class="mt-2">
+              <summary class="btn btn-sm btn-outline-info fw-bold py-0 px-2">💡 Indice</summary>
+              <div class="alert alert-light border-info mt-2 p-2 small mb-0 text-dark">
+                Examinez comment chaque séquence gère l'affectation de <code>nat</code> : soit avec une valeur par
+                défaut modifiée si impair, soit avec une structure <code>Si...Sinon</code> complète basée sur un test
+                booléen.
+              </div>
+            </details>
+            <div class="qcm-feedback mt-2 d-none alert"></div>
+          </div>
+
+          <!-- Q4 -->
+          <div class="qcm-question mb-4 p-3 border rounded bg-light" data-answer="a,c"
+            data-explanation="Les séquences (a) et (c) forment correctement le plus grand nombre à 2 chiffres.">
+            <h5 class="fw-bold text-primary mb-3">4. Afin de former l'entier le plus grand <code>n2</code> formé par les
+              chiffres d'un entier <code>n</code> de deux chiffres :</h5>
+            <div class="form-check mb-3">
+              <input class="form-check-input" type="checkbox" value="a" id="c4q4a">
+              <label class="form-check-label w-100" for="c4q4a">
+                <pre class="bg-white text-dark p-2 rounded border shadow-sm m-0 mt-1" style="font-size: 0.8rem;"><code class="language-algorithm">n ← aléa(10, 99)
+n2 ← (n mod 10) * 10 + n div 10
+Si n &gt; n2 Alors
+    n2 ← n
+Fin Si
+Ecrire(n, n2)</code></pre>
+              </label>
+            </div>
+            <div class="form-check mb-3">
+              <input class="form-check-input" type="checkbox" value="b" id="c4q4b">
+              <label class="form-check-label w-100" for="c4q4b">
+                <pre class="bg-white text-dark p-2 rounded border shadow-sm m-0 mt-1" style="font-size: 0.8rem;"><code class="language-algorithm">n ← aléa(10, 99)
+ch ← ConvCh(n)
+n2 ← Valeur(ch[1] + ch[0])
+Ecrire(n, n2)</code></pre>
+              </label>
+            </div>
+            <div class="form-check mb-3">
+              <input class="form-check-input" type="checkbox" value="c" id="c4q4c">
+              <label class="form-check-label w-100" for="c4q4c">
+                <pre class="bg-white text-dark p-2 rounded border shadow-sm m-0 mt-1" style="font-size: 0.8rem;"><code class="language-algorithm">n ← aléa(10, 99)
+ch ← ConvCh(n)
+Si ch[1] &gt; ch[0] Alors
+    ch ← ch[1] + ch[0]
+Fin Si
+n2 ← Valeur(ch)
+Ecrire(n, n2)</code></pre>
+              </label>
+            </div>
+            <details class="mt-2">
+              <summary class="btn btn-sm btn-outline-info fw-bold py-0 px-2">💡 Indice</summary>
+              <div class="alert alert-light border-info mt-2 p-2 small mb-0 text-dark">
+                Cherchez les algorithmes qui comparent correctement le premier et le second chiffre pour former le plus
+                grand nombre possible (soit par calcul arithmétique <code>div</code>/<code>mod</code>, soit par
+                manipulation de chaîne).
+              </div>
+            </details>
+            <div class="qcm-feedback mt-2 d-none alert"></div>
+          </div>
+
+          <!-- Q5 -->
+          <div class="qcm-question mb-4 p-3 border rounded bg-light" data-answer="c"
+            data-explanation="Pour n = 26 (pair), 26 div 2 = 13. (Pour n = 13 impair, 3*13+1 = 40).">
+            <h5 class="fw-bold text-primary mb-3">5. Dans l'algorithme ci-dessous, pour que le résultat final de
+              <code>n</code> soit égal à 13, <code>n</code> initial peut être égal à :
+            </h5>
+            <pre class="bg-white text-dark p-2 rounded border shadow-sm mb-3" style="font-size: 0.85rem;"><code class="language-algorithm">Si n mod 2 = 0 Alors
+    n ← n div 2
+Sinon
+    n ← 3 * n + 1
+Fin Si</code></pre>
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" value="a" id="c4q5a">
+              <label class="form-check-label font-monospace" for="c4q5a">4</label>
+            </div>
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" value="b" id="c4q5b">
+              <label class="form-check-label font-monospace" for="c4q5b">13</label>
+            </div>
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" value="c" id="c4q5c">
+              <label class="form-check-label font-monospace" for="c4q5c">26</label>
+            </div>
+            <details class="mt-2">
+              <summary class="btn btn-sm btn-outline-info fw-bold py-0 px-2">💡 Indice</summary>
+              <div class="alert alert-light border-info mt-2 p-2 small mb-0 text-dark">
+                Évaluez l'instruction conditionnelle pour chaque valeur candidate : si <code>n</code> est pair on divise
+                par 2 (<code>n div 2</code>), si <code>n</code> est impair on applique <code>3 * n + 1</code>.
+              </div>
+            </details>
+            <div class="qcm-feedback mt-2 d-none alert"></div>
+          </div>
+
+          <!-- Q6 -->
+          <div class="qcm-question mb-4 p-3 border rounded bg-light" data-answer="b,c"
+            data-explanation="Pour np = 80, pu = 150 (80*150 = 12000). Pour np = 120, pu = 100 (120*100 = 12000).">
+            <h5 class="fw-bold text-primary mb-3">6. À la suite de l'exécution du programme ci-dessous, on obtient le
+              résultat <code>12000</code>. La valeur de <code>np</code> est alors :</h5>
+            <pre class="bg-white text-dark p-2 rounded border shadow-sm mb-3" style="font-size: 0.85rem;"><code class="language-python">np = int(input("Nombre de pages ? "))
+if np &lt; 20:
+    pu = 200
+elif np &lt; 100:
+    pu = 150
+else:
+    pu = 100
+res = pu * np
+print(res)</code></pre>
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" value="a" id="c4q6a">
+              <label class="form-check-label font-monospace" for="c4q6a">np = 60 et pu = 200</label>
+            </div>
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" value="b" id="c4q6b">
+              <label class="form-check-label font-monospace" for="c4q6b">np = 80 et pu = 150</label>
+            </div>
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" value="c" id="c4q6c">
+              <label class="form-check-label font-monospace" for="c4q6c">np = 120 et pu = 100</label>
+            </div>
+            <details class="mt-2">
+              <summary class="btn btn-sm btn-outline-info fw-bold py-0 px-2">💡 Indice</summary>
+              <div class="alert alert-light border-info mt-2 p-2 small mb-0 text-dark">
+                Pour chaque valeur de <code>np</code>, déterminez d'abord le prix unitaire <code>pu</code> correspondant
+                selon les tranches (&lt;20, &lt;100, &ge;100), puis calculez le produit <code>pu * np</code> pour
+                vérifier s'il vaut 12000.
+              </div>
+            </details>
+            <div class="qcm-feedback mt-2 d-none alert"></div>
+          </div>
+
+          <button class="btn btn-primary btn-check-qcm fw-bold px-4">✔️ Vérifier mes réponses</button>
           <div class="qcm-score mt-3 d-none"></div>
         </div>
       </section>
@@ -111,45 +476,763 @@ Fin Selon</code></pre>
       <!-- Exercice 2 -->
       <section>
         <h3>Exercice 2 – QCM 2</h3>
-        <div class="qcm-container interactive-box shadow-sm">
-          <div class="qcm-question" data-answer="d" data-explanation="n = 12 => n > 10 => n1 = 12 - 10 = 2.">
-            <h5 class="fw-bold">1. La valeur finale de n1 pour n = 12 est :</h5>
-            <div class="form-check"><input class="form-check-input" type="checkbox" value="a" id="c4q2a"><label class="form-check-label" for="c4q2a">n = 7, n1 = -7</label></div>
-            <div class="form-check"><input class="form-check-input" type="checkbox" value="d" id="c4q2d"><label class="form-check-label" for="c4q2d">n = 12, n1 = 2</label></div>
+        <p class="text-muted">Cocher la ou les bonnes réponses pour chaque question.</p>
+        <div class="qcm-container interactive-box shadow-sm p-4 bg-white rounded border">
+
+          <!-- Q1 -->
+          <div class="qcm-question mb-4 p-3 border rounded bg-light" data-answer="a,d"
+            data-explanation="Pour n = 7 (&le; 10), la branche Sinon donne n1 = -7. Pour n = 12 (&gt; 10), la branche Si donne n1 = 12 - 10 = 2.">
+            <h5 class="fw-bold text-primary mb-3">1. La valeur finale de <code>n1</code> en fonction de la valeur de
+              <code>n</code> est :
+            </h5>
+            <pre class="bg-white text-dark p-2 rounded border shadow-sm mb-3" style="font-size: 0.85rem;"><code class="language-algorithm">n ← aléa(5, 15)
+Si n &gt; 10 Alors
+    n1 ← n - 10
+Sinon
+    n1 ← -n
+Fin Si
+Ecrire(n, n1)</code></pre>
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" value="a" id="c4q2_1a">
+              <label class="form-check-label font-monospace" for="c4q2_1a">n = 7, n1 = -7</label>
+            </div>
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" value="b" id="c4q2_1b">
+              <label class="form-check-label font-monospace" for="c4q2_1b">n = 7, n1 = -3</label>
+            </div>
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" value="c" id="c4q2_1c">
+              <label class="form-check-label font-monospace" for="c4q2_1c">n = 12, n1 = -12</label>
+            </div>
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" value="d" id="c4q2_1d">
+              <label class="form-check-label font-monospace" for="c4q2_1d">n = 12, n1 = 2</label>
+            </div>
+            <details class="mt-2">
+              <summary class="btn btn-sm btn-outline-info fw-bold py-0 px-2">💡 Indice</summary>
+              <div class="alert alert-light border-info mt-2 p-2 small mb-0 text-dark">
+                Si <code>n = 7</code> (&le; 10), la branche <code>Sinon</code> s'exécute (<code>n1 = -n</code>). Si
+                <code>n = 12</code> (&gt; 10), la branche <code>Si</code> s'exécute (<code>n1 = n - 10</code>).
+              </div>
+            </details>
             <div class="qcm-feedback mt-2 d-none alert"></div>
           </div>
-          <button class="btn btn-primary btn-check-qcm">Vérifier mes réponses</button>
+
+          <!-- Q2 -->
+          <div class="qcm-question mb-4 p-3 border rounded bg-light" data-answer="c"
+            data-explanation="Puisque b &gt; c et b &lt; a, on a a &gt; b &gt; c. La condition (a &gt; b et a &gt; c) est vraie et affiche a = 15.">
+            <h5 class="fw-bold text-primary mb-3">2. Sachant que <code>b &gt; c</code>, que <code>b &lt; a</code>, et
+              que la valeur affichée est 15, les valeurs de <code>a</code>, <code>b</code> et <code>c</code> sont :</h5>
+            <pre class="bg-white text-dark p-2 rounded border shadow-sm mb-3" style="font-size: 0.85rem;"><code class="language-algorithm">Si a &gt; b et a &gt; c Alors
+    Ecrire(a)
+Sinon Si b &gt; c Alors
+    Ecrire(b)
+Sinon
+    Ecrire(c)
+Fin Si</code></pre>
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" value="a" id="c4q2_2a">
+              <label class="form-check-label font-monospace" for="c4q2_2a">a = 5, b = 10, c = 15</label>
+            </div>
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" value="b" id="c4q2_2b">
+              <label class="form-check-label font-monospace" for="c4q2_2b">a = 10, b = 15, c = 5</label>
+            </div>
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" value="c" id="c4q2_2c">
+              <label class="form-check-label font-monospace" for="c4q2_2c">a = 15, b = 10, c = 5</label>
+            </div>
+            <details class="mt-2">
+              <summary class="btn btn-sm btn-outline-info fw-bold py-0 px-2">💡 Indice</summary>
+              <div class="alert alert-light border-info mt-2 p-2 small mb-0 text-dark">
+                Analysez les inégalités données (<code>b &gt; c</code> et <code>b &lt; a</code>), qui impliquent
+                <code>a &gt; b &gt; c</code>. La première condition <code>Si a &gt; b et a &gt; c</code> sera donc vraie
+                et affichera la valeur de <code>a</code>.
+              </div>
+            </details>
+            <div class="qcm-feedback mt-2 d-none alert"></div>
+          </div>
+
+          <!-- Q3 -->
+          <div class="qcm-question mb-4 p-3 border rounded bg-light" data-answer="c"
+            data-explanation="n = 3 (&ne; 0) entraîne l'affichage de &quot;Bonjour!&quot;, puis g = &quot;F&quot; (&ne; &quot;H&quot;) exécute le Sinon qui affiche &quot;Mes dames&quot;.">
+            <h5 class="fw-bold text-primary mb-3">3. L'affichage de la séquence suivante est :</h5>
+            <pre class="bg-white text-dark p-2 rounded border shadow-sm mb-3" style="font-size: 0.85rem;"><code class="language-algorithm">n ← 3
+g ← "F"
+Si n ≠ 0 Alors
+    Ecrire("Bonjour!")
+    Si g = "H" Alors
+        Ecrire("Messieurs")
+    Sinon
+        Ecrire("Mes dames")
+    Fin Si
+Fin Si</code></pre>
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" value="a" id="c4q2_3a">
+              <label class="form-check-label font-monospace" for="c4q2_3a">Bonjour!</label>
+            </div>
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" value="b" id="c4q2_3b">
+              <label class="form-check-label font-monospace" for="c4q2_3b">Bonjour! Messieurs</label>
+            </div>
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" value="c" id="c4q2_3c">
+              <label class="form-check-label font-monospace" for="c4q2_3c">Bonjour! Mes dames</label>
+            </div>
+            <details class="mt-2">
+              <summary class="btn btn-sm btn-outline-info fw-bold py-0 px-2">💡 Indice</summary>
+              <div class="alert alert-light border-info mt-2 p-2 small mb-0 text-dark">
+                Évaluez d'abord la condition externe <code>n &ne; 0</code> (3 &ne; 0 est Vrai), puis la condition
+                imbriquée <code>g = "H"</code> ("F" = "H" est Faux, ce qui exécute le <code>Sinon</code>).
+              </div>
+            </details>
+            <div class="qcm-feedback mt-2 d-none alert"></div>
+          </div>
+
+          <!-- Q4 -->
+          <div class="qcm-question mb-4 p-3 border rounded bg-light" data-answer="d"
+            data-explanation="a mod b = 12 mod 5 = 2 (&ne; 0). La condition a - b &gt; 5 (12 - 5 = 7 &gt; 5) est Vraie, donc b &larr; b + 2 (b = 7). D'où a = 12 et b = 7.">
+            <h5 class="fw-bold text-primary mb-3">4. Les valeurs finales des variables <code>a</code> et <code>b</code>
+              sont :</h5>
+            <pre class="bg-white text-dark p-2 rounded border shadow-sm mb-3" style="font-size: 0.85rem;"><code class="language-algorithm">a ← 12
+b ← 5
+Si a mod b = 0 Alors
+    a ← a / b
+Sinon Si a - b &gt; 5 Alors
+    b ← b + 2
+Sinon
+    a ← a - 3
+Fin Si
+Ecrire(a, " et ", b)</code></pre>
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" value="a" id="c4q2_4a">
+              <label class="form-check-label font-monospace" for="c4q2_4a">a = 2.4, b = 5</label>
+            </div>
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" value="b" id="c4q2_4b">
+              <label class="form-check-label font-monospace" for="c4q2_4b">a = 9, b = 5</label>
+            </div>
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" value="c" id="c4q2_4c">
+              <label class="form-check-label font-monospace" for="c4q2_4c">a = 12, b = 5</label>
+            </div>
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" value="d" id="c4q2_4d">
+              <label class="form-check-label font-monospace" for="c4q2_4d">a = 12, b = 7</label>
+            </div>
+            <details class="mt-2">
+              <summary class="btn btn-sm btn-outline-info fw-bold py-0 px-2">💡 Indice</summary>
+              <div class="alert alert-light border-info mt-2 p-2 small mb-0 text-dark">
+                Calculez d'abord <code>12 mod 5</code> (reste 2 &ne; 0). Passez au <code>Sinon Si</code> : calculez
+                <code>12 - 5 = 7</code>. Comme 7 &gt; 5 est Vrai, la variable <code>b</code> est incrémentée de 2.
+              </div>
+            </details>
+            <div class="qcm-feedback mt-2 d-none alert"></div>
+          </div>
+
+          <!-- Q5 -->
+          <div class="qcm-question mb-4 p-3 border rounded bg-light" data-answer="c"
+            data-explanation="x &lt; y (8 &lt; 3) est Faux. x &gt; y + 2 (8 &gt; 5) est Vrai, donc y &larr; 3 + 5 = 8. Les valeurs finales sont x = 8 et y = 8.">
+            <h5 class="fw-bold text-primary mb-3">5. Les valeurs finales des variables <code>x</code> et <code>y</code>
+              sont :</h5>
+            <pre class="bg-white text-dark p-2 rounded border shadow-sm mb-3" style="font-size: 0.85rem;"><code class="language-algorithm">x ← 8
+y ← 3
+Si x &lt; y Alors
+    x ← x + 2
+Sinon Si x &gt; y + 2 Alors
+    y ← y + 5
+Sinon
+    x ← x - y
+Fin Si
+Ecrire(x, y)</code></pre>
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" value="a" id="c4q2_5a">
+              <label class="form-check-label font-monospace" for="c4q2_5a">x = 5, y = 3</label>
+            </div>
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" value="b" id="c4q2_5b">
+              <label class="form-check-label font-monospace" for="c4q2_5b">x = 8, y = 3</label>
+            </div>
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" value="c" id="c4q2_5c">
+              <label class="form-check-label font-monospace" for="c4q2_5c">x = 8, y = 8</label>
+            </div>
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" value="d" id="c4q2_5d">
+              <label class="form-check-label font-monospace" for="c4q2_5d">x = 16, y = 3</label>
+            </div>
+            <details class="mt-2">
+              <summary class="btn btn-sm btn-outline-info fw-bold py-0 px-2">💡 Indice</summary>
+              <div class="alert alert-light border-info mt-2 p-2 small mb-0 text-dark">
+                Testez la première condition <code>8 &lt; 3</code> (Faux). Testez la seconde <code>8 &gt; (3 + 2)</code>
+                (8 &gt; 5 est Vrai), ce qui modifie la valeur de <code>y</code> en lui ajoutant 5.
+              </div>
+            </details>
+            <div class="qcm-feedback mt-2 d-none alert"></div>
+          </div>
+
+          <button class="btn btn-primary btn-check-qcm fw-bold px-4">✔️ Vérifier mes réponses</button>
           <div class="qcm-score mt-3 d-none"></div>
         </div>
       </section>
 
       <!-- Exercice 3 -->
       <section>
-        <h3>Exercice 3 – QCM 3 (Expressions booléennes)</h3>
-        <p>Association des expressions booléennes aux propositions correctes.</p>
-        <div class="interactive-box shadow-sm">
-          <button id="btn-show-qcm3" class="btn btn-info text-dark fw-bold">Afficher la table de correspondance</button>
-          <div id="qcm3-out" class="mt-3"></div>
+        <h3>Exercice 3 – QCM 3 (Relier les expressions booléennes)</h3>
+        <p class="text-muted">Relier chacune des descriptions numérotées (1 à 8) à l'expression booléenne correspondante
+          (a à h).</p>
+
+        <div class="card shadow-sm p-4 bg-white rounded border mb-4">
+          <h5 class="fw-bold text-primary mb-3">📋 Liste des expressions booléennes disponibles :</h5>
+          <div class="row g-2 font-monospace small bg-light p-3 rounded border mb-4">
+            <div class="col-12 col-md-6"><strong>a.</strong> <code>test ← a mod 15 = 0</code></div>
+            <div class="col-12 col-md-6"><strong>b.</strong> <code>test ← non (b mod a = 0)</code></div>
+            <div class="col-12 col-md-6"><strong>c.</strong> <code>test ← (a mod 2 = 0) et (a div 100 mod 2 ≠ 0)</code>
+            </div>
+            <div class="col-12 col-md-6"><strong>d.</strong> <code>test ← 10 ≤ a et a &lt; 100</code></div>
+            <div class="col-12 col-md-6"><strong>e.</strong>
+              <code>test ← (a mod 3 = 0 ou a mod 5 = 0) et (a mod 15 ≠ 0)</code>
+            </div>
+            <div class="col-12 col-md-6"><strong>f.</strong> <code>test ← 0 ≤ a et a ≤ 1</code></div>
+            <div class="col-12 col-md-6"><strong>g.</strong> <code>test ← a mod 3 = 0 ou a mod 5 = 0</code></div>
+            <div class="col-12 col-md-6"><strong>h.</strong>
+              <code>test ← (a mod 10 &lt; 5) et (a mod 100 div 10 &lt; 5)</code>
+            </div>
+          </div>
+
+          <div id="qcm3-matching-container">
+
+            <!-- Item 1 -->
+            <div class="qcm3-item mb-4 p-3 border rounded bg-light" data-correct="f">
+              <div class="row align-items-center g-2">
+                <div class="col-12 col-lg-7">
+                  <h6 class="fw-bold mb-1 text-dark">1. Vérifier si un réel <code>a</code> est compris entre 0 et 1 :
+                  </h6>
+                </div>
+                <div class="col-12 col-lg-5">
+                  <select class="form-select qcm3-select" id="qcm3-sel-1">
+                    <option value="">-- Choisir une expression --</option>
+                    <option value="a">a. test ← a mod 15 = 0</option>
+                    <option value="b">b. test ← non (b mod a = 0)</option>
+                    <option value="c">c. test ← (a mod 2 = 0) et (a div 100 mod 2 ≠ 0)</option>
+                    <option value="d">d. test ← 10 ≤ a &lt; 100</option>
+                    <option value="e">e. test ← (a mod 3 = 0 ou a mod 5 = 0) et (a mod 15 ≠ 0)</option>
+                    <option value="f">f. test ← 0 ≤ a ≤ 1</option>
+                    <option value="g">g. test ← a mod 3 = 0 ou a mod 5 = 0</option>
+                    <option value="h">h. test ← (a mod 10 &lt; 5) et (a mod 100 div 10 &lt; 5)</option>
+                  </select>
+                </div>
+              </div>
+              <details class="mt-2">
+                <summary class="btn btn-sm btn-outline-info fw-bold py-0 px-2">💡 Indice</summary>
+                <div class="alert alert-light border-info mt-2 p-2 small mb-0 text-dark">
+                  Recherchez l'expression qui encadre la valeur <code>a</code> avec des inégalités entre la borne
+                  inférieure 0 et la borne supérieure 1.
+                </div>
+              </details>
+              <div class="qcm3-feedback mt-2 d-none alert mb-0"></div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="qcm3-item mb-4 p-3 border rounded bg-light" data-correct="d">
+              <div class="row align-items-center g-2">
+                <div class="col-12 col-lg-7">
+                  <h6 class="fw-bold mb-1 text-dark">2. Vérifier si un entier positif <code>a</code> est composé de deux
+                    chiffres :</h6>
+                </div>
+                <div class="col-12 col-lg-5">
+                  <select class="form-select qcm3-select" id="qcm3-sel-2">
+                    <option value="">-- Choisir une expression --</option>
+                    <option value="a">a. test ← a mod 15 = 0</option>
+                    <option value="b">b. test ← non (b mod a = 0)</option>
+                    <option value="c">c. test ← (a mod 2 = 0) et (a div 100 mod 2 ≠ 0)</option>
+                    <option value="d">d. test ← 10 ≤ a &lt; 100</option>
+                    <option value="e">e. test ← (a mod 3 = 0 ou a mod 5 = 0) et (a mod 15 ≠ 0)</option>
+                    <option value="f">f. test ← 0 ≤ a ≤ 1</option>
+                    <option value="g">g. test ← a mod 3 = 0 ou a mod 5 = 0</option>
+                    <option value="h">h. test ← (a mod 10 &lt; 5) et (a mod 100 div 10 &lt; 5)</option>
+                  </select>
+                </div>
+              </div>
+              <details class="mt-2">
+                <summary class="btn btn-sm btn-outline-info fw-bold py-0 px-2">💡 Indice</summary>
+                <div class="alert alert-light border-info mt-2 p-2 small mb-0 text-dark">
+                  Un entier positif a deux chiffres s'il est supérieur ou égal à 10 et strictement inférieur à 100.
+                </div>
+              </details>
+              <div class="qcm3-feedback mt-2 d-none alert mb-0"></div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="qcm3-item mb-4 p-3 border rounded bg-light" data-correct="a">
+              <div class="row align-items-center g-2">
+                <div class="col-12 col-lg-7">
+                  <h6 class="fw-bold mb-1 text-dark">3. Vérifier si un entier positif <code>a</code> est divisible par 3
+                    et 5 :</h6>
+                </div>
+                <div class="col-12 col-lg-5">
+                  <select class="form-select qcm3-select" id="qcm3-sel-3">
+                    <option value="">-- Choisir une expression --</option>
+                    <option value="a">a. test ← a mod 15 = 0</option>
+                    <option value="b">b. test ← non (b mod a = 0)</option>
+                    <option value="c">c. test ← (a mod 2 = 0) et (a div 100 mod 2 ≠ 0)</option>
+                    <option value="d">d. test ← 10 ≤ a &lt; 100</option>
+                    <option value="e">e. test ← (a mod 3 = 0 ou a mod 5 = 0) et (a mod 15 ≠ 0)</option>
+                    <option value="f">f. test ← 0 ≤ a ≤ 1</option>
+                    <option value="g">g. test ← a mod 3 = 0 ou a mod 5 = 0</option>
+                    <option value="h">h. test ← (a mod 10 &lt; 5) et (a mod 100 div 10 &lt; 5)</option>
+                  </select>
+                </div>
+              </div>
+              <details class="mt-2">
+                <summary class="btn btn-sm btn-outline-info fw-bold py-0 px-2">💡 Indice</summary>
+                <div class="alert alert-light border-info mt-2 p-2 small mb-0 text-dark">
+                  Si un nombre est divisible par 3 ET par 5 (premiers entre eux), il est alors divisible par leur
+                  produit 15.
+                </div>
+              </details>
+              <div class="qcm3-feedback mt-2 d-none alert mb-0"></div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="qcm3-item mb-4 p-3 border rounded bg-light" data-correct="g">
+              <div class="row align-items-center g-2">
+                <div class="col-12 col-lg-7">
+                  <h6 class="fw-bold mb-1 text-dark">4. Vérifier si un entier positif <code>a</code> est divisible par 3
+                    ou 5 :</h6>
+                </div>
+                <div class="col-12 col-lg-5">
+                  <select class="form-select qcm3-select" id="qcm3-sel-4">
+                    <option value="">-- Choisir une expression --</option>
+                    <option value="a">a. test ← a mod 15 = 0</option>
+                    <option value="b">b. test ← non (b mod a = 0)</option>
+                    <option value="c">c. test ← (a mod 2 = 0) et (a div 100 mod 2 ≠ 0)</option>
+                    <option value="d">d. test ← 10 ≤ a &lt; 100</option>
+                    <option value="e">e. test ← (a mod 3 = 0 ou a mod 5 = 0) et (a mod 15 ≠ 0)</option>
+                    <option value="f">f. test ← 0 ≤ a ≤ 1</option>
+                    <option value="g">g. test ← a mod 3 = 0 ou a mod 5 = 0</option>
+                    <option value="h">h. test ← (a mod 10 &lt; 5) et (a mod 100 div 10 &lt; 5)</option>
+                  </select>
+                </div>
+              </div>
+              <details class="mt-2">
+                <summary class="btn btn-sm btn-outline-info fw-bold py-0 px-2">💡 Indice</summary>
+                <div class="alert alert-light border-info mt-2 p-2 small mb-0 text-dark">
+                  Utilisez l'opérateur logique <code>ou</code> pour vérifier si le reste par 3 est nul ou si le reste
+                  par 5 est nul.
+                </div>
+              </details>
+              <div class="qcm3-feedback mt-2 d-none alert mb-0"></div>
+            </div>
+
+            <!-- Item 5 -->
+            <div class="qcm3-item mb-4 p-3 border rounded bg-light" data-correct="e">
+              <div class="row align-items-center g-2">
+                <div class="col-12 col-lg-7">
+                  <h6 class="fw-bold mb-1 text-dark">5. Vérifier si un entier positif <code>a</code> est divisible par 3
+                    ou 5 et non pas les deux en même temps :</h6>
+                </div>
+                <div class="col-12 col-lg-5">
+                  <select class="form-select qcm3-select" id="qcm3-sel-5">
+                    <option value="">-- Choisir une expression --</option>
+                    <option value="a">a. test ← a mod 15 = 0</option>
+                    <option value="b">b. test ← non (b mod a = 0)</option>
+                    <option value="c">c. test ← (a mod 2 = 0) et (a div 100 mod 2 ≠ 0)</option>
+                    <option value="d">d. test ← 10 ≤ a &lt; 100</option>
+                    <option value="e">e. test ← (a mod 3 = 0 ou a mod 5 = 0) et (a mod 15 ≠ 0)</option>
+                    <option value="f">f. test ← 0 ≤ a ≤ 1</option>
+                    <option value="g">g. test ← a mod 3 = 0 ou a mod 5 = 0</option>
+                    <option value="h">h. test ← (a mod 10 &lt; 5) et (a mod 100 div 10 &lt; 5)</option>
+                  </select>
+                </div>
+              </div>
+              <details class="mt-2">
+                <summary class="btn btn-sm btn-outline-info fw-bold py-0 px-2">💡 Indice</summary>
+                <div class="alert alert-light border-info mt-2 p-2 small mb-0 text-dark">
+                  Combinez la divisibilité par 3 ou 5 avec la condition explicite que l'entier N'EST PAS divisible par
+                  15 (<code>a mod 15 &ne; 0</code>).
+                </div>
+              </details>
+              <div class="qcm3-feedback mt-2 d-none alert mb-0"></div>
+            </div>
+
+            <!-- Item 6 -->
+            <div class="qcm3-item mb-4 p-3 border rounded bg-light" data-correct="b">
+              <div class="row align-items-center g-2">
+                <div class="col-12 col-lg-7">
+                  <h6 class="fw-bold mb-1 text-dark">6. Vérifier si un entier positif <code>b</code> n'est pas divisible
+                    par un deuxième entier positif <code>a</code> :</h6>
+                </div>
+                <div class="col-12 col-lg-5">
+                  <select class="form-select qcm3-select" id="qcm3-sel-6">
+                    <option value="">-- Choisir une expression --</option>
+                    <option value="a">a. test ← a mod 15 = 0</option>
+                    <option value="b">b. test ← non (b mod a = 0)</option>
+                    <option value="c">c. test ← (a mod 2 = 0) et (a div 100 mod 2 ≠ 0)</option>
+                    <option value="d">d. test ← 10 ≤ a &lt; 100</option>
+                    <option value="e">e. test ← (a mod 3 = 0 ou a mod 5 = 0) et (a mod 15 ≠ 0)</option>
+                    <option value="f">f. test ← 0 ≤ a ≤ 1</option>
+                    <option value="g">g. test ← a mod 3 = 0 ou a mod 5 = 0</option>
+                    <option value="h">h. test ← (a mod 10 &lt; 5) et (a mod 100 div 10 &lt; 5)</option>
+                  </select>
+                </div>
+              </div>
+              <details class="mt-2">
+                <summary class="btn btn-sm btn-outline-info fw-bold py-0 px-2">💡 Indice</summary>
+                <div class="alert alert-light border-info mt-2 p-2 small mb-0 text-dark">
+                  Recherchez l'expression qui applique la négation <code>non</code> à l'affirmation de divisibilité
+                  <code>b mod a = 0</code>.
+                </div>
+              </details>
+              <div class="qcm3-feedback mt-2 d-none alert mb-0"></div>
+            </div>
+
+            <!-- Item 7 -->
+            <div class="qcm3-item mb-4 p-3 border rounded bg-light" data-correct="c">
+              <div class="row align-items-center g-2">
+                <div class="col-12 col-lg-7">
+                  <h6 class="fw-bold mb-1 text-dark">7. Vérifier si le chiffre des centaines d'un entier <code>a</code>
+                    de 4 chiffres est impair et que son chiffre d'unités est pair :</h6>
+                </div>
+                <div class="col-12 col-lg-5">
+                  <select class="form-select qcm3-select" id="qcm3-sel-7">
+                    <option value="">-- Choisir une expression --</option>
+                    <option value="a">a. test ← a mod 15 = 0</option>
+                    <option value="b">b. test ← non (b mod a = 0)</option>
+                    <option value="c">c. test ← (a mod 2 = 0) et (a div 100 mod 2 ≠ 0)</option>
+                    <option value="d">d. test ← 10 ≤ a &lt; 100</option>
+                    <option value="e">e. test ← (a mod 3 = 0 ou a mod 5 = 0) et (a mod 15 ≠ 0)</option>
+                    <option value="f">f. test ← 0 ≤ a ≤ 1</option>
+                    <option value="g">g. test ← a mod 3 = 0 ou a mod 5 = 0</option>
+                    <option value="h">h. test ← (a mod 10 &lt; 5) et (a mod 100 div 10 &lt; 5)</option>
+                  </select>
+                </div>
+              </div>
+              <details class="mt-2">
+                <summary class="btn btn-sm btn-outline-info fw-bold py-0 px-2">💡 Indice</summary>
+                <div class="alert alert-light border-info mt-2 p-2 small mb-0 text-dark">
+                  L'unité s'évalue par <code>a mod 2 = 0</code> (pair), et le chiffre des centaines par
+                  <code>(a div 100) mod 2 &ne; 0</code> (impair).
+                </div>
+              </details>
+              <div class="qcm3-feedback mt-2 d-none alert mb-0"></div>
+            </div>
+
+            <!-- Item 8 -->
+            <div class="qcm3-item mb-4 p-3 border rounded bg-light" data-correct="h">
+              <div class="row align-items-center g-2">
+                <div class="col-12 col-lg-7">
+                  <h6 class="fw-bold mb-1 text-dark">8. Vérifier si le chiffre des unités et le chiffre des dizaines
+                    d'un entier <code>a</code> sont inférieurs à 5 :</h6>
+                </div>
+                <div class="col-12 col-lg-5">
+                  <select class="form-select qcm3-select" id="qcm3-sel-8">
+                    <option value="">-- Choisir une expression --</option>
+                    <option value="a">a. test ← a mod 15 = 0</option>
+                    <option value="b">b. test ← non (b mod a = 0)</option>
+                    <option value="c">c. test ← (a mod 2 = 0) et (a div 100 mod 2 ≠ 0)</option>
+                    <option value="d">d. test ← 10 ≤ a &lt; 100</option>
+                    <option value="e">e. test ← (a mod 3 = 0 ou a mod 5 = 0) et (a mod 15 ≠ 0)</option>
+                    <option value="f">f. test ← 0 ≤ a ≤ 1</option>
+                    <option value="g">g. test ← a mod 3 = 0 ou a mod 5 = 0</option>
+                    <option value="h">h. test ← (a mod 10 &lt; 5) et (a mod 100 div 10 &lt; 5)</option>
+                  </select>
+                </div>
+              </div>
+              <details class="mt-2">
+                <summary class="btn btn-sm btn-outline-info fw-bold py-0 px-2">💡 Indice</summary>
+                <div class="alert alert-light border-info mt-2 p-2 small mb-0 text-dark">
+                  Le chiffre des unités est <code>a mod 10</code> et celui des dizaines est
+                  <code>a mod 100 div 10</code>.
+                </div>
+              </details>
+              <div class="qcm3-feedback mt-2 d-none alert mb-0"></div>
+            </div>
+
+          </div>
+
+          <button id="btn-check-qcm3" class="btn btn-primary fw-bold px-4">✔️ Vérifier la correspondance</button>
+          <div id="qcm3-score" class="mt-3 d-none"></div>
         </div>
       </section>
 
       <!-- Exercice 4 -->
       <section>
-        <h3>Exercice 4 – Exécution Manuelle (Forme conditionnelle)</h3>
-        <p>Analyse de la forme et du rôle des algorithmes conditionnels.</p>
-        <div class="interactive-box shadow-sm">
-          <div class="alert alert-secondary">
-            <strong>Algorithme 1 :</strong> Échange la valeur de a et b si a > b. (Forme Réduite)<br>
-            <strong>Algorithme 2 :</strong> Affiche si n est pair ou impair. (Forme Alternative)<br>
-            <strong>Algorithme 3 :</strong> Génère un caractère selon v (chiffre, majuscule, minuscule). (Forme Généralisée)
+        <h3>Exercice 4 – Exécution Manuelle (Analyse des formes conditionnelles)</h3>
+        <p class="text-muted">Pour chaque algorithme ci-dessous : observez la séquence, identifiez la traduction Python,
+          déterminez le nombre de conditions, la forme de la structure et son rôle principal.</p>
+
+        <div id="ex4-container" class="qcm-container interactive-box shadow-sm p-4 bg-white rounded border">
+
+          <!-- Algorithme 1 -->
+          <div class="ex4-item mb-4 p-3 border rounded bg-light" data-cond-count="1" data-cond-forme="reduite"
+            data-cond-role="ordre_croissant">
+            <h5 class="fw-bold text-primary mb-3">📌 Algorithme 1 :</h5>
+            <div class="table-responsive my-3 shadow-sm rounded border overflow-hidden">
+              <table class="table table-hover align-middle mb-0">
+                <thead class="text-center text-white">
+                  <tr>
+                    <th style="width: 50%; background-color: #0284c7;" class="py-2 fs-6">📐 Algorithme</th>
+                    <th style="width: 50%; background-color: #0f172a;" class="py-2 fs-6">🐍 Traduction Python</th>
+                  </tr>
+                </thead>
+                <tbody class="bg-white">
+                  <tr>
+                    <td class="p-3 bg-light bg-opacity-50">
+                      <pre class="m-0 bg-transparent border-0 p-0"><code class="language-algorithm">a ← aléa(1, 10)
+b ← aléa(1, 10)
+Si a &gt; b Alors
+    t ← a ; a ← b ; b ← t
+Fin Si
+Ecrire(a, b)</code></pre>
+                    </td>
+                    <td class="p-3 bg-light bg-opacity-50">
+                      <pre class="m-0 bg-transparent border-0 p-0"><code class="language-python">import random
+a = random.randint(1, 10)
+b = random.randint(1, 10)
+if a &gt; b:
+    t = a; a = b; b = t
+print(a, b)</code></pre>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Questionnaire Analyse Algo 1 -->
+            <div class="card p-3 bg-white border border-info border-opacity-50 mt-3 rounded shadow-sm">
+              <h6 class="fw-bold text-primary mb-2">⚙️ Analyse de l'Algorithme 1 :</h6>
+              <div class="row g-2 align-items-center">
+                <div class="col-12 col-md-4">
+                  <label class="form-label small fw-bold mb-1" for="ex4-count-1">Nombre de condition(s) :</label>
+                  <select class="form-select form-select-sm ex4-select-count" id="ex4-count-1">
+                    <option value="">-- Sélectionner --</option>
+                    <option value="1">1 condition</option>
+                    <option value="2">2 conditions</option>
+                    <option value="3">3 conditions ou +</option>
+                  </select>
+                </div>
+                <div class="col-12 col-md-4">
+                  <label class="form-label small fw-bold mb-1" for="ex4-forme-1">Forme de la structure :</label>
+                  <select class="form-select form-select-sm ex4-select-forme" id="ex4-forme-1">
+                    <option value="">-- Sélectionner --</option>
+                    <option value="reduite">Forme réduite (Si...Fin Si)</option>
+                    <option value="alternative">Forme alternative / complète (Si...Sinon)</option>
+                    <option value="generalisee">Forme généralisée (Si...Sinon Si...Sinon)</option>
+                    <option value="choix_multiples">Choix multiples (Selon...Fin Selon)</option>
+                  </select>
+                </div>
+                <div class="col-12 col-md-4">
+                  <label class="form-label small fw-bold mb-1" for="ex4-role-1">Rôle de l'algorithme :</label>
+                  <select class="form-select form-select-sm ex4-select-role" id="ex4-role-1">
+                    <option value="">-- Sélectionner --</option>
+                    <option value="ordre_croissant">Ranger 2 nombres a et b dans l'ordre croissant</option>
+                    <option value="parite">Tester la parité d'un entier</option>
+                    <option value="somme">Calculer la somme de a et b</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <details class="mt-2">
+              <summary class="btn btn-sm btn-outline-info fw-bold py-0 px-2">💡 Indice</summary>
+              <div class="alert alert-light border-info mt-2 p-2 small mb-0 text-dark">
+                Observez ce qui arrive lorsque <code>a &gt; b</code> : les valeurs de <code>a</code> et <code>b</code>
+                sont permutées grâce à la variable temporaire <code>t</code>. En fin d'exécution, <code>a</code> est
+                toujours inférieur ou égal à <code>b</code>.
+              </div>
+            </details>
+            <div class="ex4-feedback mt-2 d-none alert mb-0"></div>
           </div>
+
+          <!-- Algorithme 2 -->
+          <div class="ex4-item mb-4 p-3 border rounded bg-light" data-cond-count="2" data-cond-forme="alternative"
+            data-cond-role="parite">
+            <h5 class="fw-bold text-primary mb-3">📌 Algorithme 2 :</h5>
+            <div class="table-responsive my-3 shadow-sm rounded border overflow-hidden">
+              <table class="table table-hover align-middle mb-0">
+                <thead class="text-center text-white">
+                  <tr>
+                    <th style="width: 50%; background-color: #0284c7;" class="py-2 fs-6">📐 Algorithme</th>
+                    <th style="width: 50%; background-color: #0f172a;" class="py-2 fs-6">🐍 Traduction Python</th>
+                  </tr>
+                </thead>
+                <tbody class="bg-white">
+                  <tr>
+                    <td class="p-3 bg-light bg-opacity-50">
+                      <pre class="m-0 bg-transparent border-0 p-0"><code class="language-algorithm">n ← aléa(1, 20)
+Si n mod 2 = 0 Alors
+    Ecrire(n, "est pair.")
+Sinon
+    Ecrire(n, "est impair.")
+Fin Si</code></pre>
+                    </td>
+                    <td class="p-3 bg-light bg-opacity-50">
+                      <pre class="m-0 bg-transparent border-0 p-0"><code class="language-python">import random
+n = random.randint(1, 20)
+if n % 2 == 0:
+    print(n, "est pair.")
+else:
+    print(n, "est impair.")</code></pre>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Questionnaire Analyse Algo 2 -->
+            <div class="card p-3 bg-white border border-info border-opacity-50 mt-3 rounded shadow-sm">
+              <h6 class="fw-bold text-primary mb-2">⚙️ Analyse de l'Algorithme 2 :</h6>
+              <div class="row g-2 align-items-center">
+                <div class="col-12 col-md-4">
+                  <label class="form-label small fw-bold mb-1" for="ex4-count-2">Nombre de condition(s) :</label>
+                  <select class="form-select form-select-sm ex4-select-count" id="ex4-count-2">
+                    <option value="">-- Sélectionner --</option>
+                    <option value="1">1 condition</option>
+                    <option value="2">2 conditions</option>
+                    <option value="3">3 conditions ou +</option>
+                  </select>
+                </div>
+                <div class="col-12 col-md-4">
+                  <label class="form-label small fw-bold mb-1" for="ex4-forme-2">Forme de la structure :</label>
+                  <select class="form-select form-select-sm ex4-select-forme" id="ex4-forme-2">
+                    <option value="">-- Sélectionner --</option>
+                    <option value="reduite">Forme réduite (Si...Fin Si)</option>
+                    <option value="alternative">Forme alternative / complète (Si...Sinon)</option>
+                    <option value="generalisee">Forme généralisée (Si...Sinon Si...Sinon)</option>
+                    <option value="choix_multiples">Choix multiples (Selon...Fin Selon)</option>
+                  </select>
+                </div>
+                <div class="col-12 col-md-4">
+                  <label class="form-label small fw-bold mb-1" for="ex4-role-2">Rôle de l'algorithme :</label>
+                  <select class="form-select form-select-sm ex4-select-role" id="ex4-role-2">
+                    <option value="">-- Sélectionner --</option>
+                    <option value="parite">Tester et afficher la parité d'un nombre n (pair ou impair)</option>
+                    <option value="ordre_croissant">Ranger deux nombres dans l'ordre croissant</option>
+                    <option value="signe">Tester le signe d'un nombre relatif</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <details class="mt-2">
+              <summary class="btn btn-sm btn-outline-info fw-bold py-0 px-2">💡 Indice</summary>
+              <div class="alert alert-light border-info mt-2 p-2 small mb-0 text-dark">
+                Examinez le test <code>n mod 2 = 0</code> : le reste de la division par 2 détermine si un nombre entier
+                est pair ou impair.
+              </div>
+            </details>
+            <div class="ex4-feedback mt-2 d-none alert mb-0"></div>
+          </div>
+
+          <!-- Algorithme 3 -->
+          <div class="ex4-item mb-4 p-3 border rounded bg-light" data-cond-count="3" data-cond-forme="generalisee"
+            data-cond-role="caractere_aleatoire">
+            <h5 class="fw-bold text-primary mb-3">📌 Algorithme 3 :</h5>
+            <div class="table-responsive my-3 shadow-sm rounded border overflow-hidden">
+              <table class="table table-hover align-middle mb-0">
+                <thead class="text-center text-white">
+                  <tr>
+                    <th style="width: 50%; background-color: #0284c7;" class="py-2 fs-6">📐 Algorithme</th>
+                    <th style="width: 50%; background-color: #0f172a;" class="py-2 fs-6">🐍 Traduction Python</th>
+                  </tr>
+                </thead>
+                <tbody class="bg-white">
+                  <tr>
+                    <td class="p-3 bg-light bg-opacity-50">
+                      <pre class="m-0 bg-transparent border-0 p-0"><code class="language-algorithm">v ← aléa(0, 2)
+Si v = 0 Alors
+    car ← chr(aléa(48, 57))
+Sinon Si v = 1 Alors
+    car ← chr(aléa(65, 90))
+Sinon
+    car ← chr(aléa(97, 122))
+Fin Si
+Ecrire(car)</code></pre>
+                    </td>
+                    <td class="p-3 bg-light bg-opacity-50">
+                      <pre class="m-0 bg-transparent border-0 p-0"><code class="language-python">import random
+v = random.randint(0, 2)
+if v == 0:
+    car = chr(random.randint(48, 57))
+elif v == 1:
+    car = chr(random.randint(65, 90))
+else:
+    car = chr(random.randint(97, 122))
+print(car)</code></pre>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Questionnaire Analyse Algo 3 -->
+            <div class="card p-3 bg-white border border-info border-opacity-50 mt-3 rounded shadow-sm">
+              <h6 class="fw-bold text-primary mb-2">⚙️ Analyse de l'Algorithme 3 :</h6>
+              <div class="row g-2 align-items-center">
+                <div class="col-12 col-md-4">
+                  <label class="form-label small fw-bold mb-1" for="ex4-count-3">Nombre de condition(s) :</label>
+                  <select class="form-select form-select-sm ex4-select-count" id="ex4-count-3">
+                    <option value="">-- Sélectionner --</option>
+                    <option value="1">1 condition</option>
+                    <option value="2">2 conditions</option>
+                    <option value="3">3 conditions ou +</option>
+                  </select>
+                </div>
+                <div class="col-12 col-md-4">
+                  <label class="form-label small fw-bold mb-1" for="ex4-forme-3">Forme de la structure :</label>
+                  <select class="form-select form-select-sm ex4-select-forme" id="ex4-forme-3">
+                    <option value="">-- Sélectionner --</option>
+                    <option value="reduite">Forme réduite (Si...Fin Si)</option>
+                    <option value="alternative">Forme alternative / complète (Si...Sinon)</option>
+                    <option value="generalisee">Forme généralisée (Si...Sinon Si...Sinon)</option>
+                    <option value="choix_multiples">Choix multiples (Selon...Fin Selon)</option>
+                  </select>
+                </div>
+                <div class="col-12 col-md-4">
+                  <label class="form-label small fw-bold mb-1" for="ex4-role-3">Rôle de l'algorithme :</label>
+                  <select class="form-select form-select-sm ex4-select-role" id="ex4-role-3">
+                    <option value="">-- Sélectionner --</option>
+                    <option value="caractere_aleatoire">Générer aléatoirement un caractère (chiffre, majuscule ou
+                      minuscule)</option>
+                    <option value="parite">Tester la parité d'un entier</option>
+                    <option value="ordre_croissant">Ranger 2 nombres dans l'ordre croissant</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <details class="mt-2">
+              <summary class="btn btn-sm btn-outline-info fw-bold py-0 px-2">💡 Indice</summary>
+              <div class="alert alert-light border-info mt-2 p-2 small mb-0 text-dark">
+                Rappelez-vous les intervalles de la table ASCII : 48-57 pour les chiffres, 65-90 pour les lettres
+                majuscules et 97-122 pour les lettres minuscules.
+              </div>
+            </details>
+            <div class="ex4-feedback mt-2 d-none alert mb-0"></div>
+          </div>
+
+          <button id="btn-check-ex4" class="btn btn-primary fw-bold px-4">✔️ Vérifier mes réponses</button>
+          <div id="ex4-score" class="mt-3 d-none"></div>
         </div>
       </section>
 
       <!-- Exercice 5 -->
       <section>
         <h3>Exercice 5 – Signe & Parité</h3>
-        <p>Ecrire un programme qui saisit un entier <code>n</code>, puis affiche son signe (positif ou négatif) et sa parité (pair ou impair).</p>
+        <p class="text-muted">Écrire l'algorithme d'un programme qui saisit un entier <code>n</code>, puis affiche son
+          signe (positif ou négatif) et sa parité (pair ou impair).</p>
+
+        <!-- Illustration graphique (Axe des entiers relatifs Signe & Parité) -->
+        <div class="text-center my-4">
+          <div class="card d-inline-block shadow-sm p-3 bg-white border rounded">
+            <h6 class="fw-bold text-primary mb-3">📊 Représentation graphique : Axe des entiers relatifs (ℤ), Signe &
+              Parité :</h6>
+            <img src="images/module04/signe_et_parite.svg" alt="Axe des entiers relatifs, Signe et Parité"
+              class="img-fluid" style="max-width: 680px;">
+          </div>
+        </div>
+
         <div class="interactive-box shadow-sm">
           <div class="input-group mb-3">
             <input type="number" id="sign-n" class="form-control" value="-6">
@@ -161,207 +1244,1259 @@ Fin Selon</code></pre>
 
       <!-- Exercice 6 -->
       <section>
-        <h3>Exercice 6 – Nombre cubique</h3>
-        <p>Un nombre positif de 3 chiffres est <strong>cubique</strong> s'il est égal à la somme des cubes de ses chiffres (ex: $153 = 1^3 + 5^3 + 3^3$).</p>
-        <div class="interactive-box shadow-sm">
-          <div class="input-group mb-3">
-            <input type="number" id="cube-n" class="form-control" value="153" placeholder="Ex: 153, 370, 371, 407">
-            <button id="btn-check-cube" class="btn btn-success fw-bold">Vérifier s'il est cubique</button>
+        <h3>Exercice 6 – Nombre cubique (Armstrong)</h3>
+        <p class="text-muted">Un nombre positif de 3 chiffres est dit <strong>cubique</strong> (ou nombre d'Armstrong)
+          s'il est égal à la somme des cubes de ses chiffres : $$N = c^3 + d^3 + u^3$$</p>
+
+        <!-- Formule théorique et décomposition -->
+        <div class="card shadow-sm p-3 bg-white rounded border mb-4">
+          <h5 class="fw-bold text-primary mb-3">📐 Décomposition d'un entier à 3 chiffres (N ∈ [100, 999]) :</h5>
+          <div class="row g-3 text-center">
+            <div class="col-12 col-md-4">
+              <div class="p-3 bg-light rounded border">
+                <span class="badge bg-primary fs-6 mb-2">Centaines (c)</span>
+                <div class="font-monospace text-dark"><code>c ← N div 100</code></div>
+                <small class="text-muted">Ex: 153 div 100 = <strong>1</strong></small>
+              </div>
+            </div>
+            <div class="col-12 col-md-4">
+              <div class="p-3 bg-light rounded border">
+                <span class="badge bg-info text-dark fs-6 mb-2">Dizaines (d)</span>
+                <div class="font-monospace text-dark"><code>d ← (N div 10) mod 10</code></div>
+                <small class="text-muted">Ex: (153 div 10) mod 10 = <strong>5</strong></small>
+              </div>
+            </div>
+            <div class="col-12 col-md-4">
+              <div class="p-3 bg-light rounded border">
+                <span class="badge bg-success fs-6 mb-2">Unités (u)</span>
+                <div class="font-monospace text-dark"><code>u ← N mod 10</code></div>
+                <small class="text-muted">Ex: 153 mod 10 = <strong>3</strong></small>
+              </div>
+            </div>
           </div>
-          <div id="cube-out"></div>
+        </div>
+
+        <!-- Indice d'extraction -->
+        <details class="mt-2 mb-3">
+          <summary class="btn btn-sm btn-outline-info fw-bold py-1 px-3">💡 Indice d'extraction des chiffres</summary>
+          <div class="alert alert-light border-info mt-2 p-3 small mb-0 text-dark">
+            <strong>Conseil :</strong> Pour extraire le chiffre des centaines d'un entier à 3 chiffres, utilisez
+            <code>N div 100</code>. Pour les dizaines, combinez <code>(N div 10) mod 10</code>. Pour les unités,
+            utilisez <code>N mod 10</code>. Pour calculer les cubes, effectuez la multiplication directe :
+            <code>c * c * c + d * d * d + u * u * u</code> (l'utilisation de <code>**</code> n'étant pas autorisée à ce
+            niveau).
+          </div>
+        </details>
+
+
+
+        <!-- Testeur interactif avec décomposition pas à pas -->
+        <div class="interactive-box shadow-sm p-4 bg-white rounded border">
+          <h5 class="fw-bold text-primary mb-3">🧪 Testeur interactif de nombre cubique :</h5>
+
+          <div class="mb-3">
+            <label class="form-label fw-bold">Entrer un entier de 3 chiffres :</label>
+            <div class="input-group">
+              <input type="number" id="cube-n" class="form-control form-control-lg font-monospace" value="153" min="100"
+                max="999" placeholder="Ex: 153, 370, 371, 407">
+              <button id="btn-check-cube" class="btn btn-success fw-bold px-4">🔍 Analyser le nombre</button>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <span class="small fw-bold text-muted me-2">Nombres cubiques de 3 chiffres à tester :</span>
+            <button class="btn btn-sm btn-outline-primary btn-cube-preset me-1" data-val="153">153</button>
+            <button class="btn btn-sm btn-outline-primary btn-cube-preset me-1" data-val="370">370</button>
+            <button class="btn btn-sm btn-outline-primary btn-cube-preset me-1" data-val="371">371</button>
+            <button class="btn btn-sm btn-outline-primary btn-cube-preset me-1" data-val="407">407</button>
+            <button class="btn btn-sm btn-outline-secondary btn-cube-preset me-1" data-val="250">250 (Non
+              cubique)</button>
+          </div>
+
+          <div id="cube-out" class="mt-3"></div>
         </div>
       </section>
 
       <!-- Exercice 7 -->
       <section>
         <h3>Exercice 7 – Formes d'une structure conditionnelle</h3>
-        <p>Réécriture de <code>Si (x > 1) et (x <= 12)</code> en forme réduite et analyse du code caractère.</p>
-        <div class="interactive-box shadow-sm">
-          <div class="alert alert-secondary">
-            <code>y ← x - 1</code><br>
-            <code>Si (x > 1) et (x <= 12) Alors y ← x + 1 Fin Si</code>
+        <p class="text-muted">Analyse des structures conditionnelles, réécriture sous forme réduite et évaluation
+          d'expressions avec codes ASCII.</p>
+
+        <div id="ex7-container" class="qcm-container interactive-box shadow-sm p-4 bg-white rounded border mb-4">
+
+          <!-- Question 1 -->
+          <div class="ex7-card mb-4 p-3 border rounded bg-light" id="ex7-q1-block">
+            <h5 class="fw-bold text-primary mb-3">📌 Question 1 :</h5>
+            <p>Soit l'instruction conditionnelle suivante :</p>
+            <pre class="bg-white text-dark p-2 rounded border shadow-sm mb-4" style="font-size: 0.85rem;"><code class="language-algorithm">Si (x &gt; 1) et (x &le; 12) Alors
+    y &larr; x + 1
+Sinon
+    y &larr; x - 1
+Fin Si</code></pre>
+
+            <!-- Question 1.1 -->
+            <div class="mb-4 p-3 bg-white border rounded shadow-sm">
+              <label class="form-label fw-bold text-dark mb-2" for="ex7-q1-forme">1.1) Quelle est la forme utilisée dans
+                cette instruction (réduite, complète ou généralisée) ?</label>
+              <select class="form-select" id="ex7-q1-forme">
+                <option value="">-- Choisir la forme --</option>
+                <option value="alternative">Forme alternative / complète (Si...Sinon)</option>
+                <option value="reduite">Forme réduite (Si...Fin Si)</option>
+                <option value="generalisee">Forme généralisée (Si...Sinon Si...Sinon)</option>
+              </select>
+            </div>
+
+            <!-- Question 1.2 -->
+            <div class="mb-3 p-3 bg-white border rounded shadow-sm">
+              <label class="form-label fw-bold text-dark mb-2">1.2) Peut-on utiliser la forme réduite pour réécrire
+                cette instruction ? Si oui, quelle est la proposition correcte parmi les algorithmes ci-dessous
+                ?</label>
+
+              <!-- Propositions d'algorithmes -->
+              <div class="row g-3 my-2">
+                <div class="col-12 col-md-4">
+                  <div class="card h-100 p-2 border border-secondary border-opacity-50 bg-light">
+                    <span class="badge bg-primary mb-2 align-self-start">Proposition A</span>
+                    <pre class="m-0 bg-white text-dark p-2 rounded border small" style="font-size: 0.78rem;"><code class="language-algorithm">y &larr; x - 1
+Si (x &gt; 1) et (x &le; 12) Alors
+    y &larr; x + 1
+Fin Si</code></pre>
+                  </div>
+                </div>
+
+                <div class="col-12 col-md-4">
+                  <div class="card h-100 p-2 border border-secondary border-opacity-50 bg-light">
+                    <span class="badge bg-secondary mb-2 align-self-start">Proposition B</span>
+                    <pre class="m-0 bg-white text-dark p-2 rounded border small" style="font-size: 0.78rem;"><code class="language-algorithm">y &larr; x + 1
+Si (x &gt; 1) et (x &le; 12) Alors
+    y &larr; x - 1
+Fin Si</code></pre>
+                  </div>
+                </div>
+
+                <div class="col-12 col-md-4">
+                  <div class="card h-100 p-2 border border-secondary border-opacity-50 bg-light">
+                    <span class="badge bg-secondary mb-2 align-self-start">Proposition C</span>
+                    <pre class="m-0 bg-white text-dark p-2 rounded border small" style="font-size: 0.78rem;"><code class="language-algorithm">Si (x &gt; 1) et (x &le; 12) Alors
+    y &larr; x + 1
+    y &larr; x - 1
+Fin Si</code></pre>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Menu Déroulant Sélection -->
+              <div class="mt-3">
+                <label class="form-label small fw-bold" for="ex7-q1-rewrite">Sélectionner la bonne réécriture :</label>
+                <select class="form-select" id="ex7-q1-rewrite">
+                  <option value="">-- Choisir une proposition --</option>
+                  <option value="optA">Proposition A</option>
+                  <option value="optB">Proposition B</option>
+                  <option value="optC">Proposition C</option>
+                </select>
+              </div>
+            </div>
+
+            <details class="mt-2">
+              <summary class="btn btn-sm btn-outline-info fw-bold py-0 px-2">💡 Indice Q1</summary>
+              <div class="alert alert-light border-info mt-2 p-2 small mb-0 text-dark">
+                Pour réécrire sous forme réduite une structure <code>Si C Alors A Sinon B</code>, affectez d'abord la
+                valeur du <code>Sinon</code> (B) par défaut, puis modifiez-la dans un <code>Si C Alors</code> (A).
+              </div>
+            </details>
+            <div id="ex7-q1-feedback" class="mt-2 d-none alert mb-0"></div>
           </div>
+
+          <!-- Question 2 -->
+          <div class="ex7-card mb-4 p-3 border rounded bg-light" id="ex7-q2-block">
+            <h5 class="fw-bold text-primary mb-3">📌 Question 2 :</h5>
+            <p>Soit la séquence algorithmique suivante (sachant que <code>ord("A") = 65</code> et
+              <code>ord("a") = 97</code>) :
+            </p>
+            <pre class="bg-white text-dark p-2 rounded border shadow-sm mb-3" style="font-size: 0.85rem;"><code class="language-algorithm">Si "a" &le; C et C &le; "z" Alors
+    P &larr; ord(C) - 96
+Sinon
+    P &larr; ord(C) - 64
+Fin Si</code></pre>
+
+            <div class="row g-3 mb-3">
+              <div class="col-12 col-md-6">
+                <label class="form-label small fw-bold">1.a) Pour <code>C = "A"</code>, quelle est la valeur de P
+                  ?</label>
+                <input type="number" id="ex7-q2-val-a" class="form-control"
+                  placeholder="Entrer la valeur de P pour 'A'">
+              </div>
+              <div class="col-12 col-md-6">
+                <label class="form-label small fw-bold">1.b) Pour <code>C = "c"</code>, quelle est la valeur de P
+                  ?</label>
+                <input type="number" id="ex7-q2-val-b" class="form-control"
+                  placeholder="Entrer la valeur de P pour 'c'">
+              </div>
+            </div>
+
+            <div class="row g-3 mb-3">
+              <div class="col-12 col-md-6">
+                <label class="form-label small fw-bold">2) En déduire le rôle de cette séquence :</label>
+                <select class="form-select" id="ex7-q2-role">
+                  <option value="">-- Sélectionner le rôle --</option>
+                  <option value="position_alphabet">Déterminer le rang / la position (1 à 26) d'une lettre dans
+                    l'alphabet</option>
+                  <option value="code_ascii">Calculer directement le code ASCII du caractère</option>
+                  <option value="conversion_casse">Convertir la casse du caractère</option>
+                </select>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <label class="form-label small fw-bold">3) Instruction simple équivalente :</label>
+                <select class="form-select" id="ex7-q2-simple">
+                  <option value="">-- Sélectionner l'instruction simple --</option>
+                  <option value="ord_majus">P &larr; Ord(Majus(C)) - 64</option>
+                  <option value="pos_majus">P &larr; Pos(Majus(C), "ABCDEFGHIJKLMNOPQRSTUVWXYZ")</option>
+                  <option value="ord_simple">P &larr; Ord(C)</option>
+                </select>
+              </div>
+            </div>
+
+            <details class="mt-2">
+              <summary class="btn btn-sm btn-outline-info fw-bold py-0 px-2">💡 Indice Q2</summary>
+              <div class="alert alert-light border-info mt-2 p-2 small mb-0 text-dark">
+                Exécutez à la main le bloc <code>Sinon</code> pour <code>'A'</code> (car <code>'A'</code> n'est pas une
+                lettre minuscule) et le bloc <code>Si</code> pour <code>'c'</code>. Rappelez-vous que la fonction
+                <code>ord()</code> retourne le code ASCII du caractère.
+              </div>
+            </details>
+            <div id="ex7-q2-feedback" class="mt-2 d-none alert mb-0"></div>
+          </div>
+
+          <button id="btn-check-ex7" class="btn btn-primary fw-bold px-4">✔️ Vérifier l'Exercice 7</button>
+          <div id="ex7-score" class="mt-3 d-none"></div>
+
         </div>
       </section>
 
       <!-- Exercice 8 -->
       <section>
         <h3>Exercice 8 – Type d'un caractère ASCII</h3>
-        <p>Saisir un caractère puis déterminer et afficher son type (Majuscule, Minuscule, Chiffre ou Symbole).</p>
-        <div class="interactive-box shadow-sm">
-          <div class="input-group mb-3">
-            <input type="text" id="char-val" class="form-control text-center fs-4" maxlength="1" value="A">
-            <button id="btn-check-char" class="btn btn-primary fw-bold">Déterminer le type du caractère</button>
+        <p class="text-muted">Écrire l'algorithme d'un programme qui saisit un caractère, puis détermine et affiche son
+          type exact (Lettre Majuscule, Lettre Minuscule, Chiffre ou Symbole).</p>
+
+        <!-- Tableau des plages ASCII -->
+        <div class="card shadow-sm p-3 bg-white rounded border mb-4">
+          <h5 class="fw-bold text-primary mb-3">📋 Plages des codes ASCII et conditions d'appartenance :</h5>
+          <div class="row g-2 font-monospace small">
+            <div class="col-12 col-md-6 col-lg-3">
+              <div class="p-2 border rounded bg-light text-center">
+                <span class="badge bg-primary mb-1">Majuscule</span>
+                <div><code>"A" ≤ c ≤ "Z"</code></div>
+                <small class="text-muted">ASCII 65 à 90</small>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+              <div class="p-2 border rounded bg-light text-center">
+                <span class="badge bg-info text-dark mb-1">Minuscule</span>
+                <div><code>"a" ≤ c ≤ "z"</code></div>
+                <small class="text-muted">ASCII 97 à 122</small>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+              <div class="p-2 border rounded bg-light text-center">
+                <span class="badge bg-success mb-1">Chiffre</span>
+                <div><code>"0" ≤ c ≤ "9"</code></div>
+                <small class="text-muted">ASCII 48 à 57</small>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+              <div class="p-2 border rounded bg-light text-center">
+                <span class="badge bg-secondary mb-1">Symbole</span>
+                <div><code>Sinon</code></div>
+                <small class="text-muted">Autres caractères</small>
+              </div>
+            </div>
           </div>
-          <div id="char-out" class="alert alert-info mb-0 fs-5 d-none"></div>
+        </div>
+
+        <details class="mt-2 mb-4">
+          <summary class="btn btn-sm btn-outline-info fw-bold py-1 px-3">💡 Indices &amp; Structures possibles</summary>
+          <div class="alert alert-light border-info mt-2 p-3 small mb-0 text-dark">
+            <p class="mb-2"><strong>Deux approches algorithmiques sont possibles :</strong></p>
+            <ul class="mb-0 ps-3">
+              <li><strong>Forme généralisée :</strong>
+                <code>Si "A" ≤ c et c ≤ "Z" Alors ... Sinon Si "a" ≤ c et c ≤ "z" Alors ... Sinon Si "0" ≤ c et c ≤ "9" Alors ... Sinon ... Fin Si</code>
+              </li>
+              <li class="mt-1"><strong>Structure à choix multiples :</strong>
+                <code>Selon c Faire "A".."Z" : ... "a".."z" : ... "0".."9" : ... Sinon : ... Fin Selon</code>
+              </li>
+            </ul>
+          </div>
+        </details>
+
+        <!-- Testeur interactif de caractère -->
+        <div class="interactive-box shadow-sm p-4 bg-white rounded border mb-4">
+          <h5 class="fw-bold text-primary mb-3">🧪 Testeur et analyseur de caractère ASCII :</h5>
+
+          <div class="row align-items-center g-3 mb-3">
+            <div class="col-12 col-md-4">
+              <label class="form-label fw-bold">Saisir un caractère :</label>
+              <input type="text" id="char-val" class="form-control form-control-lg text-center fs-3 font-monospace"
+                maxlength="1" value="A">
+            </div>
+            <div class="col-12 col-md-8">
+              <label class="form-label fw-bold d-block">&nbsp;</label>
+              <button id="btn-check-char" class="btn btn-primary btn-lg fw-bold w-100">🔍 Déterminer le type du
+                caractère</button>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <span class="small fw-bold text-muted me-2">Exemples rapides à tester :</span>
+            <button class="btn btn-sm btn-outline-primary btn-char-preset me-1" data-val="G">G (Majuscule)</button>
+            <button class="btn btn-sm btn-outline-info btn-char-preset me-1 text-dark" data-val="m">m
+              (Minuscule)</button>
+            <button class="btn btn-sm btn-outline-success btn-char-preset me-1" data-val="7">7 (Chiffre)</button>
+            <button class="btn btn-sm btn-outline-secondary btn-char-preset me-1" data-val="#"># (Symbole)</button>
+            <button class="btn btn-sm btn-outline-secondary btn-char-preset me-1" data-val="@">@ (Symbole)</button>
+          </div>
+
+          <div id="char-out" class="mt-3"></div>
         </div>
       </section>
 
       <!-- Exercice 9 -->
       <section>
-        <h3>Exercice 9 – Calculatrice</h3>
-        <p>Calculer une expression de la forme <code>A op B</code> avec prévision de la division par zéro.</p>
-        <div class="interactive-box shadow-sm">
-          <div class="row g-3 mb-3">
-            <div class="col-md-4"><label class="form-label fw-bold">Nombre A :</label><input type="number" id="calc-a" class="form-control" value="15"></div>
-            <div class="col-md-4"><label class="form-label fw-bold">Opérateur :</label>
-              <select id="calc-op" class="form-select">
-                <option value="+">+</option>
-                <option value="-">-</option>
-                <option value="*">*</option>
-                <option value="/">/</option>
-              </select>
-            </div>
-            <div class="col-md-4"><label class="form-label fw-bold">Nombre B :</label><input type="number" id="calc-b" class="form-control" value="3"></div>
+        <h3>Exercice 9 – Calculatrice d'expression (A op B)</h3>
+        <p class="text-muted">Écrire l'algorithme d'un programme qui saisit une expression de la forme
+          <code>A op B</code> dans une chaîne nommée <code>ch</code> (avec <code>A</code> et <code>B</code> deux entiers
+          relatifs et <code>op</code> l'un des opérateurs <code>+</code>, <code>-</code>, <code>*</code> ou
+          <code>/</code>), puis calcule et affiche le résultat (en prévoyant le cas de division par zéro).
+        </p>
+
+        <!-- Illustration graphique (Organigramme de calcul d'expression) -->
+        <div class="text-center my-4">
+          <div class="card d-inline-block shadow-sm p-3 bg-white border rounded">
+            <h6 class="fw-bold text-primary mb-3">📊 Représentation graphique : Organigramme d'évaluation de "A op B" :
+            </h6>
+            <img src="images/module04/calculatrice_expression.svg" alt="Organigramme Calculatrice A op B"
+              class="img-fluid" style="max-width: 620px;">
           </div>
-          <button id="btn-do-calc" class="btn btn-success fw-bold">Calculer l'opération</button>
-          <div id="calc-out" class="mt-3 fs-5"></div>
+        </div>
+
+        <details class="mt-2 mb-4">
+          <summary class="btn btn-sm btn-outline-info fw-bold py-1 px-3">💡 Indices de traitement de la chaîne</summary>
+          <div class="alert alert-light border-info mt-2 p-3 small mb-0 text-dark">
+            <p class="mb-2"><strong>Conseils pour l'extraction et l'évaluation :</strong></p>
+            <ul class="mb-0 ps-3">
+              <li>Recherchez la position <code>p</code> de l'opérateur dans la chaîne <code>ch</code> (avec
+                <code>pos("+", ch)</code>, <code>pos("-", ch)</code>, etc.).
+              </li>
+              <li>Extrayez les sous-chaînes de <code>A</code> (de la position 1 à <code>p-1</code>) et de <code>B</code>
+                (de la position <code>p+1</code> à <code>long(ch)</code>), puis convertissez-les en entiers avec
+                <code>valeur()</code>.
+              </li>
+              <li>Traitez le calcul avec une structure conditionnelle <code>Selon op Faire</code> ou
+                <code>Si...Sinon Si</code> en vérifiant systématiquement <code>Si op = "/" et B = 0</code> pour éviter
+                l'erreur de division par zéro.
+              </li>
+            </ul>
+          </div>
+        </details>
+
+        <!-- Testeur interactif de calcul d'expression -->
+        <div class="interactive-box shadow-sm p-4 bg-white rounded border mb-4">
+          <h5 class="fw-bold text-primary mb-3">🧪 Testeur interactif d'expression (ch = "A op B") :</h5>
+
+          <div class="mb-3">
+            <label class="form-label fw-bold">Saisir l'expression (ch) :</label>
+            <div class="input-group">
+              <input type="text" id="calc-expr" class="form-control form-control-lg font-monospace" value="15+7"
+                placeholder="Ex: 15+7, 18/2, -5*4, 1/0">
+              <button id="btn-do-calc" class="btn btn-success fw-bold px-4">⚡ Calculer l'expression</button>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <span class="small fw-bold text-muted me-2">Exemples du manuel à tester :</span>
+            <button class="btn btn-sm btn-outline-primary btn-calc-preset me-1" data-val="15+7">15+7 (Addition)</button>
+            <button class="btn btn-sm btn-outline-primary btn-calc-preset me-1" data-val="18/2">18/2 (Division)</button>
+            <button class="btn btn-sm btn-outline-danger btn-calc-preset me-1" data-val="1/0">1/0 (Division par
+              zéro)</button>
+            <button class="btn btn-sm btn-outline-secondary btn-calc-preset me-1" data-val="-5*4">-5*4
+              (Multiplication)</button>
+          </div>
+
+          <div id="calc-out" class="mt-3"></div>
         </div>
       </section>
 
       <!-- Exercice 10 -->
       <section>
         <h3>Exercice 10 – Potentiel Hydrogène (pH)</h3>
-        <p>Saisir la valeur du pH d'une solution et afficher sa nature (Acide fort, Acide faible, Neutre, Base faible, Base forte).</p>
-        <div class="interactive-box shadow-sm">
-          <label class="form-label fw-bold">Valeur du pH : <span id="ph-val-display" class="badge bg-dark fs-6">7.0</span></label>
-          <input type="range" class="form-range" id="ph-slider" min="0" max="14" step="0.1" value="7.0">
-          <div id="ph-nature-result" class="card p-3 mt-2 text-center fs-5 bg-success text-white">
-            Nature : Neutre (ex: Eau pure)
+        <p class="text-muted">Écrire l'algorithme d'un programme nommé <code>Nature_Liquide</code> qui permet de saisir
+          la valeur du pH (Potentiel Hydrogène) d'une solution pour afficher sa nature exacte : <strong>Acide
+            fort</strong>, <strong>Acide faible</strong>, <strong>Neutre</strong>, <strong>Base faible</strong> ou
+          <strong>Base forte</strong>.
+        </p>
+
+        <!-- Illustration graphique (Échelle de pH) -->
+        <div class="text-center my-4">
+          <div class="card shadow-sm p-3 bg-white border rounded">
+            <h6 class="fw-bold text-primary mb-3">📊 Représentation graphique : Échelle de pH (0 à 14) et Zones de
+              classification :</h6>
+            <img src="images/module04/echelle_ph.svg" alt="Échelle de pH" class="img-fluid">
           </div>
+        </div>
+
+        <details class="mt-2 mb-4">
+          <summary class="btn btn-sm btn-outline-info fw-bold py-1 px-3">💡 Indices d'organisation des conditions
+          </summary>
+          <div class="alert alert-light border-info mt-2 p-3 small mb-0 text-dark">
+            <p class="mb-2"><strong>Conseils pour la rédaction de l'algorithme :</strong></p>
+            <ul class="mb-0 ps-3">
+              <li>Pensez à traiter en premier le cas d'une <strong>saisie invalide</strong> (lorsque la valeur du pH
+                n'est pas comprise dans l'intervalle $[0, 14]$).</li>
+              <li>Pour classifier les 5 natures de solutions (Acide fort, Acide faible, Neutre, Base faible, Base
+                forte), utilisez une structure conditionnelle <strong>généralisée</strong>
+                (<code>Si...Sinon Si...Sinon Si...Sinon...Fin Si</code>) en comparant la valeur du pH aux seuils
+                successifs $3$, $7$ et $11$.</li>
+            </ul>
+          </div>
+        </details>
+
+        <!-- Testeur interactif de pH -->
+        <div class="interactive-box shadow-sm p-4 bg-white rounded border mb-4">
+          <h5 class="fw-bold text-primary mb-3">🧪 Testeur et analyseur de pH (Nature_Liquide) :</h5>
+
+          <div class="mb-3">
+            <label class="form-label fw-bold">Saisir la valeur du pH (entre 0.0 et 14.0) :</label>
+            <div class="input-group">
+              <input type="number" id="ph-val" class="form-control form-control-lg font-monospace" step="0.1"
+                value="7.0" placeholder="Ex: 2.0, 7.0, 13.0, -2.0">
+              <button id="btn-check-ph" class="btn btn-primary fw-bold px-4">🔍 Analyser le pH</button>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <span class="small fw-bold text-muted d-block mb-2">Exemples de produits de la vie quotidienne à tester
+              :</span>
+            <div class="d-flex flex-wrap gap-1">
+              <button class="btn btn-sm btn-outline-danger btn-ph-preset" data-val="1.0">🔋 Acide stomacal
+                (1.0)</button>
+              <button class="btn btn-sm btn-outline-danger btn-ph-preset" data-val="2.0">🍋 Citron (2.0)</button>
+              <button class="btn btn-sm btn-outline-warning btn-ph-preset text-dark" data-val="4.0">🍅 Tomate
+                (4.0)</button>
+              <button class="btn btn-sm btn-outline-warning btn-ph-preset text-dark" data-val="5.0">☕ Café
+                (5.0)</button>
+              <button class="btn btn-sm btn-outline-success btn-ph-preset" data-val="6.5">🥛 Lait (6.5)</button>
+              <button class="btn btn-sm btn-success btn-ph-preset" data-val="7.0">💧 Eau Pure (7.0)</button>
+              <button class="btn btn-sm btn-outline-info btn-ph-preset text-dark" data-val="8.0">🥚 Eau de mer
+                (8.0)</button>
+              <button class="btn btn-sm btn-outline-info btn-ph-preset text-dark" data-val="9.5">🧼 Savon (9.5)</button>
+              <button class="btn btn-sm btn-outline-primary btn-ph-preset" data-val="11.5">🧹 Ammoniac (11.5)</button>
+              <button class="btn btn-sm btn-outline-primary btn-ph-preset" data-val="13.0">🧪 Eau de Javel
+                (13.0)</button>
+              <button class="btn btn-sm btn-outline-primary btn-ph-preset" data-val="14.0">🚾 Soude caustique
+                (14.0)</button>
+              <button class="btn btn-sm btn-outline-secondary btn-ph-preset" data-val="-2.0">❌ -2.0 (Invalide)</button>
+            </div>
+          </div>
+
+          <div id="ph-out" class="mt-3"></div>
         </div>
       </section>
 
       <!-- Exercice 11 -->
       <section>
         <h3>Exercice 11 – Évaluation d'une structure conditionnelle</h3>
-        <p>Quelles sont les valeurs de A et B après l'exécution de chaque bloc ?</p>
-        <div class="table-responsive">
-          <table class="table table-bordered text-center">
-            <thead class="table-dark">
-              <tr><th>Bloc 1</th><th>Bloc 2</th><th>Bloc 3</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>A = 3 , B = 2</td><td>A = 2 , B = 3</td><td>A = 0 , B = 2</td></tr>
-            </tbody>
-          </table>
+        <p class="text-muted">Quelles sont les valeurs finales des variables <code>A</code> et <code>B</code> après
+          l'exécution de chaque bloc d'instructions ?</p>
+
+        <div id="ex11-container" class="qcm-container interactive-box shadow-sm p-4 bg-white rounded border mb-4">
+          <div class="row g-4">
+
+            <!-- Bloc 1 -->
+            <div class="col-12 col-lg-4">
+              <div class="card h-100 p-3 bg-light border shadow-sm" id="ex11-b1-block">
+                <h5 class="fw-bold text-primary mb-3">📌 Bloc 1 :</h5>
+                <pre class="bg-white text-dark p-2 rounded border shadow-sm mb-3" style="font-size: 0.85rem;"><code class="language-algorithm">A &larr; 3
+B &larr; 1
+Si (A &gt; 2) et (B &lt; 1) Alors
+    B &larr; 2
+Fin Si</code></pre>
+
+                <div class="bg-white p-3 rounded border mb-2">
+                  <label class="form-label small fw-bold text-dark d-block mb-2">Valeurs finales obtenues :</label>
+                  <div class="d-flex align-items-center gap-2 mb-2">
+                    <span class="fw-bold font-monospace">A =</span>
+                    <input type="number" id="ex11-b1-a" class="form-control form-control-sm font-monospace text-center"
+                      placeholder="A">
+                  </div>
+                  <div class="d-flex align-items-center gap-2">
+                    <span class="fw-bold font-monospace">B =</span>
+                    <input type="number" id="ex11-b1-b" class="form-control form-control-sm font-monospace text-center"
+                      placeholder="B">
+                  </div>
+                </div>
+
+                <details class="mt-2">
+                  <summary class="btn btn-sm btn-outline-info fw-bold py-0 px-2">💡 Indice Bloc 1</summary>
+                  <div class="alert alert-light border-info mt-2 p-2 small mb-0 text-dark">
+                    Évaluez la condition composée <code>(3 &gt; 2) et (1 &lt; 1)</code>. La seconde comparaison
+                    <code>1 &lt; 1</code> est-elle vraie ou fausse ?
+                  </div>
+                </details>
+                <div id="ex11-b1-feedback" class="mt-2 d-none alert mb-0"></div>
+              </div>
+            </div>
+
+            <!-- Bloc 2 -->
+            <div class="col-12 col-lg-4">
+              <div class="card h-100 p-3 bg-light border shadow-sm" id="ex11-b2-block">
+                <h5 class="fw-bold text-primary mb-3">📌 Bloc 2 :</h5>
+                <pre class="bg-white text-dark p-2 rounded border shadow-sm mb-3" style="font-size: 0.85rem;"><code class="language-algorithm">A &larr; 2
+Si (Non (A &lt; 2) ou (A = 2)) Alors
+    B &larr; 3
+Sinon
+    B &larr; 1
+Fin Si</code></pre>
+
+                <div class="bg-white p-3 rounded border mb-2">
+                  <label class="form-label small fw-bold text-dark d-block mb-2">Valeurs finales obtenues :</label>
+                  <div class="d-flex align-items-center gap-2 mb-2">
+                    <span class="fw-bold font-monospace">A =</span>
+                    <input type="number" id="ex11-b2-a" class="form-control form-control-sm font-monospace text-center"
+                      placeholder="A">
+                  </div>
+                  <div class="d-flex align-items-center gap-2">
+                    <span class="fw-bold font-monospace">B =</span>
+                    <input type="number" id="ex11-b2-b" class="form-control form-control-sm font-monospace text-center"
+                      placeholder="B">
+                  </div>
+                </div>
+
+                <details class="mt-2">
+                  <summary class="btn btn-sm btn-outline-info fw-bold py-0 px-2">💡 Indice Bloc 2</summary>
+                  <div class="alert alert-light border-info mt-2 p-2 small mb-0 text-dark">
+                    Calculez d'abord <code>2 &lt; 2</code> (Faux). Donc <code>Non(Faux)</code> donne Vrai. L'opérateur
+                    <code>ou</code> est donc satisfait.
+                  </div>
+                </details>
+                <div id="ex11-b2-feedback" class="mt-2 d-none alert mb-0"></div>
+              </div>
+            </div>
+
+            <!-- Bloc 3 -->
+            <div class="col-12 col-lg-4">
+              <div class="card h-100 p-3 bg-light border shadow-sm" id="ex11-b3-block">
+                <h5 class="fw-bold text-primary mb-3">📌 Bloc 3 :</h5>
+                <pre class="bg-white text-dark p-2 rounded border shadow-sm mb-3" style="font-size: 0.85rem;"><code class="language-algorithm">A &larr; 2
+A &larr; A div 3
+Si A = 2 Alors
+    B &larr; 3
+Sinon Si A = 0 Alors
+    B &larr; 2
+Sinon
+    B &larr; 1
+Fin Si</code></pre>
+
+                <div class="bg-white p-3 rounded border mb-2">
+                  <label class="form-label small fw-bold text-dark d-block mb-2">Valeurs finales obtenues :</label>
+                  <div class="d-flex align-items-center gap-2 mb-2">
+                    <span class="fw-bold font-monospace">A =</span>
+                    <input type="number" id="ex11-b3-a" class="form-control form-control-sm font-monospace text-center"
+                      placeholder="A">
+                  </div>
+                  <div class="d-flex align-items-center gap-2">
+                    <span class="fw-bold font-monospace">B =</span>
+                    <input type="number" id="ex11-b3-b" class="form-control form-control-sm font-monospace text-center"
+                      placeholder="B">
+                  </div>
+                </div>
+
+                <details class="mt-2">
+                  <summary class="btn btn-sm btn-outline-info fw-bold py-0 px-2">💡 Indice Bloc 3</summary>
+                  <div class="alert alert-light border-info mt-2 p-2 small mb-0 text-dark">
+                    Calculez d'abord la division entière <code>2 div 3</code>. Quelle valeur prend <code>A</code> ?
+                    Suivez ensuite la branche conditionnelle correspondante.
+                  </div>
+                </details>
+                <div id="ex11-b3-feedback" class="mt-2 d-none alert mb-0"></div>
+              </div>
+            </div>
+
+          </div>
+
+          <button id="btn-check-ex11" class="btn btn-primary fw-bold px-4 mt-4">✔️ Vérifier l'évaluation des 3
+            blocs</button>
+          <div id="ex11-score" class="mt-3 d-none"></div>
         </div>
       </section>
 
       <!-- Exercice 12 -->
       <section>
         <h3>Exercice 12 – Année bissextile</h3>
-        <p>Une année est bissextile si elle est divisible par 4 et non par 100, ou si elle est divisible par 400.</p>
-        <div class="interactive-box shadow-sm">
-          <div class="input-group mb-3">
-            <input type="number" id="leap-year" class="form-control" value="2024">
-            <button id="btn-check-leap" class="btn btn-primary fw-bold">Vérifier l'année</button>
+        <p class="text-muted">Écrire l'algorithme d'un programme qui saisit une année <code>a</code> puis détermine et
+          affiche si elle est bissextile (366 jours, mois de février de 29 jours) ou non (365 jours).</p>
+
+        <!-- Definition de l'énoncé -->
+        <div class="card shadow-sm p-3 bg-white rounded border mb-4">
+          <h5 class="fw-bold text-primary mb-2">📋 Règle de définition :</h5>
+          <p class="mb-0">Une année est bissextile si elle est <strong>divisible par 4 et non divisible par
+              100</strong>, <span class="badge bg-primary">OU</span> si elle est <strong>divisible par 400</strong>.</p>
+        </div>
+
+        <details class="mt-2 mb-4">
+          <summary class="btn btn-sm btn-outline-info fw-bold py-1 px-3">💡 Indice de structure conditionnelle</summary>
+          <div class="alert alert-light border-info mt-2 p-3 small mb-0 text-dark">
+            <strong>Conseil :</strong> Réfléchissez aux trois opérations de divisibilité avec l'opérateur
+            <code>mod</code> (reste égal à 0 ou différent de 0) et combinez-les avec une structure alternative
+            <code>Si...Sinon...Fin Si</code>.
           </div>
-          <div id="leap-out" class="alert alert-info mb-0 fs-5 d-none"></div>
+        </details>
+
+        <!-- Testeur interactif d'année bissextile -->
+        <div class="interactive-box shadow-sm p-4 bg-white rounded border mb-4">
+          <h5 class="fw-bold text-primary mb-3">🧪 Testeur interactif d'année bissextile :</h5>
+
+          <div class="mb-3">
+            <label class="form-label fw-bold">Saisir une année :</label>
+            <div class="input-group">
+              <input type="number" id="leap-year" class="form-control form-control-lg font-monospace" value="2024"
+                placeholder="Ex: 2024, 1900, 2000">
+              <button id="btn-check-leap" class="btn btn-primary fw-bold px-4">🔍 Vérifier l'année</button>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <span class="small fw-bold text-muted me-2">Exemples à tester :</span>
+            <button class="btn btn-sm btn-outline-primary btn-leap-preset me-1" data-val="2024">Année 2024</button>
+            <button class="btn btn-sm btn-outline-primary btn-leap-preset me-1" data-val="1900">Année 1900</button>
+            <button class="btn btn-sm btn-outline-primary btn-leap-preset me-1" data-val="2000">Année 2000</button>
+            <button class="btn btn-sm btn-outline-secondary btn-leap-preset me-1" data-val="2023">Année 2023</button>
+          </div>
+
+          <div id="leap-out" class="mt-3"></div>
         </div>
       </section>
 
       <!-- Exercice 13 -->
       <section>
-        <h3>Exercice 13 – Salutations</h3>
-        <p>Saisir l'heure actuelle <code>t</code> et afficher la salutation appropriée.</p>
-        <div class="interactive-box shadow-sm">
-          <div class="input-group mb-3">
-            <input type="number" id="salut-t" class="form-control" value="14" min="0" max="23">
-            <button id="btn-check-salut" class="btn btn-warning text-dark fw-bold">Afficher Salutation</button>
+        <h3>Exercice 13 – Salutations (Analyse &amp; Réécriture avec Selon)</h3>
+        <p class="text-muted">Soit la séquence algorithmique ci-dessous permettant d'afficher une salutation selon
+          l'heure <code>h</code> (comprise entre 0 et 23) :</p>
+
+        <!-- Algorithme de départ -->
+        <div class="card shadow-sm p-3 bg-white rounded border mb-4">
+          <h5 class="fw-bold text-primary mb-3">📐 Algorithme de départ (Forme généralisée) :</h5>
+          <pre class="bg-light text-dark p-3 rounded border font-monospace mb-0" style="font-size: 0.88rem;"><code class="language-algorithm">Si h &lt; 12 Alors
+    Ecrire("Bonjour")
+Sinon Si h &lt; 18 Alors
+    Ecrire("Bon Après-midi")
+Sinon Si h &lt; 21 Alors
+    Ecrire("Bonsoir")
+Sinon
+    Ecrire("Bonne nuit")
+Fin Si</code></pre>
+        </div>
+
+        <div id="salut-container" class="qcm-container interactive-box shadow-sm p-4 bg-white rounded border mb-4">
+
+          <!-- Question 1 -->
+          <div class="salut-card mb-4 p-3 border rounded bg-light" id="salut-q1-block">
+            <h5 class="fw-bold text-primary mb-3">📌 Question 1 : Déterminer l'intervalle de temps (0..23) pour chaque
+              message</h5>
+
+            <div class="row g-3 mb-2">
+              <div class="col-12 col-md-6">
+                <label class="form-label small fw-bold">Message <code>"Bonjour"</code> :</label>
+                <select class="form-select" id="salut-q1-bonjour">
+                  <option value="">-- Choisir l'intervalle --</option>
+                  <option value="0..11">h ∈ [0, 11] (de 0 à 11h)</option>
+                  <option value="0..12">h ∈ [0, 12] (de 0 à 12h)</option>
+                  <option value="1..12">h ∈ [1, 12] (de 1 à 12h)</option>
+                </select>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <label class="form-label small fw-bold">Message <code>"Bon Après-midi"</code> :</label>
+                <select class="form-select" id="salut-q1-apresmidi">
+                  <option value="">-- Choisir l'intervalle --</option>
+                  <option value="12..17">h ∈ [12, 17] (de 12 à 17h)</option>
+                  <option value="12..18">h ∈ [12, 18] (de 12 à 18h)</option>
+                  <option value="13..18">h ∈ [13, 18] (de 13 à 18h)</option>
+                </select>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <label class="form-label small fw-bold">Message <code>"Bonsoir"</code> :</label>
+                <select class="form-select" id="salut-q1-bonsoir">
+                  <option value="">-- Choisir l'intervalle --</option>
+                  <option value="18..20">h ∈ [18, 20] (de 18 à 20h)</option>
+                  <option value="18..21">h ∈ [18, 21] (de 18 à 21h)</option>
+                  <option value="19..21">h ∈ [19, 21] (de 19 à 21h)</option>
+                </select>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <label class="form-label small fw-bold">Message <code>"Bonne nuit"</code> :</label>
+                <select class="form-select" id="salut-q1-nuit">
+                  <option value="">-- Choisir l'intervalle --</option>
+                  <option value="21..23">h ∈ [21, 23] (de 21 à 23h)</option>
+                  <option value="22..24">h ∈ [22, 24] (de 22 à 24h)</option>
+                  <option value="21..24">h ∈ [21, 24] (de 21 à 24h)</option>
+                </select>
+              </div>
+            </div>
+
+            <details class="mt-2">
+              <summary class="btn btn-sm btn-outline-info fw-bold py-0 px-2">💡 Indice Q1</summary>
+              <div class="alert alert-light border-info mt-2 p-2 small mb-0 text-dark">
+                L'heure <code>h</code> est un entier de 0 à 23. Si <code>h &lt; 12</code> est Vrai, la dernière valeur
+                entière possible est 11 (donc 0..11). Pour <code>h &lt; 18</code> en arrivant au premier
+                <code>Sinon Si</code>, <code>h</code> est au moins égal à 12 et au plus égal à 17.
+              </div>
+            </details>
+            <div id="salut-q1-feedback" class="mt-2 d-none alert mb-0"></div>
           </div>
-          <div id="salut-out" class="alert alert-warning text-dark mb-0 fs-5 d-none"></div>
+
+          <!-- Question 2 -->
+          <div class="salut-card mb-4 p-3 border rounded bg-light" id="salut-q2-block">
+            <h5 class="fw-bold text-primary mb-3">📌 Question 2 : Réécrire l'algorithme en utilisant la structure
+              <code>Selon</code>
+            </h5>
+
+            <!-- Propositions d'algorithmes -->
+            <div class="row g-3 my-2">
+              <div class="col-12 col-md-4">
+                <div class="card h-100 p-2 border border-secondary border-opacity-50 bg-white">
+                  <span class="badge bg-primary mb-2 align-self-start">Proposition A</span>
+                  <pre class="m-0 bg-light text-dark p-2 rounded border small font-monospace"
+                    style="font-size: 0.78rem;"><code class="language-algorithm">Selon h Faire
+    0..11  : Ecrire("Bonjour")
+    12..17 : Ecrire("Bon Après-midi")
+    18..20 : Ecrire("Bonsoir")
+    21..23 : Ecrire("Bonne nuit")
+Fin Selon</code></pre>
+                </div>
+              </div>
+
+              <div class="col-12 col-md-4">
+                <div class="card h-100 p-2 border border-secondary border-opacity-50 bg-white">
+                  <span class="badge bg-secondary mb-2 align-self-start">Proposition B</span>
+                  <pre class="m-0 bg-light text-dark p-2 rounded border small font-monospace"
+                    style="font-size: 0.78rem;"><code class="language-algorithm">Selon h Faire
+    0..12  : Ecrire("Bonjour")
+    12..18 : Ecrire("Bon Après-midi")
+    18..21 : Ecrire("Bonsoir")
+    21..24 : Ecrire("Bonne nuit")
+Fin Selon</code></pre>
+                </div>
+              </div>
+
+              <div class="col-12 col-md-4">
+                <div class="card h-100 p-2 border border-secondary border-opacity-50 bg-white">
+                  <span class="badge bg-secondary mb-2 align-self-start">Proposition C</span>
+                  <pre class="m-0 bg-light text-dark p-2 rounded border small font-monospace"
+                    style="font-size: 0.78rem;"><code class="language-algorithm">Selon h Faire
+    h &lt; 12 : Ecrire("Bonjour")
+    h &lt; 18 : Ecrire("Bon Après-midi")
+    h &lt; 21 : Ecrire("Bonsoir")
+    Sinon  : Ecrire("Bonne nuit")
+Fin Selon</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <!-- Menu Déroulant Sélection -->
+            <div class="mt-3">
+              <label class="form-label small fw-bold" for="salut-q2-rewrite">Sélectionner la bonne réécriture :</label>
+              <select class="form-select" id="salut-q2-rewrite">
+                <option value="">-- Choisir une proposition --</option>
+                <option value="optA">Proposition A</option>
+                <option value="optB">Proposition B</option>
+                <option value="optC">Proposition C</option>
+              </select>
+            </div>
+
+            <details class="mt-2">
+              <summary class="btn btn-sm btn-outline-info fw-bold py-0 px-2">💡 Indice Q2</summary>
+              <div class="alert alert-light border-info mt-2 p-2 small mb-0 text-dark">
+                Dans une structure <code>Selon</code>, les cas de sélection pour une variable entière doivent être des
+                valeurs ou des plages d'intervalles réels disjoints (format <code>borne1..borne2</code> sans
+                chevauchement des bornes).
+              </div>
+            </details>
+            <div id="salut-q2-feedback" class="mt-2 d-none alert mb-0"></div>
+          </div>
+
+          <button id="btn-check-salut-quiz" class="btn btn-primary fw-bold px-4 mb-3">✔️ Vérifier l'Exercice 13</button>
+          <div id="salut-quiz-score" class="mt-2 d-none"></div>
+
+        </div>
+
+        <!-- Simulation interactive de salutation -->
+        <div class="interactive-box shadow-sm p-4 bg-white rounded border mb-4">
+          <h5 class="fw-bold text-primary mb-3">🧪 Testeur interactif de salutation selon l'heure (h) :</h5>
+
+          <div class="mb-3">
+            <label class="form-label fw-bold">Saisir l'heure h (entre 0 et 23) :</label>
+            <div class="input-group">
+              <input type="number" id="salut-t" class="form-control form-control-lg font-monospace" value="14" min="0"
+                max="23" placeholder="Ex: 8, 14, 19, 22">
+              <button id="btn-check-salut" class="btn btn-warning text-dark fw-bold px-4">🔍 Tester la
+                salutation</button>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <span class="small fw-bold text-muted me-2">Raccourcis d'heures à tester :</span>
+            <button class="btn btn-sm btn-outline-primary btn-salut-preset me-1" data-val="8">8h (Matin)</button>
+            <button class="btn btn-sm btn-outline-warning btn-salut-preset me-1 text-dark" data-val="14">14h
+              (Après-midi)</button>
+            <button class="btn btn-sm btn-outline-info btn-salut-preset me-1 text-dark" data-val="19">19h
+              (Soir)</button>
+            <button class="btn btn-sm btn-outline-dark btn-salut-preset me-1" data-val="22">22h (Nuit)</button>
+          </div>
+
+          <div id="salut-out" class="mt-3"></div>
         </div>
       </section>
 
       <!-- Exercice 14 -->
       <section>
         <h3>Exercice 14 – Score d'un match</h3>
-        <p>Saisir les noms et les scores de deux équipes de football, afficher l'équipe gagnante ou "Match nul".</p>
-        <div class="interactive-box shadow-sm">
-          <div class="row g-3 mb-3">
-            <div class="col-md-3"><label class="form-label fw-bold">Équipe 1 :</label><input type="text" id="eq1-name" class="form-control" value="Real"></div>
-            <div class="col-md-3"><label class="form-label fw-bold">Score 1 :</label><input type="number" id="eq1-score" class="form-control" value="2"></div>
-            <div class="col-md-3"><label class="form-label fw-bold">Équipe 2 :</label><input type="text" id="eq2-name" class="form-control" value="Barça"></div>
-            <div class="col-md-3"><label class="form-label fw-bold">Score 2 :</label><input type="number" id="eq2-score" class="form-control" value="1"></div>
+        <p class="text-muted">Écrire l'algorithme d'un programme qui saisit les noms de deux équipes de football
+          (<code>eq1</code>, <code>eq2</code>) et leurs scores respectifs (<code>sc1</code>, <code>sc2</code>), puis
+          affiche l'équipe gagnante ou la mention <strong>"Match nul"</strong> en cas d'égalité.</p>
+
+        <details class="mt-2 mb-4">
+          <summary class="btn btn-sm btn-outline-info fw-bold py-1 px-3">💡 Indice de structure conditionnelle</summary>
+          <div class="alert alert-light border-info mt-2 p-3 small mb-0 text-dark">
+            <strong>Conseil :</strong> Pensez à comparer les deux scores <code>sc1</code> et <code>sc2</code> avec une
+            structure généralisée (<code>Si...Sinon Si...Sinon...Fin Si</code>). Déterminez les trois cas possibles :
+            victoire de la première équipe, victoire de la seconde, ou égalité parfaite.
           </div>
-          <button id="btn-match-result" class="btn btn-success fw-bold">Afficher Résultat du Match</button>
-          <div id="match-out" class="alert alert-success mt-3 fs-5 d-none"></div>
+        </details>
+
+        <!-- Testeur interactif de score de match -->
+        <div class="interactive-box shadow-sm p-4 bg-white rounded border mb-4">
+          <h5 class="fw-bold text-primary mb-3">⚽ Testeur interactif de résultat de match :</h5>
+
+          <div class="row g-3 mb-3">
+            <div class="col-12 col-md-6 col-lg-3">
+              <label class="form-label small fw-bold">Nom Équipe 1 (<code>eq1</code>) :</label>
+              <input type="text" id="eq1-name" class="form-control font-monospace" value="TSG">
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+              <label class="form-label small fw-bold">Score Équipe 1 (<code>sc1</code>) :</label>
+              <input type="number" id="eq1-score" class="form-control font-monospace" value="2" min="0">
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+              <label class="form-label small fw-bold">Nom Équipe 2 (<code>eq2</code>) :</label>
+              <input type="text" id="eq2-name" class="form-control font-monospace" value="Bayer">
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+              <label class="form-label small fw-bold">Score Équipe 2 (<code>sc2</code>) :</label>
+              <input type="number" id="eq2-score" class="form-control font-monospace" value="2" min="0">
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <span class="small fw-bold text-muted me-2">Exemples du manuel de cours :</span>
+            <button class="btn btn-sm btn-outline-primary btn-match-preset me-1" data-n1="TSG" data-s1="2"
+              data-n2="Bayer" data-s2="2">TSG 2 - 2 Bayer</button>
+            <button class="btn btn-sm btn-outline-primary btn-match-preset me-1" data-n1="Real" data-s1="2"
+              data-n2="Barca" data-s2="1">Real 2 - 1 Barca</button>
+            <button class="btn btn-sm btn-outline-primary btn-match-preset me-1" data-n1="EST" data-s1="1" data-n2="CA"
+              data-s2="3">EST 1 - 3 CA</button>
+          </div>
+
+          <button id="btn-match-result" class="btn btn-success fw-bold px-4">🏆 Déterminer le Résultat du Match</button>
+          <div id="match-out" class="mt-3"></div>
         </div>
       </section>
 
       <!-- Exercice 15 -->
       <section>
         <h3>Exercice 15 – Équation du 1er degré</h3>
-        <p>Résoudre l'équation du 1er degré : <strong>$$a \cdot x + b = 0$$</strong></p>
-        <div class="interactive-box shadow-sm">
-          <div class="row g-3 mb-3">
-            <div class="col-md-6"><label class="form-label fw-bold">Coefficient a :</label><input type="number" id="eq1d-a" class="form-control" value="2"></div>
-            <div class="col-md-6"><label class="form-label fw-bold">Coefficient b :</label><input type="number" id="eq1d-b" class="form-control" value="-6"></div>
+        <p class="text-muted">Écrire l'algorithme d'un programme qui saisit les coefficients réels <code>a</code> et
+          <code>b</code> d'une équation du premier degré : $$a \cdot x + b = 0$$ puis calcule et affiche l'ensemble des
+          solutions $S$ dans $\mathbb{R}$.
+        </p>
+
+        <!-- Illustration graphique (Arbre de décision) -->
+        <div class="text-center my-4">
+          <div class="card shadow-sm p-3 bg-white border rounded">
+            <h6 class="fw-bold text-primary mb-3">📊 Représentation graphique : Arbre de décision &amp; cas de
+              résolution ($a \cdot x + b = 0$) :</h6>
+            <img src="images/module04/equation_premier_degre.svg" alt="Arbre de décision Équation du 1er degré"
+              class="img-fluid">
           </div>
-          <button id="btn-calc-eq1d" class="btn btn-primary fw-bold">Résoudre l'équation</button>
-          <div id="eq1d-out" class="alert alert-info mt-3 fs-5 d-none"></div>
+        </div>
+
+        <details class="mt-2 mb-4">
+          <summary class="btn btn-sm btn-outline-info fw-bold py-1 px-3">💡 Indice de structure conditionnelle</summary>
+          <div class="alert alert-light border-info mt-2 p-3 small mb-0 text-dark">
+            <strong>Conseil :</strong> Analysez d'abord le coefficient <code>a</code> :
+            <ul class="mb-0 ps-3 mt-1">
+              <li>Si <code>a ≠ 0</code>, l'équation admet une unique solution <code>x = -b / a</code>.</li>
+              <li>Si <code>a = 0</code>, la résolution dépend du terme constant <code>b</code> : si <code>b = 0</code>,
+                toute valeur réelle de $x$ est solution ($S = \mathbb{R}$), sinon l'équation est impossible ($S =
+                \emptyset$).</li>
+            </ul>
+          </div>
+        </details>
+
+        <!-- Testeur interactif de résolution -->
+        <div class="interactive-box shadow-sm p-4 bg-white rounded border mb-4">
+          <h5 class="fw-bold text-primary mb-3">🧪 Testeur interactif de résolution ($a \cdot x + b = 0$) :</h5>
+
+          <div class="row g-3 mb-3">
+            <div class="col-12 col-md-6">
+              <label class="form-label fw-bold">Coefficient <code>a</code> :</label>
+              <input type="number" id="eq1d-a" class="form-control form-control-lg font-monospace" step="any" value="2"
+                placeholder="Ex: 2, 0, -5">
+            </div>
+            <div class="col-12 col-md-6">
+              <label class="form-label fw-bold">Coefficient <code>b</code> :</label>
+              <input type="number" id="eq1d-b" class="form-control form-control-lg font-monospace" step="any" value="6"
+                placeholder="Ex: 6, 0, 5">
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <span class="small fw-bold text-muted me-2">Exemples de cas à tester :</span>
+            <button class="btn btn-sm btn-outline-success btn-eq1d-preset me-1" data-a="2" data-b="6">2x + 6 = 0
+              (Unique: x = -3.0)</button>
+            <button class="btn btn-sm btn-outline-info btn-eq1d-preset text-dark me-1" data-a="0" data-b="0">0x + 0 = 0
+              (Infinité: S = ℝ)</button>
+            <button class="btn btn-sm btn-outline-danger btn-eq1d-preset me-1" data-a="0" data-b="5">0x + 5 = 0
+              (Impossible: S = ∅)</button>
+          </div>
+
+          <button id="btn-calc-eq1d" class="btn btn-primary fw-bold px-4">⚡ Résoudre l'équation</button>
+          <div id="eq1d-out" class="mt-3"></div>
         </div>
       </section>
 
       <!-- Exercice 16 -->
       <section>
         <h3>Exercice 16 – Nature d'un triangle</h3>
-        <p>Vérifier la validité des côtés et déterminer si le triangle est Équilatéral, Isocèle, Rectangle ou Quelconque.</p>
-        <div class="interactive-box shadow-sm">
-          <div class="row g-3 mb-3">
-            <div class="col-md-4"><label class="form-label fw-bold">Côté a :</label><input type="number" id="tri-a" class="form-control" value="3"></div>
-            <div class="col-md-4"><label class="form-label fw-bold">Côté b :</label><input type="number" id="tri-b" class="form-control" value="4"></div>
-            <div class="col-md-4"><label class="form-label fw-bold">Côté c :</label><input type="number" id="tri-c" class="form-control" value="5"></div>
+        <p class="text-muted">D'après le théorème de l'inégalité triangulaire, la somme des longueurs de deux côtés d'un
+          triangle doit toujours être supérieure à celle du troisième côté. Écrire l'algorithme d'un programme qui
+          saisit les longueurs des 3 côtés <code>a</code>, <code>b</code> et <code>c</code>, puis détermine et affiche
+          sa nature exacte.</p>
+
+        <!-- Illustration graphique (Classification des triangles) -->
+        <div class="text-center my-4">
+          <div class="card shadow-sm p-3 bg-white border rounded">
+            <h6 class="fw-bold text-primary mb-3">📊 Représentation graphique : Inégalité triangulaire &amp;
+              classification géométrique :</h6>
+            <img src="images/module04/nature_triangle.svg" alt="Classification de la nature d'un triangle"
+              class="img-fluid">
           </div>
-          <button id="btn-calc-tri" class="btn btn-primary fw-bold">Déterminer la Nature du Triangle</button>
-          <div id="tri-out" class="alert alert-primary mt-3 fs-5 d-none"></div>
+        </div>
+
+        <details class="mt-2 mb-4">
+          <summary class="btn btn-sm btn-outline-info fw-bold py-1 px-3">💡 Indice de structure conditionnelle</summary>
+          <div class="alert alert-light border-info mt-2 p-3 small mb-0 text-dark">
+            <strong>Conseil :</strong>
+            <ul class="mb-0 ps-3 mt-1">
+              <li>Testez d'abord la validité d'existence du triangle avec l'inégalité triangulaire :
+                <code>(a + b &gt; c) et (a + c &gt; b) et (b + c &gt; a)</code>.
+              </li>
+              <li>Pour les cas de figure :
+                <ul>
+                  <li>Équilatéral : 3 côtés égaux (<code>a = b et b = c</code>).</li>
+                  <li>Rectangle : théorème de Pythagore avec multiplications directes (<code>a*a + b*b = c*c</code>,
+                    etc.).</li>
+                  <li>Isocèle : 2 côtés égaux (<code>a = b ou a = c ou b = c</code>).</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </details>
+
+        <!-- Testeur interactif de nature de triangle -->
+        <div class="interactive-box shadow-sm p-4 bg-white rounded border mb-4">
+          <h5 class="fw-bold text-primary mb-3">🔺 Testeur interactif de la nature d'un triangle (a, b, c) :</h5>
+
+          <div class="row g-3 mb-3">
+            <div class="col-12 col-md-4">
+              <label class="form-label fw-bold">Longueur côté <code>a</code> :</label>
+              <input type="number" id="tri-a" class="form-control form-control-lg font-monospace" step="any" value="3"
+                min="0.1" placeholder="Ex: 3">
+            </div>
+            <div class="col-12 col-md-4">
+              <label class="form-label fw-bold">Longueur côté <code>b</code> :</label>
+              <input type="number" id="tri-b" class="form-control form-control-lg font-monospace" step="any" value="4"
+                min="0.1" placeholder="Ex: 4">
+            </div>
+            <div class="col-12 col-md-4">
+              <label class="form-label fw-bold">Longueur côté <code>c</code> :</label>
+              <input type="number" id="tri-c" class="form-control form-control-lg font-monospace" step="any" value="5"
+                min="0.1" placeholder="Ex: 5">
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <span class="small fw-bold text-muted me-2">Exemples du manuel de cours :</span>
+            <button class="btn btn-sm btn-outline-danger btn-tri-preset me-1" data-a="1" data-b="1" data-c="3">a=1, b=1,
+              c=3 (Non triangle)</button>
+            <button class="btn btn-sm btn-outline-primary btn-tri-preset me-1" data-a="3" data-b="4" data-c="5">a=3,
+              b=4, c=5 (Rectangle)</button>
+            <button class="btn btn-sm btn-outline-success btn-tri-preset me-1" data-a="2" data-b="2" data-c="3">a=2,
+              b=2, c=3 (Isocèle)</button>
+            <button class="btn btn-sm btn-outline-purple btn-tri-preset me-1" data-a="3" data-b="3" data-c="3">a=3, b=3,
+              c=3 (Équilatéral)</button>
+          </div>
+
+          <button id="btn-calc-tri" class="btn btn-primary fw-bold px-4">🔺 Déterminer la Nature du Triangle</button>
+          <div id="tri-out" class="mt-3"></div>
         </div>
       </section>
 
       <!-- Exercice 17 -->
       <section>
-        <h3>Exercice 17 – Équation du 2nd degré</h3>
-        <p>Résoudre l'équation : <strong>$$a \cdot x^2 + b \cdot x + c = 0$$</strong></p>
-        <div class="interactive-box shadow-sm">
-          <div class="row g-3 mb-3">
-            <div class="col-md-4"><label class="form-label fw-bold">Coefficient a :</label><input type="number" id="eq-a" class="form-control" value="1"></div>
-            <div class="col-md-4"><label class="form-label fw-bold">Coefficient b :</label><input type="number" id="eq-b" class="form-control" value="-5"></div>
-            <div class="col-md-4"><label class="form-label fw-bold">Coefficient c :</label><input type="number" id="eq-c" class="form-control" value="6"></div>
+        <h3>Exercice 17 – Équation du 2ème degré</h3>
+        <p class="text-muted">Écrire l'algorithme d'un programme qui saisit les 3 coefficients réels <code>a</code> ($a
+          \neq 0$), <code>b</code> et <code>c</code> d'une équation du second degré : $$a \cdot x^2 + b \cdot x + c =
+          0$$ puis calcule le discriminant $\Delta = b^2 - 4ac$ et affiche l'ensemble des solutions $S$ dans
+          $\mathbb{R}$.</p>
+
+        <!-- Illustration graphique (Arbre de décision du Discriminant) -->
+        <div class="text-center my-4">
+          <div class="card shadow-sm p-3 bg-white border rounded">
+            <h6 class="fw-bold text-primary mb-3">📊 Représentation graphique : Arbre de décision du Discriminant
+              ($\Delta = b^2 - 4ac$) :</h6>
+            <img src="images/module04/equation_second_degre.svg" alt="Arbre de décision Équation du 2nd degré"
+              class="img-fluid">
           </div>
-          <button id="btn-calc-eq" class="btn btn-primary fw-bold">Calculer les solutions (Δ)</button>
+        </div>
+
+        <details class="mt-2 mb-4">
+          <summary class="btn btn-sm btn-outline-info fw-bold py-1 px-3">💡 Indice de structure conditionnelle</summary>
+          <div class="alert alert-light border-info mt-2 p-3 small mb-0 text-dark">
+            <strong>Conseil :</strong>
+            <ul class="mb-0 ps-3 mt-1">
+              <li>Calculez le discriminant avec la multiplication directe : <code>delta &larr; b * b - 4 * a * c</code>
+                (l'utilisation de <code>**</code> n'étant pas autorisée).</li>
+              <li>Examinez le signe de <code>delta</code> avec une structure généralisée
+                (<code>Si delta &gt; 0 Alors ... Sinon Si delta = 0 Alors ... Sinon ... Fin Si</code>).</li>
+            </ul>
+          </div>
+        </details>
+
+        <!-- Testeur interactif de résolution 2nd degré -->
+        <div class="interactive-box shadow-sm p-4 bg-white rounded border mb-4">
+          <h5 class="fw-bold text-primary mb-3">⚡ Testeur interactif de résolution ($a \cdot x^2 + b \cdot x + c = 0$) :
+          </h5>
+
+          <div class="row g-3 mb-3">
+            <div class="col-12 col-md-4">
+              <label class="form-label fw-bold">Coefficient <code>a</code> (a ≠ 0) :</label>
+              <input type="number" id="eq-a" class="form-control form-control-lg font-monospace" step="any" value="1"
+                placeholder="Ex: 1">
+            </div>
+            <div class="col-12 col-md-4">
+              <label class="form-label fw-bold">Coefficient <code>b</code> :</label>
+              <input type="number" id="eq-b" class="form-control form-control-lg font-monospace" step="any" value="-3"
+                placeholder="Ex: -3">
+            </div>
+            <div class="col-12 col-md-4">
+              <label class="form-label fw-bold">Coefficient <code>c</code> :</label>
+              <input type="number" id="eq-c" class="form-control form-control-lg font-monospace" step="any" value="2"
+                placeholder="Ex: 2">
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <span class="small fw-bold text-muted me-2">Exemples de cas du manuel :</span>
+            <button class="btn btn-sm btn-outline-success btn-eq2d-preset me-1" data-a="1" data-b="-3" data-c="2">x² -
+              3x + 2 = 0 (Δ &gt; 0)</button>
+            <button class="btn btn-sm btn-outline-info btn-eq2d-preset text-dark me-1" data-a="1" data-b="-4"
+              data-c="4">x² - 4x + 4 = 0 (Δ = 0)</button>
+            <button class="btn btn-sm btn-outline-danger btn-eq2d-preset me-1" data-a="1" data-b="1" data-c="1">x² + x +
+              1 = 0 (Δ &lt; 0)</button>
+          </div>
+
+          <button id="btn-calc-eq" class="btn btn-primary fw-bold px-4">⚡ Calculer les solutions (Δ)</button>
           <div id="eq-out" class="mt-3"></div>
         </div>
       </section>
 
       <!-- Exercice 18 -->
       <section>
-        <h3>Exercice 18 – Les alcools</h3>
-        <p>Calcul de la masse molaire et identification du nom de l'alcool ($C_n H_{2n+2} O$).</p>
-        <div class="interactive-box shadow-sm">
-          <div class="input-group mb-3">
-            <input type="text" id="alc-formula" class="form-control" value="C2H6O" placeholder="Ex: CH4O, C2H6O, C3H8O">
-            <button id="btn-check-alcohol" class="btn btn-danger fw-bold">Identifier l'Alcool</button>
+        <h3>Exercice 18 – Les alcools (Visualiseur 3D &amp; Calculateur Molaire)</h3>
+        <p class="text-muted">La formule chimique générale de la famille des alcools est $C_n H_{2n+2} O$. Écrire l'algorithme d'un programme qui saisit une formule brute, vérifie s'il s'agit d'un alcool, puis calcule sa masse molaire ($C=12.01$, $H=1.008$, $O=16.00\text{ g/mol}$) et identifie son nom.</p>
+
+        <details class="mt-2 mb-4">
+          <summary class="btn btn-sm btn-outline-info fw-bold py-1 px-3">💡 Indice d'analyse et calcul molaire</summary>
+          <div class="alert alert-light border-info mt-2 p-3 small mb-0 text-dark">
+            <strong>Conseil pour la logique algorithmique :</strong>
+            <ul class="mb-0 ps-3 mt-1">
+              <li>Extrayez le nombre d'atomes de Carbone $n$ et d'Hydrogène $h$ à partir de la chaîne (ex: <code>C2H6O</code>).</li>
+              <li>Vérifiez la condition d'appartenance à la famille des alcools : <code>h = 2 * n + 2</code> et présence de l'atome d'Oxygène.</li>
+              <li>Si la condition est vraie :
+                <ul>
+                  <li>Calculez la masse molaire : <code>M &larr; n * 12.01 + h * 1.008 + 16.00</code>.</li>
+                  <li>Identifiez le nom selon $n$ ($1 \rightarrow$ Méthanol, $2 \rightarrow$ Éthanol, $3 \rightarrow$ Propanol, $4 \rightarrow$ Butanol, $5 \rightarrow$ Pentanol, $6 \rightarrow$ Hexanol, $n \ge 7 \rightarrow$ Alcool à longue chaîne).</li>
+                </ul>
+              </li>
+            </ul>
           </div>
-          <div id="alc-out" class="alert alert-danger mb-0 fs-5 d-none"></div>
+        </details>
+
+        <!-- Module 3D & Analyseur interactif -->
+        <div class="interactive-box shadow-sm p-4 bg-white rounded border mb-4">
+          
+          <!-- Zone d'affichage 3D -->
+          <div class="card bg-dark text-white border-secondary mb-3 shadow">
+            <div class="card-header bg-dark border-secondary d-flex justify-content-between align-items-center flex-wrap gap-2 py-2">
+              <span class="fw-bold text-info fs-6">🧪 Visualiseur 3D de la molécule d'alcool : <span id="alc-3d-title" class="badge bg-primary font-monospace fs-6">Éthanol (C₂H₆O)</span></span>
+              <div class="btn-group btn-group-sm">
+                <button id="btn-alc-rotate" class="btn btn-outline-info active" title="Activer/Désactiver la rotation 3D">🔄 Rotation Auto</button>
+                <button id="btn-alc-labels" class="btn btn-outline-light active" title="Afficher/Masquer les étiquettes d'atomes">🏷️ Labels</button>
+                <button id="btn-alc-zoom-in" class="btn btn-outline-light" title="Zoomer">+</button>
+                <button id="btn-alc-zoom-out" class="btn btn-outline-light" title="Dézoomer">-</button>
+              </div>
+            </div>
+            <div class="card-body p-2 text-center position-relative">
+              <canvas id="molecule-3d-canvas" width="680" height="340" class="w-100 rounded" style="max-height: 360px; cursor: grab; background: radial-gradient(circle, #1e293b 0%, #0f172a 100%);"></canvas>
+              <div class="position-absolute bottom-0 start-0 m-3 p-2 bg-dark bg-opacity-75 rounded border border-secondary text-start small font-monospace">
+                <div><span class="d-inline-block rounded-circle bg-secondary me-1" style="width:12px;height:12px;"></span> Carbone (C)</div>
+                <div><span class="d-inline-block rounded-circle bg-danger me-1" style="width:12px;height:12px;"></span> Oxygène (O)</div>
+                <div><span class="d-inline-block rounded-circle bg-light border me-1" style="width:12px;height:12px;"></span> Hydrogène (H)</div>
+              </div>
+              <div class="position-absolute bottom-0 end-0 m-3 text-muted small">
+                🖱️ <i>Faites glisser pour tourner la molécule en 3D</i>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contrôle de saisie et presets -->
+          <div class="mb-3">
+            <label class="form-label fw-bold">Saisir ou choisir la formule brute d'un alcool ($C_n H_{2n+2} O$) :</label>
+            <div class="input-group">
+              <input type="text" id="alc-formula" class="form-control form-control-lg font-monospace text-uppercase" value="C2H6O" placeholder="Ex: CH4O, C2H6O, C3H8O, C4H10O">
+              <button id="btn-check-alcohol" class="btn btn-danger fw-bold px-4">🔬 Analyser &amp; Modéliser en 3D</button>
+            </div>
+          </div>
+
+          <!-- Raccourcis de la table du manuel -->
+          <div class="mb-3">
+            <span class="small fw-bold text-muted me-2">Formules du manuel à modéliser :</span>
+            <div class="d-flex flex-wrap gap-1 mt-1">
+              <button class="btn btn-sm btn-outline-danger btn-alc-preset" data-formula="CH4O">CH₄O (Méthanol)</button>
+              <button class="btn btn-sm btn-outline-danger btn-alc-preset" data-formula="C2H6O">C₂H₆O (Éthanol)</button>
+              <button class="btn btn-sm btn-outline-warning text-dark btn-alc-preset" data-formula="C3H8O">C₃H₈O (Propanol)</button>
+              <button class="btn btn-sm btn-outline-success btn-alc-preset" data-formula="C4H10O">C₄H₁₀O (Butanol)</button>
+              <button class="btn btn-sm btn-outline-info text-dark btn-alc-preset" data-formula="C5H12O">C₅H₁₂O (Pentanol)</button>
+              <button class="btn btn-sm btn-outline-primary btn-alc-preset" data-formula="C6H14O">C₆H₁₄O (Hexanol)</button>
+              <button class="btn btn-sm btn-outline-secondary btn-alc-preset" data-formula="C8H18O">C₈H₁₈O (Octanol)</button>
+            </div>
+          </div>
+
+          <div id="alc-out" class="mt-3"></div>
         </div>
       </section>
 
       <!-- Exercice 19 -->
       <section>
-        <h3>Exercice 19 – Intersection de deux droites</h3>
-        <p>Graphique 2D et position relative de deux droites affines ($D_1 : y = a_1 x + b_1$, $D_2 : y = a_2 x + b_2$).</p>
-        <div class="interactive-box shadow-sm">
+        <h3>Exercice 19 – Intersection de deux droites affines</h3>
+        <p class="text-muted">Une droite du plan est décrite par une équation affine de la forme $y = a \cdot x + b$. Écrire l'algorithme d'un programme qui saisit les coefficients réels $a_1, b_1$ et $a_2, b_2$ de deux droites $D_1$ et $D_2$, puis détermine si elles sont confondues, parallèles, orthogonales ou sécantes en calculant les coordonnées de leur point d'intersection $(x, y)$.</p>
+
+        <!-- Illustration graphique (Position relative et repère cartésien) -->
+        <div class="text-center my-4">
+          <div class="card shadow-sm p-3 bg-white border rounded">
+            <h6 class="fw-bold text-primary mb-3">📊 Représentation graphique : Position relative de deux droites affines &amp; repère cartésien :</h6>
+            <img src="images/module04/intersection_droites.svg" alt="Position relative et intersection de deux droites" class="img-fluid" style="max-width: 780px;">
+          </div>
+        </div>
+
+        <details class="mt-2 mb-4">
+          <summary class="btn btn-sm btn-outline-info fw-bold py-1 px-3">💡 Indice de structure conditionnelle &amp; géométrique</summary>
+          <div class="alert alert-light border-info mt-2 p-3 small mb-0 text-dark">
+            <strong>Conseil pour la logique algorithmique :</strong>
+            <ul class="mb-0 ps-3 mt-1">
+              <li>Comparez les pentes $a_1$ et $a_2$ :
+                <ul>
+                  <li>Si <code>a1 = a2</code> :
+                    <ul>
+                      <li>Si <code>b1 = b2</code> $\rightarrow$ Droites confondues (infinité d'intersections).</li>
+                      <li>Sinon $\rightarrow$ Droites parallèles strictement disjointes (aucune intersection).</li>
+                    </ul>
+                  </li>
+                  <li>Sinon (<code>a1 &ne; a2</code>) : les droites sont sécantes.
+                    <ul>
+                      <li>Calculez l'abscisse du point d'intersection : <code>x &larr; (b2 - b1) / (a1 - a2)</code>.</li>
+                      <li>Calculez l'ordonnée : <code>y &larr; a1 * x + b1</code>.</li>
+                      <li>Vérifiez la condition d'orthogonalité : <code>Si a1 * a2 = -1</code> $\rightarrow$ Droites orthogonales, sinon droites sécantes quelconques.</li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </details>
+
+        <!-- Module interactif de géométrie 2D -->
+        <div class="interactive-box shadow-sm p-4 bg-white rounded border mb-4">
+          <h5 class="fw-bold text-primary mb-3">📐 Traceur géométrique &amp; Analyseur d'intersection :</h5>
+
+          <!-- Inputs Droite 1 et Droite 2 -->
           <div class="row g-3 mb-3">
-            <div class="col-md-3"><label class="form-label fw-bold text-primary">Droite 1 (a1) :</label><input type="number" id="a1-val" class="form-control affine-input" value="2" step="0.5"></div>
-            <div class="col-md-3"><label class="form-label fw-bold text-primary">Droite 1 (b1) :</label><input type="number" id="b1-val" class="form-control affine-input" value="-1" step="0.5"></div>
-            <div class="col-md-3"><label class="form-label fw-bold text-danger">Droite 2 (a2) :</label><input type="number" id="a2-val" class="form-control affine-input" value="-0.5" step="0.5"></div>
-            <div class="col-md-3"><label class="form-label fw-bold text-danger">Droite 2 (b2) :</label><input type="number" id="b2-val" class="form-control affine-input" value="1.5" step="0.5"></div>
+            <div class="col-12 col-md-6">
+              <div class="p-3 border border-primary border-opacity-50 rounded bg-light">
+                <h6 class="fw-bold text-primary mb-2">🔵 Droite D₁ : <code>y = a₁·x + b₁</code></h6>
+                <div class="row g-2">
+                  <div class="col-6">
+                    <label class="form-label small fw-bold">Pente <code>a₁</code> :</label>
+                    <input type="number" id="a1-val" class="form-control font-monospace" step="any" value="2" placeholder="Ex: 2">
+                  </div>
+                  <div class="col-6">
+                    <label class="form-label small fw-bold">Ordonnée <code>b₁</code> :</label>
+                    <input type="number" id="b1-val" class="form-control font-monospace" step="any" value="-1" placeholder="Ex: -1">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <div class="p-3 border border-danger border-opacity-50 rounded bg-light">
+                <h6 class="fw-bold text-danger mb-2">🔴 Droite D₂ : <code>y = a₂·x + b₂</code></h6>
+                <div class="row g-2">
+                  <div class="col-6">
+                    <label class="form-label small fw-bold">Pente <code>a₂</code> :</label>
+                    <input type="number" id="a2-val" class="form-control font-monospace" step="any" value="-0.5" placeholder="Ex: -0.5">
+                  </div>
+                  <div class="col-6">
+                    <label class="form-label small fw-bold">Ordonnée <code>b₂</code> :</label>
+                    <input type="number" id="b2-val" class="form-control font-monospace" step="any" value="-1.5" placeholder="Ex: -1.5">
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="text-center">
-            <canvas id="affine-canvas" width="500" height="300" class="interactive-canvas mb-3"></canvas>
-            <div id="lines-result" class="alert alert-info fs-5"></div>
+
+          <!-- Presets du manuel de cours -->
+          <div class="mb-3">
+            <span class="small fw-bold text-muted me-2">Exemples officiels du manuel :</span>
+            <div class="d-flex flex-wrap gap-1 mt-1">
+              <button class="btn btn-sm btn-outline-info text-dark btn-affine-preset" data-a1="2" data-b1="-1" data-a2="2" data-b2="2">F (2x-1) &amp; G (2x+2) : Parallèles</button>
+              <button class="btn btn-sm btn-outline-success btn-affine-preset" data-a1="2" data-b1="-1" data-a2="-0.5" data-b2="-1.5">F (2x-1) &amp; I (-0.5x-1.5) : Orthogonales à (-0.2, -1.4)</button>
+              <button class="btn btn-sm btn-outline-warning text-dark btn-affine-preset" data-a1="-0.5" data-b1="-1.5" data-a2="0.5" data-b2="1">I (-0.5x-1.5) &amp; H (0.5x+1) : Sécantes à (-2.5, -0.25)</button>
+              <button class="btn btn-sm btn-outline-secondary btn-affine-preset" data-a1="2" data-b1="1" data-a2="2" data-b2="1">Droites Confondues</button>
+            </div>
           </div>
+
+          <button id="btn-calc-affine" class="btn btn-primary fw-bold px-4 mb-3">📐 Tracer les Droites &amp; Analyser l'Intersection</button>
+
+          <!-- Graphique 2D Canvas -->
+          <div class="text-center my-2 position-relative">
+            <canvas id="affine-canvas" width="680" height="340" class="border rounded shadow-sm bg-white w-100" style="max-height: 360px;"></canvas>
+          </div>
+
+          <div id="lines-result" class="mt-3"></div>
         </div>
       </section>
     </article>

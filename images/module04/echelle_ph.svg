@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 270" width="100%" height="auto">
+  <defs>
+    <style>
+      .scale-title { font-family: 'Segoe UI', system-ui, sans-serif; font-size: 15px; font-weight: 700; fill: #0f172a; text-anchor: middle; }
+      .zone-title { font-family: 'Segoe UI', system-ui, sans-serif; font-size: 11px; font-weight: 700; fill: #ffffff; text-anchor: middle; }
+      .zone-sub { font-family: 'Segoe UI', system-ui, sans-serif; font-size: 10px; font-weight: 600; fill: #ffffff; text-anchor: middle; }
+      .tick-text { font-family: 'Segoe UI', system-ui, sans-serif; font-size: 12px; font-weight: 700; fill: #1e293b; text-anchor: middle; }
+      .prod-text-row1 { font-family: 'Segoe UI', system-ui, sans-serif; font-size: 10px; font-weight: 600; fill: #334155; text-anchor: middle; }
+      .prod-text-row2 { font-family: 'Segoe UI', system-ui, sans-serif; font-size: 10px; font-weight: 600; fill: #475569; text-anchor: middle; }
+    </style>
+
+    <!-- Linear gradient for pH scale bar -->
+    <linearGradient id="phGradientExt" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#dc2626" />   <!-- pH 0: Red -->
+      <stop offset="21.4%" stop-color="#ea580c" /> <!-- pH 3: Orange -->
+      <stop offset="50%" stop-color="#16a34a" />   <!-- pH 7: Green -->
+      <stop offset="78.6%" stop-color="#0284c7" /> <!-- pH 11: Cyan/Blue -->
+      <stop offset="100%" stop-color="#4f46e5" />  <!-- pH 14: Indigo/Violet -->
+    </linearGradient>
+  </defs>
+
+  <!-- Background Card -->
+  <rect x="10" y="10" width="800" height="250" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" />
+  <text x="410" y="34" class="scale-title">🧪 Échelle détaillée du pH (Potentiel Hydrogène) &amp; Exemples de la vie quotidienne</text>
+
+  <!-- pH Gradient Bar (x: 40 to 780, width 740) -->
+  <!-- pH 0 to 14 => 1 pH unit = 740/14 = 52.857 px -->
+  <rect x="40" y="55" width="740" height="46" rx="8" fill="url(#phGradientExt)" stroke="#334155" stroke-width="1" />
+
+  <!-- Zone Overlays & Labels -->
+  <!-- Acide Fort: 0 -> 3 (width: 158.57) -->
+  <rect x="40" y="55" width="158.57" height="46" fill="black" fill-opacity="0.1" />
+  <text x="119.28" y="77" class="zone-title">Acide fort</text>
+  <text x="119.28" y="92" class="zone-sub">pH [0 - 3[</text>
+
+  <!-- Acide Faible: 3 -> 7 (width: 211.43) -->
+  <rect x="198.57" y="55" width="211.43" height="46" fill="black" fill-opacity="0.05" />
+  <text x="304.28" y="77" class="zone-title">Acide faible</text>
+  <text x="304.28" y="92" class="zone-sub">pH [3 - 7[</text>
+
+  <!-- Neutre: 7 (width: 22) -->
+  <rect x="399" y="55" width="22" height="46" fill="#15803d" fill-opacity="0.4" />
+  <text x="410" y="77" class="zone-title">Neutre</text>
+  <text x="410" y="92" class="zone-sub">pH = 7</text>
+
+  <!-- Base Faible: 7 -> 11 (width: 211.43) -->
+  <rect x="421" y="55" width="211.43" height="46" fill="black" fill-opacity="0.05" />
+  <text x="526.71" y="77" class="zone-title">Base faible</text>
+  <text x="526.71" y="92" class="zone-sub">pH ]7 - 11]</text>
+
+  <!-- Base Forte: 11 -> 14 (width: 147.57) -->
+  <rect x="632.43" y="55" width="147.57" height="46" fill="black" fill-opacity="0.1" />
+  <text x="706.21" y="77" class="zone-title">Base forte</text>
+  <text x="706.21" y="92" class="zone-sub">pH ]11 - 14]</text>
+
+  <!-- Axis Ticks (0, 3, 7, 11, 14) -->
+  <!-- Tick 0 -->
+  <line x1="40" y1="101" x2="40" y2="114" stroke="#0f172a" stroke-width="2" />
+  <text x="40" y="128" class="tick-text">0</text>
+
+  <!-- Tick 3 -->
+  <line x1="198.57" y1="101" x2="198.57" y2="114" stroke="#0f172a" stroke-width="2" />
+  <text x="198.57" y="128" class="tick-text">3</text>
+
+  <!-- Tick 7 -->
+  <line x1="410" y1="101" x2="410" y2="114" stroke="#0f172a" stroke-width="2" />
+  <text x="410" y="128" class="tick-text">7</text>
+
+  <!-- Tick 11 -->
+  <line x1="632.43" y1="101" x2="632.43" y2="114" stroke="#0f172a" stroke-width="2" />
+  <text x="632.43" y="128" class="tick-text">11</text>
+
+  <!-- Tick 14 -->
+  <line x1="780" y1="101" x2="780" y2="114" stroke="#0f172a" stroke-width="2" />
+  <text x="780" y="128" class="tick-text">14</text>
+
+  <!-- ROW 1 EXAMPLES (y: 155 to 175) -->
+  <!-- Acide Estomac (pH 1.0) => x = 40 + 52.86 = 92.86 -->
+  <circle cx="92.86" cy="150" r="3.5" fill="#dc2626" />
+  <line x1="92.86" y1="101" x2="92.86" y2="1465" stroke="#dc2626" stroke-width="1" stroke-dasharray="2,2" />
+  <text x="92.86" y="165" class="prod-text-row1">🔋 Estomac (pH 1)</text>
+
+  <!-- Citron (pH 2.0) => x = 40 + 105.71 = 145.71 -->
+  <circle cx="145.71" cy="190" r="3.5" fill="#ea580c" />
+  <text x="145.71" y="205" class="prod-text-row2">🍋 Citron (pH 2)</text>
+
+  <!-- Vinaigre/Coca (pH 2.8) => x = 40 + 147.9 = 187.9 -->
+  <circle cx="187.9" cy="150" r="3.5" fill="#d97706" />
+  <text x="187.9" y="165" class="prod-text-row1">🥤 Coca/Vinaigre (pH 2.8)</text>
+
+  <!-- Tomate/Jus Orange (pH 4.0) => x = 40 + 211.43 = 251.43 -->
+  <circle cx="251.43" cy="190" r="3.5" fill="#ca8a04" />
+  <text x="251.43" y="205" class="prod-text-row2">🍅 Tomate (pH 4)</text>
+
+  <!-- Café Noir (pH 5.0) => x = 40 + 264.28 = 304.28 -->
+  <circle cx="304.28" cy="150" r="3.5" fill="#65a30d" />
+  <text x="304.28" y="165" class="prod-text-row1">☕ Café (pH 5)</text>
+
+  <!-- Lait (pH 6.5) => x = 40 + 343.57 = 383.57 -->
+  <circle cx="383.57" cy="190" r="3.5" fill="#16a34a" />
+  <text x="383.57" y="205" class="prod-text-row2">🥛 Lait (pH 6.5)</text>
+
+  <!-- Eau Pure / Sang (pH 7.0) => x = 410 -->
+  <circle cx="410" cy="150" r="4" fill="#15803d" />
+  <text x="410" y="165" class="prod-text-row1" style="font-weight: 700; fill: #15803d;">💧 Eau pure (pH 7)</text>
+
+  <!-- Blanc d'Oeuf / Mer (pH 8.0) => x = 40 + 422.86 = 462.86 -->
+  <circle cx="462.86" cy="190" r="3.5" fill="#0891b2" />
+  <text x="462.86" y="205" class="prod-text-row2">🥚 Eau de mer (pH 8)</text>
+
+  <!-- Savon (pH 9.5) => x = 40 + 502.14 = 542.14 -->
+  <circle cx="542.14" cy="150" r="3.5" fill="#0284c7" />
+  <text x="542.14" y="165" class="prod-text-row1">🧼 Savon (pH 9.5)</text>
+
+  <!-- Lait de Magnésie (pH 10.5) => x = 40 + 555 = 595 -->
+  <circle cx="595" cy="190" r="3.5" fill="#2563eb" />
+  <text x="595" y="205" class="prod-text-row2">🧴 Anti-acide (pH 10.5)</text>
+
+  <!-- Ammoniac (pH 11.5) => x = 40 + 607.86 = 647.86 -->
+  <circle cx="647.86" cy="150" r="3.5" fill="#4d7c0f" />
+  <text x="647.86" y="165" class="prod-text-row1">🧹 Ammoniac (pH 11.5)</text>
+
+  <!-- Eau de Javel (pH 13.0) => x = 40 + 687.14 = 727.14 -->
+  <circle cx="727.14" cy="190" r="3.5" fill="#4f46e5" />
+  <text x="727.14" y="205" class="prod-text-row2">🧪 Eau de Javel (pH 13)</text>
+
+  <!-- Déboucheur / Soude (pH 14.0) => x = 780 -->
+  <circle cx="780" cy="150" r="3.5" fill="#4338ca" />
+  <text x="750" y="165" class="prod-text-row1">🚾 Soude (pH 14)</text>
+
+  <!-- Legend Note at bottom -->
+  <text x="410" y="238" style="font-family: 'Segoe UI', sans-serif; font-size: 11px; fill: #64748b; font-style: italic; text-anchor: middle;">
+    * Remarque : Les solutions acides contiennent une forte concentration d'ions H+, tandis que les bases contiennent des ions OH-.
+  </text>
+</svg>
