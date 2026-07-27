@@ -35,28 +35,242 @@
     <article>
       <h2>Cours</h2>
 
-      <!-- Syntaxe -->
-      <section>
-        <h3>1. Présentation & Syntaxe</h3>
-        <p>Les structures de contrôles itératives (ou répétitives) sont indispensables lorsque le traitement doit être répété un nombre connu de fois.</p>
+      <!-- 1. Présentation & 2. Syntaxe -->
+      <section class="mb-5">
+        <!-- 1. Présentation -->
+        <h3 class="text-primary border-bottom pb-2 mb-3">1. Présentation</h3>
 
-        <div class="row g-3 my-3">
-          <div class="col-md-6">
-            <div class="card p-3 shadow-sm border-primary h-100">
-              <h5 class="fw-bold text-primary">Algorithme</h5>
-              <pre><code class="language-algorithm">// Compteur avec pas p
+        <div class="alert alert-info border-start border-info border-4 shadow-sm my-3">
+          <h5 class="alert-heading fw-bold text-info"><i class="bi bi-info-circle-fill"></i> Définition</h5>
+          <p class="mb-2">
+            Les <strong>structures de contrôle itératives (ou répétitives)</strong> sont indispensables lorsque le traitement doit être répété un <strong>nombre connu de fois</strong>.
+          </p>
+          <p class="mb-0">
+            Elles s'appuient sur une variable <strong>compteur</strong> (ou décompteur) de boucle qui évolue automatiquement d'une <strong>valeur initiale ($V_i$)</strong> à une <strong>valeur finale ($V_f$)</strong> selon un <strong>pas ($p$)</strong> spécifié.
+          </p>
+        </div>
+
+        <!-- Organigramme -->
+        <div class="my-4 text-center">
+          <h5 class="fw-bold text-secondary mb-3">📐 Organigramme de la structure itérative complète</h5>
+          <img src="images/module05/structure_iterative.svg" alt="Schéma Organigramme - Structure Itérative Complexe"
+            class="img-fluid rounded shadow-sm p-3 bg-white border" style="max-width: 540px;">
+        </div>
+
+        <!-- 2. Syntaxe -->
+        <h3 class="text-primary border-bottom pb-2 mt-5 mb-3">2. Syntaxe</h3>
+
+        <div class="table-responsive my-3 shadow-sm rounded border overflow-hidden">
+          <table class="table table-hover align-middle mb-0">
+            <thead class="text-center text-white">
+              <tr>
+                <th style="width: 50%; background-color: #0284c7;" class="py-2 fs-6">📐 Algorithme</th>
+                <th style="width: 50%; background-color: #0f172a;" class="py-2 fs-6">🐍 Python</th>
+              </tr>
+            </thead>
+            <tbody class="bg-white">
+              <tr>
+                <td class="p-3 align-top">
+                  <h6 class="fw-bold text-primary mb-2">Structure itérative générale</h6>
+                  <pre class="m-0"><code class="language-algorithm">// Compteur ou décompteur
 Pour cpt de Vi à Vf Faire [Pas=p]
-   // Traitement répété
+    // Traitement
 Fin Pour</code></pre>
+                  <p class="small text-muted mt-2 mb-0">Note : Si le pas <code>[Pas=p]</code> est omis, le pas par défaut vaut $+1$.</p>
+                </td>
+                <td class="p-3 align-top">
+                  <h6 class="fw-bold text-success mb-2">Traduction Python avec <code>range()</code></h6>
+                  <pre class="m-0"><code class="language-python"># compteur, p > 0
+for cpt in range(Vi, Vf + 1, p):
+    # Traitement
+
+# décompteur, p < 0
+for cpt in range(Vi, Vf - 1, p):
+    # Traitement</code></pre>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Carte pédagogique range() -->
+        <div class="card shadow-sm border-0 my-4">
+          <div class="card-header bg-warning bg-opacity-25 fw-bold text-dark fs-5">
+            💡 La fonction Python <code>range(début, fin, pas)</code>
+          </div>
+          <div class="card-body">
+            <p>
+              En Python, la fonction <code>range()</code> génère une séquence d'entiers. Attention : la borne finale <code>fin</code> est <strong>toujours exclue</strong> (la séquence s'arrête à <code>fin - 1</code> pour un pas positif ou à <code>fin + 1</code> pour un pas négatif).
+            </p>
+            
+            <div class="text-center my-3">
+              <img src="images/module05/fonction_range.svg" alt="Explication de la fonction range Python"
+                class="img-fluid rounded p-2 bg-white shadow-sm" style="max-width: 580px;">
+            </div>
+
+            <div class="row g-3 mt-2">
+              <div class="col-md-4">
+                <div class="p-3 bg-light rounded border-0 h-100">
+                  <h6 class="fw-bold text-primary">Forme à 1 argument : <code>range(n)</code></h6>
+                  <p class="small text-muted mb-1">Génère les entiers de $0$ à $n-1$ par pas de $1$.</p>
+                  <code>range(5)</code> $\rightarrow$ <span class="badge bg-primary font-monospace">0, 1, 2, 3, 4</span>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="p-3 bg-light rounded border-0 h-100">
+                  <h6 class="fw-bold text-success">Forme à 2 arguments : <code>range(a, b)</code></h6>
+                  <p class="small text-muted mb-1">Génère les entiers de $a$ à $b-1$ par pas de $1$.</p>
+                  <code>range(1, 6)</code> $\rightarrow$ <span class="badge bg-success font-monospace">1, 2, 3, 4, 5</span>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="p-3 bg-light rounded border-0 h-100">
+                  <h6 class="fw-bold text-danger">Forme à 3 arguments : <code>range(a, b, p)</code></h6>
+                  <p class="small text-muted mb-1">Génère les entiers de $a$ à $b-1$ par pas de $p$.</p>
+                  <code>range(0, 11, 2)</code> $\rightarrow$ <span class="badge bg-danger font-monospace">0, 2, 4, 6, 8, 10</span>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="col-md-6">
-            <div class="card p-3 shadow-sm border-success h-100">
-              <h5 class="fw-bold text-success">Python</h5>
-              <pre><code class="language-python"># Compteur avec pas p
-for cpt in range(Vi, Vf + 1, p):
-    # Traitement répété</code></pre>
+        </div>
+
+        <!-- Exemples du cours de référence -->
+        <h4 class="mt-4 mb-3 fw-bold text-secondary">Exemples d'application (Cours de référence)</h4>
+        <div class="row g-3">
+          <!-- Exemple 1 -->
+          <div class="col-lg-4">
+            <div class="card h-100 shadow-sm border-0">
+              <div class="card-header bg-primary text-white fw-bold">
+                Exemple 1 : Compteur de 0 à 10
+              </div>
+              <div class="card-body">
+                <p class="small text-muted mb-2">Séquence générée : <code>0, 1, 2, 3, ..., 10</code></p>
+                <h6 class="fw-bold text-primary">Algorithme</h6>
+                <pre class="bg-light p-2 rounded small border-0"><code class="language-algorithm">// Compteur de 0 à 10
+// 0, 1, 2, 3, ..., 10
+Pour i de 0 à 10 Faire
+    Ecrire(i)
+Fin Pour</code></pre>
+                <h6 class="fw-bold text-success mt-2">Python</h6>
+                <pre class="bg-light p-2 rounded small border-0"><code class="language-python"># Compteur de 0 à 10
+for i in range(11):
+    print(i)
+# ou
+for i in range(0, 11):
+    print(i)
+# ou
+for i in range(0, 11, 1):
+    print(i)</code></pre>
+              </div>
+              <div class="card-footer bg-white border-0 pt-0">
+                <span class="badge bg-primary font-monospace">Résultat: 0 1 2 3 4 5 6 7 8 9 10</span>
+              </div>
             </div>
+          </div>
+
+          <!-- Exemple 2 -->
+          <div class="col-lg-4">
+            <div class="card h-100 shadow-sm border-0">
+              <div class="card-header bg-success text-white fw-bold">
+                Exemple 2 : Compteur par pas de 2
+              </div>
+              <div class="card-body">
+                <p class="small text-muted mb-2">Séquence générée : <code>0, 2, 4, 6, 8, 10</code></p>
+                <h6 class="fw-bold text-primary">Algorithme</h6>
+                <pre class="bg-light p-2 rounded small border-0"><code class="language-algorithm">// Compteur de 0 à 10 par pas de 2
+// 0, 2, 4, 6, 8, 10
+Pour i de 0 à 10 Faire [Pas=2]
+    Ecrire(i)
+Fin Pour</code></pre>
+                <h6 class="fw-bold text-success mt-2">Python</h6>
+                <pre class="bg-light p-2 rounded small border-0"><code class="language-python"># Compteur de 0 à 10 par pas de 2
+for i in range(0, 11, 2):
+    print(i)</code></pre>
+              </div>
+              <div class="card-footer bg-white border-0 pt-0">
+                <span class="badge bg-success font-monospace">Résultat: 0 2 4 6 8 10</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Exemple 3 -->
+          <div class="col-lg-4">
+            <div class="card h-100 shadow-sm border-0">
+              <div class="card-header bg-danger text-white fw-bold">
+                Exemple 3 : Décompteur par pas de -2
+              </div>
+              <div class="card-body">
+                <p class="small text-muted mb-2">Séquence générée : <code>10, 8, 6, 4, 2, 0</code></p>
+                <h6 class="fw-bold text-primary">Algorithme</h6>
+                <pre class="bg-light p-2 rounded small border-0"><code class="language-algorithm">// Décompteur de 10 à 0 par pas de -2
+// 10, 8, 6, 4, 2, 0
+Pour i de 10 à 0 Faire [Pas=-2]
+    Ecrire(i)
+Fin Pour</code></pre>
+                <h6 class="fw-bold text-success mt-2">Python</h6>
+                <pre class="bg-light p-2 rounded small border-0"><code class="language-python"># Décompteur de 10 à 0 par pas de -2
+for i in range(10, -1, -2):
+    print(i)</code></pre>
+              </div>
+              <div class="card-footer bg-white border-0 pt-0">
+                <span class="badge bg-danger font-monospace">Résultat: 10 8 6 4 2 0</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tableau synthétique d'analyse de range() (Exercice 1 du cours) -->
+        <div class="mt-4">
+          <h5 class="fw-bold text-secondary mb-2">📌 Synthèse d'analyse de la fonction <code>range()</code> (Exercice 1)</h5>
+          <div class="table-responsive shadow-sm rounded border-0 overflow-hidden">
+            <table class="table table-striped table-hover align-middle mb-0 text-center">
+              <thead class="table-dark">
+                <tr>
+                  <th>Instruction Python</th>
+                  <th>Compteur</th>
+                  <th>Intervalle ($V_i$ / $V_f$)</th>
+                  <th>Valeurs du compteur</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>for i in range(5):</code></td>
+                  <td><code>i</code></td>
+                  <td>0 / 4</td>
+                  <td><span class="badge bg-primary font-monospace fs-6">0, 1, 2, 3, 4</span></td>
+                </tr>
+                <tr>
+                  <td><code>for j in range(1, 5):</code></td>
+                  <td><code>j</code></td>
+                  <td>1 / 4</td>
+                  <td><span class="badge bg-primary font-monospace fs-6">1, 2, 3, 4</span></td>
+                </tr>
+                <tr>
+                  <td><code>for k in range(5, 1):</code></td>
+                  <td><code>k</code></td>
+                  <td>Aucun (Pas +1 par défaut)</td>
+                  <td><span class="badge bg-secondary font-monospace fs-6">Aucune (Boucle non exécutée)</span></td>
+                </tr>
+                <tr>
+                  <td><code>for l in range(2, 11, 3):</code></td>
+                  <td><code>l</code></td>
+                  <td>2 / 10</td>
+                  <td><span class="badge bg-primary font-monospace fs-6">2, 5, 8</span></td>
+                </tr>
+                <tr>
+                  <td><code>for m in range(10, -10, -5):</code></td>
+                  <td><code>m</code></td>
+                  <td>10 / -5</td>
+                  <td><span class="badge bg-primary font-monospace fs-6">10, 5, 0, -5</span></td>
+                </tr>
+                <tr>
+                  <td><code>for n in range(len("abdou")):</code></td>
+                  <td><code>n</code></td>
+                  <td>0 / 4</td>
+                  <td><span class="badge bg-primary font-monospace fs-6">0, 1, 2, 3, 4</span></td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </section>
@@ -66,148 +280,917 @@ for cpt in range(Vi, Vf + 1, p):
       <h2>Exercices Interactifs</h2>
 
       <!-- Exercice 1 -->
-      <section>
-        <h3>Exercice 1 – Fonction range</h3>
-        <p>Découvrez la suite générée par <code>range(debut, fin, pas)</code> en Python :</p>
-        <div class="interactive-box shadow-sm">
-          <div class="row g-3 mb-3">
-            <div class="col-md-4"><label class="form-label fw-bold">Vi (Début) :</label><input type="number" id="rng-start" class="form-control" value="1"></div>
-            <div class="col-md-4"><label class="form-label fw-bold">Vf (Fin non incluse) :</label><input type="number" id="rng-end" class="form-control" value="10"></div>
-            <div class="col-md-4"><label class="form-label fw-bold">Pas (Step) :</label><input type="number" id="rng-step" class="form-control" value="2"></div>
+      <section class="mb-5">
+        <h3 class="text-primary border-bottom pb-2">Exercice 1 – Fonction range</h3>
+        <p class="text-muted">
+          Analysez le comportement de la fonction <code>range()</code> en Python et identifiez le compteur, les bornes ($V_i$ / $V_f$) et les valeurs générées lors des itérations.
+        </p>
+
+        <!-- Partie A : Simulateur interactif range() -->
+        <div class="card shadow-sm mb-4 border-0">
+          <div class="card-header bg-primary text-white fw-bold d-flex justify-content-between align-items-center">
+            <span>⚡ Partie A : Simulateur dynamique range(début, fin, pas)</span>
+            <span class="badge bg-white text-primary">Interactif</span>
           </div>
-          <div id="rng-out" class="alert alert-success fs-5"></div>
+          <div class="card-body">
+            <!-- Boutons de cas préconfigurés du cours -->
+            <div class="mb-3">
+              <label class="form-label fw-bold text-secondary">Charger un cas du cours :</label>
+              <div class="d-flex flex-wrap gap-2">
+                <button type="button" class="btn btn-outline-primary btn-sm btn-preset-range" data-vi="0" data-vf="5" data-pas="1" data-var="i">for i in range(5)</button>
+                <button type="button" class="btn btn-outline-primary btn-sm btn-preset-range" data-vi="1" data-vf="5" data-pas="1" data-var="j">for j in range(1, 5)</button>
+                <button type="button" class="btn btn-outline-primary btn-sm btn-preset-range" data-vi="5" data-vf="1" data-pas="1" data-var="k">for k in range(5, 1)</button>
+                <button type="button" class="btn btn-outline-primary btn-sm btn-preset-range" data-vi="2" data-vf="11" data-pas="3" data-var="l">for l in range(2, 11, 3)</button>
+                <button type="button" class="btn btn-outline-primary btn-sm btn-preset-range" data-vi="10" data-vf="-10" data-pas="-5" data-var="m">for m in range(10, -10, -5)</button>
+                <button type="button" class="btn btn-outline-primary btn-sm btn-preset-range" data-vi="0" data-vf="5" data-pas="1" data-var="n" data-note="len('abdou') = 5">for n in range(len("abdou"))</button>
+              </div>
+            </div>
+
+            <div class="row g-3 mb-3">
+              <div class="col-md-3">
+                <label class="form-label fw-bold">Nom variable :</label>
+                <input type="text" id="rng-var" class="form-control font-monospace" value="i" placeholder="ex: i">
+              </div>
+              <div class="col-md-3">
+                <label class="form-label fw-bold">Vi (Début) :</label>
+                <input type="number" id="rng-start" class="form-control" value="0">
+              </div>
+              <div class="col-md-3">
+                <label class="form-label fw-bold">Vf (Fin non incluse) :</label>
+                <input type="number" id="rng-end" class="form-control" value="5">
+              </div>
+              <div class="col-md-3">
+                <label class="form-label fw-bold">Pas (Step) :</label>
+                <input type="number" id="rng-step" class="form-control" value="1">
+              </div>
+            </div>
+
+            <!-- Visualisation du résultat (rendu dynamique épuré) -->
+            <div id="rng-out" class="mt-3">
+              <!-- Rempli dynamiquement par JS -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Partie B : Grille d'auto-évaluation (Exercice 1 du Cours) -->
+        <div class="card shadow-sm border-0">
+          <div class="card-header bg-dark text-white fw-bold d-flex justify-content-between align-items-center">
+            <span>📝 Partie B : Grille d'évaluation – Exercice 1 du Cours</span>
+            <button id="btn-check-ex1-all" class="btn btn-sm btn-warning text-dark fw-bold">Vérifier tout</button>
+          </div>
+          <div class="card-body p-0">
+            <div class="table-responsive">
+              <table class="table table-bordered align-middle mb-0 text-center">
+                <thead class="table-secondary">
+                  <tr>
+                    <th style="width: 25%;">Instruction Python</th>
+                    <th style="width: 15%;">Compteur</th>
+                    <th style="width: 20%;">Bornes ($V_i$ / $V_f$)</th>
+                    <th style="width: 40%;">Valeurs générées du compteur</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="font-monospace fw-bold text-start ps-3">for i in range(5):</td>
+                    <td><span class="badge bg-primary fs-6 font-monospace">i</span></td>
+                    <td><span class="badge bg-info text-dark fs-6">0 / 4</span></td>
+                    <td><span class="badge bg-success fs-6 font-monospace">0, 1, 2, 3, 4</span></td>
+                  </tr>
+                  <tr>
+                    <td class="font-monospace fw-bold text-start ps-3">for j in range(1, 5):</td>
+                    <td><input type="text" class="form-control form-control-sm text-center font-monospace ex1-input-compteur" data-ans="j" placeholder="ex: j"></td>
+                    <td><input type="text" class="form-control form-control-sm text-center font-monospace ex1-input-bornes" data-ans="1 / 4" placeholder="ex: 1 / 4"></td>
+                    <td><input type="text" class="form-control form-control-sm text-center font-monospace ex1-input-valeurs" data-ans="1, 2, 3, 4" placeholder="ex: 1, 2, 3, 4"></td>
+                  </tr>
+                  <tr>
+                    <td class="font-monospace fw-bold text-start ps-3">for k in range(5, 1):</td>
+                    <td><input type="text" class="form-control form-control-sm text-center font-monospace ex1-input-compteur" data-ans="k" placeholder="ex: k"></td>
+                    <td><input type="text" class="form-control form-control-sm text-center font-monospace ex1-input-bornes" data-ans="Aucun" placeholder="ex: Aucun"></td>
+                    <td><input type="text" class="form-control form-control-sm text-center font-monospace ex1-input-valeurs" data-ans="Aucune" placeholder="ex: Aucune"></td>
+                  </tr>
+                  <tr>
+                    <td class="font-monospace fw-bold text-start ps-3">for l in range(2, 11, 3):</td>
+                    <td><input type="text" class="form-control form-control-sm text-center font-monospace ex1-input-compteur" data-ans="l" placeholder="ex: l"></td>
+                    <td><input type="text" class="form-control form-control-sm text-center font-monospace ex1-input-bornes" data-ans="2 / 10" placeholder="ex: 2 / 10"></td>
+                    <td><input type="text" class="form-control form-control-sm text-center font-monospace ex1-input-valeurs" data-ans="2, 5, 8" placeholder="ex: 2, 5, 8"></td>
+                  </tr>
+                  <tr>
+                    <td class="font-monospace fw-bold text-start ps-3">for m in range(10, -10, -5):</td>
+                    <td><input type="text" class="form-control form-control-sm text-center font-monospace ex1-input-compteur" data-ans="m" placeholder="ex: m"></td>
+                    <td><input type="text" class="form-control form-control-sm text-center font-monospace ex1-input-bornes" data-ans="10 / -5" placeholder="ex: 10 / -5"></td>
+                    <td><input type="text" class="form-control form-control-sm text-center font-monospace ex1-input-valeurs" data-ans="10, 5, 0, -5" placeholder="ex: 10, 5, 0, -5"></td>
+                  </tr>
+                  <tr>
+                    <td class="font-monospace fw-bold text-start ps-3">for n in range(len("abdou")):</td>
+                    <td><input type="text" class="form-control form-control-sm text-center font-monospace ex1-input-compteur" data-ans="n" placeholder="ex: n"></td>
+                    <td><input type="text" class="form-control form-control-sm text-center font-monospace ex1-input-bornes" data-ans="0 / 4" placeholder="ex: 0 / 4"></td>
+                    <td><input type="text" class="form-control form-control-sm text-center font-monospace ex1-input-valeurs" data-ans="0, 1, 2, 3, 4" placeholder="ex: 0, 1, 2, 3, 4"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="card-footer bg-light d-flex justify-content-between align-items-center">
+            <span id="ex1-score-status" class="fw-bold text-secondary">Remplissez les cases et cliquez sur "Vérifier tout".</span>
+            <button id="btn-show-ex1-sol" class="btn btn-outline-secondary btn-sm">Afficher les solutions</button>
+          </div>
         </div>
       </section>
 
       <!-- Exercice 2 -->
-      <section>
-        <h3>Exercice 2 – Bonjour</h3>
-        <p>1. Saisir un entier <code>n</code> puis afficher "Hello" <code>n</code> fois.<br>
-        2. Alterne entre "Hello", "Bonjour" et "Asselema".</p>
-        <div class="interactive-box shadow-sm">
-          <div class="input-group mb-3">
-            <input type="number" id="ex2-n" class="form-control" value="5" min="1">
-            <button id="btn-gen-bonjour" class="btn btn-primary fw-bold">Générer les salutations</button>
+      <section class="mb-5">
+        <h3 class="text-primary border-bottom pb-2">Exercice 2 – Bonjour</h3>
+        <p class="text-muted">
+          Utilisez une structure itérative <code>Pour</code> / <code>for in range()</code> pour répéter un message ou alterner entre plusieurs messages à l'aide de l'opérateur modulo.
+        </p>
+
+        <!-- Solution & Code de référence (Q1 & Q2) -->
+        <div class="accordion shadow-sm mb-4" id="accordionEx2">
+          <!-- Q1 Accordion -->
+          <div class="accordion-item border-0 mb-3 shadow-sm rounded overflow-hidden">
+            <h2 class="accordion-header" id="headingEx2Q1">
+              <button class="accordion-button fw-bold text-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEx2Q1" aria-expanded="true" aria-controls="collapseEx2Q1">
+                📌 Question 1 : Affichage répété "Hello" (n fois)
+              </button>
+            </h2>
+            <div id="collapseEx2Q1" class="accordion-collapse collapse show" aria-labelledby="headingEx2Q1" data-bs-parent="#accordionEx2">
+              <div class="accordion-body">
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <h6 class="fw-bold text-primary">📐 Algorithme (Question 1)</h6>
+                    <pre class="bg-light p-3 rounded border-0"><code class="language-algorithm">Algorithme Repetition_Hello
+Début
+    Ecrire("N ? "); Lire(n)
+    Pour i de 1 à n Faire
+        Ecrire("Hello ")
+    Fin Pour
+Fin</code></pre>
+                  </div>
+                  <div class="col-md-6">
+                    <h6 class="fw-bold text-success">🐍 Code Python (Question 1)</h6>
+                    <pre class="bg-light text-dark p-3 rounded border-0"><code class="language-python">n = int(input("N ? "))
+for i in range(n):
+    print("Hello", end=" ")</code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div id="ex2-bonjour-out" class="alert alert-info mb-0 d-none"></div>
+
+          <!-- Q2 Accordion -->
+          <div class="accordion-item border-0 mb-3 shadow-sm rounded overflow-hidden">
+            <h2 class="accordion-header" id="headingEx2Q2">
+              <button class="accordion-button collapsed fw-bold text-success" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEx2Q2" aria-expanded="false" aria-controls="collapseEx2Q2">
+                🔄 Question 2 : Alternance "Hello", "Bonjour", "Asselema"
+              </button>
+            </h2>
+            <div id="collapseEx2Q2" class="accordion-collapse collapse" aria-labelledby="headingEx2Q2" data-bs-parent="#accordionEx2">
+              <div class="accordion-body">
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <h6 class="fw-bold text-primary">📐 Algorithme (Question 2 avec Selon / i mod 3)</h6>
+                    <pre class="bg-light p-3 rounded border-0"><code class="language-algorithm">Algorithme Salutations_Alternees
+Début
+    Ecrire("N ? "); Lire(n)
+    Pour i de 0 à n - 1 Faire
+        Selon (i mod 3)
+            0 : msg ← "Hello"
+            1 : msg ← "Bonjour"
+            2 : msg ← "Asselema"
+        Fin Selon
+        Ecrire(msg, " ")
+    Fin Pour
+Fin</code></pre>
+                  </div>
+                  <div class="col-md-6">
+                    <h6 class="fw-bold text-success">🐍 Code Python (Question 2 avec condition & modulo)</h6>
+                    <pre class="bg-light text-dark p-3 rounded border-0"><code class="language-python">n = int(input("N ? "))
+for i in range(n):
+    if i % 3 == 0:
+        msg = "Hello"
+    elif i % 3 == 1:
+        msg = "Bonjour"
+    else:
+        msg = "Asselema"
+    print(msg, end=" ")</code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Zone de simulation interactive -->
+        <div class="card shadow-sm border-0">
+          <div class="card-header bg-info text-dark fw-bold d-flex justify-content-between align-items-center">
+            <span>⚡ Simulateur Interactif – Exercice 2</span>
+            <span class="badge bg-white text-dark">Exécution en direct</span>
+          </div>
+          <div class="card-body">
+            <!-- Choix du mode -->
+            <div class="row g-3 mb-3">
+              <div class="col-md-6">
+                <label class="form-label fw-bold text-secondary">Mode d'affichage :</label>
+                <div class="d-flex gap-3">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="ex2-mode" id="ex2-mode-q1" value="q1">
+                    <label class="form-check-label fw-semibold" for="ex2-mode-q1">
+                      1. "Hello" répété
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="ex2-mode" id="ex2-mode-q2" value="q2" checked>
+                    <label class="form-check-label fw-semibold text-success" for="ex2-mode-q2">
+                      2. Salutations alternées
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Choix de N & Raccourcis du cours -->
+              <div class="col-md-6">
+                <label class="form-label fw-bold text-secondary">Valeur de N (Nombre d'itérations) :</label>
+                <div class="input-group mb-2">
+                  <span class="input-group-text font-monospace fw-bold">N =</span>
+                  <input type="number" id="ex2-n" class="form-control font-monospace" value="5" min="1" max="50">
+                  <button id="btn-gen-bonjour" class="btn btn-primary fw-bold">Générer les salutations</button>
+                </div>
+                <div class="d-flex gap-2 align-items-center">
+                  <small class="text-muted fw-bold">Exemples du cours :</small>
+                  <button type="button" class="btn btn-outline-secondary btn-sm ex2-btn-n" data-n="2">N = 2</button>
+                  <button type="button" class="btn btn-outline-secondary btn-sm ex2-btn-n" data-n="3">N = 3</button>
+                  <button type="button" class="btn btn-outline-secondary btn-sm ex2-btn-n" data-n="5">N = 5</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Affichage du résultat -->
+            <div id="ex2-bonjour-out" class="mt-3">
+              <!-- Rempli dynamiquement par JS -->
+            </div>
+          </div>
         </div>
       </section>
 
       <!-- Exercice 3 -->
-      <section>
-        <h3>Exercice 3 – Somme nombres impairs</h3>
-        <p>Calculer et afficher la somme de tous les entiers impairs de l'intervalle $[a, b]$ avec $b > a$.</p>
-        <div class="interactive-box shadow-sm">
-          <div class="row g-3 mb-3">
-            <div class="col-md-6"><label class="form-label fw-bold">Borne a :</label><input type="number" id="imp-a" class="form-control" value="5"></div>
-            <div class="col-md-6"><label class="form-label fw-bold">Borne b :</label><input type="number" id="imp-b" class="form-control" value="11"></div>
+      <section class="mb-5">
+        <h3 class="text-primary border-bottom pb-2">Exercice 3 – Somme des nombres impairs</h3>
+        <p class="text-muted">
+          Écrivez un programme qui saisit deux entiers $a$ et $b$ ($b > a$), puis calcule et affiche la somme de tous les entiers impairs situés dans l'intervalle $[a, b]$.
+        </p>
+
+        <!-- Simulateur interactif Exercice 3 -->
+        <div class="card shadow-sm border-0">
+          <div class="card-header bg-success text-white fw-bold d-flex justify-content-between align-items-center">
+            <span>⚡ Simulateur Interactif – Somme des impairs dans [a, b]</span>
+            <span class="badge bg-white text-success font-monospace fw-bold">Calcul dynamique</span>
           </div>
-          <button id="btn-calc-imp" class="btn btn-success fw-bold">Calculer Somme Impairs</button>
-          <div id="imp-out" class="alert alert-success mt-3 fs-5 d-none"></div>
+          <div class="card-body">
+            <!-- Raccourcis d'exemples -->
+            <div class="mb-3">
+              <label class="form-label fw-bold text-secondary">Exemples de test rapides :</label>
+              <div class="d-flex flex-wrap gap-2">
+                <button type="button" class="btn btn-outline-success btn-sm ex3-btn-test" data-a="5" data-b="11">a = 5, b = 11</button>
+                <button type="button" class="btn btn-outline-success btn-sm ex3-btn-test" data-a="1" data-b="10">a = 1, b = 10</button>
+                <button type="button" class="btn btn-outline-success btn-sm ex3-btn-test" data-a="10" data-b="20">a = 10, b = 20</button>
+                <button type="button" class="btn btn-outline-success btn-sm ex3-btn-test" data-a="4" data-b="14">a = 4, b = 14</button>
+              </div>
+            </div>
+
+            <div class="row g-3 mb-3">
+              <div class="col-md-5">
+                <label class="form-label fw-bold">Borne initiale a :</label>
+                <input type="number" id="imp-a" class="form-control font-monospace" value="5">
+              </div>
+              <div class="col-md-5">
+                <label class="form-label fw-bold">Borne finale b (b &gt; a) :</label>
+                <input type="number" id="imp-b" class="form-control font-monospace" value="11">
+              </div>
+              <div class="col-md-2 d-flex align-items-end">
+                <button id="btn-calc-imp" class="btn btn-success fw-bold w-100 py-2">Calculer</button>
+              </div>
+            </div>
+
+            <!-- Affichage du résultat enrichi -->
+            <div id="imp-out" class="mt-3">
+              <!-- Rempli dynamiquement par JS -->
+            </div>
+          </div>
         </div>
       </section>
 
       <!-- Exercice 4 -->
-      <section>
-        <h3>Exercice 4 – Nombre de voyelles et de consonnes</h3>
-        <p>Saisir une chaîne non vide <code>ch</code>, puis calculer et afficher le nombre de voyelles et de consonnes.</p>
-        <div class="interactive-box shadow-sm">
-          <input type="text" id="vow-txt" class="form-control mb-3" value="Mariouma" placeholder="Saisissez un mot ou texte...">
-          <div id="vow-out" class="alert alert-info mb-0 fs-5"></div>
+      <section class="mb-5">
+        <h3 class="text-primary border-bottom pb-2">Exercice 4 – Nombre de voyelles et de consonnes</h3>
+        <p class="text-muted">
+          Écrivez un programme qui saisit une chaîne de caractères non vide <code>ch</code>, puis calcule et affiche le <strong>nombre de voyelles</strong> et le <strong>nombre de consonnes</strong> qui la composent.
+        </p>
+
+        <!-- Exemples du cours de référence -->
+        <div class="card shadow-sm border-0 mb-4 bg-light">
+          <div class="card-header bg-secondary bg-opacity-10 fw-bold text-dark py-2">
+            📌 Exemples du cours de référence
+          </div>
+          <div class="card-body">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <div class="p-3 bg-white rounded shadow-sm border-0 h-100">
+                  <h6 class="fw-bold text-primary mb-1">Exemple 1 : <code>ch = "Mariouma"</code></h6>
+                  <ul class="list-unstyled mb-0 small font-monospace">
+                    <li>🌸 Nombre de voyelles : <span class="badge bg-danger text-white fs-6">5</span> (a, i, o, u, a)</li>
+                    <li>🔹 Nombre de consonnes : <span class="badge bg-primary text-white fs-6">3</span> (M, r, m)</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="p-3 bg-white rounded shadow-sm border-0 h-100">
+                  <h6 class="fw-bold text-success mb-1">Exemple 2 : <code>ch = "Hammoud"</code></h6>
+                  <ul class="list-unstyled mb-0 small font-monospace">
+                    <li>🌸 Nombre de voyelles : <span class="badge bg-danger text-white fs-6">3</span> (a, o, u)</li>
+                    <li>🔹 Nombre de consonnes : <span class="badge bg-primary text-white fs-6">4</span> (H, m, m, d)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Zone de simulation interactive -->
+        <div class="card shadow-sm border-0">
+          <div class="card-header bg-primary text-white fw-bold d-flex justify-content-between align-items-center">
+            <span>⚡ Simulateur Interactif – Comptage Voyelles &amp; Consonnes</span>
+            <span class="badge bg-white text-primary font-monospace fw-bold">Analyse en direct</span>
+          </div>
+          <div class="card-body">
+            <!-- Boutons de test rapide -->
+            <div class="mb-3">
+              <label class="form-label fw-bold text-secondary">Charger un mot de test :</label>
+              <div class="d-flex flex-wrap gap-2">
+                <button type="button" class="btn btn-outline-primary btn-sm ex4-btn-test" data-str="Mariouma">Mariouma</button>
+                <button type="button" class="btn btn-outline-primary btn-sm ex4-btn-test" data-str="Hammoud">Hammoud</button>
+                <button type="button" class="btn btn-outline-primary btn-sm ex4-btn-test" data-str="Informatique">Informatique</button>
+                <button type="button" class="btn btn-outline-primary btn-sm ex4-btn-test" data-str="Python 2026">Python 2026</button>
+              </div>
+            </div>
+
+            <div class="input-group mb-3">
+              <span class="input-group-text font-monospace fw-bold">Chaîne ch =</span>
+              <input type="text" id="vow-txt" class="form-control font-monospace" value="Mariouma" placeholder="Saisissez un mot ou un texte...">
+              <button id="btn-calc-vow" class="btn btn-primary fw-bold">Analyser la chaîne</button>
+            </div>
+
+            <!-- Illustration Pédagogique SVG Dynamique (dans le simulateur) -->
+            <div class="my-3 text-center">
+              <div id="ex4-dynamic-svg" class="img-fluid rounded shadow-sm p-2 bg-white border-0 overflow-auto" style="max-width: 100%; margin: 0 auto;">
+                <!-- Généré dynamiquement en SVG par JS -->
+              </div>
+            </div>
+
+            <!-- Visualisation du résultat -->
+            <div id="vow-out" class="mt-3">
+              <!-- Rempli dynamiquement par JS -->
+            </div>
+          </div>
         </div>
       </section>
 
       <!-- Exercice 5 -->
-      <section>
-        <h3>Exercice 5 – Filtrage des lettres et des chiffres</h3>
-        <p>Construire deux chaînes : <code>chl</code> (lettres uniquement) et <code>chc</code> (chiffres uniquement).</p>
-        <div class="interactive-box shadow-sm">
-          <div class="input-group mb-3">
-            <input type="text" id="filter-str" class="form-control" value="IA2DAY4TMRW">
-            <button id="btn-do-filter" class="btn btn-warning text-dark fw-bold">Filtrer Lettres & Chiffres</button>
+      <section class="mb-5">
+        <h3 class="text-primary border-bottom pb-2">Exercice 5 – Filtrage des lettres et des chiffres</h3>
+        <p class="text-muted">
+          Écrivez un programme qui saisit une chaîne de caractères non vide <code>ch</code>, puis construit et affiche deux nouvelles chaînes :
+          <br>• <code>chl</code> : composée uniquement des <strong>lettres alphabétiques</strong> contenues dans <code>ch</code>.
+          <br>• <code>chc</code> : composée uniquement des <strong>chiffres</strong> contenus dans <code>ch</code>.
+        </p>
+
+        <!-- Exemples du cours de référence -->
+        <div class="card shadow-sm border-0 mb-4 bg-light">
+          <div class="card-header bg-secondary bg-opacity-10 fw-bold text-dark py-2">
+            📌 Exemples du cours de référence
           </div>
-          <div id="filter-out" class="alert alert-warning text-dark mb-0 fs-5 d-none"></div>
+          <div class="card-body">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <div class="p-3 bg-white rounded shadow-sm border-0 h-100">
+                  <h6 class="fw-bold text-primary mb-1">Exemple 1 : <code>ch = "IA2DAY4TMRW"</code></h6>
+                  <ul class="list-unstyled mb-0 small font-monospace">
+                    <li>🔤 Lettres (<code>chl</code>) : <span class="badge bg-warning text-dark fs-6">IADYTMRW</span></li>
+                    <li>🔢 Chiffres (<code>chc</code>) : <span class="badge bg-info text-dark fs-6">24</span></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="p-3 bg-white rounded shadow-sm border-0 h-100">
+                  <h6 class="fw-bold text-success mb-1">Exemple 2 : <code>ch = "Sami est ne le 15/05/25"</code></h6>
+                  <ul class="list-unstyled mb-0 small font-monospace">
+                    <li>🔤 Lettres (<code>chl</code>) : <span class="badge bg-warning text-dark fs-6">Samiestnele</span></li>
+                    <li>🔢 Chiffres (<code>chc</code>) : <span class="badge bg-info text-dark fs-6">150525</span></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Zone de simulation interactive -->
+        <div class="card shadow-sm border-0">
+          <div class="card-header bg-warning text-dark fw-bold d-flex justify-content-between align-items-center">
+            <span>⚡ Simulateur Interactif – Filtrage Lettres (chl) &amp; Chiffres (chc)</span>
+            <span class="badge bg-dark text-white font-monospace fw-bold">Séparation dynamique</span>
+          </div>
+          <div class="card-body">
+            <!-- Boutons de test rapide -->
+            <div class="mb-3">
+              <label class="form-label fw-bold text-secondary">Charger une chaîne de test :</label>
+              <div class="d-flex flex-wrap gap-2">
+                <button type="button" class="btn btn-outline-warning text-dark btn-sm ex5-btn-test" data-str="IA2DAY4TMRW">IA2DAY4TMRW</button>
+                <button type="button" class="btn btn-outline-warning text-dark btn-sm ex5-btn-test" data-str="Sami est ne le 15/05/25">Sami est ne le 15/05/25</button>
+                <button type="button" class="btn btn-outline-warning text-dark btn-sm ex5-btn-test" data-str="2SCIENCES 2026">2SCIENCES 2026</button>
+              </div>
+            </div>
+
+            <div class="input-group mb-3">
+              <span class="input-group-text font-monospace fw-bold">Chaîne ch =</span>
+              <input type="text" id="filter-str" class="form-control font-monospace" value="IA2DAY4TMRW" placeholder="Saisissez une chaîne combinée...">
+              <button id="btn-do-filter" class="btn btn-warning text-dark fw-bold">Filtrer chl &amp; chc</button>
+            </div>
+
+            <!-- Schéma interactif SVG Dynamique -->
+            <div class="my-3 text-center">
+              <div id="ex5-dynamic-svg" class="img-fluid rounded shadow-sm p-2 bg-white border-0 overflow-auto" style="max-width: 100%; margin: 0 auto;">
+                <!-- Généré dynamiquement en SVG par JS -->
+              </div>
+            </div>
+
+            <!-- Visualisation du résultat -->
+            <div id="filter-out" class="mt-3">
+              <!-- Rempli dynamiquement par JS -->
+            </div>
+          </div>
         </div>
       </section>
 
       <!-- Exercice 6 -->
-      <section>
-        <h3>Exercice 6 – QCM (Boucles for)</h3>
-        <div class="qcm-container interactive-box shadow-sm">
-          <div class="qcm-question" data-answer="a" data-explanation="x = 0 + 1 + 2 + 3 = 6.">
-            <h5 class="fw-bold">1. pour i in range(1, 4): x = x + i. Le programme affiche :</h5>
-            <div class="form-check"><input class="form-check-input" type="checkbox" value="a" id="m5q1a"><label class="form-check-label" for="m5q1a">x = 6</label></div>
-            <div class="form-check"><input class="form-check-input" type="checkbox" value="b" id="m5q1b"><label class="form-check-label" for="m5q1b">x = 15</label></div>
-            <div class="form-check"><input class="form-check-input" type="checkbox" value="c" id="m5q1c"><label class="form-check-label" for="m5q1c">x = 10</label></div>
-            <div class="qcm-feedback mt-2 d-none alert"></div>
+      <section class="mb-5">
+        <h3 class="text-primary border-bottom pb-2">Exercice 6 – QCM (Structures itératives &amp; Parcours de chaînes)</h3>
+        <p class="text-muted">
+          Analysez le comportement des boucles et du parcours des chaînes de caractères ci-dessous, puis cochez la bonne réponse pour chaque question.
+        </p>
+
+        <div class="qcm-container card shadow-sm border-0">
+          <div class="card-header bg-primary text-white fw-bold d-flex justify-content-between align-items-center">
+            <span>📝 Questionnaire à Choix Multiples (5 Questions)</span>
+            <span class="badge bg-white text-primary font-monospace fw-bold">Auto-évaluation</span>
           </div>
-          <button class="btn btn-primary btn-check-qcm">Vérifier mes réponses</button>
-          <div class="qcm-score mt-3 d-none"></div>
+          <div class="card-body">
+            <!-- Question 1 -->
+            <div class="qcm-question p-3 bg-light rounded mb-4" data-answer="a" data-explanation="Rappel : range(1, 4) génère la séquence 1, 2, 3 (borne 4 exclue). Réessayez de faire l'accumulation pas à pas.">
+              <h6 class="fw-bold text-primary mb-2">Question 1 : Que va afficher ce programme Python ?</h6>
+              <pre class="bg-white p-3 rounded mb-3 border-0"><code class="language-python">x = 0
+for i in range(1, 4):
+    x = x + i
+print('x =', x)</code></pre>
+              <div class="d-flex flex-column gap-2 mb-2">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="qcm_ex6_q1" id="ex6_q1_a" value="a">
+                  <label class="form-check-label font-monospace" for="ex6_q1_a">x = 6</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="qcm_ex6_q1" id="ex6_q1_b" value="b">
+                  <label class="form-check-label font-monospace" for="ex6_q1_b">x = 15</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="qcm_ex6_q1" id="ex6_q1_c" value="c">
+                  <label class="form-check-label font-monospace" for="ex6_q1_c">x = 10</label>
+                </div>
+              </div>
+              <button type="button" class="btn btn-outline-info btn-sm my-2" data-bs-toggle="collapse" data-bs-target="#hint_ex6_1">
+                💡 Afficher un indice
+              </button>
+              <div class="collapse" id="hint_ex6_1">
+                <div class="alert alert-info border-0 shadow-sm mb-2 small">
+                  💡 <strong>Indice :</strong> La fonction <code>range(1, 4)</code> génère les entiers <code>1, 2, 3</code> (la borne 4 est exclue). Calculez l'accumulation : d'abord x = 0 + 1, puis x = 1 + 2, puis...
+                </div>
+              </div>
+              <div class="qcm-feedback mt-2 d-none alert mb-0"></div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="qcm-question p-3 bg-light rounded mb-4" data-answer="c" data-explanation="Rappel : il s'agit du produit (*) des entiers générés par range(1, 4). Vérifiez votre calcul.">
+              <h6 class="fw-bold text-primary mb-2">Question 2 : Que va afficher ce programme Python ?</h6>
+              <pre class="bg-white p-3 rounded mb-3 border-0"><code class="language-python">y = 1
+for i in range(1, 4):
+    y = y * i
+print('y =', y)</code></pre>
+              <div class="d-flex flex-column gap-2 mb-2">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="qcm_ex6_q2" id="ex6_q2_a" value="a">
+                  <label class="form-check-label font-monospace" for="ex6_q2_a">y = 20</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="qcm_ex6_q2" id="ex6_q2_b" value="b">
+                  <label class="form-check-label font-monospace" for="ex6_q2_b">y = 25</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="qcm_ex6_q2" id="ex6_q2_c" value="c">
+                  <label class="form-check-label font-monospace" for="ex6_q2_c">y = 6</label>
+                </div>
+              </div>
+              <button type="button" class="btn btn-outline-info btn-sm my-2" data-bs-toggle="collapse" data-bs-target="#hint_ex6_2">
+                💡 Afficher un indice
+              </button>
+              <div class="collapse" id="hint_ex6_2">
+                <div class="alert alert-info border-0 shadow-sm mb-2 small">
+                  💡 <strong>Indice :</strong> <code>range(1, 4)</code> produit la séquence <code>1, 2, 3</code>. Attention : il s'agit d'un produit (<code>y * i</code>) et non d'une addition. Calculez y = 1 * 1 * 2 * 3.
+                </div>
+              </div>
+              <div class="qcm-feedback mt-2 d-none alert mb-0"></div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="qcm-question p-3 bg-light rounded mb-4" data-answer="b" data-explanation="Rappel : la fonction valeur() transforme chaque chiffre en nombre entier avant de les additionner.">
+              <h6 class="fw-bold text-primary mb-2">Question 3 : Que va afficher cet algorithme pour <code>ch = "AX3?41R0"</code> ?</h6>
+              <pre class="bg-white p-3 rounded mb-3 border-0"><code class="language-algorithm">X ← 0
+Pour i de 0 à long(ch) - 1 Faire
+    Si ("0" ≤ ch[i]) Et (ch[i] ≤ "9") Alors
+        X ← X + valeur(ch[i])
+    Fin Si
+Fin Pour
+Ecrire(X)</code></pre>
+              <div class="d-flex flex-column gap-2 mb-2">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="qcm_ex6_q3" id="ex6_q3_a" value="a">
+                  <label class="form-check-label font-monospace" for="ex6_q3_a">3410</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="qcm_ex6_q3" id="ex6_q3_b" value="b">
+                  <label class="form-check-label font-monospace" for="ex6_q3_b">8</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="qcm_ex6_q3" id="ex6_q3_c" value="c">
+                  <label class="form-check-label font-monospace" for="ex6_q3_c">4</label>
+                </div>
+              </div>
+              <button type="button" class="btn btn-outline-info btn-sm my-2" data-bs-toggle="collapse" data-bs-target="#hint_ex6_3">
+                💡 Afficher un indice
+              </button>
+              <div class="collapse" id="hint_ex6_3">
+                <div class="alert alert-info border-0 shadow-sm mb-2 small">
+                  💡 <strong>Indice :</strong> La fonction <code>valeur(ch[i])</code> convertit les caractères chiffres (<code>'3'</code>, <code>'4'</code>, <code>'1'</code>, <code>'0'</code>) en nombres entiers (3, 4, 1, 0). L'instruction fait la somme de ces entiers.
+                </div>
+              </div>
+              <div class="qcm-feedback mt-2 d-none alert mb-0"></div>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="qcm-question p-3 bg-light rounded mb-4" data-answer="c" data-explanation="Rappel : l'instruction X ← X + 1 sert à compter la quantité de chiffres présents.">
+              <h6 class="fw-bold text-primary mb-2">Question 4 : Que va afficher cet algorithme pour <code>ch = "AX3?41R0"</code> ?</h6>
+              <pre class="bg-white p-3 rounded mb-3 border-0"><code class="language-algorithm">X ← 0
+Pour i de 0 à long(ch) - 1 Faire
+    Si ("0" ≤ ch[i]) Et (ch[i] ≤ "9") Alors
+        X ← X + 1
+    Fin Si
+Fin Pour
+Ecrire(X)</code></pre>
+              <div class="d-flex flex-column gap-2 mb-2">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="qcm_ex6_q4" id="ex6_q4_a" value="a">
+                  <label class="form-check-label font-monospace" for="ex6_q4_a">3410</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="qcm_ex6_q4" id="ex6_q4_b" value="b">
+                  <label class="form-check-label font-monospace" for="ex6_q4_b">8</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="qcm_ex6_q4" id="ex6_q4_c" value="c">
+                  <label class="form-check-label font-monospace" for="ex6_q4_c">4</label>
+                </div>
+              </div>
+              <button type="button" class="btn btn-outline-info btn-sm my-2" data-bs-toggle="collapse" data-bs-target="#hint_ex6_4">
+                💡 Afficher un indice
+              </button>
+              <div class="collapse" id="hint_ex6_4">
+                <div class="alert alert-info border-0 shadow-sm mb-2 small">
+                  💡 <strong>Indice :</strong> Observez l'instruction <code>X ← X + 1</code>. À chaque fois qu'un caractère est un chiffre entre <code>'0'</code> et <code>'9'</code>, on augmente X de 1. L'algorithme compte donc le nombre total de chiffres.
+                </div>
+              </div>
+              <div class="qcm-feedback mt-2 d-none alert mb-0"></div>
+            </div>
+
+            <!-- Question 5 -->
+            <div class="qcm-question p-3 bg-light rounded mb-4" data-answer="a" data-explanation="Rappel : l'opération + entre chaînes de caractères effectue une concaténation de texte.">
+              <h6 class="fw-bold text-primary mb-2">Question 5 : Que va afficher cet algorithme pour <code>ch = "AX3?41R0"</code> ?</h6>
+              <pre class="bg-white p-3 rounded mb-3 border-0"><code class="language-algorithm">X ← ""
+Pour i de 0 à long(ch) - 1 Faire
+    Si ("0" ≤ ch[i]) Et (ch[i] ≤ "9") Alors
+        X ← X + ch[i]
+    Fin Si
+Fin Pour
+Ecrire(X)</code></pre>
+              <div class="d-flex flex-column gap-2 mb-2">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="qcm_ex6_q5" id="ex6_q5_a" value="a">
+                  <label class="form-check-label font-monospace" for="ex6_q5_a">3410</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="qcm_ex6_q5" id="ex6_q5_b" value="b">
+                  <label class="form-check-label font-monospace" for="ex6_q5_b">8</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="qcm_ex6_q5" id="ex6_q5_c" value="c">
+                  <label class="form-check-label font-monospace" for="ex6_q5_c">4</label>
+                </div>
+              </div>
+              <button type="button" class="btn btn-outline-info btn-sm my-2" data-bs-toggle="collapse" data-bs-target="#hint_ex6_5">
+                💡 Afficher un indice
+              </button>
+            <div class="collapse" id="hint_ex6_5">
+                <div class="alert alert-info border-0 shadow-sm mb-2 small">
+                  💡 <strong>Indice :</strong> Remarquez l'initialisation <code>X ← ""</code> (chaîne vide) et l'opération <code>X ← X + ch[i]</code>. Il s'agit d'une <strong>concaténation de texte</strong>, qui colle les caractères chiffres les uns après les autres sans les additionner mathématiquement.
+                </div>
+              </div>
+              <div class="qcm-feedback mt-2 d-none alert mb-0"></div>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center mt-3 pt-3 border-top">
+              <button class="btn btn-primary fw-bold btn-check-qcm">Vérifier mes réponses</button>
+              <div class="qcm-score fs-6 font-monospace d-none"></div>
+            </div>
+          </div>
         </div>
       </section>
 
       <!-- Exercice 7 -->
-      <section>
-        <h3>Exercice 7 – Nombre abondant / Nombre déficient / Nombre parfait</h3>
-        <p>Un nombre entier $N > 0$ est Parfait ($SD = N$), Abondant ($SD > N$), ou Déficient ($SD < N$).</p>
-        <div class="interactive-box shadow-sm">
-          <div class="input-group mb-3">
-            <input type="number" id="num-n" class="form-control" value="6" min="1">
-            <button id="btn-check-num" class="btn btn-primary fw-bold">Analyser le nombre</button>
+      <section class="mb-5">
+        <h3 class="text-primary border-bottom pb-2">Exercice 7 – Nombre Abondant, Déficient ou Parfait</h3>
+        <p class="text-muted">
+          Soit $N > 0$ un nombre entier positif et $SD$ la somme de tous ses diviseurs stricts (excluant $N$ lui-même). Un nombre est dit :
+          <br>• <strong>Parfait</strong> : si $SD = N$
+          <br>• <strong>Abondant</strong> : si $SD > N$
+          <br>• <strong>Déficient</strong> : si $SD < N$
+        </p>
+
+        <!-- Exemples du cours -->
+        <div class="card shadow-sm border-0 mb-4 bg-light">
+          <div class="card-header bg-secondary bg-opacity-10 fw-bold text-dark py-2">
+            📌 Exemples du cours de référence
           </div>
-          <div id="num-out"></div>
+          <div class="card-body">
+            <div class="row g-3">
+              <div class="col-md-4">
+                <div class="p-3 bg-white rounded shadow-sm border-0 h-100">
+                  <h6 class="fw-bold text-success mb-1">Nombre Parfait : <code>6</code></h6>
+                  <small class="text-muted">Diviseurs : 1, 2, 3 <br>SD = 1+2+3 = 6 = N</small>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="p-3 bg-white rounded shadow-sm border-0 h-100">
+                  <h6 class="fw-bold text-warning mb-1">Nombre Abondant : <code>12</code></h6>
+                  <small class="text-muted">Diviseurs : 1, 2, 3, 4, 6 <br>SD = 16 > 12</small>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="p-3 bg-white rounded shadow-sm border-0 h-100">
+                  <h6 class="fw-bold text-info mb-1">Nombre Déficient : <code>10</code></h6>
+                  <small class="text-muted">Diviseurs : 1, 2, 5 <br>SD = 8 < 10</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Zone de simulation -->
+        <div class="card shadow-sm border-0">
+          <div class="card-header bg-primary text-white fw-bold d-flex justify-content-between align-items-center">
+            <span>⚡ Simulateur Interactif – Analyse de Divisibilité</span>
+            <span class="badge bg-white text-primary font-monospace fw-bold">Somme des diviseurs</span>
+          </div>
+          <div class="card-body">
+            <div class="mb-3">
+              <label class="form-label fw-bold text-secondary">Tests rapides du cours :</label>
+              <div class="d-flex flex-wrap gap-2">
+                <button type="button" class="btn btn-outline-success btn-sm ex7-btn-test" data-n="6">N = 6 (Parfait)</button>
+                <button type="button" class="btn btn-outline-warning text-dark btn-sm ex7-btn-test" data-n="12">N = 12 (Abondant)</button>
+                <button type="button" class="btn btn-outline-info text-dark btn-sm ex7-btn-test" data-n="10">N = 10 (Déficient)</button>
+                <button type="button" class="btn btn-outline-success btn-sm ex7-btn-test" data-n="28">N = 28 (Parfait)</button>
+                <button type="button" class="btn btn-outline-warning text-dark btn-sm ex7-btn-test" data-n="18">N = 18 (Abondant)</button>
+              </div>
+            </div>
+
+            <div class="input-group mb-3">
+              <span class="input-group-text font-monospace fw-bold">Nombre N =</span>
+              <input type="number" id="num-n" class="form-control font-monospace" value="6" min="1" placeholder="Saisissez un entier > 0">
+              <button id="btn-check-num" class="btn btn-primary fw-bold">Analyser N</button>
+            </div>
+
+            <div id="num-out" class="mt-3">
+              <!-- Rempli par JS -->
+            </div>
+          </div>
         </div>
       </section>
 
       <!-- Exercice 8 -->
-      <section>
-        <h3>Exercice 8 – Nombre Poly-divisible</h3>
-        <p>Un numéro de caisse à 10 chiffres est gagnant s'il est poly-divisible.</p>
-        <div class="interactive-box shadow-sm">
-          <div class="input-group mb-3">
-            <input type="text" id="poly-num" class="form-control" value="1624560840" maxlength="10">
-            <button id="btn-check-poly" class="btn btn-success fw-bold">Vérifier le ticket</button>
+      <section class="mb-5">
+        <h3 class="text-primary border-bottom pb-2">Exercice 8 – Nombre Poly-divisible (Ticket de caisse)</h3>
+        <p class="text-muted">
+          Un numéro de ticket de caisse à 10 chiffres est <strong>gagnant</strong> s'il est <strong>poly-divisible</strong> :
+          <br>• Le nombre formé par les 2 premiers chiffres est multiple de 2.
+          <br>• Le nombre formé par les 3 premiers chiffres est multiple de 3.
+          <br>• ... jusqu'au nombre formé par les 10 chiffres qui doit être multiple de 10.
+        </p>
+
+        <!-- Exemples du cours -->
+        <div class="card shadow-sm border-0 mb-4 bg-light">
+          <div class="card-header bg-secondary bg-opacity-10 fw-bold text-dark py-2">
+            📌 Exemples du cours de référence
           </div>
-          <div id="poly-out"></div>
+          <div class="card-body">
+            <div class="d-flex flex-wrap gap-2">
+              <span class="badge bg-success text-white p-2 font-monospace fs-6">1624560840 → Gagnant</span>
+              <span class="badge bg-success text-white p-2 font-monospace fs-6">8460060840 → Gagnant</span>
+              <span class="badge bg-success text-white p-2 font-monospace fs-6">6244560000 → Gagnant</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Zone de simulation -->
+        <div class="card shadow-sm border-0">
+          <div class="card-header bg-success text-white fw-bold d-flex justify-content-between align-items-center">
+            <span>⚡ Simulateur Interactif – Vérification de Ticket (10 chiffres)</span>
+            <span class="badge bg-white text-success font-monospace fw-bold">Poly-divisibilité</span>
+          </div>
+          <div class="card-body">
+            <div class="mb-3">
+              <label class="form-label fw-bold text-secondary">Tests rapides du cours :</label>
+              <div class="d-flex flex-wrap gap-2">
+                <button type="button" class="btn btn-outline-success btn-sm ex8-btn-test" data-ticket="1624560840">1624560840 (Gagnant)</button>
+                <button type="button" class="btn btn-outline-success btn-sm ex8-btn-test" data-ticket="8460060840">8460060840 (Gagnant)</button>
+                <button type="button" class="btn btn-outline-success btn-sm ex8-btn-test" data-ticket="6244560000">6244560000 (Gagnant)</button>
+                <button type="button" class="btn btn-outline-danger btn-sm ex8-btn-test" data-ticket="1234567890">1234567890 (Perdant)</button>
+              </div>
+            </div>
+
+            <div class="input-group mb-3">
+              <span class="input-group-text font-monospace fw-bold">N° Ticket =</span>
+              <input type="text" id="poly-num" class="form-control font-monospace" value="1624560840" maxlength="10" placeholder="10 chiffres ex: 1624560840">
+              <button id="btn-check-poly" class="btn btn-success fw-bold">Vérifier le Ticket</button>
+            </div>
+
+            <div id="poly-out" class="mt-3">
+              <!-- Rempli par JS -->
+            </div>
+          </div>
         </div>
       </section>
 
       <!-- Exercice 9 -->
-      <section>
-        <h3>Exercice 9 – Série numérique</h3>
-        <p>Saisir $n \ge 1$, calculer et afficher la somme $S_n = 1^1 - 2^2 + 3^3 - 4^4 + \dots + (-1)^{n+1} n^n$.</p>
-        <div class="interactive-box shadow-sm">
-          <div class="input-group mb-3">
-            <input type="number" id="serie-n" class="form-control" value="4" min="1" max="10">
-            <button id="btn-calc-serie" class="btn btn-primary fw-bold">Calculer la somme Sn</button>
+      <section class="mb-5">
+        <h3 class="text-primary border-bottom pb-2">Exercice 9 – Somme de la Série Numérique $S_n$</h3>
+        <p class="text-muted">
+          Pour un entier $n \ge 1$, calculer la somme de la série alternée à puissances variables :
+          $$\displaystyle S_n = 1^1 - 2^2 + 3^3 - 4^4 + \dots + (-1)^{n+1} \cdot n^n$$
+        </p>
+
+        <!-- Zone de simulation -->
+        <div class="card shadow-sm border-0">
+          <div class="card-header bg-info text-dark fw-bold d-flex justify-content-between align-items-center">
+            <span>⚡ Simulateur Interactif – Calcul de la Série $S_n$</span>
+            <span class="badge bg-dark text-white font-monospace fw-bold">Boucle for &amp; Puissances</span>
           </div>
-          <div id="serie-out" class="alert alert-info mb-0 fs-5 d-none"></div>
+          <div class="card-body">
+            <div class="mb-3">
+              <label class="form-label fw-bold text-secondary">Tests rapides :</label>
+              <div class="d-flex flex-wrap gap-2">
+                <button type="button" class="btn btn-outline-info text-dark btn-sm ex9-btn-test" data-n="1">n = 1 (S1 = 1)</button>
+                <button type="button" class="btn btn-outline-info text-dark btn-sm ex9-btn-test" data-n="2">n = 2 (S2 = -3)</button>
+                <button type="button" class="btn btn-outline-info text-dark btn-sm ex9-btn-test" data-n="3">n = 3 (S3 = 24)</button>
+                <button type="button" class="btn btn-outline-info text-dark btn-sm ex9-btn-test" data-n="4">n = 4 (S4 = -232)</button>
+                <button type="button" class="btn btn-outline-info text-dark btn-sm ex9-btn-test" data-n="5">n = 5 (S5 = 2893)</button>
+              </div>
+            </div>
+
+            <div class="input-group mb-3">
+              <span class="input-group-text font-monospace fw-bold">Valeur n =</span>
+              <input type="number" id="serie-n" class="form-control font-monospace" value="4" min="1" max="7" placeholder="Saisir n entre 1 et 7">
+              <button id="btn-calc-serie" class="btn btn-info text-dark fw-bold">Calculer Sn</button>
+            </div>
+
+            <div id="serie-out" class="mt-3">
+              <!-- Rempli par JS -->
+            </div>
+          </div>
         </div>
       </section>
 
       <!-- Exercice 10 -->
-      <section>
-        <h3>Exercice 10 – Carte de fidélité</h3>
-        <p>Vérifier si le numéro d'une carte de fidélité ("Check_card") est valide (longueur $\ge 8$, somme chiffres div par 3 ou 7, etc.).</p>
-        <div class="interactive-box shadow-sm">
-          <div class="input-group mb-3">
-            <input type="text" id="card-num" class="form-control" value="A3B79A2T" placeholder="Ex: A3B79A2T">
-            <button id="btn-check-card" class="btn btn-success fw-bold">Vérifier la Carte</button>
+      <section class="mb-5">
+        <h3 class="text-primary border-bottom pb-2">Exercice 10 – Carte de Fidélité ("Check_card")</h3>
+        <p class="text-muted">
+          Un numéro de carte de fidélité est <strong>valide</strong> si et seulement s'il respecte les 3 critères :
+          <br>1. Longueur d'au moins 8 caractères ($\ge 8$).
+          <br>2. La somme des chiffres est un multiple de 3 ou de 7.
+          <br>3. La somme des rangs des lettres alphabétiques ($A=0, B=1, \dots, Z=25$) a la même parité (pair/impair) que le nombre de lettres.
+        </p>
+
+        <!-- Tableau des rangs alphabétiques -->
+        <div class="card shadow-sm border-0 mb-4 bg-light">
+          <div class="card-header bg-secondary bg-opacity-10 fw-bold text-dark py-2">
+            📌 Rangs des lettres alphabétiques (A=0 à Z=25)
           </div>
-          <div id="card-out" class="alert alert-success mb-0 fs-5 d-none"></div>
+          <div class="card-body p-2 overflow-auto">
+            <table class="table table-bordered table-sm text-center mb-0 small font-monospace">
+              <tr class="bg-primary text-white fw-bold">
+                <td>A</td><td>B</td><td>C</td><td>D</td><td>E</td><td>F</td><td>G</td><td>H</td><td>I</td><td>J</td><td>K</td><td>L</td><td>M</td><td>N</td><td>O</td><td>P</td><td>Q</td><td>R</td><td>S</td><td>T</td><td>U</td><td>V</td><td>W</td><td>X</td><td>Y</td><td>Z</td>
+              </tr>
+              <tr class="bg-white">
+                <td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <!-- Zone de simulation -->
+        <div class="card shadow-sm border-0">
+          <div class="card-header bg-dark text-white fw-bold d-flex justify-content-between align-items-center">
+            <span>⚡ Simulateur Interactif – Check_card</span>
+            <span class="badge bg-warning text-dark font-monospace fw-bold">Contrôle de validité</span>
+          </div>
+          <div class="card-body">
+            <div class="mb-3">
+              <label class="form-label fw-bold text-secondary">Tests rapides du cours :</label>
+              <div class="d-flex flex-wrap gap-2">
+                <button type="button" class="btn btn-outline-success btn-sm ex10-btn-test" data-card="A3B79A2T">A3B79A2T (Exemple du cours - Valide)</button>
+                <button type="button" class="btn btn-outline-danger btn-sm ex10-btn-test" data-card="B5C9A1X2">B5C9A1X2 (Invalide)</button>
+                <button type="button" class="btn btn-outline-success btn-sm ex10-btn-test" data-card="PYTHON2026">PYTHON2026</button>
+              </div>
+            </div>
+
+            <div class="input-group mb-3">
+              <span class="input-group-text font-monospace fw-bold">N° Carte =</span>
+              <input type="text" id="card-num" class="form-control font-monospace" value="A3B79A2T" placeholder="Saisir code ex: A3B79A2T">
+              <button id="btn-check-card" class="btn btn-dark fw-bold">Tester la Carte</button>
+            </div>
+
+            <div id="card-out" class="mt-3">
+              <!-- Rempli par JS -->
+            </div>
+          </div>
         </div>
       </section>
 
       <!-- Exercice 11 -->
-      <section>
-        <h3>Exercice 11 – Progression Croissante / Décroissante</h3>
-        <p>Saisir un nombre strictement positif et afficher s'il forme une suite de chiffres croissante, décroissante ou ni l'un ni l'autre.</p>
-        <div class="interactive-box shadow-sm">
-          <div class="input-group mb-3">
-            <input type="number" id="prog-num" class="form-control" value="1234">
-            <button id="btn-check-prog" class="btn btn-primary fw-bold">Vérifier la Progression</button>
+      <section class="mb-5">
+        <h3 class="text-primary border-bottom pb-2">Exercice 11 – Progression Croissante / Décroissante</h3>
+        <p class="text-muted">
+          Un nombre forme une suite de chiffres de gauche à droite :
+          <br>• <strong>Croissante</strong> : si chaque chiffre est supérieur ou égal au précédent ($c_1 \le c_2 \le \dots \le c_m$).
+          <br>• <strong>Décroissante</strong> : si chaque chiffre est inférieur ou égal au précédent ($c_1 \ge c_2 \ge \dots \ge c_m$).
+          <br>• <strong>Ni l'un ni l'autre</strong> : si la suite alterne ou ne respecte pas d'ordre uniforme.
+        </p>
+
+        <!-- Exemples du cours -->
+        <div class="card shadow-sm border-0 mb-4 bg-light">
+          <div class="card-header bg-secondary bg-opacity-10 fw-bold text-dark py-2">
+            📌 Exemples du cours de référence
           </div>
-          <div id="prog-out" class="alert alert-primary mb-0 fs-5 d-none"></div>
+          <div class="card-body">
+            <div class="d-flex flex-wrap gap-2">
+              <span class="badge bg-primary text-white p-2 font-monospace fs-6">1234 → Progression Croissante</span>
+              <span class="badge bg-info text-dark p-2 font-monospace fs-6">4321 → Progression Décroissante</span>
+              <span class="badge bg-secondary text-white p-2 font-monospace fs-6">1324 → Pas de progression</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Zone de simulation -->
+        <div class="card shadow-sm border-0">
+          <div class="card-header bg-primary text-white fw-bold d-flex justify-content-between align-items-center">
+            <span>⚡ Simulateur Interactif – Analyse de Progression</span>
+            <span class="badge bg-white text-primary font-monospace fw-bold">Comparaison de chiffres</span>
+          </div>
+          <div class="card-body">
+            <div class="mb-3">
+              <label class="form-label fw-bold text-secondary">Tests rapides du cours :</label>
+              <div class="d-flex flex-wrap gap-2">
+                <button type="button" class="btn btn-outline-primary btn-sm ex11-btn-test" data-n="1234">1234 (Croissante)</button>
+                <button type="button" class="btn btn-outline-info text-dark btn-sm ex11-btn-test" data-n="4321">4321 (Décroissante)</button>
+                <button type="button" class="btn btn-outline-secondary btn-sm ex11-btn-test" data-n="13579">13579 (Croissante)</button>
+                <button type="button" class="btn btn-outline-secondary btn-sm ex11-btn-test" data-n="97531">97531 (Décroissante)</button>
+                <button type="button" class="btn btn-outline-secondary btn-sm ex11-btn-test" data-n="1324">1324 (Quelconque)</button>
+              </div>
+            </div>
+
+            <div class="input-group mb-3">
+              <span class="input-group-text font-monospace fw-bold">Nombre N =</span>
+              <input type="number" id="prog-num" class="form-control font-monospace" value="1234" placeholder="Saisir un nombre positif">
+              <button id="btn-check-prog" class="btn btn-primary fw-bold">Analyser la Progression</button>
+            </div>
+
+            <div id="prog-out" class="mt-3">
+              <!-- Rempli par JS -->
+            </div>
+          </div>
         </div>
       </section>
     </article>

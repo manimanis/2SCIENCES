@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 240" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#f1f5f9"/>
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <!-- Arrière-plan conteneur -->
+  <rect x="5" y="5" width="690" height="230" rx="12" fill="url(#bgGrad)" stroke="#e2e8f0" stroke-width="1.5" filter="url(#shadow)"/>
+
+  <!-- Titre -->
+  <text x="350" y="32" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="16" font-weight="bold" fill="#0f172a" text-anchor="middle">
+    🔍 Analyse de la chaîne "Mariouma" (Parcours caractère par caractère)
+  </text>
+
+  <!-- Caractères de Mariouma -->
+  <!-- M -->
+  <g transform="translate(45, 60)">
+    <rect width="65" height="75" rx="8" fill="#0284c7" filter="url(#shadow)"/>
+    <text x="32.5" y="42" font-family="'Consolas', monospace" font-size="28" font-weight="bold" fill="#ffffff" text-anchor="middle">M</text>
+    <rect x="5" y="52" width="55" height="18" rx="4" fill="#ffffff" fill-opacity="0.2"/>
+    <text x="32.5" y="65" font-family="sans-serif" font-size="10" font-weight="bold" fill="#ffffff" text-anchor="middle">Consonne</text>
+  </g>
+
+  <!-- a -->
+  <g transform="translate(120, 60)">
+    <rect width="65" height="75" rx="8" fill="#ec4899" filter="url(#shadow)"/>
+    <text x="32.5" y="42" font-family="'Consolas', monospace" font-size="28" font-weight="bold" fill="#ffffff" text-anchor="middle">a</text>
+    <rect x="5" y="52" width="55" height="18" rx="4" fill="#ffffff" fill-opacity="0.2"/>
+    <text x="32.5" y="65" font-family="sans-serif" font-size="10" font-weight="bold" fill="#ffffff" text-anchor="middle">Voyelle</text>
+  </g>
+
+  <!-- r -->
+  <g transform="translate(195, 60)">
+    <rect width="65" height="75" rx="8" fill="#0284c7" filter="url(#shadow)"/>
+    <text x="32.5" y="42" font-family="'Consolas', monospace" font-size="28" font-weight="bold" fill="#ffffff" text-anchor="middle">r</text>
+    <rect x="5" y="52" width="55" height="18" rx="4" fill="#ffffff" fill-opacity="0.2"/>
+    <text x="32.5" y="65" font-family="sans-serif" font-size="10" font-weight="bold" fill="#ffffff" text-anchor="middle">Consonne</text>
+  </g>
+
+  <!-- i -->
+  <g transform="translate(270, 60)">
+    <rect width="65" height="75" rx="8" fill="#ec4899" filter="url(#shadow)"/>
+    <text x="32.5" y="42" font-family="'Consolas', monospace" font-size="28" font-weight="bold" fill="#ffffff" text-anchor="middle">i</text>
+    <rect x="5" y="52" width="55" height="18" rx="4" fill="#ffffff" fill-opacity="0.2"/>
+    <text x="32.5" y="65" font-family="sans-serif" font-size="10" font-weight="bold" fill="#ffffff" text-anchor="middle">Voyelle</text>
+  </g>
+
+  <!-- o -->
+  <g transform="translate(345, 60)">
+    <rect width="65" height="75" rx="8" fill="#ec4899" filter="url(#shadow)"/>
+    <text x="32.5" y="42" font-family="'Consolas', monospace" font-size="28" font-weight="bold" fill="#ffffff" text-anchor="middle">o</text>
+    <rect x="5" y="52" width="55" height="18" rx="4" fill="#ffffff" fill-opacity="0.2"/>
+    <text x="32.5" y="65" font-family="sans-serif" font-size="10" font-weight="bold" fill="#ffffff" text-anchor="middle">Voyelle</text>
+  </g>
+
+  <!-- u -->
+  <g transform="translate(420, 60)">
+    <rect width="65" height="75" rx="8" fill="#ec4899" filter="url(#shadow)"/>
+    <text x="32.5" y="42" font-family="'Consolas', monospace" font-size="28" font-weight="bold" fill="#ffffff" text-anchor="middle">u</text>
+    <rect x="5" y="52" width="55" height="18" rx="4" fill="#ffffff" fill-opacity="0.2"/>
+    <text x="32.5" y="65" font-family="sans-serif" font-size="10" font-weight="bold" fill="#ffffff" text-anchor="middle">Voyelle</text>
+  </g>
+
+  <!-- m -->
+  <g transform="translate(495, 60)">
+    <rect width="65" height="75" rx="8" fill="#0284c7" filter="url(#shadow)"/>
+    <text x="32.5" y="42" font-family="'Consolas', monospace" font-size="28" font-weight="bold" fill="#ffffff" text-anchor="middle">m</text>
+    <rect x="5" y="52" width="55" height="18" rx="4" fill="#ffffff" fill-opacity="0.2"/>
+    <text x="32.5" y="65" font-family="sans-serif" font-size="10" font-weight="bold" fill="#ffffff" text-anchor="middle">Consonne</text>
+  </g>
+
+  <!-- a -->
+  <g transform="translate(570, 60)">
+    <rect width="65" height="75" rx="8" fill="#ec4899" filter="url(#shadow)"/>
+    <text x="32.5" y="42" font-family="'Consolas', monospace" font-size="28" font-weight="bold" fill="#ffffff" text-anchor="middle">a</text>
+    <rect x="5" y="52" width="55" height="18" rx="4" fill="#ffffff" fill-opacity="0.2"/>
+    <text x="32.5" y="65" font-family="sans-serif" font-size="10" font-weight="bold" fill="#ffffff" text-anchor="middle">Voyelle</text>
+  </g>
+
+  <!-- Synthèse finale bas -->
+  <g transform="translate(100, 160)">
+    <rect width="230" height="50" rx="8" fill="#ffffff" stroke="#f472b6" stroke-width="2" filter="url(#shadow)"/>
+    <text x="15" y="30" font-family="sans-serif" font-size="14" font-weight="bold" fill="#db2777">🌸 Nombre de Voyelles :</text>
+    <text x="195" y="32" font-family="'Consolas', monospace" font-size="22" font-weight="bold" fill="#db2777" text-anchor="middle">5</text>
+  </g>
+
+  <g transform="translate(370, 160)">
+    <rect width="230" height="50" rx="8" fill="#ffffff" stroke="#38bdf8" stroke-width="2" filter="url(#shadow)"/>
+    <text x="15" y="30" font-family="sans-serif" font-size="14" font-weight="bold" fill="#0284c7">🔹 Nombre de Consonnes :</text>
+    <text x="195" y="32" font-family="'Consolas', monospace" font-size="22" font-weight="bold" fill="#0284c7" text-anchor="middle">3</text>
+  </g>
+</svg>
