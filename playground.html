@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr" class="h-100 overflow-hidden">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>⚡ IDE Python 3 - Informatique 2e Sciences</title>
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/default.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    html, body {
+      height: 100vh !important;
+      max-height: 100vh !important;
+      overflow: hidden !important;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
+
+<body class="d-flex flex-column h-100 overflow-hidden bg-slate-900 text-white">
+
+  <!-- IDE Top Header Toolbar -->
+  <header class="bg-dark text-white px-3 py-2 border-bottom border-secondary d-flex justify-content-between align-items-center flex-shrink-0">
+    <div class="d-flex align-items-center gap-3">
+      <a href="index.html" class="fw-bold text-info text-decoration-none font-monospace fs-5">
+        💻 2ᵉ SCIENCES
+      </a>
+      <span class="badge bg-primary font-monospace">⚡ IDE Python 3</span>
+    </div>
+
+    <!-- Presets Bar Inline -->
+    <div class="d-flex align-items-center gap-2 flex-wrap">
+      <span class="fw-bold text-secondary small me-1">💡 Modèles :</span>
+      <button class="btn btn-sm btn-outline-info btn-preset-code" data-preset="sum">Somme 2 entiers</button>
+      <button class="btn btn-sm btn-outline-info btn-preset-code" data-preset="parity">Parité</button>
+      <button class="btn btn-sm btn-outline-info btn-preset-code" data-preset="loop">range()</button>
+      <button class="btn btn-sm btn-outline-warning btn-preset-code font-monospace fw-bold" data-preset="numpy">🔢 NumPy</button>
+      <button class="btn btn-sm btn-outline-success btn-preset-code font-monospace fw-bold" data-preset="pandas">📊 Pandas</button>
+      <button class="btn btn-sm btn-outline-danger btn-preset-code font-monospace fw-bold" data-preset="matplotlib">📈 Matplotlib</button>
+      <button class="btn btn-sm btn-outline-info btn-preset-code" data-preset="string">Filtrage Chaîne</button>
+      <button class="btn btn-sm btn-outline-info btn-preset-code" data-preset="dna">ADN (SVT)</button>
+    </div>
+
+    <div>
+      <a href="index.html" class="btn btn-sm btn-outline-secondary font-monospace">🏠 Accueil</a>
+    </div>
+  </header>
+
+  <!-- IDE Central Workspace (Full Height, No Page Overflow) -->
+  <main class="flex-grow-1 d-flex flex-column overflow-hidden p-2 bg-dark" style="min-height: 0;">
+    <textarea id="main-playground" data-monaco="true" data-full-height="true" class="form-control" style="display:none;"># 🐍 IDE Python 3 avec NumPy, Pandas & Matplotlib (2e Sciences)
+# Chargement automatique des bibliothèques à la demande via Pyodide WebAssembly
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.linspace(0, 2 * np.pi, 100)
+y1 = np.sin(x)
+y2 = np.cos(x)
+
+plt.figure(figsize=(7, 4))
+plt.plot(x, y1, label="sin(x)", color="#0284c7", linewidth=2)
+plt.plot(x, y2, label="cos(x)", color="#16a34a", linewidth=2, linestyle="--")
+
+plt.title("Fonctions Trigonométriques - 2e Sciences", fontsize=12, fontweight="bold")
+plt.xlabel("Angle (radians)")
+plt.ylabel("Valeur")
+plt.grid(True, linestyle=":", alpha=0.6)
+plt.legend()
+plt.show()
+</textarea>
+  </main>
+
+  <!-- IDE Bottom Status Bar -->
+  <footer class="bg-dark text-secondary px-3 py-1 border-top border-secondary d-flex justify-content-between align-items-center flex-shrink-0" style="font-size: 12px; font-family: monospace;">
+    <div>Informatique 2e Sciences &bull; Enseignant: Mohamed Anis MANI</div>
+    <div>Python 3.11 &bull; NumPy, Pandas & Matplotlib WebAssembly &bull; Monaco Editor</div>
+  </footer>
+
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/runner.js"></script>
+  <script src="assets/js/editor_engine.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const presets = {
+        sum: `# Somme de deux entiers\na = 15\nb = 27\nsomme = a + b\nprint("Somme =", somme)`,
+        parity: `# Test de parité d'un entier\nn = int(input("Entrez un nombre : "))\nif n % 2 == 0:\n    print(n, "est un nombre PAIR")\nelse:\n    print(n, "est un nombre IMPAIR")`,
+        loop: `# Boucle itérative range()\nprint("Décompteur par pas de -2 :")\nfor i in range(10, -1, -2):\n    print("i =", i)`,
+        numpy: `# Support complet de la bibliothèque NumPy (Pyodide WebAssembly)\nimport numpy as np\n\n# 1. Création de tableaux 1D et calculs statistiques\na = np.array([12, 45, 67, 89, 23, 90])\nprint("Tableau a :", a)\nprint("Moyenne :", np.mean(a))\nprint("Maximum :", np.max(a))\nprint("Écart-type :", np.std(a))\n\n# 2. Matrices 2D et opérations\nm = np.array([[1, 2], [3, 4]])\nprint("\\nMatrice m :\\n", m)\nprint("Transposee de m :\\n", m.T)\nprint("Produit matriciel (m x m) :\\n", np.dot(m, m))`,
+        pandas: `# Support de la bibliothèque Pandas (DataFrames)\nimport pandas as pd\n\ndata = {\n    "Nom": ["Sarra", "Ahmed", "Meriam", "Youssef", "Eya"],\n    "Note_Info": [16.5, 14.0, 18.25, 12.5, 15.75],\n    "Mention": ["Bien", "Assez Bien", "Très Bien", "Passable", "Bien"]\n}\n\ndf = pd.DataFrame(data)\nprint("=== Tableau de Données Pandas ===")\nprint(df)\nprint("\\nStatistiques des Notes :")\nprint(df["Note_Info"].describe())`,
+        matplotlib: `# Support de la bibliothèque Matplotlib (Graphiques 2D)\nimport matplotlib.pyplot as plt\nimport numpy as np\n\nx = np.linspace(0, 2 * np.pi, 100)\ny1 = np.sin(x)\ny2 = np.cos(x)\n\nplt.figure(figsize=(7, 4))\nplt.plot(x, y1, label="sin(x)", color="#0284c7", linewidth=2)\nplt.plot(x, y2, label="cos(x)", color="#16a34a", linewidth=2, linestyle="--")\n\nplt.title("Fonctions Trigonométriques - 2e Sciences", fontsize=12, fontweight="bold")\nplt.xlabel("Angle (radians)")\nplt.ylabel("Valeur")\nplt.grid(True, linestyle=":", alpha=0.6)\nplt.legend()\nplt.show()`,
+        string: `# Filtrage des chiffres d'une chaîne\nch = "BAC2026TUNISIE"\nchc = ""\nfor c in ch:\n    if "0" <= c <= "9":\n        chc += c\nprint("Chiffres extraits :", chc)`,
+        dna: `# Analyse d'une séquence d'ADN\nadn = "ATGCGATCGATCGTT"\ncomp = ""\nfor b in adn:\n    if b == "A": comp += "T"\n    elif b == "T": comp += "A"\n    elif b == "C": comp += "G"\n    elif b == "G": comp += "C"\nprint("ADN Origine :", adn)\nprint("ADN Complémentaire :", comp)`
+      };
+
+
+
+      document.addEventListener('click', (e) => {
+        const btn = e.target.closest('.btn-preset-code');
+        if (!btn) return;
+        const key = btn.dataset.preset;
+        if (presets[key] && window.monacoEngine) {
+          const wrapper = document.querySelector('.monaco-editor-wrapper');
+          if (wrapper) {
+            const containerId = wrapper.querySelector('.monaco-code-area').id;
+            const editor = window.monacoEngine.editors.get(containerId);
+            if (editor) {
+              editor.setValue(presets[key]);
+            }
+          }
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>

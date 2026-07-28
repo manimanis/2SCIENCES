@@ -154,7 +154,8 @@ input:checked+.slider:before {
 
 /*** switch end ***/
 
-.language-algorithm::before, .language-python::before {
+.language-algorithm::before,
+.language-python::before {
   display: block;
   font-family: sans-serif;
   font-size: 0.7rem;
@@ -185,7 +186,7 @@ table code {
   font-size: 0.9rem;
 }
 
-pre > code.shell.python.nohighlight {
+pre>code.shell.python.nohighlight {
   display: block;
   background-color: #333;
   color: #eee;
@@ -193,12 +194,12 @@ pre > code.shell.python.nohighlight {
 }
 
 .shell.python::before {
-	display: block;
-	content: attr(data-text);
-	font-weight: bold;
-	font-style: italic;
-	text-decoration: underline;
-	text-align: center;
+  display: block;
+  content: attr(data-text);
+  font-weight: bold;
+  font-style: italic;
+  text-decoration: underline;
+  text-align: center;
 }
 
 .bd-clipboard {
@@ -299,78 +300,106 @@ table.col-20 td {
 .list-group-item pre {
   margin: initial;
 }
+
 @media print {
-  h1, h2, h3, h4 {
+
+  h1,
+  h2,
+  h3,
+  h4 {
     font-size: auto !important;
   }
+
   .row .col-sm-6 {
     width: 50%;
   }
+
   p {
     margin: initial;
   }
+
   .p-break {
     page-break-before: always;
   }
+
   aside {
     display: none !important;
   }
+
   .container {
     max-width: initial !important;
     width: initial !important;
   }
+
   figure {
     page-break-inside: avoid;
   }
+
   figure img.h2cm {
     max-height: 2cm !important;
   }
+
   figure img.h3cm {
     max-height: 3cm !important;
   }
+
   figure img.h4cm {
     max-height: 4cm !important;
   }
+
   figure img.h5cm {
     max-height: 5cm !important;
   }
+
   figure img.h6cm {
     max-height: 6cm !important;
   }
+
   figure img.h7cm {
     max-height: 7cm !important;
   }
+
   figure img.h8cm {
     max-height: 8cm !important;
   }
+
   figure img.h9cm {
     max-height: 9cm !important;
   }
+
   figure img.h10cm {
     max-height: 10cm !important;
   }
+
   figure img.h11cm {
     max-height: 11cm !important;
   }
+
   figure img.h12cm {
     max-height: 12cm !important;
   }
+
   figure img.h13cm {
     max-height: 13cm !important;
   }
+
   figure img.h14cm {
     max-height: 14cm !important;
   }
+
   figure img.h15cm {
     max-height: 15cm !important;
   }
+
   @page {
     counter-increment: page;
     counter-reset: page 1;
+
     @top-right {
       content: "Page " counter(page) " of " counter(pages);
     }
   }
+
   /* table th, table td {
     border: thin solid #000;
   } */
@@ -378,6 +407,7 @@ table.col-20 td {
     padding: initial;
     border: initial;
   }
+
   .list-group-item label.p-2 {
     padding: 0 0.5em !important;
   }
@@ -399,7 +429,7 @@ table.col-20 td {
   border-radius: 16px;
   padding: 2.5rem 2rem;
   margin-bottom: 2rem;
-  box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
 }
 
 .hero-banner h1 {
@@ -408,7 +438,7 @@ table.col-20 td {
 }
 
 .card-module {
-  border: 1px solid rgba(0,0,0,0.08);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 12px;
   transition: all 0.3s ease;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
@@ -485,5 +515,244 @@ canvas.interactive-canvas {
   background: #ffffff;
   border: 1px solid #cbd5e1;
   border-radius: 8px;
-  box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
-}
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* ======================================================
+   Course Sidebar Drawer System (Repliable à la Demande)
+   ====================================================== */
+.course-sidebar {
+  position: fixed;
+  top: 0;
+  left: -320px;
+  width: 320px;
+  height: 100vh;
+  max-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Empêche tout débordement de la barre latérale hors écran */
+  z-index: 1050;
+  transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 5px 0 25px rgba(0, 0, 0, 0.18);
+}
+
+.sidebar-top {
+  flex-shrink: 0 !important;
+}
+
+.sidebar-middle {
+  flex: 1 1 auto !important;
+  min-height: 0 !important; /* RÈGLE CRITIQUE FLEXBOX : force le confinement strict dans la hauteur restante */
+  overflow-y: auto !important;
+}
+
+.sidebar-bottom {
+  flex-shrink: 0 !important;
+}
+
+.course-sidebar.open {
+  left: 0 !important;
+}
+
+
+.sidebar-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(3px);
+  z-index: 1040;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.sidebar-backdrop.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.btn-toggle-sidebar {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 1030;
+  border-radius: 30px;
+  padding: 10px 18px;
+  font-weight: 700;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-toggle-sidebar:hover {
+  transform: scale(1.06);
+}
+
+.sidebar-link {
+  transition: all 0.2s ease;
+}
+
+.sidebar-link:hover {
+  background-color: #f1f5f9;
+  color: #0284c7 !important;
+}
+
+/* Custom Scrollbar exclusivement réservée à la Ligne 2 (Zone Centrale .sidebar-middle) */
+.sidebar-middle::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar-middle::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 4px;
+}
+
+.sidebar-middle::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1;
+  border-radius: 4px;
+}
+
+.sidebar-middle::-webkit-scrollbar-thumb:hover {
+  background-color: #0284c7;
+}
+
+.sidebar-middle {
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 #f1f5f9;
+}
+
+/* ======================================================
+   Print Mode Stylesheet (@media print)
+   - Toutes les sections et articles sont visibles
+   - Les simulations et widgets interactifs sont masqués
+   ====================================================== */
+@media print {
+  /* Preservation exacte de toutes les couleurs de texte et d'arrière-plan */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+  /* 1. Afficher TOUS les articles et TOUTES les sections */
+  main,
+  main article,
+  main section,
+  main article.d-none,
+  main section.d-none {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  /* 2. Cacher uniquement les simulations, éditeurs, barres de nav, boutons et éléments interactifs */
+  nav,
+  footer,
+  #course-sidebar,
+  #sidebar-backdrop,
+  #btn-toggle-sidebar,
+  .interactive-box,
+  .interactive-canvas,
+  canvas,
+  .monaco-editor-wrapper,
+  .monaco-target,
+  .btn,
+  button,
+  .qcm-feedback,
+  .step-tracer-container,
+  .d-print-none {
+    display: none !important;
+  }
+
+  /* 3. Conservation du formatage et des couleurs */
+  body {
+    font-size: 12pt;
+  }
+
+  main {
+    margin: 0 !important;
+    padding: 0 !important;
+    max-width: 100% !important;
+  }
+
+  section {
+    page-break-inside: avoid;
+    margin-bottom: 2rem !important;
+    border-bottom: 1px dashed #cbd5e1;
+    padding-bottom: 1rem;
+  }
+
+  h1, h2, h3, h4 {
+    page-break-after: avoid;
+  }
+
+  pre, code {
+    white-space: pre-wrap !important;
+  }
+}
+
+/* ======================================================
+   Monaco Editor Full-Height & Layout Fixes
+   ====================================================== */
+.monaco-toolbar {
+  height: 44px !important;
+  max-height: 44px !important;
+  flex: 0 0 44px !important;
+  flex-grow: 0 !important;
+  flex-shrink: 0 !important;
+}
+
+.monaco-editor-wrapper {
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+}
+
+.monaco-editor-wrapper.h-100,
+.monaco-editor-wrapper[data-full-height="true"] {
+  flex: 1 1 0% !important;
+  min-height: 0 !important;
+  height: 100% !important;
+  margin: 0 !important;
+}
+
+.monaco-code-area {
+  position: relative !important;
+  flex: 1 1 0% !important;
+  min-height: 0 !important;
+  height: 100% !important;
+  width: 100% !important;
+}
+
+.monaco-code-area .monaco-editor,
+.monaco-code-area .monaco-editor .overflow-guard {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Masquage strict de tout conteneur Canvas/Toolbar injecté par Matplotlib */
+div[id^="matplotlib_"],
+div[id*="matplotlib"],
+.pyodide-mpl-container {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  width: 0 !important;
+  overflow: hidden !important;
+}
+
+
+
+
+
+
+
+
+
+

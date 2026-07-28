@@ -6,7 +6,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   const asideNavbar = document.querySelector('aside #aside_navbar');
   const articlesEl = document.querySelectorAll('main article');
-  if (!asideNavbar || !articlesEl.length) return;
+  if (!articlesEl.length) return;
 
   const isSingleArticle = articlesEl.length === 1;
 
@@ -77,99 +77,60 @@ document.addEventListener('DOMContentLoaded', () => {
     } catch (e) {}
   }
 
-  // Create navbar container for Vue with explicit section href attributes
-  asideNavbar.innerHTML = `<ul class="navbar-nav mr-auto" id="vue-nav-list">
-    <li v-for="(art, aIdx) in articles" :key="aIdx" class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" 
-         :class="{ active: currentArticleIndex === aIdx }"
-         href="#" 
-         role="button" 
-         data-bs-toggle="dropdown" 
-         aria-haspopup="true" 
-         aria-expanded="false">
-        {{ art.title }}
-      </a>
-      <div v-if="art.sections.length" class="dropdown-menu">
-        <a v-for="(sect, sIdx) in art.sections" 
-           :key="sIdx"
-           class="dropdown-item"
-           :class="{ active: currentArticleIndex === aIdx && currentSectionIndex === sIdx }"
-           :href="sect.href"
-           @click="navigate(aIdx, sIdx, $event)">
-          {{ sect.title }}
-        </a>
-      </div>
-    </li>
-  </ul>`;
+  // Helper to update DOM visibility for sections (displaying 1 section at a time)
+  function updateSectionVisibility(targetArtIdx, targetSectIdx) {
+    // 1. Hide ALL articles and ALL sections
+    articlesData.forEach((art) => {
+      art.el.classList.add('d-none');
+      art.sections.forEach((sect) => {
+        sect.el.classList.add('d-none');
+      });
+    });
 
-  // Vue Navigation instance
-  window.navVueApp = new Vue({
-    el: '#vue-nav-list',
-    data: {
-      articles: articlesData,
-      currentArticleIndex: initialArticleIndex,
-      currentSectionIndex: initialSectionIndex
+    // 2. Show ONLY the single target article and ONLY the single target section
+    const targetArt = articlesData[targetArtIdx];
+    if (targetArt) {
+      targetArt.el.classList.remove('d-none');
+      const targetSect = targetArt.sections[targetSectIdx];
+      if (targetSect) {
+        targetSect.el.classList.remove('d-none');
+      }
+    }
+
+    // 3. Highlight active link in sidebar
+    if (typeof window.syncSidebarActiveLink === 'function') {
+      window.syncSidebarActiveLink();
+    }
+  }
+
+
+
+  // Create global navVueApp API compatible with sidebar.js
+  window.navVueApp = {
+    articles: articlesData,
+    currentArticleIndex: initialArticleIndex,
+    currentSectionIndex: initialSectionIndex,
+    navigate(artIdx, sectIdx, event) {
+      this.currentArticleIndex = artIdx;
+      this.currentSectionIndex = sectIdx;
+      this.updateVisibility();
+      this.saveState();
     },
-    methods: {
-      navigate(artIdx, sectIdx, event) {
-        this.currentArticleIndex = artIdx;
-        this.currentSectionIndex = sectIdx;
-        this.updateVisibility();
-        this.saveState();
-
-        const sect = this.articles[artIdx]?.sections[sectIdx];
-        if (sect) {
-          location.hash = sect.href;
-        }
-
-        // Fermeture automatique du menu .dropdown-menu
-        try {
-          const link = event?.target?.closest('.dropdown-item');
-          if (link) {
-            const menu = link.closest('.dropdown-menu');
-            if (menu) menu.classList.remove('show');
-            const toggle = menu?.parentElement?.querySelector('.dropdown-toggle');
-            if (toggle) {
-              toggle.classList.remove('show');
-              toggle.setAttribute('aria-expanded', 'false');
-              if (window.bootstrap && bootstrap.Dropdown) {
-                const instance = bootstrap.Dropdown.getInstance(toggle);
-                if (instance) instance.hide();
-              }
-            }
-          }
-          // Masquer le menu responsive mobile si ouvert
-          const mobileNav = document.querySelector('#aside_navbar.show');
-          if (mobileNav) mobileNav.classList.remove('show');
-        } catch (err) {}
-      },
-      updateVisibility() {
-        this.articles.forEach((art, aIdx) => {
-          if (aIdx === this.currentArticleIndex) {
-            art.el.classList.remove('d-none');
-            art.sections.forEach((sect, sIdx) => {
-              if (sIdx === this.currentSectionIndex) {
-                sect.el.classList.remove('d-none');
-              } else {
-                sect.el.classList.add('d-none');
-              }
-            });
-          } else {
-            art.el.classList.add('d-none');
-          }
-        });
-      },
-      saveState() {
+    updateVisibility() {
+      updateSectionVisibility(this.currentArticleIndex, this.currentSectionIndex);
+    },
+    saveState() {
+      try {
         localStorage.setItem(STORAGE_KEY, JSON.stringify({
           article_index: this.currentArticleIndex,
           section_index: this.currentSectionIndex
         }));
-      }
-    },
-    mounted() {
-      this.updateVisibility();
+      } catch (e) {}
     }
-  });
+  };
+
+  // Enforce 1-section-at-a-time visibility on initial load!
+  window.navVueApp.updateVisibility();
 
   // Listen to hashchange events in browser URL bar
   window.addEventListener('hashchange', () => {

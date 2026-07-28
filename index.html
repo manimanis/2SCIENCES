@@ -25,11 +25,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link active" href="index.html">Accueil</a></li>
-          <li class="nav-item"><a class="nav-link" href="module01.html" target="_blank" rel="noopener noreferrer">Module 1</a></li>
-          <li class="nav-item"><a class="nav-link" href="module02.html" target="_blank" rel="noopener noreferrer">Module 2</a></li>
-          <li class="nav-item"><a class="nav-link" href="module03.html" target="_blank" rel="noopener noreferrer">Module 3</a></li>
-          <li class="nav-item"><a class="nav-link" href="module04.html" target="_blank" rel="noopener noreferrer">Module 4</a></li>
-          <li class="nav-item"><a class="nav-link" href="module05.html" target="_blank" rel="noopener noreferrer">Module 5</a></li>
+          <li class="nav-item"><a class="nav-link text-warning fw-bold" href="playground.html">⚡ IDE Python</a></li>
         </ul>
       </div>
     </div>
@@ -41,27 +37,6 @@
       <h1 class="display-6 mb-2">Informatique 2ᵉ Sciences</h1>
       <p class="lead mb-2 text-light">Plateforme d'Apprentissage Interactive & Exercices Pratiques</p>
       <span class="badge bg-info text-dark fs-6 px-3 py-1">Enseignant : Mohamed Anis MANI</span>
-    </div>
-
-    <!-- Playground Quick Console -->
-    <div class="interactive-box shadow-sm mb-4 py-3">
-      <div class="d-flex justify-content-between align-items-center mb-2">
-        <h4 class="m-0 text-primary fs-5">⚡ Console d'Essai Rapide (Algorithmique & Python)</h4>
-        <span class="badge bg-secondary">Bac & 2e Sciences</span>
-      </div>
-      <p class="text-muted small mb-2">Saisissez un code pseudo-code ou Python et testez immédiatement son exécution.</p>
-      <div class="mb-2">
-        <textarea id="playground-code" class="form-family-monospace form-control bg-dark text-warning p-2" rows="3" placeholder="# Saisissez du code Python
-x = 15
-y = 7
-print('Somme =', x + y)"></textarea>
-      </div>
-      <div class="d-flex gap-2">
-        <button class="btn btn-sm btn-success btn-run-code" data-target="playground-code" data-output="playground-out" data-lang="python">
-          ▶ Exécuter le code
-        </button>
-      </div>
-      <div id="playground-out" class="mt-2 d-none"></div>
     </div>
 
     <!-- Modules Grid -->
@@ -87,7 +62,7 @@ print('Somme =', x + y)"></textarea>
             </ul>
           </div>
           <div class="card-footer bg-white border-0 pt-0 pb-3">
-            <a href="module01.html" class="btn btn-sm btn-outline-primary w-100 fw-bold" target="_blank" rel="noopener noreferrer">Accéder au Module 1 ➔</a>
+            <a href="module01.html" class="btn btn-sm btn-outline-primary w-100 fw-bold">Accéder au Module 1 ➔</a>
           </div>
         </div>
       </div>
@@ -111,7 +86,7 @@ print('Somme =', x + y)"></textarea>
             </ul>
           </div>
           <div class="card-footer bg-white border-0 pt-0 pb-3">
-            <a href="module02.html" class="btn btn-sm btn-outline-success w-100 fw-bold" target="_blank" rel="noopener noreferrer">Accéder au Module 2 ➔</a>
+            <a href="module02.html" class="btn btn-sm btn-outline-success w-100 fw-bold">Accéder au Module 2 ➔</a>
           </div>
         </div>
       </div>
@@ -135,7 +110,8 @@ print('Somme =', x + y)"></textarea>
             </ul>
           </div>
           <div class="card-footer bg-white border-0 pt-0 pb-3">
-            <a href="module03.html" class="btn btn-sm btn-outline-warning text-dark w-100 fw-bold" target="_blank" rel="noopener noreferrer">Accéder au Module 3 ➔</a>
+            <a href="module03.html" class="btn btn-sm btn-outline-warning text-dark w-100 fw-bold">Accéder au Module 3
+              ➔</a>
           </div>
         </div>
       </div>
@@ -159,7 +135,7 @@ print('Somme =', x + y)"></textarea>
             </ul>
           </div>
           <div class="card-footer bg-white border-0 pt-0 pb-3">
-            <a href="module04.html" class="btn btn-sm btn-outline-danger w-100 fw-bold" target="_blank" rel="noopener noreferrer">Accéder au Module 4 ➔</a>
+            <a href="module04.html" class="btn btn-sm btn-outline-danger w-100 fw-bold">Accéder au Module 4 ➔</a>
           </div>
         </div>
       </div>
@@ -183,7 +159,8 @@ print('Somme =', x + y)"></textarea>
             </ul>
           </div>
           <div class="card-footer bg-white border-0 pt-0 pb-3">
-            <a href="module05.html" class="btn btn-sm btn-outline-info text-dark w-100 fw-bold" target="_blank" rel="noopener noreferrer">Accéder au Module 5 ➔</a>
+            <a href="module05.html" class="btn btn-sm btn-outline-info text-dark w-100 fw-bold">Accéder au Module 5
+              ➔</a>
           </div>
         </div>
       </div>
@@ -193,12 +170,13 @@ print('Somme =', x + y)"></textarea>
   <footer class="bg-dark text-white p-3 mt-5">
     <div class="container text-center">
       <div class="mb-1">Cours Informatique 2ᵉ Sciences - Lycée</div>
-      <div class="text-secondary small">Conçu par Mohamed Anis MANI &bull; Année scolaire : 2025/2026</div>
+      <div class="text-secondary small">Conçu par Mohamed Anis MANI &bull; Année scolaire : 2026/2027</div>
     </div>
   </footer>
 
   <script src="assets/js/bootstrap.bundle.min.js"></script>
   <script src="assets/js/runner.js"></script>
+  <script src="assets/js/editor_engine.js"></script>
 </body>
 
 </html>

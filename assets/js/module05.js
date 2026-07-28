@@ -51,10 +51,10 @@ document.addEventListener('DOMContentLoaded', () => {
       for (let v = vi; v > vf; v += step) values.push(v);
     }
 
-    const pyCodeFull = step === 1 
-      ? `for ${varName} in range(${vi}, ${vf}):\n    print(${varName})` 
+    const pyCodeFull = step === 1
+      ? `for ${varName} in range(${vi}, ${vf}):\n    print(${varName})`
       : `for ${varName} in range(${vi}, ${vf}, ${step}):\n    print(${varName})`;
-    
+
     let algoCode = '';
     if (values.length > 0) {
       const minV = values[0];
@@ -131,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
 
     if (window.MathJax && MathJax.typesetPromise) {
-      MathJax.typesetPromise([out]).catch(() => {});
+      MathJax.typesetPromise([out]).catch(() => { });
     }
   }
 
@@ -163,7 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
       inputs.forEach(inp => {
         const userVal = (inp.value || '').trim().toLowerCase().replace(/\s+/g, '');
         const targetVal = (inp.dataset.ans || '').trim().toLowerCase().replace(/\s+/g, '');
-        
+
         if (userVal === targetVal || (targetVal.includes('/') && userVal === targetVal.replace('/', 'à'))) {
           inp.classList.remove('is-invalid');
           inp.classList.add('is-valid');
@@ -395,9 +395,9 @@ document.addEventListener('DOMContentLoaded', () => {
       charElementsSvg += `
         <g transform="translate(${x}, 60)">
           <rect width="${boxWidth}" height="${boxHeight}" rx="10" fill="${boxColor}" filter="url(#shadow)"/>
-          <text x="${boxWidth/2}" y="46" font-family="'Consolas', monospace" font-size="30" font-weight="bold" fill="#ffffff" text-anchor="middle">${displayChar}</text>
+          <text x="${boxWidth / 2}" y="46" font-family="'Consolas', monospace" font-size="30" font-weight="bold" fill="#ffffff" text-anchor="middle">${displayChar}</text>
           <rect x="5" y="58" width="${boxWidth - 10}" height="20" rx="5" fill="#ffffff" fill-opacity="0.25"/>
-          <text x="${boxWidth/2}" y="72" font-family="sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">${label}</text>
+          <text x="${boxWidth / 2}" y="72" font-family="sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">${label}</text>
         </g>
       `;
     });
@@ -566,9 +566,9 @@ document.addEventListener('DOMContentLoaded', () => {
       charElementsSvg += `
         <g transform="translate(${x}, 60)">
           <rect width="${boxWidth}" height="${boxHeight}" rx="10" fill="${boxColor}" filter="url(#shadow)"/>
-          <text x="${boxWidth/2}" y="46" font-family="'Consolas', monospace" font-size="30" font-weight="bold" fill="#ffffff" text-anchor="middle">${displayChar}</text>
+          <text x="${boxWidth / 2}" y="46" font-family="'Consolas', monospace" font-size="30" font-weight="bold" fill="#ffffff" text-anchor="middle">${displayChar}</text>
           <rect x="5" y="58" width="${boxWidth - 10}" height="20" rx="5" fill="#ffffff" fill-opacity="0.25"/>
-          <text x="${boxWidth/2}" y="72" font-family="sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">${label}</text>
+          <text x="${boxWidth / 2}" y="72" font-family="sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">${label}</text>
         </g>
       `;
     });
@@ -765,7 +765,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <tr class="${ok ? 'table-success' : 'table-danger'}">
           <td class="fw-bold">${k} chiffres</td>
           <td class="font-monospace">${prefixStr}</td>
-          <td class="font-monospace">${val} ÷ ${k} = ${Math.floor(val/k)} (reste ${rem})</td>
+          <td class="font-monospace">${val} ÷ ${k} = ${Math.floor(val / k)} (reste ${rem})</td>
           <td>${ok ? '✅ Divisible par ' + k : '❌ Non divisible par ' + k}</td>
         </tr>
       `);
