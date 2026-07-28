@@ -15,7 +15,7 @@ class MonacoPythonEngine {
   async init() {
     // 1. Enhance playgrounds immediately so UI renders with 0ms delay
     this.enhancePlaygrounds();
-    
+
     // 2. Load dependencies in background
     await this.loadDependencies();
 
@@ -359,7 +359,61 @@ class MonacoPythonEngine {
         return { suggestions: suggestions };
       }
     });
+
+    // Register Python Document Formatting Provider (Shift + Alt + F)
+    window.monaco.languages.registerDocumentFormattingEditProvider('python', {
+      provideDocumentFormattingEdits: (model) => {
+        const formatted = this.formatPythonCode(model.getValue());
+        return [
+          {
+            range: model.getFullModelRange(),
+            text: formatted
+          }
+        ];
+      }
+    });
   }
+
+  formatPythonCode(code) {
+    if (!code || !code.trim()) return code;
+
+    const lines = code.split('\n');
+    const formattedLines = [];
+    let indentLevel = 0;
+
+    const blockIndentKeywords = /^\s*(if|elif|else|for|while|def|class|try|except|finally|with)\b/;
+    const blockDedentKeywords = /^\s*(elif|else|except|finally)\b/;
+
+    lines.forEach(line => {
+      let trimmed = line.trim();
+      if (!trimmed) {
+        formattedLines.push('');
+        return;
+      }
+
+      // Decrease indent for dedent keywords
+      if (blockDedentKeywords.test(trimmed) && indentLevel > 0) {
+        indentLevel = Math.max(0, indentLevel - 1);
+      }
+
+      const indentStr = '    '.repeat(indentLevel);
+
+      // Clean up spaces around commas and colons
+      let formattedLine = trimmed
+        .replace(/\s*,\s*/g, ', ')
+        .replace(/\s*:\s*$/g, ':');
+
+      formattedLines.push(indentStr + formattedLine);
+
+      // Increase indent if line ends with a colon and starts with a block keyword
+      if (trimmed.endsWith(':') && blockIndentKeywords.test(trimmed)) {
+        indentLevel++;
+      }
+    });
+
+    return formattedLines.join('\n');
+  }
+
 
 
   enhancePlaygrounds() {
@@ -373,7 +427,7 @@ class MonacoPythonEngine {
 
     const initialCode = textarea.value || textarea.placeholder || '# Code Python\nprint("Bonjour 2e Sciences !")';
     const containerId = 'monaco_container_' + Math.random().toString(36).substring(2, 9);
-    
+
     const isFullHeight = textarea.dataset.fullHeight === "true" || textarea.id === "main-playground";
 
     // Create wrapper box
@@ -420,6 +474,7 @@ class MonacoPythonEngine {
     const consoleOutput = wrapper.querySelector('.monaco-console-output');
     const consoleText = wrapper.querySelector('.console-text');
     const runBtn = wrapper.querySelector('.btn-run-monaco');
+    const formatBtn = wrapper.querySelector('.btn-format-monaco');
     const clearBtn = wrapper.querySelector('.btn-clear-monaco');
 
     this.wrappers.set(containerId, {
@@ -429,6 +484,7 @@ class MonacoPythonEngine {
       consoleOutput,
       consoleText,
       runBtn,
+      formatBtn,
       clearBtn
     });
 
@@ -443,10 +499,26 @@ class MonacoPythonEngine {
       this.runPythonCode(getCode(), consoleOutput, consoleText);
     });
 
+    if (formatBtn) {
+      formatBtn.addEventListener('click', () => {
+        const currentCode = getCode();
+        const formatted = this.formatPythonCode(currentCode);
+        const monacoInstance = this.editors.get(containerId);
+        if (monacoInstance) {
+          monacoInstance.setValue(formatted);
+        } else {
+          const fb = editorDiv.querySelector('textarea');
+          if (fb) fb.value = formatted;
+          textarea.value = formatted;
+        }
+      });
+    }
+
     clearBtn.addEventListener('click', () => {
       consoleText.innerHTML = '';
       consoleOutput.classList.add('d-none');
     });
+
 
     // Try upgrading to Monaco right away if already loaded
     if (this.monacoLoaded && window.monaco) {
@@ -548,8 +620,8 @@ class MonacoPythonEngine {
         return window.Sk.importMainWithBody("<stdin>", false, code, true);
       }).then(() => {
         const resText = logs.join('');
-        outputText.innerHTML = resText 
-          ? `<span class="text-success fw-bold">--- Exécution réussie ---</span>\n${this.escapeHtml(resText)}` 
+        outputText.innerHTML = resText
+          ? `<span class="text-success fw-bold">--- Exécution réussie ---</span>\n${this.escapeHtml(resText)}`
           : `<span class="text-muted">(Aucune sortie d'affichage)</span>`;
       }).catch((err) => {
         outputText.innerHTML = `<span class="text-danger fw-bold">⚠️ Erreur Python :</span>\n<span class="text-danger">${this.escapeHtml(err.toString())}</span>`;
@@ -594,7 +666,7 @@ class MonacoPythonEngine {
       const pyodide = await window.pyodideLoadingPromise;
 
       outputText.innerHTML = '<span class="text-warning">⏳ Analyse & chargement à la demande des bibliothèques nécessaires (NumPy, Pandas, Matplotlib...)...</span>\n';
-      
+
       // Automatically detect and download imports in user's code on demand!
       await pyodide.loadPackagesFromImports(code);
 
@@ -643,7 +715,7 @@ except Exception:
 
 
       const rawLogs = logs.join('\n');
-      
+
       // Render text output and Matplotlib inline plot image if generated
       let renderedOutput = '';
       const lines = rawLogs.split('\n');
@@ -656,8 +728,8 @@ except Exception:
         }
       });
 
-      outputText.innerHTML = renderedOutput.trim() 
-        ? `<span class="text-success fw-bold">--- Exécution Pyodide réussie ---</span>\n${renderedOutput}` 
+      outputText.innerHTML = renderedOutput.trim()
+        ? `<span class="text-success fw-bold">--- Exécution Pyodide réussie ---</span>\n${renderedOutput}`
         : `<span class="text-muted">(Aucune sortie d'affichage)</span>`;
 
     } catch (err) {
