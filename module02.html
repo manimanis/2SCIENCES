@@ -398,6 +398,17 @@ moy = float(input("Moyenne ? "))</code></pre>
         </div>
 
         <div class="interactive-box shadow-sm">
+          <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3 p-2 bg-light rounded border">
+            <div>
+              <strong>📌 Nombre total de noms invalides à trouver :</strong>
+              <span id="total-invalid-count" class="badge bg-danger fs-6 ms-1">10</span>
+            </div>
+            <div>
+              <strong>🎯 Décompte en temps réel (Sélectionnés) :</strong>
+              <span id="selected-invalid-count" class="badge bg-primary fs-6 ms-1">0 / 10</span>
+            </div>
+          </div>
+
           <div class="d-flex flex-wrap gap-2" id="var-words-container">
             <button class="btn btn-outline-secondary word-btn" data-valid="true">bonjour</button>
             <button class="btn btn-outline-secondary word-btn" data-valid="false">au revoir</button>

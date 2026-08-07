@@ -12,31 +12,65 @@ document.addEventListener('DOMContentLoaded', () => {
   // -------------------------------------------------------------
   // Module 2 Handlers
   // -------------------------------------------------------------
+  const updateWordCount = () => {
+    const words = document.querySelectorAll('.word-btn');
+    if (!words.length) return;
+    let totalInvalid = 0;
+    let selectedCount = 0;
+    words.forEach(btn => {
+      if (btn.dataset.valid === 'false') totalInvalid++;
+      if (btn.classList.contains('active')) selectedCount++;
+    });
+    const totalEl = getEl('total-invalid-count');
+    if (totalEl) totalEl.textContent = totalInvalid;
+    const selectedEl = getEl('selected-invalid-count');
+    if (selectedEl) {
+      selectedEl.textContent = `${selectedCount} / ${totalInvalid}`;
+      if (selectedCount === totalInvalid) {
+        selectedEl.className = 'badge bg-success fs-6 ms-1';
+      } else if (selectedCount > totalInvalid) {
+        selectedEl.className = 'badge bg-warning text-dark fs-6 ms-1';
+      } else {
+        selectedEl.className = 'badge bg-primary fs-6 ms-1';
+      }
+    }
+  };
+
   document.addEventListener('click', (e) => {
     const wordBtn = e.target.closest('.word-btn');
     if (wordBtn) {
       wordBtn.classList.toggle('active');
       wordBtn.classList.toggle('btn-danger');
       wordBtn.classList.toggle('btn-outline-secondary');
+      updateWordCount();
     }
 
     if (e.target.closest('#btn-check-vars')) {
       let correct = true;
+      let selectedInvalid = 0;
+      let totalInvalid = 0;
+      let selectedValid = 0;
+
       document.querySelectorAll('.word-btn').forEach(btn => {
         const isInvalid = btn.dataset.valid === 'false';
         const isSelected = btn.classList.contains('active');
+        if (isInvalid) totalInvalid++;
+        if (isSelected && isInvalid) selectedInvalid++;
+        if (isSelected && !isInvalid) selectedValid++;
         if (isInvalid !== isSelected) correct = false;
       });
       const feedback = getEl('vars-feedback');
       if (feedback) {
         if (correct) {
-          feedback.innerHTML = '<div class="alert alert-success">🎉 Excellent ! Vous avez identifié tous les mots réservés et identificateurs invalides.</div>';
+          feedback.innerHTML = `<div class="alert alert-success">🎉 Excellent ! Vous avez identifié la totalité des <strong>${totalInvalid}</strong> noms invalides sans erreur.</div>`;
         } else {
-          feedback.innerHTML = '<div class="alert alert-warning">⚠️ Certains choix sont incorrects. Rappel : Mots réservés Python et identificateurs avec symboles (#, -) sont invalides !</div>';
+          feedback.innerHTML = `<div class="alert alert-warning">⚠️ Vos choix : <strong>${selectedInvalid} / ${totalInvalid}</strong> nom(s) invalide(s) identifié(s)${selectedValid > 0 ? ` (dont ${selectedValid} nom(s) valide(s) sélectionné(s) par erreur)` : ''}. Rappel : Les mots réservés Python et les identificateurs avec symboles (#, -, !) ou espaces sont invalides !</div>`;
         }
       }
     }
   });
+
+  updateWordCount();
 
   const updateModule2Calcs = () => {
     const rx = Math.max(0.1, parseFloat(getEl('rec-x')?.value) || 0);
