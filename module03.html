@@ -220,169 +220,220 @@
         <p>Une variable booléenne ne peut prendre que la valeur <code>Faux</code> ou <code>Vrai</code>
           (<code>False</code> / <code>True</code> en Python).</p>
 
-        <h4>Table de vérité des opérateurs logiques</h4>
+        <h4>1. Fonctions logiques de base (NON, ET, OU) &amp; Portes logiques</h4>
+        <p class="small text-secondary mb-3">
+          En informatique et en électronique numérique, les opérations logiques fondamentales sont concrétisées par des
+          <strong>portes logiques</strong> (symboles normalisés <strong>ANSI / IEEE</strong> d'origine américaine et
+          <strong>CEI / IEC</strong> européenne).
+        </p>
 
-        <!-- Cartes des règles pédagogiques (Interrupteurs & LEDs) -->
-        <div class="row g-2 mb-3 text-center">
-          <div class="col-md-4">
-            <div class="p-2 border rounded bg-white shadow-sm border-danger h-100">
-              <span class="badge bg-danger mb-1 fs-6 px-3">NON (non x / not x)</span>
-              <div class="small fw-semibold text-secondary">
-                ⚡ Négation (Inverseur)<br>
-                <span><img src="images/module03/interrupteur_ferme.svg" alt="Fermé" style="height:18px;"
-                    class="me-1">Fermé ⟶ <img src="images/module03/diode_eteinte.svg" alt="éteinte" style="height:18px;"
-                    class="mx-1">éteinte</span> |
-                <span><img src="images/module03/interrupteur_ouvert.svg" alt="Ouvert" style="height:18px;"
-                    class="me-1">Ouvert ⟶ <img src="images/module03/diode_allumee.svg" alt="Allumée"
-                    style="height:18px;" class="mx-1">Allumée</span>
+        <!-- Encadrés pédagogiques des fonctions logiques élémentaires : NON, ET, OU -->
+        <div class="row g-3 mb-4">
+          <!-- 1. Encadré Fonction NON -->
+          <div class="col-lg-4 col-md-12">
+            <div class="card h-100 border-danger shadow-sm">
+              <div class="card-header bg-danger text-white d-flex justify-content-between align-items-center py-2">
+                <span class="fw-bold fs-6">Fonction NON (Négation)</span>
+                <span class="badge bg-white text-danger font-monospace">not x / non x</span>
               </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="p-2 border rounded bg-white shadow-sm border-success h-100">
-              <span class="badge bg-success mb-1 fs-6 px-3">ET (x et y / x and y)</span>
-              <div class="small fw-semibold text-secondary">
-                ⚡ Circuit Série<br>
-                <img src="images/module03/diode_allumee.svg" alt="Allumée" style="height:18px;" class="me-1">Allumée
-                <strong>uniquement si</strong> x <strong>ET</strong> y sont <img
-                  src="images/module03/interrupteur_ferme.svg" alt="Fermé" style="height:18px;"
-                  class="mx-1"><strong>Fermés</strong>.
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="p-2 border rounded bg-white shadow-sm border-info h-100">
-              <span class="badge bg-info text-dark mb-1 fs-6 px-3">OU (x ou y / x or y)</span>
-              <div class="small fw-semibold text-secondary">
-                ⚡ Circuit Parallèle<br>
-                <img src="images/module03/diode_allumee.svg" alt="Allumée" style="height:18px;" class="me-1">Allumée
-                <strong>dès qu'au moins</strong> x <strong>OU</strong> y est <img
-                  src="images/module03/interrupteur_ferme.svg" alt="Fermé" style="height:18px;"
-                  class="mx-1"><strong>Fermé</strong>.
-              </div>
-            </div>
-          </div>
-        </div>
+              <div class="card-body p-3 d-flex flex-column justify-content-between">
+                <div>
+                  <div class="d-flex justify-content-between align-items-center text-muted small mb-2">
+                    <span>Équation : <strong class="text-danger font-monospace fs-6">S = x̄</strong></span>
+                    <span>Python : <code class="text-danger">not x</code></span>
+                  </div>
 
-        <div class="table-responsive my-3 shadow-sm rounded border overflow-hidden">
-          <table class="table table-hover text-center align-middle mb-0">
-            <thead class="text-white" style="background-color: #0f172a;">
-              <tr>
-                <th style="width: 17%; background-color: #334155;">Interrupteur x</th>
-                <th style="width: 17%; background-color: #334155;">Interrupteur y</th>
-                <th style="width: 22%; background-color: #dc2626;">NON (non x)</th>
-                <th style="width: 22%; background-color: #16a34a;">ET (x et y)</th>
-                <th style="width: 22%; background-color: #0284c7;">OU (x ou y)</th>
-              </tr>
-            </thead>
-            <tbody class="bg-white">
-              <tr>
-                <td><span class="badge bg-success-subtle text-success border border-success px-2 py-1 fs-6"><img
-                      src="images/module03/interrupteur_ferme.svg" alt="Fermé" style="height:20px;" class="me-1">Fermé
-                    (Vrai)</span></td>
-                <td><span class="badge bg-success-subtle text-success border border-success px-2 py-1 fs-6"><img
-                      src="images/module03/interrupteur_ferme.svg" alt="Fermé" style="height:20px;" class="me-1">Fermé
-                    (Vrai)</span></td>
-                <td><span class="badge bg-dark text-white-50 border border-secondary px-2 py-1 fs-6"><img
-                      src="images/module03/diode_eteinte.svg" alt="éteinte" style="height:20px;" class="me-1">éteinte
-                    (Faux)</span></td>
-                <td><span class="badge bg-success text-white px-2 py-1 fs-6 shadow-sm"><img
-                      src="images/module03/diode_allumee.svg" alt="Allumée" style="height:20px;" class="me-1">Allumée
-                    (Vrai)</span></td>
-                <td><span class="badge bg-success text-white px-2 py-1 fs-6 shadow-sm"><img
-                      src="images/module03/diode_allumee.svg" alt="Allumée" style="height:20px;" class="me-1">Allumée
-                    (Vrai)</span></td>
-              </tr>
-              <tr>
-                <td><span class="badge bg-success-subtle text-success border border-success px-2 py-1 fs-6"><img
-                      src="images/module03/interrupteur_ferme.svg" alt="Fermé" style="height:20px;" class="me-1">Fermé
-                    (Vrai)</span></td>
-                <td><span class="badge bg-danger-subtle text-danger border border-danger px-2 py-1 fs-6"><img
-                      src="images/module03/interrupteur_ouvert.svg" alt="Ouvert" style="height:20px;"
-                      class="me-1">Ouvert (Faux)</span></td>
-                <td><span class="badge bg-dark text-white-50 border border-secondary px-2 py-1 fs-6"><img
-                      src="images/module03/diode_eteinte.svg" alt="éteinte" style="height:20px;" class="me-1">éteinte
-                    (Faux)</span></td>
-                <td><span class="badge bg-dark text-white-50 border border-secondary px-2 py-1 fs-6"><img
-                      src="images/module03/diode_eteinte.svg" alt="éteinte" style="height:20px;" class="me-1">éteinte
-                    (Faux)</span></td>
-                <td><span class="badge bg-success text-white px-2 py-1 fs-6 shadow-sm"><img
-                      src="images/module03/diode_allumee.svg" alt="Allumée" style="height:20px;" class="me-1">Allumée
-                    (Vrai)</span></td>
-              </tr>
-              <tr>
-                <td><span class="badge bg-danger-subtle text-danger border border-danger px-2 py-1 fs-6"><img
-                      src="images/module03/interrupteur_ouvert.svg" alt="Ouvert" style="height:20px;"
-                      class="me-1">Ouvert (Faux)</span></td>
-                <td><span class="badge bg-success-subtle text-success border border-success px-2 py-1 fs-6"><img
-                      src="images/module03/interrupteur_ferme.svg" alt="Fermé" style="height:20px;" class="me-1">Fermé
-                    (Vrai)</span></td>
-                <td><span class="badge bg-success text-white px-2 py-1 fs-6 shadow-sm"><img
-                      src="images/module03/diode_allumee.svg" alt="Allumée" style="height:20px;" class="me-1">Allumée
-                    (Vrai)</span></td>
-                <td><span class="badge bg-dark text-white-50 border border-secondary px-2 py-1 fs-6"><img
-                      src="images/module03/diode_eteinte.svg" alt="éteinte" style="height:20px;" class="me-1">éteinte
-                    (Faux)</span></td>
-                <td><span class="badge bg-success text-white px-2 py-1 fs-6 shadow-sm"><img
-                      src="images/module03/diode_allumee.svg" alt="Allumée" style="height:20px;" class="me-1">Allumée
-                    (Vrai)</span></td>
-              </tr>
-              <tr>
-                <td><span class="badge bg-danger-subtle text-danger border border-danger px-2 py-1 fs-6"><img
-                      src="images/module03/interrupteur_ouvert.svg" alt="Ouvert" style="height:20px;"
-                      class="me-1">Ouvert (Faux)</span></td>
-                <td><span class="badge bg-danger-subtle text-danger border border-danger px-2 py-1 fs-6"><img
-                      src="images/module03/interrupteur_ouvert.svg" alt="Ouvert" style="height:20px;"
-                      class="me-1">Ouvert (Faux)</span></td>
-                <td><span class="badge bg-success text-white px-2 py-1 fs-6 shadow-sm"><img
-                      src="images/module03/diode_allumee.svg" alt="Allumée" style="height:20px;" class="me-1">Allumée
-                    (Vrai)</span></td>
-                <td><span class="badge bg-dark text-white-50 border border-secondary px-2 py-1 fs-6"><img
-                      src="images/module03/diode_eteinte.svg" alt="éteinte" style="height:20px;" class="me-1">éteinte
-                    (Faux)</span></td>
-                <td><span class="badge bg-dark text-white-50 border border-secondary px-2 py-1 fs-6"><img
-                      src="images/module03/diode_eteinte.svg" alt="éteinte" style="height:20px;" class="me-1">éteinte
-                    (Faux)</span></td>
-              </tr>
-            </tbody>
-          </table>
+                  <!-- Schéma à porte logique (ANSI & CEI) -->
+                  <div class="p-2 rounded bg-dark border border-secondary mb-3 text-center">
+                    <div class="small text-white-50 fw-semibold mb-1">Schémas à porte logique :</div>
+                    <img src="images/module03/porte_non.svg" alt="Porte logique NON (symboles ANSI et CEI)"
+                      class="logic-gate-img">
+                  </div>
+
+                  <!-- Table de vérité de la fonction NON -->
+                  <div class="table-responsive mb-3 rounded border overflow-hidden">
+                    <table class="table table-sm table-hover text-center align-middle mb-0 small">
+                      <thead class="bg-dark text-white">
+                        <tr>
+                          <th class="w-50">Entrée x</th>
+                          <th class="w-50 th-gate-non">Sortie S = non x</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><span class="badge bg-light text-dark border">0 (Faux)</span></td>
+                          <td><span class="badge bg-success px-2 py-1 shadow-xs">1 (Vrai)</span></td>
+                        </tr>
+                        <tr>
+                          <td><span class="badge bg-light text-dark border">1 (Vrai)</span></td>
+                          <td><span class="badge bg-danger px-2 py-1 shadow-xs">0 (Faux)</span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <!-- Analogie électrique -->
+                <div class="p-2 bg-light rounded border border-danger-subtle small text-secondary">
+                  <strong class="text-danger d-block mb-1">⚡ Circuit Inverseur (NF) :</strong>
+                  <span><img src="images/module03/interrupteur_ferme.svg" alt="Fermé" class="logic-icon-sm"> Fermé ⟶
+                    <img src="images/module03/diode_eteinte.svg" alt="Éteinte" class="logic-icon-sm"> Éteinte</span><br>
+                  <span><img src="images/module03/interrupteur_ouvert.svg" alt="Ouvert" class="logic-icon-sm"> Ouvert ⟶
+                    <img src="images/module03/diode_allumee.svg" alt="Allumée" class="logic-icon-sm"> Allumée</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Encadré Fonction ET -->
+          <div class="col-lg-4 col-md-12">
+            <div class="card h-100 border-success shadow-sm">
+              <div class="card-header bg-success text-white d-flex justify-content-between align-items-center py-2">
+                <span class="fw-bold fs-6">Fonction ET (Conjonction)</span>
+                <span class="badge bg-white text-success font-monospace">x and y / x et y</span>
+              </div>
+              <div class="card-body p-3 d-flex flex-column justify-content-between">
+                <div>
+                  <div class="d-flex justify-content-between align-items-center text-muted small mb-2">
+                    <span>Équation : <strong class="text-success font-monospace fs-6">S = x &bull; y</strong></span>
+                    <span>Python : <code class="text-success">x and y</code></span>
+                  </div>
+
+                  <!-- Schéma à porte logique (ANSI & CEI) -->
+                  <div class="p-2 rounded bg-dark border border-secondary mb-3 text-center">
+                    <div class="small text-white-50 fw-semibold mb-1">Schémas à porte logique :</div>
+                    <img src="images/module03/porte_et.svg" alt="Porte logique ET (symboles ANSI et CEI)"
+                      class="logic-gate-img">
+                  </div>
+
+                  <!-- Table de vérité de la fonction ET -->
+                  <div class="table-responsive mb-3 rounded border overflow-hidden">
+                    <table class="table table-sm table-hover text-center align-middle mb-0 small">
+                      <thead class="bg-dark text-white">
+                        <tr>
+                          <th class="w-25">x</th>
+                          <th class="w-25">y</th>
+                          <th class="w-50 th-gate-et">Sortie S = x et y</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>0</td>
+                          <td>0</td>
+                          <td><span class="badge bg-danger px-2 py-1 shadow-xs">0 (Faux)</span></td>
+                        </tr>
+                        <tr>
+                          <td>0</td>
+                          <td>1</td>
+                          <td><span class="badge bg-danger px-2 py-1 shadow-xs">0 (Faux)</span></td>
+                        </tr>
+                        <tr>
+                          <td>1</td>
+                          <td>0</td>
+                          <td><span class="badge bg-danger px-2 py-1 shadow-xs">0 (Faux)</span></td>
+                        </tr>
+                        <tr class="table-success fw-bold">
+                          <td>1</td>
+                          <td>1</td>
+                          <td><span class="badge bg-success px-2 py-1 shadow-xs">1 (Vrai)</span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <!-- Analogie électrique -->
+                <div class="p-2 bg-light rounded border border-success-subtle small text-secondary">
+                  <strong class="text-success d-block mb-1">⚡ Circuit en Série :</strong>
+                  <span><img src="images/module03/diode_allumee.svg" alt="Allumée" class="logic-icon-sm"> Allumée
+                    <strong>uniquement si</strong> x <strong>ET</strong> y sont tous les deux <img
+                      src="images/module03/interrupteur_ferme.svg" alt="Fermé" class="logic-icon-sm">
+                    <strong>Fermés</strong> (1).</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Encadré Fonction OU -->
+          <div class="col-lg-4 col-md-12">
+            <div class="card h-100 border-info shadow-sm">
+              <div class="card-header bg-info text-dark d-flex justify-content-between align-items-center py-2">
+                <span class="fw-bold fs-6">Fonction OU (Disjonction)</span>
+                <span class="badge bg-dark text-info font-monospace">x or y / x ou y</span>
+              </div>
+              <div class="card-body p-3 d-flex flex-column justify-content-between">
+                <div>
+                  <div class="d-flex justify-content-between align-items-center text-muted small mb-2">
+                    <span>Équation : <strong class="text-primary font-monospace fs-6">S = x + y</strong></span>
+                    <span>Python : <code class="text-primary">x or y</code></span>
+                  </div>
+
+                  <!-- Schéma à porte logique (ANSI & CEI) -->
+                  <div class="p-2 rounded bg-dark border border-secondary mb-3 text-center">
+                    <div class="small text-white-50 fw-semibold mb-1">Schémas à porte logique :</div>
+                    <img src="images/module03/porte_ou.svg" alt="Porte logique OU (symboles ANSI et CEI)"
+                      class="logic-gate-img">
+                  </div>
+
+                  <!-- Table de vérité de la fonction OU -->
+                  <div class="table-responsive mb-3 rounded border overflow-hidden">
+                    <table class="table table-sm table-hover text-center align-middle mb-0 small">
+                      <thead class="bg-dark text-white">
+                        <tr>
+                          <th class="w-25">x</th>
+                          <th class="w-25">y</th>
+                          <th class="w-50 th-gate-ou">Sortie S = x ou y</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>0</td>
+                          <td>0</td>
+                          <td><span class="badge bg-danger px-2 py-1 shadow-xs">0 (Faux)</span></td>
+                        </tr>
+                        <tr class="table-info">
+                          <td>0</td>
+                          <td>1</td>
+                          <td><span class="badge bg-success px-2 py-1 shadow-xs">1 (Vrai)</span></td>
+                        </tr>
+                        <tr class="table-info">
+                          <td>1</td>
+                          <td>0</td>
+                          <td><span class="badge bg-success px-2 py-1 shadow-xs">1 (Vrai)</span></td>
+                        </tr>
+                        <tr class="table-info fw-bold">
+                          <td>1</td>
+                          <td>1</td>
+                          <td><span class="badge bg-success px-2 py-1 shadow-xs">1 (Vrai)</span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <!-- Analogie électrique -->
+                <div class="p-2 bg-light rounded border border-info-subtle small text-secondary">
+                  <strong class="text-primary d-block mb-1">⚡ Circuit en Parallèle :</strong>
+                  <span><img src="images/module03/diode_allumee.svg" alt="Allumée" class="logic-icon-sm"> Allumée
+                    <strong>dès qu'au moins</strong> x <strong>OU</strong> y est <img
+                      src="images/module03/interrupteur_ferme.svg" alt="Fermé" class="logic-icon-sm">
+                    <strong>Fermé</strong> (1).</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         <!-- Simulation Interactive des Opérateurs Logiques -->
         <div class="interactive-box shadow-sm bg-white p-4 border rounded-3 my-4">
           <h4 class="text-primary d-flex align-items-center gap-2 mb-3">
-            <span>⚡ Simulation Interactive des Opérateurs Logiques (Circuits &amp; Diodes)</span>
+            <span>2. ⚡ Simulation Interactive des Portes Logiques (Circuits &amp; Diodes)</span>
           </h4>
           <p class="small text-secondary mb-3">
-            Cliquez sur les interrupteurs <strong>X</strong> et <strong>Y</strong> pour basculer leur état (Ouvert /
-            Fermé) et observez en direct l'état des leds de sortie pour chaque opérateur !
+            Testez chaque circuit <strong>indépendamment des autres</strong> : <strong>cliquez directement sur les
+              entrées (0 ou 1)</strong> de chaque porte logique (ou sur ses boutons) pour faire basculer son état et
+            observer la diode de sortie en temps réel !
           </p>
-
-          <!-- Interrupteurs de contrôle interactifs -->
-          <div
-            class="d-flex justify-content-center align-items-center flex-wrap gap-4 p-3 bg-light rounded border mb-4">
-            <!-- Interrupteur X -->
-            <div class="text-center">
-              <label class="fw-bold d-block mb-1 text-dark">Interrupteur X :</label>
-              <button type="button" id="btn-toggle-x"
-                class="btn btn-outline-danger fw-bold d-inline-flex align-items-center gap-2 px-3 py-2 shadow-sm">
-                <img id="img-sw-x" src="images/module03/interrupteur_ouvert.svg" style="height: 24px;"
-                  alt="Interrupteur X">
-                <span id="lbl-sw-x">Ouvert (Faux / 0)</span>
-              </button>
-            </div>
-
-            <!-- Interrupteur Y -->
-            <div class="text-center">
-              <label class="fw-bold d-block mb-1 text-dark">Interrupteur Y :</label>
-              <button type="button" id="btn-toggle-y"
-                class="btn btn-outline-danger fw-bold d-inline-flex align-items-center gap-2 px-3 py-2 shadow-sm">
-                <img id="img-sw-y" src="images/module03/interrupteur_ouvert.svg" style="height: 24px;"
-                  alt="Interrupteur Y">
-                <span id="lbl-sw-y">Ouvert (Faux / 0)</span>
-              </button>
-            </div>
-          </div>
 
           <!-- Affichage en direct des 3 Opérateurs (NON, ET, OU) -->
           <div class="row g-3">
@@ -395,8 +446,18 @@
                 </div>
                 <div class="card-body text-center d-flex flex-column justify-content-between p-3">
                   <div class="mb-2">
-                    <div class="small text-muted mb-2">Circuit Inverseur</div>
-                    <img id="sim-led-non" src="images/module03/diode_allumee.svg" style="height: 48px;" alt="Diode NON">
+                    <div class="small text-muted mb-1 d-flex justify-content-between align-items-center">
+                      <span>Schéma &amp; Entrée</span>
+                      <span class="badge bg-light text-secondary border">Cliquez sur x</span>
+                    </div>
+                    <div id="sim-gate-non" class="bg-dark rounded p-2 mb-2 border border-secondary gate-sim-box"></div>
+                    <div class="d-flex justify-content-center gap-2 mb-2">
+                      <button type="button" class="btn btn-sm btn-outline-danger gate-toggle-btn fw-bold px-2 py-1"
+                        data-gate="non" data-input="x" title="Cliquer pour basculer l'entrée x">
+                        Entrée x = <span id="btn-val-non-x">0</span> ⇄
+                      </button>
+                    </div>
+                    <img id="sim-led-non" src="images/module03/diode_allumee.svg" class="sim-led-img" alt="Diode NON">
                   </div>
                   <div id="status-non" class="alert alert-success py-2 mb-0 fw-bold small">
                     ⚡ Diode ALLUMÉE (Vrai)
@@ -419,8 +480,22 @@
                 </div>
                 <div class="card-body text-center d-flex flex-column justify-content-between p-3">
                   <div class="mb-2">
-                    <div class="small text-muted mb-2">Circuit en Série</div>
-                    <img id="sim-led-et" src="images/module03/diode_eteinte.svg" style="height: 48px;" alt="Diode ET">
+                    <div class="small text-muted mb-1 d-flex justify-content-between align-items-center">
+                      <span>Schéma &amp; Entrées</span>
+                      <span class="badge bg-light text-secondary border">Cliquez sur x ou y</span>
+                    </div>
+                    <div id="sim-gate-et" class="bg-dark rounded p-2 mb-2 border border-secondary gate-sim-box"></div>
+                    <div class="d-flex justify-content-center gap-2 mb-2">
+                      <button type="button" class="btn btn-sm btn-outline-success gate-toggle-btn fw-bold px-2 py-1"
+                        data-gate="et" data-input="x" title="Cliquer pour basculer l'entrée x">
+                        x = <span id="btn-val-et-x">0</span> ⇄
+                      </button>
+                      <button type="button" class="btn btn-sm btn-outline-warning gate-toggle-btn fw-bold px-2 py-1"
+                        data-gate="et" data-input="y" title="Cliquer pour basculer l'entrée y">
+                        y = <span id="btn-val-et-y">0</span> ⇄
+                      </button>
+                    </div>
+                    <img id="sim-led-et" src="images/module03/diode_eteinte.svg" class="sim-led-img" alt="Diode ET">
                   </div>
                   <div id="status-et" class="alert alert-secondary py-2 mb-0 fw-bold small text-muted">
                     ⚡ Diode ÉTEINTE (Faux)
@@ -442,8 +517,22 @@
                 </div>
                 <div class="card-body text-center d-flex flex-column justify-content-between p-3">
                   <div class="mb-2">
-                    <div class="small text-muted mb-2">Circuit en Parallèle</div>
-                    <img id="sim-led-ou" src="images/module03/diode_eteinte.svg" style="height: 48px;" alt="Diode OU">
+                    <div class="small text-muted mb-1 d-flex justify-content-between align-items-center">
+                      <span>Schéma &amp; Entrées</span>
+                      <span class="badge bg-light text-secondary border">Cliquez sur x ou y</span>
+                    </div>
+                    <div id="sim-gate-ou" class="bg-dark rounded p-2 mb-2 border border-secondary gate-sim-box"></div>
+                    <div class="d-flex justify-content-center gap-2 mb-2">
+                      <button type="button" class="btn btn-sm btn-outline-info gate-toggle-btn fw-bold px-2 py-1"
+                        data-gate="ou" data-input="x" title="Cliquer pour basculer l'entrée x">
+                        x = <span id="btn-val-ou-x">0</span> ⇄
+                      </button>
+                      <button type="button" class="btn btn-sm btn-outline-warning gate-toggle-btn fw-bold px-2 py-1"
+                        data-gate="ou" data-input="y" title="Cliquer pour basculer l'entrée y">
+                        y = <span id="btn-val-ou-y">0</span> ⇄
+                      </button>
+                    </div>
+                    <img id="sim-led-ou" src="images/module03/diode_eteinte.svg" class="sim-led-img" alt="Diode OU">
                   </div>
                   <div id="status-ou" class="alert alert-secondary py-2 mb-0 fw-bold small text-muted">
                     ⚡ Diode ÉTEINTE (Faux)
@@ -458,7 +547,7 @@
           </div>
         </div>
 
-        <h4 class="mt-4">🔢 Ordre d'évaluation des opérateurs de Comparaison et des opérateurs logiques</h4>
+        <h4 class="mt-4">3. 🔢 Ordre d'évaluation des opérateurs de Comparaison et des opérateurs logiques</h4>
         <div class="table-responsive my-4 shadow-sm rounded border overflow-hidden">
           <table class="table table-hover text-center align-middle mb-0">
             <thead class="text-white" style="background-color: #0f172a;">
@@ -504,14 +593,14 @@
                 <td class="fw-bold text-success">ET Logique (Conjonction)</td>
                 <td><code>et</code></td>
                 <td><code>and</code></td>
-                <td><code>Vrai and Faux &rarr; False</code></td>
+                <td><code>True and False &rarr; False</code></td>
               </tr>
               <tr>
                 <td><span class="badge bg-dark fs-6 px-3">6 (Min)</span></td>
                 <td class="fw-bold text-info">OU Logique (Disjonction)</td>
                 <td><code>ou</code></td>
                 <td><code>or</code></td>
-                <td><code>Vrai or Faux &rarr; True</code></td>
+                <td><code>True or False &rarr; True</code></td>
               </tr>
             </tbody>
           </table>
@@ -523,27 +612,27 @@
         <h3>3. Les types textuels</h3>
         <p>Les données textuelles sont stockées, en algorithmique, dans des variables de type :</p>
         <ul>
-          <li><strong>Caractére</strong> ;</li>
+          <li><strong>Caractère</strong> ;</li>
           <li><strong>Chaîne</strong>.</li>
         </ul>
         <p>En <strong>Python</strong>, on dispose uniquement du type <code>str</code>.</p>
-        <img src="images/module03/diff_chaine_car.png" alt="Différence entre chaîne et caractére"
+        <img src="images/module03/diff_chaine_car.png" alt="Différence entre chaîne et caractère"
           class="img-fluid rounded shadow-sm p-2 bg-white border">
       </section>
 
       <!-- 4. Le type caractère -->
       <section>
-        <h3>a. Le type caractére</h3>
+        <h3>a. Le type caractère</h3>
         <h5 class="text-secondary fs-6 fw-bold">i. Présentation</h5>
-        <p>Le type <strong>caractére</strong> représente <strong>un seul caractére</strong> qui peut être :</p>
+        <p>Le type <strong>caractère</strong> représente <strong>un seul caractère</strong> qui peut être :</p>
         <ul>
-          <li>Une <strong>lettre</strong> : majuscule (<code>"A"</code>, <code>"B"</code>, ??,??) ou minuscule
-            (<code>"a"</code>, <code>"b"</code>, ??,??)</li>
-          <li>Un <strong>chiffre</strong> : <code>"0"</code>, <code>"1"</code>, <code>"2"</code>, ??,??,
+          <li>Une <strong>lettre</strong> : majuscule (<code>"A"</code>, <code>"B"</code>, ...) ou minuscule
+            (<code>"a"</code>, <code>"b"</code>, ...)</li>
+          <li>Un <strong>chiffre</strong> : <code>"0"</code>, <code>"1"</code>, <code>"2"</code>, ...,
             <code>"9"</code>
           </li>
           <li>Un <strong>symbole</strong> : <code>"!"</code>, <code>"\""</code>, <code>"#"</code>, <code>"$"</code>,
-            <code>"%"</code>, ??,??
+            <code>"%"</code>, ...
           </li>
         </ul>
 
@@ -612,14 +701,8 @@
               <tr>
                 <td><code>chr(code)</code></td>
                 <td><code>chr(code)</code></td>
-                <td>Retourne le caractère ASCII équivalent é code.</td>
+                <td>Retourne le caractère ASCII équivalent au code.</td>
                 <td><code>chr(65) &rarr; "A"</code></td>
-              </tr>
-              <tr>
-                <td><code>majus(car)</code></td>
-                <td><code>car.upper()</code></td>
-                <td>Convertit une lettre car en majuscules.</td>
-                <td><code>majus("b") &rarr; "B"</code></td>
               </tr>
             </tbody>
           </table>
@@ -687,8 +770,8 @@
               <tr>
                 <td><code>Pos(ch1, ch2)</code></td>
                 <td><code>ch2.find(ch1)</code></td>
-                <td>Retourne la 1ére occurrence de ch1 dans ch2.</td>
-                <td><code>Pos("25", "BAC26") &rarr; 3</code><br><code>Pos("Hi", "BAC26") &rarr; -1</code></td>
+                <td>Retourne la position (indice) de la 1ère occurrence de ch1 dans ch2 (-1 si non trouvée).</td>
+                <td><code>Pos("26", "BAC26") &rarr; 3</code><br><code>Pos("Hi", "BAC26") &rarr; -1</code></td>
               </tr>
               <tr>
                 <td><code>ConvCh(x)</code></td>
@@ -704,8 +787,8 @@
               </tr>
               <tr>
                 <td><code>EstNum(ch)</code></td>
-                <td><code>Ch.isdecimal()</code></td>
-                <td>Vérifie si la Chaîne ch est Compléterosée uniquement de chiffres.</td>
+                <td><code>ch.isdecimal()</code></td>
+                <td>Vérifie si la Chaîne ch est composée uniquement de chiffres.</td>
                 <td><code>EstNum("10") &rarr; Vrai</code><br><code>EstNum("2k") &rarr; Faux</code></td>
               </tr>
               <tr>
@@ -939,7 +1022,7 @@
               </tr>
 
               <!-- Row 5: Python given -->
-              <tr data-algo="a ← 3 ; b &larr; 6&#10;x &larr; (a> b) * a + (a &larr; b) * b" data-res="6"
+              <tr data-algo="a ← 3 ; b ← 6&#10;x ← (a > b) * a + (a ≤ b) * b" data-res="6"
                 data-type="int">
                 <td class="text-start small text-muted">5</td>
                 <td><input type="text" class="form-control form-control-sm font-monospace text-center ex2-algo"
@@ -1990,15 +2073,15 @@
                 <td class="ex6-status"></td>
               </tr>
               <!-- Row 8 -->
-              <tr data-algo="I ← Pos(&quot;go&quot;, ch1) ; J ← Pos(&quot;me&quot;, ch1)" data-res="I = -1, J = 11"
+              <tr data-algo="I ← Pos(&quot;go&quot;, ch1) ; J ← Pos(&quot;que&quot;, ch1)" data-res="I = 2, J = 10"
                 data-type="int">
                 <td class="text-start small text-muted">8</td>
                 <td><input type="text" class="form-control form-control-sm font-monospace text-center ex6-algo"
                     placeholder="Algorithme..."></td>
                 <td class="bg-light fw-semibold font-monospace text-primary text-start px-2 small">I =
-                  ch1.find("go")<br>J = ch1.find("me")</td>
+                  ch1.find("go")<br>J = ch1.find("que")</td>
                 <td><input type="text" class="form-control form-control-sm font-monospace text-center ex6-res"
-                    placeholder="I=-1, J=11"></td>
+                    placeholder="I=2, J=10"></td>
                 <td>
                   <select class="form-select form-select-sm text-center ex6-type">
                     <option value="">-- type --</option>
@@ -2031,7 +2114,7 @@
                 <td class="ex6-status"></td>
               </tr>
               <!-- Row 10 -->
-              <tr data-py="L = ch1[:I+2] + str(K) + ch1[J:]" data-res="A2025me" data-type="str">
+              <tr data-py="L = ch1[:I+2] + str(K) + ch1[J:]" data-res="Algo2025que" data-type="str">
                 <td class="text-start small text-muted">10</td>
                 <td class="bg-light fw-semibold font-monospace text-primary text-start px-2 small">L &larr; Effacer(ch1,
                   I+2, Long(ch1)) + ConvCh(K) + Effacer(ch1, 0, J)</td>
@@ -2078,7 +2161,7 @@
                 <select id="ex7-sim-fn" class="form-select font-monospace fw-bold bg-light text-dark">
                   <option value="ent">1. Ent(x) — Partie entière</option>
                   <option value="arrondi" selected>2. Arrondi(x) — Arrondi entier proche</option>
-                  <option value="sous_chaine">3. sous_chaine(ch, pos, len) — Extraction</option>
+                  <option value="sous_chaine">3. sous_chaine(ch, d, f) — Extraction [d:f]</option>
                   <option value="estnum">4. EstNum(ch) — Test uniquement chiffres</option>
                   <option value="pos">5. Pos(motif, texte) — Position occurrence</option>
                 </select>
@@ -2155,9 +2238,9 @@
 
           <!-- Question 3 -->
           <div class="qcm-question mb-4 pb-3 border-bottom" data-answer="a,c"
-            data-explanation="sous_chaine('informatique', 2, 3) extrait 'for' et le résultat est de type chaîne de caractères.">
+            data-explanation="sous_chaine('informatique', 2, 5) extrait 'for' (de l'indice 2 à 5 exclu, soit indices 2, 3, 4) et le résultat est de type chaîne de caractères.">
             <h5 class="fw-bold text-dark">3. Soit l'instruction :
-              <code>C &larr; sous_chaine("informatique", 2, 3)</code> :
+              <code>C &larr; sous_chaine("informatique", 2, 5)</code> :
             </h5>
             <div class="form-check my-1">
               <input class="form-check-input" type="checkbox" value="a" id="c7q3a">
@@ -2175,8 +2258,7 @@
             <details class="mt-2">
               <summary class="btn btn-sm btn-outline-info py-0 px-2 fw-semibold">💡 Afficher l'indication</summary>
               <div class="alert alert-info py-2 px-3 mt-2 mb-0 border-start border-info border-3 small">
-                <strong>Indication :</strong> <code>sous_chaine("informatique", 2, 3)</code> extrait la sous-chaîne de
-                longueur 3 à partir de la position 2, ce qui donne <code>"for"</code>. Le résultat d'une fonction
+                <strong>Indication :</strong> <code>sous_chaine("informatique", 2, 5)</code> extrait les caractères de l'indice 2 à 5 (exclu), ce qui correspond aux positions 2 ('f'), 3 ('o') et 4 ('r') &rarr; <code>"for"</code>. Le résultat d'une fonction
                 <code>sous_chaine</code> est toujours une chaîne de caractères (string).
               </div>
             </details>
@@ -2600,7 +2682,7 @@
                     placeholder="?"></td>
                 <td class="ex13-status"></td>
               </tr>
-              <tr data-type="Chaîne" data-res='"gramme "'>
+              <tr data-type="Chaîne" data-res='"gramme"'>
                 <td class="fw-semibold font-monospace text-start">c &larr; sous_chaine(ch, 3, 9)</td>
                 <td><input type="text" class="form-control form-control-sm text-center ex13-type" placeholder="type">
                 </td>
@@ -2608,7 +2690,7 @@
                     placeholder="?"></td>
                 <td class="ex13-status"></td>
               </tr>
-              <tr data-type="Chaîne" data-res='"pro2025"'>
+              <tr data-type="Chaîne" data-res='"pro 2025"'>
                 <td class="fw-semibold font-monospace text-start">d &larr; effacer(ch, 3, 9)</td>
                 <td><input type="text" class="form-control form-control-sm text-center ex13-type" placeholder="type">
                 </td>
@@ -2642,7 +2724,7 @@
                 <td class="ex13-status"></td>
               </tr>
               <tr data-type="Entier" data-res="5202">
-                <td class="fw-semibold font-monospace text-start">i &larr; valeur(ch[13] + sous_chaine(ch, 10, 12))</td>
+                <td class="fw-semibold font-monospace text-start">i &larr; valeur(ch[13] + sous_chaine(ch, 10, 13))</td>
                 <td><input type="text" class="form-control form-control-sm text-center ex13-type" placeholder="type">
                 </td>
                 <td><input type="text" class="form-control form-control-sm font-monospace text-center ex13-res"
@@ -2744,7 +2826,7 @@ Début
     nom &larr; sous_chaine(ch, p + 1, long(ch))
     
     p1 &larr; majus(sous_chaine(prenom, 0, 3)) + convch(long(prenom))
-    p2 &larr; majus(sous_chaine(nom, long(nom) - 3, 3)) + convch(long(nom))
+    p2 &larr; majus(sous_chaine(nom, long(nom) - 3, long(nom))) + convch(long(nom))
     p3 &larr; convch(alea(10, 99))
     
     pseudo &larr; p1 + "_" + p2 + "_" + p3

@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 95" width="100%" height="100%">
+  <!-- ANSI Symbol (Américain) -->
+  <g>
+    <text x="70" y="14" text-anchor="middle" fill="#94a3b8" font-size="10" font-family="sans-serif" font-weight="bold">ANSI (USA)</text>
+    <!-- Input wires & labels -->
+    <line x1="15" y1="38" x2="45" y2="38" stroke="#38bdf8" stroke-width="2"/>
+    <circle cx="15" cy="38" r="2.5" fill="#38bdf8"/>
+    <text x="12" y="42" text-anchor="end" fill="#38bdf8" font-size="12" font-family="monospace" font-weight="bold">x</text>
+
+    <line x1="15" y1="68" x2="45" y2="68" stroke="#fbbf24" stroke-width="2"/>
+    <circle cx="15" cy="68" r="2.5" fill="#fbbf24"/>
+    <text x="12" y="72" text-anchor="end" fill="#fbbf24" font-size="12" font-family="monospace" font-weight="bold">y</text>
+
+    <!-- D-gate -->
+    <path d="M 45 26 L 68 26 C 92 26, 92 80, 68 80 L 45 80 Z" fill="#16a34a" fill-opacity="0.25" stroke="#22c55e" stroke-width="2"/>
+    <text x="62" y="57" text-anchor="middle" fill="#ffffff" font-size="11" font-family="sans-serif" font-weight="bold">ET</text>
+
+    <!-- Output wire & label -->
+    <line x1="88" y1="53" x2="128" y2="53" stroke="#22c55e" stroke-width="2"/>
+    <circle cx="128" cy="53" r="2.5" fill="#22c55e"/>
+    <text x="132" y="57" text-anchor="start" fill="#22c55e" font-size="12" font-family="monospace" font-weight="bold">S=x&#8226;y</text>
+  </g>
+
+  <!-- Separator -->
+  <line x1="150" y1="10" x2="150" y2="88" stroke="#475569" stroke-width="1" stroke-dasharray="3,3"/>
+
+  <!-- CEI Symbol (Européen) -->
+  <g>
+    <text x="225" y="14" text-anchor="middle" fill="#94a3b8" font-size="10" font-family="sans-serif" font-weight="bold">CEI (Europe)</text>
+    <!-- Input wires & labels -->
+    <line x1="170" y1="38" x2="198" y2="38" stroke="#38bdf8" stroke-width="2"/>
+    <circle cx="170" cy="38" r="2.5" fill="#38bdf8"/>
+    <text x="167" y="42" text-anchor="end" fill="#38bdf8" font-size="12" font-family="monospace" font-weight="bold">x</text>
+
+    <line x1="170" y1="68" x2="198" y2="68" stroke="#fbbf24" stroke-width="2"/>
+    <circle cx="170" cy="68" r="2.5" fill="#fbbf24"/>
+    <text x="167" y="72" text-anchor="end" fill="#fbbf24" font-size="12" font-family="monospace" font-weight="bold">y</text>
+
+    <!-- Box -->
+    <rect x="198" y="26" width="40" height="54" rx="3" fill="#16a34a" fill-opacity="0.25" stroke="#22c55e" stroke-width="2"/>
+    <text x="218" y="59" text-anchor="middle" fill="#ffffff" font-size="18" font-family="sans-serif" font-weight="bold">&amp;</text>
+
+    <!-- Output wire & label -->
+    <line x1="238" y1="53" x2="278" y2="53" stroke="#22c55e" stroke-width="2"/>
+    <circle cx="278" cy="53" r="2.5" fill="#22c55e"/>
+    <text x="282" y="57" text-anchor="start" fill="#22c55e" font-size="12" font-family="monospace" font-weight="bold">S=x&#8226;y</text>
+  </g>
+</svg>

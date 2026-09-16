@@ -12,106 +12,265 @@ document.addEventListener('DOMContentLoaded', () => {
   // -------------------------------------------------------------
   // Module 3 Handlers
   // -------------------------------------------------------------
-  let stateLogicX = false;
-  let stateLogicY = false;
+  // -------------------------------------------------------------
+  // Module 3 Handlers - Simulation Interactive Indépendante
+  // -------------------------------------------------------------
+  const simState = {
+    non: { x: 0 },
+    et:  { x: 0, y: 0 },
+    ou:  { x: 0, y: 0 }
+  };
 
-  const updateLogicSim = () => {
-    const sX = !!stateLogicX;
-    const sY = !!stateLogicY;
+  const wireColor = (val) => (val ? '#22c55e' : '#64748b');
+  const wireWidth = (val) => (val ? '2.5' : '1.5');
+  const nodeFill = (val) => (val ? '#22c55e' : '#334155');
+  const nodeText = (val) => (val ? '#ffffff' : '#94a3b8');
 
-    const btnX = getEl('btn-toggle-x');
-    const imgX = getEl('img-sw-x');
-    const lblX = getEl('lbl-sw-x');
+  // Mise à jour isolée du circuit NON
+  const updateNonCircuit = () => {
+    const sX = simState.non.x ? 1 : 0;
+    const resNon = sX ? 0 : 1;
 
-    const btnY = getEl('btn-toggle-y');
-    const imgY = getEl('img-sw-y');
-    const lblY = getEl('lbl-sw-y');
+    const imgLed = getEl('sim-led-non');
+    const status = getEl('status-non');
+    const valX = getEl('val-x-non');
+    const resEl = getEl('res-non');
+    const btnValX = getEl('btn-val-non-x');
 
-    if (btnX && imgX && lblX) {
-      if (sX) {
-        btnX.className = 'btn btn-success fw-bold d-inline-flex align-items-center gap-2 px-3 py-2 shadow-sm';
-        imgX.src = 'images/module03/interrupteur_ferme.svg';
-        lblX.textContent = 'Fermé (Vrai / 1)';
-      } else {
-        btnX.className = 'btn btn-outline-danger fw-bold d-inline-flex align-items-center gap-2 px-3 py-2 shadow-sm';
-        imgX.src = 'images/module03/interrupteur_ouvert.svg';
-        lblX.textContent = 'Ouvert (Faux / 0)';
+    if (imgLed && status) {
+      imgLed.src = resNon ? 'images/module03/diode_allumee.svg' : 'images/module03/diode_eteinte.svg';
+      status.className = resNon ? 'alert alert-success py-2 mb-0 fw-bold small' : 'alert alert-secondary py-2 mb-0 fw-bold small text-muted';
+      status.textContent = resNon ? '💡 Diode ALLUMÉE (Vrai)' : '⚫ Diode ÉTEINTE (Faux)';
+      if (valX) valX.textContent = sX ? 'True' : 'False';
+      if (resEl) {
+        resEl.textContent = resNon ? 'True' : 'False';
+        resEl.className = resNon ? 'text-success fw-bold' : 'text-danger fw-bold';
       }
     }
 
-    if (btnY && imgY && lblY) {
-      if (sY) {
-        btnY.className = 'btn btn-success fw-bold d-inline-flex align-items-center gap-2 px-3 py-2 shadow-sm';
-        imgY.src = 'images/module03/interrupteur_ferme.svg';
-        lblY.textContent = 'Fermé (Vrai / 1)';
-      } else {
-        btnY.className = 'btn btn-outline-danger fw-bold d-inline-flex align-items-center gap-2 px-3 py-2 shadow-sm';
-        imgY.src = 'images/module03/interrupteur_ouvert.svg';
-        lblY.textContent = 'Ouvert (Faux / 0)';
+    if (btnValX) {
+      btnValX.textContent = sX;
+      const parentBtn = btnValX.closest('.gate-toggle-btn');
+      if (parentBtn) {
+        parentBtn.className = `btn btn-sm ${sX ? 'btn-danger text-white' : 'btn-outline-danger'} gate-toggle-btn fw-bold px-2 py-1`;
       }
     }
 
-    const resNon = !sX;
-    const imgLedNon = getEl('sim-led-non');
-    const statusNon = getEl('status-non');
-    const valXNon = getEl('val-x-non');
-    const resNonEl = getEl('res-non');
+    const simGateNon = getEl('sim-gate-non');
+    if (simGateNon) {
+      simGateNon.innerHTML = `
+        <svg viewBox="0 0 230 70" class="gate-sim-svg">
+          <!-- Entrée interactive x -->
+          <g class="gate-input-interactive" data-gate="non" data-input="x" role="button" tabindex="0">
+            <title>Entrée x : cliquer pour basculer (${sX} ➔ ${sX ? 0 : 1})</title>
+            <rect x="5" y="12" width="40" height="46" rx="6" fill="transparent" class="gate-hit-area"/>
+            <circle cx="25" cy="35" r="14" fill="${nodeFill(sX)}" stroke="${wireColor(sX)}" stroke-width="2" class="gate-node-circle"/>
+            <text x="25" y="40" text-anchor="middle" fill="${nodeText(sX)}" font-size="13" font-family="monospace" font-weight="bold">${sX}</text>
+            <text x="25" y="14" text-anchor="middle" fill="#38bdf8" font-size="11" font-family="monospace" font-weight="bold">x</text>
+          </g>
+          <line x1="39" y1="35" x2="80" y2="35" stroke="${wireColor(sX)}" stroke-width="${wireWidth(sX)}"/>
 
-    if (imgLedNon && statusNon) {
-      imgLedNon.src = resNon ? 'images/module03/diode_allumee.svg' : 'images/module03/diode_eteinte.svg';
-      statusNon.className = resNon ? 'alert alert-success py-2 mb-0 fw-bold small' : 'alert alert-secondary py-2 mb-0 fw-bold small text-muted';
-      statusNon.textContent = resNon ? '💡 Diode ALLUMÉE (Vrai)' : '⚫ Diode ÉTEINTE (Faux)';
-      if (valXNon) valXNon.textContent = sX ? 'True' : 'False';
-      if (resNonEl) {
-        resNonEl.textContent = resNon ? 'True' : 'False';
-        resNonEl.className = resNon ? 'text-success fw-bold' : 'text-danger fw-bold';
-      }
-    }
+          <!-- Symbole NON -->
+          <polygon points="80,18 125,35 80,52" fill="${resNon ? '#dc2626' : '#1e293b'}" fill-opacity="${resNon ? '0.45' : '0.2'}" stroke="${resNon ? '#ef4444' : '#64748b'}" stroke-width="2"/>
+          <circle cx="131" cy="35" r="5" fill="#ffffff" stroke="${resNon ? '#ef4444' : '#64748b'}" stroke-width="2"/>
+          <text x="96" y="38" text-anchor="middle" fill="#ffffff" font-size="10" font-family="sans-serif" font-weight="bold">NON</text>
 
-    const resEt = sX && sY;
-    const imgLedEt = getEl('sim-led-et');
-    const statusEt = getEl('status-et');
-    const valXEt = getEl('val-x-et');
-    const valYEt = getEl('val-y-et');
-    const resEtEl = getEl('res-et');
-
-    if (imgLedEt && statusEt) {
-      imgLedEt.src = resEt ? 'images/module03/diode_allumee.svg' : 'images/module03/diode_eteinte.svg';
-      statusEt.className = resEt ? 'alert alert-success py-2 mb-0 fw-bold small' : 'alert alert-secondary py-2 mb-0 fw-bold small text-muted';
-      statusEt.textContent = resEt ? '💡 Diode ALLUMÉE (Vrai)' : '⚫ Diode ÉTEINTE (Faux)';
-      if (valXEt) valXEt.textContent = sX ? 'True' : 'False';
-      if (valYEt) valYEt.textContent = sY ? 'True' : 'False';
-      if (resEtEl) {
-        resEtEl.textContent = resEt ? 'True' : 'False';
-        resEtEl.className = resEt ? 'text-success fw-bold' : 'text-danger fw-bold';
-      }
-    }
-
-    const resOu = sX || sY;
-    const imgLedOu = getEl('sim-led-ou');
-    const statusOu = getEl('status-ou');
-    const valXOu = getEl('val-x-ou');
-    const valYOu = getEl('val-y-ou');
-    const resOuEl = getEl('res-ou');
-
-    if (imgLedOu && statusOu) {
-      imgLedOu.src = resOu ? 'images/module03/diode_allumee.svg' : 'images/module03/diode_eteinte.svg';
-      statusOu.className = resOu ? 'alert alert-success py-2 mb-0 fw-bold small' : 'alert alert-secondary py-2 mb-0 fw-bold small text-muted';
-      statusOu.textContent = resOu ? '💡 Diode ALLUMÉE (Vrai)' : '⚫ Diode ÉTEINTE (Faux)';
-      if (valXOu) valXOu.textContent = sX ? 'True' : 'False';
-      if (valYOu) valYOu.textContent = sY ? 'True' : 'False';
-      if (resOuEl) {
-        resOuEl.textContent = resOu ? 'True' : 'False';
-        resOuEl.className = resOu ? 'text-success fw-bold' : 'text-danger fw-bold';
-      }
+          <!-- Ligne sortie S -->
+          <line x1="136" y1="35" x2="185" y2="35" stroke="${wireColor(resNon)}" stroke-width="${wireWidth(resNon)}"/>
+          <circle cx="195" cy="35" r="13" fill="${nodeFill(resNon)}" stroke="${wireColor(resNon)}" stroke-width="2"/>
+          <text x="195" y="40" text-anchor="middle" fill="${nodeText(resNon)}" font-size="12" font-family="monospace" font-weight="bold">${resNon}</text>
+          <text x="195" y="14" text-anchor="middle" fill="#ef4444" font-size="11" font-family="monospace" font-weight="bold">S=x̄</text>
+        </svg>
+      `;
     }
   };
 
+  // Mise à jour isolée du circuit ET
+  const updateEtCircuit = () => {
+    const sX = simState.et.x ? 1 : 0;
+    const sY = simState.et.y ? 1 : 0;
+    const resEt = (sX && sY) ? 1 : 0;
+
+    const imgLed = getEl('sim-led-et');
+    const status = getEl('status-et');
+    const valX = getEl('val-x-et');
+    const valY = getEl('val-y-et');
+    const resEl = getEl('res-et');
+    const btnValX = getEl('btn-val-et-x');
+    const btnValY = getEl('btn-val-et-y');
+
+    if (imgLed && status) {
+      imgLed.src = resEt ? 'images/module03/diode_allumee.svg' : 'images/module03/diode_eteinte.svg';
+      status.className = resEt ? 'alert alert-success py-2 mb-0 fw-bold small' : 'alert alert-secondary py-2 mb-0 fw-bold small text-muted';
+      status.textContent = resEt ? '💡 Diode ALLUMÉE (Vrai)' : '⚫ Diode ÉTEINTE (Faux)';
+      if (valX) valX.textContent = sX ? 'True' : 'False';
+      if (valY) valY.textContent = sY ? 'True' : 'False';
+      if (resEl) {
+        resEl.textContent = resEt ? 'True' : 'False';
+        resEl.className = resEt ? 'text-success fw-bold' : 'text-danger fw-bold';
+      }
+    }
+
+    if (btnValX) {
+      btnValX.textContent = sX;
+      const parentBtn = btnValX.closest('.gate-toggle-btn');
+      if (parentBtn) {
+        parentBtn.className = `btn btn-sm ${sX ? 'btn-success text-white' : 'btn-outline-success'} gate-toggle-btn fw-bold px-2 py-1`;
+      }
+    }
+    if (btnValY) {
+      btnValY.textContent = sY;
+      const parentBtn = btnValY.closest('.gate-toggle-btn');
+      if (parentBtn) {
+        parentBtn.className = `btn btn-sm ${sY ? 'btn-warning text-dark' : 'btn-outline-warning'} gate-toggle-btn fw-bold px-2 py-1`;
+      }
+    }
+
+    const simGateEt = getEl('sim-gate-et');
+    if (simGateEt) {
+      simGateEt.innerHTML = `
+        <svg viewBox="0 0 230 80" class="gate-sim-svg">
+          <!-- Entrée interactive x -->
+          <g class="gate-input-interactive" data-gate="et" data-input="x" role="button" tabindex="0">
+            <title>Entrée x : cliquer pour basculer (${sX} ➔ ${sX ? 0 : 1})</title>
+            <rect x="4" y="6" width="40" height="34" rx="6" fill="transparent" class="gate-hit-area"/>
+            <circle cx="24" cy="24" r="13" fill="${nodeFill(sX)}" stroke="${wireColor(sX)}" stroke-width="2" class="gate-node-circle"/>
+            <text x="24" y="29" text-anchor="middle" fill="${nodeText(sX)}" font-size="12" font-family="monospace" font-weight="bold">${sX}</text>
+            <text x="24" y="8" text-anchor="middle" fill="#38bdf8" font-size="10" font-family="monospace" font-weight="bold">x</text>
+          </g>
+          <line x1="37" y1="24" x2="80" y2="24" stroke="${wireColor(sX)}" stroke-width="${wireWidth(sX)}"/>
+
+          <!-- Entrée interactive y -->
+          <g class="gate-input-interactive" data-gate="et" data-input="y" role="button" tabindex="0">
+            <title>Entrée y : cliquer pour basculer (${sY} ➔ ${sY ? 0 : 1})</title>
+            <rect x="4" y="42" width="40" height="34" rx="6" fill="transparent" class="gate-hit-area"/>
+            <circle cx="24" cy="58" r="13" fill="${nodeFill(sY)}" stroke="${wireColor(sY)}" stroke-width="2" class="gate-node-circle"/>
+            <text x="24" y="63" text-anchor="middle" fill="${nodeText(sY)}" font-size="12" font-family="monospace" font-weight="bold">${sY}</text>
+            <text x="24" y="78" text-anchor="middle" fill="#fbbf24" font-size="10" font-family="monospace" font-weight="bold">y</text>
+          </g>
+          <line x1="37" y1="58" x2="80" y2="58" stroke="${wireColor(sY)}" stroke-width="${wireWidth(sY)}"/>
+
+          <!-- Symbole ET -->
+          <path d="M 80 14 L 102 14 C 124 14, 124 68, 102 68 L 80 68 Z" fill="${resEt ? '#16a34a' : '#1e293b'}" fill-opacity="${resEt ? '0.45' : '0.2'}" stroke="${resEt ? '#22c55e' : '#64748b'}" stroke-width="2"/>
+          <text x="96" y="45" text-anchor="middle" fill="#ffffff" font-size="11" font-family="sans-serif" font-weight="bold">ET</text>
+
+          <!-- Sortie S -->
+          <line x1="120" y1="41" x2="185" y2="41" stroke="${wireColor(resEt)}" stroke-width="${wireWidth(resEt)}"/>
+          <circle cx="195" cy="41" r="13" fill="${nodeFill(resEt)}" stroke="${wireColor(resEt)}" stroke-width="2"/>
+          <text x="195" y="46" text-anchor="middle" fill="${nodeText(resEt)}" font-size="12" font-family="monospace" font-weight="bold">${resEt}</text>
+          <text x="195" y="21" text-anchor="middle" fill="#22c55e" font-size="10" font-family="monospace" font-weight="bold">S=x•y</text>
+        </svg>
+      `;
+    }
+  };
+
+  // Mise à jour isolée du circuit OU
+  const updateOuCircuit = () => {
+    const sX = simState.ou.x ? 1 : 0;
+    const sY = simState.ou.y ? 1 : 0;
+    const resOu = (sX || sY) ? 1 : 0;
+
+    const imgLed = getEl('sim-led-ou');
+    const status = getEl('status-ou');
+    const valX = getEl('val-x-ou');
+    const valY = getEl('val-y-ou');
+    const resEl = getEl('res-ou');
+    const btnValX = getEl('btn-val-ou-x');
+    const btnValY = getEl('btn-val-ou-y');
+
+    if (imgLed && status) {
+      imgLed.src = resOu ? 'images/module03/diode_allumee.svg' : 'images/module03/diode_eteinte.svg';
+      status.className = resOu ? 'alert alert-success py-2 mb-0 fw-bold small' : 'alert alert-secondary py-2 mb-0 fw-bold small text-muted';
+      status.textContent = resOu ? '💡 Diode ALLUMÉE (Vrai)' : '⚫ Diode ÉTEINTE (Faux)';
+      if (valX) valX.textContent = sX ? 'True' : 'False';
+      if (valY) valY.textContent = sY ? 'True' : 'False';
+      if (resEl) {
+        resEl.textContent = resOu ? 'True' : 'False';
+        resEl.className = resOu ? 'text-success fw-bold' : 'text-danger fw-bold';
+      }
+    }
+
+    if (btnValX) {
+      btnValX.textContent = sX;
+      const parentBtn = btnValX.closest('.gate-toggle-btn');
+      if (parentBtn) {
+        parentBtn.className = `btn btn-sm ${sX ? 'btn-info text-dark' : 'btn-outline-info'} gate-toggle-btn fw-bold px-2 py-1`;
+      }
+    }
+    if (btnValY) {
+      btnValY.textContent = sY;
+      const parentBtn = btnValY.closest('.gate-toggle-btn');
+      if (parentBtn) {
+        parentBtn.className = `btn btn-sm ${sY ? 'btn-warning text-dark' : 'btn-outline-warning'} gate-toggle-btn fw-bold px-2 py-1`;
+      }
+    }
+
+    const simGateOu = getEl('sim-gate-ou');
+    if (simGateOu) {
+      simGateOu.innerHTML = `
+        <svg viewBox="0 0 230 80" class="gate-sim-svg">
+          <!-- Entrée interactive x -->
+          <g class="gate-input-interactive" data-gate="ou" data-input="x" role="button" tabindex="0">
+            <title>Entrée x : cliquer pour basculer (${sX} ➔ ${sX ? 0 : 1})</title>
+            <rect x="4" y="6" width="40" height="34" rx="6" fill="transparent" class="gate-hit-area"/>
+            <circle cx="24" cy="24" r="13" fill="${nodeFill(sX)}" stroke="${wireColor(sX)}" stroke-width="2" class="gate-node-circle"/>
+            <text x="24" y="29" text-anchor="middle" fill="${nodeText(sX)}" font-size="12" font-family="monospace" font-weight="bold">${sX}</text>
+            <text x="24" y="8" text-anchor="middle" fill="#38bdf8" font-size="10" font-family="monospace" font-weight="bold">x</text>
+          </g>
+          <line x1="37" y1="24" x2="78" y2="24" stroke="${wireColor(sX)}" stroke-width="${wireWidth(sX)}"/>
+
+          <!-- Entrée interactive y -->
+          <g class="gate-input-interactive" data-gate="ou" data-input="y" role="button" tabindex="0">
+            <title>Entrée y : cliquer pour basculer (${sY} ➔ ${sY ? 0 : 1})</title>
+            <rect x="4" y="42" width="40" height="34" rx="6" fill="transparent" class="gate-hit-area"/>
+            <circle cx="24" cy="58" r="13" fill="${nodeFill(sY)}" stroke="${wireColor(sY)}" stroke-width="2" class="gate-node-circle"/>
+            <text x="24" y="63" text-anchor="middle" fill="${nodeText(sY)}" font-size="12" font-family="monospace" font-weight="bold">${sY}</text>
+            <text x="24" y="78" text-anchor="middle" fill="#fbbf24" font-size="10" font-family="monospace" font-weight="bold">y</text>
+          </g>
+          <line x1="37" y1="58" x2="78" y2="58" stroke="${wireColor(sY)}" stroke-width="${wireWidth(sY)}"/>
+
+          <!-- Symbole OU -->
+          <path d="M 74 14 C 86 32, 86 50, 74 68 C 96 68, 112 56, 128 41 C 112 26, 96 14, 74 14 Z" fill="${resOu ? '#0284c7' : '#1e293b'}" fill-opacity="${resOu ? '0.45' : '0.2'}" stroke="${resOu ? '#38bdf8' : '#64748b'}" stroke-width="2"/>
+          <text x="96" y="45" text-anchor="middle" fill="#ffffff" font-size="11" font-family="sans-serif" font-weight="bold">OU</text>
+
+          <!-- Sortie S -->
+          <line x1="128" y1="41" x2="185" y2="41" stroke="${wireColor(resOu)}" stroke-width="${wireWidth(resOu)}"/>
+          <circle cx="195" cy="41" r="13" fill="${nodeFill(resOu)}" stroke="${wireColor(resOu)}" stroke-width="2"/>
+          <text x="195" y="46" text-anchor="middle" fill="${nodeText(resOu)}" font-size="12" font-family="monospace" font-weight="bold">${resOu}</text>
+          <text x="195" y="21" text-anchor="middle" fill="#38bdf8" font-size="10" font-family="monospace" font-weight="bold">S=x+y</text>
+        </svg>
+      `;
+    }
+  };
+
+  const updateAllLogicCircuits = () => {
+    updateNonCircuit();
+    updateEtCircuit();
+    updateOuCircuit();
+  };
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      const activeEl = document.activeElement;
+      if (activeEl && activeEl.classList.contains('gate-input-interactive')) {
+        e.preventDefault();
+        activeEl.click();
+      }
+    }
+  });
+
   document.addEventListener('click', (e) => {
-    if (e.target.closest('#btn-toggle-x') || e.target.closest('#btn-toggle-y')) {
-      if (e.target.closest('#btn-toggle-x')) stateLogicX = !stateLogicX;
-      if (e.target.closest('#btn-toggle-y')) stateLogicY = !stateLogicY;
-      updateLogicSim();
+    const targetInteractive = e.target.closest('.gate-input-interactive, .gate-toggle-btn');
+    if (targetInteractive) {
+      const gate = targetInteractive.getAttribute('data-gate');
+      const input = targetInteractive.getAttribute('data-input');
+      if (gate && input && simState[gate] && typeof simState[gate][input] !== 'undefined') {
+        simState[gate][input] = simState[gate][input] ? 0 : 1;
+        if (gate === 'non') updateNonCircuit();
+        else if (gate === 'et') updateEtCircuit();
+        else if (gate === 'ou') updateOuCircuit();
+      }
+      return;
     }
     if (e.target.closest('#btn-eval-expr')) {
       const expr = getEl('ex2-expr')?.value || '';
@@ -151,7 +310,8 @@ document.addEventListener('DOMContentLoaded', () => {
             A = long("Algorithmique") = <strong>13</strong><br>
             B = long("Python") = <strong>6</strong><br>
             C = ConvCh(13) + ConvCh(6) = <strong>"136"</strong><br>
-            E = D - float(C) = <strong>-73.0</strong>
+            D = Valeur("6" + "13") = <strong>613</strong><br>
+            E = D - float(C) = <strong>477.0</strong>
           </div>
         `;
       }
@@ -267,8 +427,8 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   initAsciiTable();
-  if (getEl('btn-toggle-x')) {
-    updateLogicSim();
+  if (getEl('sim-gate-non')) {
+    updateAllLogicCircuits();
   }
 
   // -------------------------------------------------------------
@@ -665,7 +825,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if ((userRes.startsWith('"') && userRes.endsWith('"')) || (userRes.startsWith("'") && userRes.endsWith("'"))) {
         userRes = userRes.slice(1, -1);
       }
-      const okRes = !inpRes || isCorrectAns(userRes, expRes, expRes === 'A = 13, B = 6' ? '13, 6' : expRes, expRes === 'I = -1, J = 11' ? '-1, 11' : expRes);
+      const okRes = !inpRes || isCorrectAns(userRes, expRes, expRes === 'A = 13, B = 6' ? '13, 6' : expRes, expRes === 'I = 2, J = 10' ? '2, 10' : expRes);
       const okType = !inpType || isCorrectAns(inpType.value, expType);
 
       const allOk = okAlgo && okPy && okRes && okType;
@@ -725,12 +885,12 @@ document.addEventListener('DOMContentLoaded', () => {
               <input type="text" id="ex7-val-ch" class="form-control form-control-sm font-monospace text-center" value="informatique">
             </div>
             <div class="col-3">
-              <label class="form-label fw-bold text-info small mb-1">Départ :</label>
+              <label class="form-label fw-bold text-info small mb-1">Début (d) :</label>
               <input type="number" id="ex7-val-pos" class="form-control form-control-sm font-monospace text-center" value="2" min="0">
             </div>
             <div class="col-3">
-              <label class="form-label fw-bold text-info small mb-1">Longueur :</label>
-              <input type="number" id="ex7-val-len" class="form-control form-control-sm font-monospace text-center" value="3" min="1">
+              <label class="form-label fw-bold text-info small mb-1">Fin (f) :</label>
+              <input type="number" id="ex7-val-len" class="form-control form-control-sm font-monospace text-center" value="5" min="0">
             </div>
           </div>
         `;
@@ -798,16 +958,16 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
       } else if (fn === 'sous_chaine') {
         const ch = getEl('ex7-val-ch')?.value || 'informatique';
-        const pos = Math.max(0, parseInt(getEl('ex7-val-pos')?.value) || 0);
-        const len = Math.max(1, parseInt(getEl('ex7-val-len')?.value) || 1);
-        const sub = ch.substr(pos, len);
+        const d = Math.max(0, parseInt(getEl('ex7-val-pos')?.value) || 0);
+        const f = Math.max(d, parseInt(getEl('ex7-val-len')?.value) || 0);
+        const sub = ch.slice(d, f);
 
         let charBoxes = '';
         const charW = Math.min(32, Math.max(20, Math.floor(450 / Math.max(1, ch.length))));
         const startX = Math.round((480 - ch.length * charW) / 2);
 
         for (let i = 0; i < ch.length; i++) {
-          const isSelected = i >= pos && i < pos + len;
+          const isSelected = i >= d && i < f;
           const x = startX + i * charW;
           charBoxes += `
             <g transform="translate(${x}, 40)">
@@ -823,8 +983,8 @@ document.addEventListener('DOMContentLoaded', () => {
         svgD = `
           <svg viewBox="0 0 650 190" class="w-100" style="max-height: 200px;">
             ${charBoxes}
-            <rect x="180" y="120" width="290" height="50" rx="10" fill="#065f46" stroke="#34d399" stroke-width="2"/>
-            <text x="325" y="140" text-anchor="middle" fill="#a7f3d0" font-family="monospace" font-size="11">sous_chaine("${ch}", ${pos}, ${len}) &rarr; Type: str</text>
+            <rect x="160" y="120" width="330" height="50" rx="10" fill="#065f46" stroke="#34d399" stroke-width="2"/>
+            <text x="325" y="140" text-anchor="middle" fill="#a7f3d0" font-family="monospace" font-size="11">sous_chaine("${ch}", ${d}, ${f}) &harr; ch[${d}:${f}] &rarr; Type: str</text>
             <text x="325" y="160" text-anchor="middle" fill="#ffffff" font-family="monospace" font-size="18" font-weight="bold">"${sub}"</text>
           </svg>
         `;
@@ -1486,8 +1646,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const ex13RowHighlights = {
     0: { highlight: [] },
     1: { highlight: [0, 3, 5, 8] },
-    2: { highlight: [3, 4, 5, 6, 7, 8, 9] },
-    3: { delete: [3, 4, 5, 6, 7, 8, 9] },
+    2: { highlight: [3, 4, 5, 6, 7, 8] },
+    3: { delete: [3, 4, 5, 6, 7, 8] },
     4: { highlight: [] },
     5: { highlight: [] },
     6: { highlight: [] },

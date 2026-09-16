@@ -526,7 +526,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <hr class="my-2">
         <div class="font-monospace small text-muted">
           <div><strong>1. Justification :</strong> ${justification}</div>
-          <div><strong>2. Test booleen :</strong> (${y} mod 4 = 0 et ${y} mod 100 ≠ 0) ou (${y} mod 400 = 0) &rarr; <strong>${isLeap ? 'VRAI' : 'FAUX'}</strong></div>
+          <div><strong>2. Test booléen :</strong> (${y} mod 4 = 0 et ${y} mod 100 ≠ 0) ou (${y} mod 400 = 0) &rarr; <strong>${isLeap ? 'VRAI' : 'FAUX'}</strong></div>
         </div>
       `;
     }
@@ -778,7 +778,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (isNaN(a) || isNaN(b) || isNaN(c) || a <= 0 || b <= 0 || c <= 0) {
         out.className = 'alert alert-warning shadow-sm';
-        out.innerHTML = `⚠️ Veuillez saisir des longueurs strictly positives pour a, b et c.`;
+        out.innerHTML = `⚠️ Veuillez saisir des longueurs strictement positives pour a, b et c.`;
         return;
       }
 
@@ -919,7 +919,7 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
         <hr class="my-2">
         <div class="font-monospace small text-muted">
-          <div>&bull; Discriminant calcule : <code>Δ = (${b})² - 4*(${a})*(${c}) = ${delta}</code></div>
+          <div>&bull; Discriminant calculé : <code>Δ = (${b})² - 4*(${a})*(${c}) = ${delta}</code></div>
           <div>&bull; Branche conditionnelle : <code>${condText}</code></div>
           <div>&bull; Ensemble des solutions : <strong>${resText}</strong></div>
         </div>
