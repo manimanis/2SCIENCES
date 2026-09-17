@@ -1,6 +1,6 @@
 # 📝 Fiche Pédagogique – Séance 05
 ## Module 03 : Les structures de données
-### Thème : Types Numériques (`int`, `float`), Division Euclidienne (`div` / `//`, `mod` / `%) & Bibliothèque Mathématique
+### Thème : Le Type Booléen, Opérateurs Logiques, Tables de Vérité, Portes Logiques & Priorités
 
 ---
 
@@ -10,133 +10,138 @@
 | :--- | :--- |
 | **Matière** | Informatique |
 | **Niveau & Section** | 2ème Année Secondaire – Section Sciences |
-| **Durée prévisionnelle** | 1 séance (1h à 1h30) |
+| **Durée prévisionnelle** | 1 séance (1 heure) |
 | **Cadre de référence** | Programme officiel du Ministère de l'Éducation (Tunisie) |
 | **Enseignant** | Mohamed Anis MANI |
-| **Supports & Outils** | Ordinateurs, page web `module03.html`, Playground Python (`playground.html`), tableau |
-| **Prérequis** | Affectation, variables, E/S (Module 02) |
+| **Supports & Outils** | Ordinateurs, page web `module03.html` (simulateur portes logiques), Playground Python, tableau |
+| **Prérequis** | Notions de base sur les expressions numériques (Séance 05) |
 
 ---
 
 ## 🎯 2. Compétences & Objectifs Opérationnels
 
 ### Compétences visées :
-* **Compétence arithmétique** : Exploiter la division euclidienne et les fonctions arithmétiques pour résoudre des problèmes de décomposition numérique.
-* **Compétence syntaxique** : Utiliser sans ambiguïté les opérateurs `//`, `%`, `/`, `**` et importer le module `math`.
+* **Compétence logique** : Modéliser des conditions décisionnelles par des expressions booléennes formelles.
+* **Compétence interdisciplinaire (Technologie / Électronique)** : Relier les opérateurs logiques aux circuits et portes électroniques de base.
 
 ### Objectifs opérationnels (À l'issue de la séance, l'élève sera capable de) :
-1. **Distinguer** la division réelle `/` de la division entière `div` (`//`) et du reste `mod` (`%`).
-2. **Évaluer manuellement** des expressions arithmétiques combinées en respectant les priorités.
-3. **Générer des nombres aléatoires** avec `random.randint()` / fonction `Aléa`.
-4. **Décomposer une durée** (secondes $\rightarrow$ heures, minutes, secondes) grâce à la division euclidienne (Exercice 10).
+1. **Manipuler** les deux valeurs scalaires du type booléen : `Vrai` (`True`) et `Faux` (`False`).
+2. **Utiliser** les opérateurs de comparaison (`==`, `!=`, `<`, `<=`, `>`, `>=`).
+3. **Construire** la table de vérité des opérateurs logiques fondamentaux : `NON` (`not`), `ET` (`and`), `OU` (`or`).
+4. **Évaluer sans erreur** une expression logique complexe en respectant la hiérarchie stricte des priorités.
+5. **Résoudre** un problème combinatoire de logistique (Exercice 12).
 
 ---
 
-## ⏱️ 3. Scénario Pédagogique & Déroulement Minuté
+## ⏱️ 3. Scénario Pédagogique & Déroulement Minuté (Séance de 60 min)
 
 ```
-┌──────────────────────────────────────────────────────────────────────────────┐
-│  00 - 15 min : Phase 1 - Découverte : La division euclidienne en informatique │
-│  15 - 35 min : Phase 2 - Cours : Opérateurs arithmétiques & module math       │
-│  35 - 55 min : Phase 3 - Exercices d'application : Ex 1, Ex 2 & Ex 4 (Aléa)   │
-│  55 - 75 min : Phase 4 - Atelier problème réel : Ex 10 (Autonomie batterie)   │
-│  75 - 80 min : Phase 5 - Synthèse, trace écrite & préparation Séance 06       │
-└──────────────────────────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────────────────────────────┐
+│  00 - 10 min : Phase 1 - Accroche : Vrai ou Faux ? La logique binaire               │
+│  10 - 25 min : Phase 2 - Cours : Opérateurs booléens (NON, ET, OU) & priorités      │
+│  25 - 42 min : Phase 3 - Simulateur interactif : Ex 11 (Circuit logique SVG)        │
+│  42 - 55 min : Phase 4 - Problème d'optimisation : Ex 12 (Citerne d'huile)          │
+│  55 - 60 min : Phase 5 - Synthèse, trace écrite & amorce des types textuels         │
+└─────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
 ## 📖 4. Contenu Didactique & Support de Cours
 
-### 1. Les Deux Types Numériques Scalaires
-* **Entier (`int`)** : Ensemble $\mathbb{Z}$ (nombres sans virgule, positifs ou négatifs : `-15`, `0`, `42`).
-* **Réel (`float`)** : Ensemble $\mathbb{R}$ (nombres à virgule flottante notée avec un point : `3.14`, `-0.5`).
+### 1. Le Type Booléen (`bool`)
+Un booléen ne peut prendre que deux valeurs exclusives : `Vrai` (`True`) ou `Faux` (`False`). Il est le résultat direct de l'évaluation d'une condition ou d'un prédicat.
 
-### 2. Le Triptyque de la Division
+### 2. Les Opérateurs de Comparaison (Relationnels)
 
-| Opération | Notation Algorithmique | Opérateur Python | Type du résultat | Exemple ($17$ et $5$) |
-| :--- | :---: | :---: | :---: | :--- |
-| **Division réelle** | `/` | `/` | Toujours `float` | `17 / 5` $\rightarrow$ `3.4` |
-| **Division entière (Quotient)** | `div` | `//` | `int` si opérandes entiers | `17 // 5` $\rightarrow$ `3` |
-| **Reste de la division (Modulo)** | `mod` | `%` | `int` si opérandes entiers | `17 % 5` $\rightarrow$ `2` |
+| Algorithme | Python | Signification | Exemple | Résultat |
+| :---: | :---: | :--- | :---: | :---: |
+| `=` | `==` | Égalité stricte | `5 == 5` | `True` |
+| `≠` | `!=` | Différent de | `5 != 3` | `True` |
+| `<` | `<` | Strictement inférieur | `4 < 2` | `False` |
+| `≤` | `<=` | Inférieur ou égal | `6 <= 6` | `True` |
+| `>` | `>` | Strictement supérieur | `8 > 3` | `True` |
+| `≥` | `>=` | Supérieur ou égal | `7 >= 10` | `False` |
 
-> [!IMPORTANT]
-> **Formule fondamentale de la division euclidienne :**
-> $$a = b \times (a \mathbin{\text{div}} b) + (a \mathbin{\text{mod}} b) \quad \text{avec} \quad 0 \le (a \mathbin{\text{mod}} b) < |b|$$
+> [!CAUTION]
+> Attention au piège classique : en Python, le test d'égalité s'écrit obligatoirement avec un **double égal** `==`. L'opérateur simple `=` est réservé à l'affectation !
 
-### 3. Fonctions Prédéfinies Utiles
-* `abs(x)` : Valeur absolue $|x|$.
-* `pow(x, y)` ou `x ** y` : Puissance $x^y$.
-* `round(x, n)` : Arrondi à $n$ décimales.
-* Module `math` : `math.sqrt(x)` (racine carrée $\sqrt{x}$), `math.floor(x)`, `math.ceil(x)`.
-* Tirage aléatoire : `alea(min, max)` en algorithme $\rightarrow$ `random.randint(min, max)` en Python.
+### 3. Les Trois Opérateurs Logiques Fondamentaux
+
+#### a) L'Opérateur NON (`not`) : L'Inverseur
+Inverse la valeur de vérité :
+* `NON(Vrai)` = `Faux`  (`not True` $\rightarrow$ `False`)
+* `NON(Faux)` = `Vrai`  (`not False` $\rightarrow$ `True`)
+
+#### b) L'Opérateur ET (`and`) : La Conjonction
+Le résultat n'est `Vrai` **que si les deux opérandes sont Vrais à la fois** :
+| $A$ | $B$ | $A \text{ ET } B$ (`A and B`) |
+| :---: | :---: | :---: |
+| Faux | Faux | **Faux** |
+| Faux | Vrai | **Faux** |
+| Vrai | Faux | **Faux** |
+| Vrai | Vrai | **Vrai** |
+
+#### c) L'Opérateur OU (`or`) : La Disjonction Inclusive
+Le résultat est `Vrai` **dès lors qu'au moins l'un des opérandes est Vrai** :
+| $A$ | $B$ | $A \text{ OU } B$ (`A or B`) |
+| :---: | :---: | :---: |
+| Faux | Faux | **Faux** |
+| Faux | Vrai | **Vrai** |
+| Vrai | Faux | **Vrai** |
+| Vrai | Vrai | **Vrai** |
+
+### 4. Hiérarchie des Priorités Opératoires
+En l'absence de parenthèses, l'évaluation suit l'ordre strict suivant :
+1. **Parenthèses** `( )` (priorité maximale).
+2. **Opérateurs arithmétiques** (`**`, puis `*`, `/`, `//`, `%`, puis `+`, `-`).
+3. **Opérateurs relationnels** (`==`, `!=`, `<`, `<=`, `>`, `>=`).
+4. **Opérateur logique `NON` (`not`)**.
+5. **Opérateur logique `ET` (`and`)**.
+6. **Opérateur logique `OU` (`or`)** (priorité minimale).
 
 ---
 
 ## 🧩 5. Fiche Activités & Corrigés Détaillés
 
-### 🔴 Exercice 1 & 2 : Évaluation d'Expressions Numériques
-Calculer le résultat des expressions suivantes :
-1. `14 // 4` $\rightarrow$ `3`
-2. `14 % 4` $\rightarrow$ `2` (car $14 = 4 \times 3 + 2$)
-3. `19 % 2` $\rightarrow$ `1` (test de parité : tout nombre impair donne 1 modulo 2)
-4. `2 ** 3 + 10 // 3` $\rightarrow$ $8 + 3 = \mathbf{11}$
-5. `round(15.678, 2)` $\rightarrow$ `15.68`
+### 🔴 Exercice 11 : Circuit Logique et Portes Logiques
+* **Schéma interactif** : Visualisation en direct d'un circuit combinatoire avec deux entrées $A, B$ et une porte AND/OR suivie d'un inverseur NOT.
+* **Expression booléenne équivalente** :
+  $$S = \text{NON}(A \text{ ET } B) \quad \text{(Porte NAND)}$$
+* **Table de vérité complète** :
+  * Si $A=0, B=0 \implies S = \text{not}(0) = \mathbf{1}$
+  * Si $A=0, B=1 \implies S = \text{not}(0) = \mathbf{1}$
+  * Si $A=1, B=0 \implies S = \text{not}(0) = \mathbf{1}$
+  * Si $A=1, B=1 \implies S = \text{not}(1) = \mathbf{0}$
 
 ---
 
-### 🟡 Exercice 4 : Fonction Aléa / Nombres Aléatoires
-* **Objectif** : Simuler le lancer d'un dé à 6 faces.
-* **Algorithme** :
-```algorithm
-Algorithme Lancer_De
-Début
-   de ← alea(1, 6)
-   Ecrire("Résultat du dé : ", de)
-Fin
-```
+### 🟡 Exercice 12 : Citerne d'Huile et Logistique de Transport
+* **Énoncé** : Un agriculteur produit $Q$ litres d'huile d'olive. Il dispose de fûts de contenance $C_1 = 50\text{ litres}$ et de bouteilles de contenance $C_2 = 5\text{ litres}$.
+* **Objectif** : Remplir le maximum de fûts de 50L, puis avec le reste remplir le maximum de bouteilles de 5L, et enfin déterminer les litres restants non conditionnés.
+* **Analyse & Traitements** :
+  1. Nombre de fûts de 50L : $N_1 \leftarrow Q \mathbin{\text{div}} 50$
+  2. Reste d'huile après les fûts : $R_1 \leftarrow Q \mathbin{\text{mod}} 50$
+  3. Nombre de bouteilles de 5L : $N_2 \leftarrow R_1 \mathbin{\text{div}} 5$
+  4. Reste final non emballé : $R_2 \leftarrow R_1 \mathbin{\text{mod}} 5$
+  5. Condition d'emballage parfait (sans perte) : $R_2 == 0$
+
 * **Traduction Python** :
 ```python
-import random
+Q = int(input("Quantité totale d'huile récoltée (en litres) : "))
 
-de = random.randint(1, 6)
-print("Résultat du dé :", de)
-```
+N1 = Q // 50
+R1 = Q % 50
 
----
+N2 = R1 // 5
+R2 = R1 % 5
 
-### 🟢 Exercice 10 : Autonomie de la Batterie (Conversion $s \rightarrow h:m:s$)
-* **Énoncé** : Une batterie offre une autonomie de $T$ secondes. Calculer le nombre d'heures $H$, minutes $M$ et secondes restantes $S$.
-* **Méthode de conversion arithmétique** :
-  1. $1\text{ heure} = 3600\text{ secondes}$. Donc : $H = T \mathbin{\text{div}} 3600$.
-  2. Reste en secondes après extraction des heures : $R = T \mathbin{\text{mod}} 3600$.
-  3. $1\text{ minute} = 60\text{ secondes}$. Donc : $M = R \mathbin{\text{div}} 60$.
-  4. Secondes restantes : $S = R \mathbin{\text{mod}} 60$.
+parfait = (R2 == 0)
 
-* **Algorithme** :
-```algorithm
-Algorithme Conversion_Duree
-Début
-   Ecrire("Donner la durée totale en secondes : ")
-   Lire(T)
-   H ← T div 3600
-   R ← T mod 3600
-   M ← R div 60
-   S ← R mod 60
-   Ecrire("Autonomie : ", H, "h ", M, "min ", S, "s")
-Fin
-```
-
-* **Script Python** :
-```python
-T = int(input("Donner la durée totale en secondes : "))
-
-H = T // 3600
-R = T % 3600
-M = R // 60
-S = R % 60
-
-print(f"Autonomie : {H}h {M}min {S}s")
+print(f"Fûts de 50L : {N1}")
+print(f"Bouteilles de 5L : {N2}")
+print(f"Reste non conditionné : {R2} litre(s)")
+print("Conditionnement sans perte :", parfait)
 ```
 
 ---
@@ -144,40 +149,37 @@ print(f"Autonomie : {H}h {M}min {S}s")
 ## 📝 6. Trace Écrite pour le Cahier de l'Élève
 
 ```markdown
-CHAPITRE 3 : LES STRUCTURES DE DONNÉES (Partie 1 : Numérique)
+CHAPITRE 3 : LES STRUCTURES DE DONNÉES (Partie 2 : Booléen)
 
-1. Types Numériques :
-   - Entier (int) : nombres entiers relatifs (... -2, -1, 0, 1, 2 ...)
-   - Réel (float) : nombres à virgule (... 3.14, -0.75 ...)
+1. Le Type Booléen :
+   Prend seulement deux valeurs : Vrai (True) ou Faux (False).
 
-2. Opérateurs de Division :
-   - /  : Division réelle (ex: 7 / 2 = 3.5)
-   - // : Division entière (quotient) (ex: 7 // 2 = 3)
-   - %  : Modulo (reste de la division) (ex: 7 % 2 = 1)
+2. Opérateurs Logiques :
+   - NON / not : Inverseur (not True = False)
+   - ET  / and : Vrai SEULEMENT si les deux conditions sont Vraies.
+   - OU  / or  : Vrai si AU MOINS l'une des conditions est Vraie.
 
-3. Décomposition d'une durée T en secondes :
-   H = T // 3600
-   M = (T % 3600) // 60
-   S = (T % 3600) % 60
+3. Ordre de Priorité (du plus prioritaire au moins prioritaire) :
+   Parenthèses ( )  ➔  Arithmétique  ➔  Comparaisons (==, !=, <...)  ➔  not  ➔  and  ➔  or
 ```
 
 ---
 
 ## ❓ 7. Auto-Évaluation Formative (5 Questions)
 
-1. **Que vaut `25 % 5` ? Que peut-on en déduire sur 25 et 5 ?**  
-   *Réponse* : `0`. On en déduit que 25 est divisible par 5 (ou 5 est un diviseur de 25).
-2. **Comment vérifier en Python qu'un nombre `n` est pair ?**  
-   *Réponse* : La condition est `n % 2 == 0`.
-3. **Que produit `10 / 2` en Python ? Quel est son type ?**  
-   *Réponse* : `5.0` (de type `float`, car la division `/` renvoie toujours un réel).
-4. **Pour calculer $\sqrt{49}$, quelle fonction utilise-t-on ?**  
-   *Réponse* : `math.sqrt(49)` (après `import math`), ou `49 ** 0.5`.
-5. **Si $T = 3665$ secondes, quelles sont les valeurs de $H$, $M$, $S$ ?**  
-   *Réponse* : $1\text{h } 1\text{min } 5\text{s}$ ($3600 + 60 + 5$).
+1. **Que vaut l'expression `(5 > 2) and (3 == 4)` ?**  
+   *Réponse* : `False` (car `True and False` donne `False`).
+2. **Que vaut l'expression `not (10 < 3) or (4 >= 4)` ?**  
+   *Réponse* : `True` (car `not False` donne `True`, et `True or ...` donne immédiatement `True`).
+3. **Dans l'expression `a or b and c`, quel opérateur est évalué en premier ?**  
+   *Réponse* : Le `and` est prioritaire sur le `or`. L'expression est équivalente à `a or (b and c)`.
+4. **Quelle condition permet de vérifier qu'une note `n` est comprise entre 10 et 20 inclus ?**  
+   *Réponse* : `(n >= 10) and (n <= 20)` ou en Python `10 <= n <= 20`.
+5. **Quelle est la différence fondamentale entre `=` et `==` ?**  
+   *Réponse* : `=` est une affectation (action de stockage), tandis que `==` est une comparaison d'égalité (test logique qui renvoie un booléen).
 
 ---
 
-## 🚀 8. Préparation de la Séance 06
-* **Thème** : *Le type booléen, tables de vérité, portes logiques et priorités*.
-* **À revoir** : Les valeurs `Vrai` et `Faux`, et la signification logique de "ET" et "OU".
+## 🚀 8. Préparation de la Séance 07
+* **Thème** : *Les types textuels (I) : Type caractère, code ASCII (`ord`/`chr`), indexation et longueur*.
+* **Curiosité** : Quel est le code ASCII du chiffre `'0'` et de la lettre `'A'` ?

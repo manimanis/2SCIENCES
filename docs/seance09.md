@@ -1,6 +1,6 @@
 # 📝 Fiche Pédagogique – Séance 09
 ## Module 04 : Les structures conditionnelles
-### Thème : Structure Conditionnelle Simple (`Si ... Alors`) et Alternative (`Si ... Alors ... Sinon`)
+### Thème : Structure Conditionnelle Généralisée (`Si ... Sinon Si ... Sinon` / `if ... elif ... else`) & Équivalences
 
 ---
 
@@ -10,150 +10,138 @@
 | :--- | :--- |
 | **Matière** | Informatique |
 | **Niveau & Section** | 2ème Année Secondaire – Section Sciences |
-| **Durée prévisionnelle** | 1 séance (1h à 1h30) |
+| **Durée prévisionnelle** | 1 séance (1 heure) |
 | **Cadre de référence** | Programme officiel du Ministère de l'Éducation (Tunisie) |
 | **Enseignant** | Mohamed Anis MANI |
 | **Supports & Outils** | Ordinateurs, page web `module04.html`, Playground Python (`playground.html`), tableau |
-| **Prérequis** | Logique booléenne, opérateurs relationnels `==`, `!=`, `<`, `>` (Séance 06) |
+| **Prérequis** | Formes simple et alternative (Séance 09) |
 
 ---
 
 ## 🎯 2. Compétences & Objectifs Opérationnels
 
 ### Compétences visées :
-* **Compétence algorithmique** : Rendre un algorithme adaptatif en exécutant des blocs d'instructions soumis à une condition de garde.
-* **Compétence syntaxique** : Appliquer l'indentation obligatoire en Python pour délimiter les blocs de code conditionnels.
+* **Compétence d'optimisation** : Éviter l'imbrication désordonnée de conditions en utilisant la cascade structurée `elif`.
+* **Compétence d'abstraction** : Réécrire un algorithme d'une forme conditionnelle à une autre équivalente.
 
 ### Objectifs opérationnels (À l'issue de la séance, l'élève sera capable de) :
-1. **Distinguer** la forme réduite (`Si ... Alors`) de la forme alternative (`Si ... Alors ... Sinon`).
-2. **Construire** un tableau de trace d'exécution conditionnel (test de vérité $\rightarrow$ branche choisie).
-3. **Programmer** le test de parité et de positivité (Exercice 5).
-4. **Résoudre** le problème du nombre cubique d'Armstrong (Exercice 6).
+1. **Comprendre** le mécanisme d'évaluation séquentielle et court-circuitée des clauses `elif`.
+2. **Classifier** un élément selon plusieurs catégories mutuellement exclusives.
+3. **Identifier le type d'un caractère** (majuscule, minuscule, chiffre, symbole) via son code ASCII (Exercice 8).
+4. **Programmer la classification chimique** d'une solution selon son pH (Exercice 10).
 
 ---
 
-## ⏱️ 3. Scénario Pédagogique & Déroulement Minuté
+## ⏱️ 3. Scénario Pédagogique & Déroulement Minuté (Séance de 60 min)
 
 ```
-┌──────────────────────────────────────────────────────────────────────────────┐
-│  00 - 15 min : Phase 1 - Accroche : Pourquoi un programme doit-il décider ?   │
-│  15 - 35 min : Phase 2 - Cours : Formes réduite et alternative, indentation  │
-│  35 - 55 min : Phase 3 - Analyse & Table de trace : Exercice 1 (QCM) & Ex 4   │
-│  55 - 75 min : Phase 4 - Atelier pratique : Ex 5 (Parité) & Ex 6 (Armstrong)  │
-│  75 - 80 min : Phase 5 - Synthèse, trace écrite & préparation Séance 10      │
-└──────────────────────────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────────────────────────────┐
+│  00 - 10 min : Phase 1 - Problème déclencheur : Les cascades de Si imbriqués        │
+│  10 - 25 min : Phase 2 - Cours : Forme généralisée (elif) & règle d'exclusion       │
+│  25 - 42 min : Phase 3 - Exercice 7 (Atelier d'équivalences de structures)          │
+│  42 - 55 min : Phase 4 - Atelier Playground : Ex 8 (ASCII) & Ex 10 (pH chimique)    │
+│  55 - 60 min : Phase 5 - Synthèse, trace écrite & préparation Séance 10             │
+└─────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
 ## 📖 4. Contenu Didactique & Support de Cours
 
-### 1. La Forme Réduite (Simple)
-On l'utilise lorsqu'un traitement ne doit s'exécuter que si une condition donnée est **Vraie**. Si la condition est Fausse, on ne fait rien de particulier.
+### 1. La Forme Généralisée
+Lorsque le problème présente **au moins 3 cas mutuellement exclusifs**, imbriquer des `Si...Sinon` devient lourd et illisible. La forme généralisée offre une solution élégante et fluide.
 
 ```algorithm
-Si condition Alors
-   // Bloc d'instructions exécuté uniquement si condition = Vrai
-FinSi
-```
-
-*Syntaxe Python équivalente :*
-```python
-if condition:
-    # Bloc indenté (4 espaces)
-```
-
-### 2. La Forme Alternative (Complète)
-On l'utilise lorsqu'on doit choisir de façon mutuellement exclusive entre deux actions distinctes selon que la condition est Vraie ou Fausse.
-
-```algorithm
-Si condition Alors
-   // Traitement A (si condition = Vrai)
+Si condition_1 Alors
+   Traitements_1
+Sinon Si condition_2 Alors
+   Traitements_2
+Sinon Si condition_3 Alors
+   Traitements_3
 Sinon
-   // Traitement B (si condition = Faux)
+   Traitements_Par_Defaut
 FinSi
 ```
 
-*Syntaxe Python équivalente :*
+*Syntaxe Python équivalente (`elif` = contraction de `else if`) :*
 ```python
-if condition:
-    # Traitement A
+if condition_1:
+    # Traitements 1
+elif condition_2:
+    # Traitements 2
+elif condition_3:
+    # Traitements 3
 else:
-    # Traitement B
+    # Traitements par défaut
 ```
 
-> [!IMPORTANT]
-> **Règle absolue d'indentation en Python :**  
-> Les deux points `:` à la fin de la ligne de condition sont obligatoires. Toutes les lignes appartenant au bloc conditionnel doivent être décalées vers la droite (indentation standard de 4 espaces).
+### 2. Le Mécanisme Court-Circuité d'Évaluation
+* Les conditions sont évaluées **de haut en bas**.
+* Dès qu'une condition est **Vraie**, son bloc s'exécute et **toutes les autres branches suivantes sont automatiquement ignorées**.
+* La clause `else` finale ne s'exécute que si **aucune des conditions précédentes n'a été vérifiée**.
 
 ---
 
 ## 🧩 5. Fiche Activités & Corrigés Détaillés
 
-### 🔴 Exercice 4 : Tableau de Trace Manuelle
-Soit le code suivant :
-```python
-a = int(input("Donner a : "))
-if a % 2 == 0:
-    res = a * 2
-else:
-    res = a + 5
-print("Résultat =", res)
-```
-* **Jeu d'essai 1 ($a = 6$)** : Condition `6 % 2 == 0` $\rightarrow$ `True`. Branche `if` exécutée $\implies res = 6 \times 2 = \mathbf{12}$.
-* **Jeu d'essai 2 ($a = 7$)** : Condition `7 % 2 == 0` $\rightarrow$ `False`. Branche `else` exécutée $\implies res = 7 + 5 = \mathbf{12}$.
+### 🔴 Exercice 7 : Réécriture & Équivalences entre Formes
+Soit la classification d'un entier $x$ :
+* *Version avec 3 formes réduites (inoptimale)* :
+  ```python
+  if x > 0: print("Positif")
+  if x < 0: print("Négatif")
+  if x == 0: print("Nul")
+  ```
+  *(Inconvénient : la machine effectue obligatoirement les 3 tests même si $x > 0$ !)*
+* *Version optimisée avec forme généralisée (`elif`)* :
+  ```python
+  if x > 0:
+      print("Positif")
+  elif x < 0:
+      print("Négatif")
+  else:
+      print("Nul")
+  ```
 
 ---
 
-### 🟡 Exercice 5 : Signe et Parité d'un Entier
-* **Énoncé** : Saisir un entier $n$. Déterminer s'il est pair ou impair, et s'il est strictement positif ou non.
-* **Algorithme** :
-```algorithm
-Algorithme Signe_Parite
-Début
-   Ecrire("Donner un entier n : ")
-   Lire(n)
+### 🟡 Exercice 8 : Détermination du Type d'un Caractère ASCII
+* **Énoncé** : Saisir un caractère $c$ et déterminer s'il s'agit d'une lettre majuscule, d'une lettre minuscule, d'un chiffre ou d'un symbole spécial.
+* **Algorithme & Code Python** :
+```python
+c = input("Saisir un seul caractère : ")
+code = ord(c)
 
-   // Test de parité
-   Si (n mod 2 = 0) Alors
-      Ecrire(n, " est PAIR")
-   Sinon
-      Ecrire(n, " est IMPAIR")
-   FinSi
-
-   // Test de signe
-   Si (n > 0) Alors
-      Ecrire(n, " est STRICTEMENT POSITIF")
-   Sinon
-      Ecrire(n, " est NÉGATIF OU NUL")
-   FinSi
-Fin
+if 65 <= code <= 90:       # 'A'..'Z'
+    print(f"'{c}' est une LETTRE MAJUSCULE.")
+elif 97 <= code <= 122:    # 'a'..'z'
+    print(f"'{c}' est une LETTRE MINUSCULE.")
+elif 48 <= code <= 57:     # '0'..'9'
+    print(f"'{c}' est un CHIFFRE.")
+else:
+    print(f"'{c}' est un SYMBOLE SPÉCIAL ou de PONCTUATION.")
 ```
 
 ---
 
-### 🟢 Exercice 6 : Nombre Cubique d'Armstrong (3 Chiffres)
-* **Définition** : Un entier $N \in [100..999]$ est dit *nombre cubique d'Armstrong* si la somme des cubes de ses chiffres est égale au nombre lui-même :
-  $$N = c_1^3 + c_2^3 + c_3^3 \quad (\text{Exemple : } 153 = 1^3 + 5^3 + 3^3 = 1 + 125 + 27 = 153)$$
-* **Algorithme d'extraction arithmétique** :
-  * Centaines : $c_1 \leftarrow N \mathbin{\text{div}} 100$
-  * Dizaines : $c_2 \leftarrow (N \mathbin{\text{mod}} 100) \mathbin{\text{div}} 10$
-  * Unités : $c_3 \leftarrow N \mathbin{\text{mod}} 10$
-  * Somme des cubes : $S \leftarrow c_1^3 + c_2^3 + c_3^3$
-* **Traduction Python** :
+### 🟢 Exercice 10 : Échelle du Potentiel Hydrogène (pH en Chimie)
+* **Contexte scientifique** : Le pH mesure l'acidité d'une solution aqueuse ($0 \le \text{pH} \le 14$).
+  * $\text{pH} < 7$ : Solution **Acide**.
+  * $\text{pH} = 7$ : Solution **Neutre**.
+  * $\text{pH} > 7$ : Solution **Basique**.
+* **Contrôle d'intégrité** : Rejeter les valeurs hors de l'intervalle $[0..14]$.
+
 ```python
-N = int(input("Donner un nombre de 3 chiffres : "))
+ph = float(input("Donner la valeur du pH de la solution : "))
 
-c1 = N // 100
-c2 = (N % 100) // 10
-c3 = N % 10
-
-somme_cubes = (c1 ** 3) + (c2 ** 3) + (c3 ** 3)
-
-if somme_cubes == N:
-    print(f"{N} est un NOMBRE CUBIQUE D'ARMSTRONG ! 🎉")
+if ph < 0 or ph > 14:
+    print("Erreur : La valeur du pH doit être comprise entre 0 et 14.")
+elif ph < 7:
+    print(f"pH = {ph} : Solution ACIDE.")
+elif ph == 7:
+    print(f"pH = {ph} : Solution NEUTRE.")
 else:
-    print(f"{N} n'est pas cubique (somme des cubes = {somme_cubes}).")
+    print(f"pH = {ph} : Solution BASIQUE.")
 ```
 
 ---
@@ -161,43 +149,50 @@ else:
 ## 📝 6. Trace Écrite pour le Cahier de l'Élève
 
 ```markdown
-CHAPITRE 4 : LES STRUCTURES CONDITIONNELLES (Partie 1)
+CHAPITRE 4 : LES STRUCTURES CONDITIONNELLES (Partie 2 : Forme Généralisée)
 
-1. Forme Réduite :
-   Si condition Alors
-      Traitements
-   FinSi
-   -> En Python : if condition:
-
-2. Forme Alternative :
-   Si condition Alors
-      Traitements_A
+1. Syntaxe en Algorithme :
+   Si condition_1 Alors
+      Bloc_1
+   Sinon Si condition_2 Alors
+      Bloc_2
    Sinon
-      Traitements_B
+      Bloc_Par_Defaut
    FinSi
-   -> En Python : if condition: ... else: ...
 
-3. Indentation :
-   Décalage de 4 espaces obligatoire sous le 'if' et sous le 'else'.
+2. Traduction en Python :
+   if condition_1:
+       bloc_1
+   elif condition_2:
+       bloc_2
+   else:
+       bloc_defaut
+
+3. Avantage pédagogique :
+   L'évaluation s'arrête dès que la première condition Vraie est rencontrée.
 ```
 
 ---
 
 ## ❓ 7. Auto-Évaluation Formative (5 Questions)
 
-1. **Peut-il y avoir une condition après le mot `else` ?**  
-   *Réponse* : Non, jamais de condition après un `else` (qui traite tous les cas où la condition du `if` est fausse).
-2. **Que se passe-t-il si on oublie les deux-points `:` après la condition `if x > 0` ?**  
-   *Réponse* : Une erreur de syntaxe (`SyntaxError: expected ':'`).
-3. **Les deux blocs sous `if` et `else` peuvent-ils s'exécuter en même temps lors d'un test ?**  
-   *Réponse* : Non, ils sont mutuellement exclusifs (l'un OU l'autre, jamais les deux).
-4. **Vérifier si 370 est un nombre d'Armstrong.**  
-   *Réponse* : $3^3 + 7^3 + 0^3 = 27 + 343 + 0 = 370$. Oui, 370 est un nombre d'Armstrong !
-5. **Quelle instruction conditionnelle permet de s'assurer qu'un dénominateur `d` n'est pas nul avant une division ?**  
-   *Réponse* : `if d != 0: q = n / d`.
+1. **Combien de clauses `elif` peut-on écrire dans une même structure conditionnelle ?**  
+   *Réponse* : Autant que nécessaire (aucune limite, selon le nombre de cas à traiter).
+2. **La clause finale `else` est-elle obligatoire ?**  
+   *Réponse* : Non, elle est facultative si aucun traitement par défaut n'est requis.
+3. **Si $x = 10$, quel bloc est exécuté dans :**
+   ```python
+   if x > 5: print("A")
+   elif x > 8: print("B")
+   ```
+   *Réponse* : Seul `"A"` est affiché, car la première condition est vraie ; le `elif` suivant est ignoré.
+4. **Dans quel ordre range-t-on les conditions de seuil (ex: notes d'examen) ?**  
+   *Réponse* : Toujours par ordre strictement croissant ou strictement décroissant pour éviter de masquer des branches.
+5. **Quelle est la sortie pour un pH de 7.0 dans l'Exercice 10 ?**  
+   *Réponse* : `Solution NEUTRE`.
 
 ---
 
-## 🚀 8. Préparation de la Séance 10
-* **Thème** : *La structure conditionnelle généralisée (`if ... elif ... else`) et réécriture de conditions*.
-* **Problème d'amorce** : Comment classifier une solution chimique à partir de son pH (acide, neutre, basique) ?
+## 🚀 8. Préparation de la Séance 11
+* **Thème** : *Structure à choix multiples (`Selon ... Faire` / `match ... case`)*.
+* **Réflexion** : Comment écrire une calculatrice simple qui applique une opération choisie par l'utilisateur parmi `+`, `-`, `*`, `/` ?

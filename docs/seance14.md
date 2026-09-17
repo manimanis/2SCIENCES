@@ -1,6 +1,6 @@
 # 📝 Fiche Pédagogique – Séance 14
-## Module 04 : Les structures conditionnelles
-### Thème : Géométrie Analytique & Chimie Organique : Nature d'un Triangle, Alcools & Droites Affines
+## Module 05 : Structure itérative complète
+### Thème : Découverte de la Boucle `Pour` & Fonction `range(début, fin, pas)`
 
 ---
 
@@ -10,142 +10,125 @@
 | :--- | :--- |
 | **Matière** | Informatique |
 | **Niveau & Section** | 2ème Année Secondaire – Section Sciences |
-| **Durée prévisionnelle** | 1 séance (1h à 1h30) |
+| **Durée prévisionnelle** | 1 séance (1 heure) |
 | **Cadre de référence** | Programme officiel du Ministère de l'Éducation (Tunisie) |
 | **Enseignant** | Mohamed Anis MANI |
-| **Supports & Outils** | Ordinateurs, page web `module04.html` (Canvas 2D et 3D), Playground Python, tableau |
-| **Prérequis** | Conditions imbriquées, théorème de Pythagore, équations de droites |
+| **Supports & Outils** | Ordinateurs, page web `module05.html` (visualiseur range), Playground Python, tableau |
+| **Prérequis** | Structures conditionnelles, variables entières |
 
 ---
 
 ## 🎯 2. Compétences & Objectifs Opérationnels
 
 ### Compétences visées :
-* **Compétence interdisciplinaire (Maths & Sciences Physiques)** : Mobiliser l'algorithmique pour vérifier des propriétés géométriques et calculer des grandeurs molaires chimiques.
-* **Compétence graphique** : Visualiser graphiquement l'intersection de deux courbes affines via le Canvas HTML5.
+* **Compétence algorithmique** : Répéter un traitement un nombre déterminé de fois sans dupliquer le code source.
+* **Compétence technique Python** : Maîtriser le fonctionnement de l'itérateur `range()` et la borne supérieure exclue.
 
 ### Objectifs opérationnels (À l'issue de la séance, l'élève sera capable de) :
-1. **Contrôler** l'inégalité triangulaire et classifier un triangle (Équilatéral, Isocèle, Rectangle, Scalène) (Exercice 16).
-2. **Déterminer** la formule brute et la masse molaire d'un alcool primaire selon le nombre de carbones $n$ (Exercice 18).
-3. **Résoudre** le système d'intersection de deux droites affines et identifier les cas de parallélisme (Exercice 19).
+1. **Identifier** les situations nécessitant une boucle à compteur déterminé (`Pour`).
+2. **Calculer** le nombre d'itérations $N = \lfloor \frac{vf - vi}{pas} \rfloor + 1$.
+3. **Exploiter** les trois formes d'appel de `range()` en Python : `range(n)`, `range(d, f)`, `range(d, f, pas)`.
+4. **Construire** un tableau d'itération et programmer des affichages conditionnels séquentiels (Exercice 2).
 
 ---
 
-## ⏱️ 3. Scénario Pédagogique & Déroulement Minuté
+## ⏱️ 3. Scénario Pédagogique & Déroulement Minuté (Séance de 60 min)
 
 ```
-┌──────────────────────────────────────────────────────────────────────────────┐
-│  00 - 15 min : Phase 1 - Accroche : La classification géométrique en machine  │
-│  15 - 35 min : Phase 2 - Exercice 16 : Inégalité triangulaire & Pythagore     │
-│  35 - 55 min : Phase 3 - Exercice 18 : Chimie des alcools & Masse molaire     │
-│  55 - 75 min : Phase 4 - Exercice 19 : Intersection de deux droites affines   │
-│  75 - 80 min : Phase 5 - Bilan global du Module 04 & introduction Module 05   │
-└──────────────────────────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────────────────────────────┐
+│  00 - 10 min : Phase 1 - Accroche : Répéter 100 fois une action sans copier ?       │
+│  10 - 25 min : Phase 2 - Cours : Boucle Pour, variable de contrôle & range()        │
+│  25 - 42 min : Phase 3 - Simulateur interactif : Exercice 1 (Visualiseur range)     │
+│  42 - 55 min : Phase 4 - Atelier pratique : Exercice 2 (Bonjour séquentiel)         │
+│  55 - 60 min : Phase 5 - Synthèse, trace écrite & préparation Séance 15             │
+└─────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
 ## 📖 4. Contenu Didactique & Support de Cours
 
-### 1. Classification Géométrique d'un Triangle
-Soient $a, b, c$ les longueurs des trois côtés d'un triangle, avec $c$ le côté le plus long :
-1. **Condition d'existence (Inégalité triangulaire)** :
-   $$a + b > c \quad \text{et} \quad a + c > b \quad \text{et} \quad b + c > a$$
-2. **Équilatéral** : $a = b \quad \text{et} \quad b = c$.
-3. **Rectangle (Réciproque de Pythagore)** : $a^2 + b^2 = c^2$ (ou permutations selon l'hypoténuse).
-4. **Isocèle** : $a = b \quad \text{ou} \quad b = c \quad \text{ou} \quad a = c$.
-5. **Isocèle Rectangle** : cumule les deux propriétés précédentes.
+### 1. La Boucle `Pour` (Répétition Déterminée)
+On utilise la boucle `Pour` lorsque le **nombre d'exécutions est connu à l'avance** avant même d'entrer dans la boucle.
 
-### 2. Intersection de Deux Droites Affines
-Soient $(D_1) : y = m_1 x + p_1$ et $(D_2) : y = m_2 x + p_2$ :
-* Si $m_1 = m_2$ :
-  * Si $p_1 = p_2$ : Droites **confondues** (infinité de points communs).
-  * Si $p_1 \ne p_2$ : Droites **strictement parallèles** (aucun point commun).
-* Si $m_1 \ne m_2$ : Droites **sécantes** en un point unique d'abscisse $x = \frac{p_2 - p_1}{m_1 - m_2}$ et d'ordonnée $y = m_1 x + p_1$.
+```algorithm
+Pour compteur De vi À vf [Pas p] Faire
+   // Instructions répétées
+FinPour
+```
+
+* **`compteur`** : Variable scalaire (généralement un entier `i`, `j`, `k`).
+* **`vi`** : Valeur initiale.
+* **`vf`** : Valeur finale.
+* **`p`** : Pas d'incrémentation (par défaut $+1$ si omis).
+
+> [!CAUTION]
+> **Règle absolue :** Il est formellement interdit de modifier la valeur de la variable de contrôle `compteur` à l'intérieur du corps de la boucle `Pour` !
+
+### 2. La Fonction `range()` en Python
+En Python, la boucle `Pour` s'écrit avec `for ... in range(...)`.
+
+| Appel Python | Valeurs générées pour $i$ | Nombre d'itérations |
+| :--- | :--- | :---: |
+| `range(5)` | `0, 1, 2, 3, 4` | $5$ (de $0$ à $n-1$) |
+| `range(1, 6)` | `1, 2, 3, 4, 5` | $5$ (de $d$ à $f-1$) |
+| `range(2, 11, 2)` | `2, 4, 6, 8, 10` | $5$ (nombres pairs) |
+| `range(10, 0, -1)`| `10, 9, 8, 7, 6, 5, 4, 3, 2, 1` | $10$ (compte à rebours) |
+
+> [!IMPORTANT]
+> **Piège classique :** En Python, la borne de fin est **TOUJOURS EXCLUE**. Pour aller de 1 à $N$ inclus, il faut obligatoirement écrire `range(1, N + 1)`.
 
 ---
 
 ## 🧩 5. Fiche Activités & Corrigés Détaillés
 
-### 🔴 Exercice 16 : Nature d'un Triangle
-```python
-a = float(input("Côté a : "))
-b = float(input("Côté b : "))
-c = float(input("Côté c : "))
-
-# 1. Vérification de l'existence du triangle
-if (a + b <= c) or (a + c <= b) or (b + c <= a) or (a <= 0 or b <= 0 or c <= 0):
-    print("Impossible : Ces longueurs ne forment pas un triangle valide !")
-else:
-    # 2. Analyse des propriétés
-    equilateral = (a == b == c)
-    isocele = (a == b or b == c or a == c)
-    
-    # Réciproque de Pythagore (avec tolérance d'arrondi)
-    rect_a = abs((b**2 + c**2) - a**2) < 1e-6
-    rect_b = abs((a**2 + c**2) - b**2) < 1e-6
-    rect_c = abs((a**2 + b**2) - c**2) < 1e-6
-    rectangle = (rect_a or rect_b or rect_c)
-
-    if equilateral:
-        print("Le triangle est ÉQUILATÉRAL.")
-    elif isocele and rectangle:
-        print("Le triangle est ISOCÈLE RECTANGLE.")
-    elif isocele:
-        print("Le triangle est ISOCÈLE.")
-    elif rectangle:
-        print("Le triangle est RECTANGLE.")
-    else:
-        print("Le triangle est SCALÈNE (Quelconque).")
-```
+### 🔴 Exercice 1 : Le Visualiseur Interactif `range()`
+* **Expérimentation sur la plateforme** :
+  * Cas A : `range(3, 8)` $\rightarrow$ valeurs : `3, 4, 5, 6, 7` ($5$ itérations).
+  * Cas B : `range(0, 20, 5)` $\rightarrow$ valeurs : `0, 5, 10, 15` ($4$ itérations).
+  * Cas C : `range(5, 1)` $\rightarrow$ aucune itération (car début > fin avec un pas positif !).
 
 ---
 
-### 🟡 Exercice 18 : Chimie des Alcools ($C_n H_{2n+1}OH$)
-* **Formule générale** : $C_n H_{2n+2}O$.
-* **Masses molaires atomiques** : $M(C) = 12\text{ g/mol}$, $M(H) = 1\text{ g/mol}$, $M(O) = 16\text{ g/mol}$.
-* **Masse molaire totale** :
-  $$M = 12n + (2n + 1) \times 1 + 16 + 1 = 14n + 18\text{ g/mol}$$
-* **Code Python** :
-```python
-n = int(input("Nombre d'atomes de carbone n (ex: 1, 2, 3...) : "))
+### 🟡 Exercice 2 : Affichage Conditionnel dans une Boucle
+* **Énoncé** : Parcourir les entiers de 1 à $N$. Pour chaque nombre $i$ :
+  * Si $i$ est divisible par 3, afficher `"Bonjour 3"`.
+  * Si $i$ est divisible par 5, afficher `"Bonjour 5"`.
+  * Sinon, afficher simplement la valeur de $i$.
+* **Algorithme** :
+```algorithm
+Algorithme Bonjour_Multiples
+Début
+   Ecrire("Donner N : ")
+   Lire(N)
 
-if n <= 0:
-    print("Erreur : n doit être un entier strictement positif.")
-else:
-    h = 2 * n + 1
-    masse_molaire = 14 * n + 18
-    
-    # Noms usuels des premiers alcools
-    noms = {1: "Méthanol", 2: "Éthanol", 3: "Propanol", 4: "Butanol"}
-    nom_alcool = noms.get(n, f"Alcool à {n} carbones")
-
-    print(f"Formule brute : C{n}H{h}OH")
-    print(f"Nom : {nom_alcool}")
-    print(f"Masse molaire M = {masse_molaire} g/mol")
+   Pour i De 1 À N Faire
+      Si (i mod 3 = 0 ET i mod 5 = 0) Alors
+         Ecrire(i, " : Bonjour 3 et 5 !")
+      Sinon Si (i mod 3 = 0) Alors
+         Ecrire(i, " : Bonjour 3 !")
+      Sinon Si (i mod 5 = 0) Alors
+         Ecrire(i, " : Bonjour 5 !")
+      Sinon
+         Ecrire(i)
+      FinSi
+   FinPour
+Fin
 ```
 
----
-
-### 🟢 Exercice 19 : Intersection de Deux Droites Affines
+* **Code Python équivalent** :
 ```python
-print("Droite 1 : y = m1 * x + p1")
-m1 = float(input("Pente m1 : "))
-p1 = float(input("Ordonnée à l'origine p1 : "))
+N = int(input("Donner N : "))
 
-print("Droite 2 : y = m2 * x + p2")
-m2 = float(input("Pente m2 : "))
-p2 = float(input("Ordonnée à l'origine p2 : "))
-
-if m1 == m2:
-    if p1 == p2:
-        print("Les droites sont CONFONDUES (infinité de points communs).")
+for i in range(1, N + 1):
+    if i % 3 == 0 and i % 5 == 0:
+        print(f"{i} : Bonjour 3 et 5 !")
+    elif i % 3 == 0:
+        print(f"{i} : Bonjour 3 !")
+    elif i % 5 == 0:
+        print(f"{i} : Bonjour 5 !")
     else:
-        print("Les droites sont STRICTEMENT PARALLÈLES (aucun point d'intersection).")
-else:
-    x_inter = (p2 - p1) / (m1 - m2)
-    y_inter = m1 * x_inter + p1
-    print(f"Les droites sont SÉCANTES au point I({x_inter:.2f}, {y_inter:.2f}).")
+        print(i)
 ```
 
 ---
@@ -153,37 +136,41 @@ else:
 ## 📝 6. Trace Écrite pour le Cahier de l'Élève
 
 ```markdown
-CHAPITRE 4 : SYNTHÈSE DES APPLICATIONS SCIENTIFIQUES
+CHAPITRE 5 : LA STRUCTURE ITÉRATIVE (Partie 1 : Boucle Pour)
 
-1. Nature d'un Triangle :
-   - Tester l'inégalité triangulaire en premier lieu.
-   - Équilatéral ➔ 3 côtés égaux.
-   - Rectangle ➔ Réciproque de Pythagore (a² + b² = c²).
-   - Isocèle ➔ 2 côtés égaux.
+1. En Algorithme :
+   Pour i De vi À vf [Pas p] Faire
+      instructions
+   FinPour
 
-2. Intersection de Droites Affines :
-   - Si m1 == m2 et p1 == p2 ➔ Confondues
-   - Si m1 == m2 et p1 != p2 ➔ Parallèles
-   - Si m1 != m2            ➔ Sécantes en I((p2-p1)/(m1-m2), m1*x+p1)
+2. En Python :
+   for i in range(début, fin_exclue, pas):
+       instructions
+
+3. Les 3 formes de range() :
+   - range(N)        ➔ 0, 1, 2, ... N - 1
+   - range(D, F)     ➔ D, D + 1, ... F - 1
+   - range(D, F, P)  ➔ D, D + P, D + 2P ...
+   Attention : La borne de fin est TOUJOURS exclue en Python !
 ```
 
 ---
 
 ## ❓ 7. Auto-Évaluation Formative (5 Questions)
 
-1. **Les côtés $3, 4, 5$ forment-ils un triangle rectangle ?**  
-   *Réponse* : Oui, car $3^2 + 4^2 = 9 + 16 = 25 = 5^2$ (triangle rectangle classique).
-2. **Quelle est la masse molaire de l'éthanol ($C_2 H_5 OH$) ?**  
-   *Réponse* : $14 \times 2 + 18 = 28 + 18 = \mathbf{46\text{ g/mol}}$.
-3. **Que dire de deux droites ayant $m_1 = 3, p_1 = 4$ et $m_2 = 3, p_2 = -2$ ?**  
-   *Réponse* : Elles ont la même pente ($3$) mais des ordonnées différentes : elles sont strictement parallèles.
-4. **Pourquoi teste-t-on `a + b <= c` pour rejeter un triangle ?**  
-   *Réponse* : Si la somme de deux côtés est inférieure ou égale au troisième, les segments ne peuvent pas se refermer pour former un triangle.
-5. **Combien de carbones possède le méthanol ?**  
-   *Réponse* : $1$ seul atome de carbone ($n=1$).
+1. **Combien de fois tourne la boucle `for i in range(1, 10):` ?**  
+   *Réponse* : $9$ fois (valeurs de 1 à 9).
+2. **Quelle instruction génère les nombres impairs de 1 à 15 inclus ?**  
+   *Réponse* : `range(1, 16, 2)` (ou `range(1, 17, 2)`).
+3. **Que fait `for i in range(5, 0, -1):` ?**  
+   *Réponse* : Décompte de 5 à 1 : affiche `5, 4, 3, 2, 1`.
+4. **Peut-on modifier la valeur de `i` dans le corps de la boucle en algorithme ?**  
+   *Réponse* : Non, la variable de contrôle est gérée exclusivement par la boucle.
+5. **Quelle est la dernière valeur de `i` affichée par `for i in range(0, 100, 10):` ?**  
+   *Réponse* : `90` (car 100 est exclu).
 
 ---
 
-## 🚀 8. Préparation de la Séance 15 (Module 05)
-* **Thème** : *Structure itérative complète : Découverte de la boucle `Pour` & fonction `range(début, fin, pas)`*.
-* **Problème d'amorce** : Comment afficher 100 fois le mot "Bonjour" sans écrire 100 fois l'instruction `print` ?
+## 🚀 8. Préparation de la Séance 16
+* **Thème** : *Schémas de comptage, d'accumulation et diviseurs d'un entier*.
+* **À réfléchir** : Comment calculer la somme $1 + 2 + 3 + \dots + 100$ avec une boucle ?

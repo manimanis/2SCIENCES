@@ -435,40 +435,140 @@ moy = float(input("Moyenne ? "))</code></pre>
 
       <!-- Exercice 3 -->
       <section>
-        <h3>Exercice 3 – Aire & Périmètre d'un rectangle</h3>
-        <p>On désire faire le programme qui demande la longueur (<code>x</code>) et la largeur (<code>y</code>) d'un
-          rectangle et calcule son périmètre (<code>p = (x + y)*2</code>) et son aire (<code>s = x * y</code>).</p>
+        <h3>Exercice 3 – Distance euclidienne entre deux points</h3>
+        <div class="alert alert-light border shadow-sm p-3 mb-3">
+          <h5 class="text-primary fw-bold mb-2">📋 Énoncé du problème (Niveau Avancé)</h5>
+          <p class="mb-2">Dans un repère orthonormé $(O, \vec{i}, \vec{j})$, soient deux points $A(x_A, y_A)$ et $B(x_B, y_B)$. On souhaite concevoir un programme intitulé <code>Distance_Points</code> qui demande à l'utilisateur de saisir les coordonnées cartésiennes des points $A$ et $B$, puis calcule et affiche la distance euclidienne $d$ séparant ces deux points.</p>
+          <p class="mb-1">La formule mathématique issue du théorème de Pythagore est :</p>
+          <p class="text-center fs-5 mb-2"><strong>$$d = \sqrt{(x_B - x_A)^2 + (y_B - y_A)^2}$$</strong></p>
+          <div class="alert alert-info border-info p-2 mb-0 small">
+            <strong>💡 Remarque didactique :</strong> En algorithmique, la racine carrée se note <code>RacineCarre(...)</code> ou <code>Sqrt(...)</code>. En Python, la fonction <code>sqrt()</code> s'utilise via le module mathématique : <code>from math import sqrt</code> ou <code>import math</code> puis <code>math.sqrt(...)</code>.
+          </div>
+        </div>
+
+        <div class="card border-primary mb-3 shadow-sm">
+          <div class="card-header bg-primary text-white py-2">
+            <strong>🎯 Travail demandé :</strong>
+          </div>
+          <div class="card-body py-2">
+            <ol class="mb-0">
+              <li>Dresser le <strong>Tableau de Déclaration des Objets (TDO)</strong> pour identifier les coordonnées en entrée ($x_A, y_A, x_B, y_B$) et la distance calculée en sortie ($d$).</li>
+              <li>Élaborer l'<strong>algorithme</strong> de résolution du programme <code>Distance_Points</code>.</li>
+              <li>Traduire cet algorithme en script <strong>Python</strong>.</li>
+            </ol>
+          </div>
+        </div>
 
         <div class="interactive-box shadow-sm">
-          <h4 class="text-primary mb-3">📐 Calculateur &amp; Illustration interactive</h4>
+          <h4 class="text-primary mb-3">🧪 Simulateur &amp; Illustration interactive (Vérification)</h4>
           
-          <!-- Zone d'illustration SVG réactive -->
-          <div class="text-center my-3 p-2 bg-white rounded border shadow-sm mx-auto" style="max-width: 480px;">
-            <div id="rec-svg-preview"></div>
+          <!-- Zone d'illustration SVG réactive du repère cartésien -->
+          <div class="text-center my-3 p-2 bg-white rounded border shadow-sm mx-auto" style="max-width: 500px;">
+            <div id="dist-svg-preview"></div>
           </div>
 
           <div class="row g-3 mb-3">
-            <div class="col-md-6">
-              <label class="form-label fw-bold">Longueur (x) :</label>
-              <input type="number" id="rec-x" class="form-control" value="10" min="0.1" step="0.5">
+            <div class="col-md-3">
+              <label class="form-label fw-bold">Point A - x<sub>A</sub> :</label>
+              <input type="number" id="dist-xa" class="form-control" value="1" step="0.5">
             </div>
-            <div class="col-md-6">
-              <label class="form-label fw-bold">Largeur (y) :</label>
-              <input type="number" id="rec-y" class="form-control" value="4" min="0.1" step="0.5">
+            <div class="col-md-3">
+              <label class="form-label fw-bold">Point A - y<sub>A</sub> :</label>
+              <input type="number" id="dist-ya" class="form-control" value="2" step="0.5">
+            </div>
+            <div class="col-md-3">
+              <label class="form-label fw-bold">Point B - x<sub>B</sub> :</label>
+              <input type="number" id="dist-xb" class="form-control" value="5" step="0.5">
+            </div>
+            <div class="col-md-3">
+              <label class="form-label fw-bold">Point B - y<sub>B</sub> :</label>
+              <input type="number" id="dist-yb" class="form-control" value="5" step="0.5">
             </div>
           </div>
-          <div id="rec-out" class="alert alert-info mb-0 fs-5 text-center"></div>
+          <div id="dist-out" class="alert alert-primary mb-0 fs-5 text-center"></div>
         </div>
       </section>
 
       <!-- Exercice 4 -->
       <section>
-        <h3>Exercice 4 – Aire d'une ellipse</h3>
-        <p>On désire calculer l'aire d'une ellipse en appliquant la formule : <strong>$$\text{Aire} = a \cdot b \cdot
-            \pi$$</strong></p>
+        <h3>Exercice 4 – Aire d'un parallélogramme</h3>
+        <div class="alert alert-light border shadow-sm p-3 mb-3">
+          <h5 class="text-primary fw-bold mb-2">📋 Énoncé du problème</h5>
+          <p class="mb-2">On désire concevoir un programme intitulé <code>Parallelogramme</code> qui demande à l'utilisateur de saisir la longueur des deux côtés consécutifs (<code>a</code> et <code>b</code>) d'un parallélogramme ainsi que la mesure de l'angle (<code>&theta;</code> en degrés) formé par ces deux côtés, puis calcule et affiche son aire.</p>
+          <p class="mb-1">La formule mathématique est :</p>
+          <p class="text-center fs-5 mb-2"><strong>$$\text{Aire} = a \times b \times \sin(\theta)$$</strong></p>
+          <div class="alert alert-info border-info p-2 mb-0 small">
+            <strong>💡 Remarque informatique :</strong> En Python comme en algorithmique, la fonction trigonométrique <code>sin(...)</code> s'applique impérativement à un angle en <strong>radians</strong>. Il faut donc convertir l'angle en degrés : <strong>$$\theta_{\text{rad}} = \theta \times \frac{\pi}{180}$$</strong>
+          </div>
+        </div>
+
+        <div class="card border-primary mb-3 shadow-sm">
+          <div class="card-header bg-primary text-white py-2">
+            <strong>🎯 Travail demandé :</strong>
+          </div>
+          <div class="card-body py-2">
+            <ol class="mb-0">
+              <li>Dresser le <strong>Tableau de Déclaration des Objets (TDO)</strong> en précisant la constante $\pi$ et les variables.</li>
+              <li>Élaborer l'<strong>algorithme</strong> de résolution du programme <code>Parallelogramme</code>.</li>
+              <li>Traduire cet algorithme en script <strong>Python</strong>.</li>
+            </ol>
+          </div>
+        </div>
 
         <div class="interactive-box shadow-sm">
-          <h4 class="text-success mb-3">📐 Calculateur &amp; Illustration interactive Ellipse</h4>
+          <h4 class="text-primary mb-3">🧪 Simulateur &amp; Illustration interactive (Vérification)</h4>
+
+          <!-- Zone d'illustration SVG réactive -->
+          <div class="text-center my-3 p-2 bg-white rounded border shadow-sm mx-auto" style="max-width: 500px;">
+            <div id="par-svg-preview"></div>
+          </div>
+
+          <div class="row g-3 mb-3">
+            <div class="col-md-4">
+              <label class="form-label fw-bold">Côté a (base) :</label>
+              <input type="number" id="par-a" class="form-control" value="8" min="0.1" step="0.5">
+            </div>
+            <div class="col-md-4">
+              <label class="form-label fw-bold">Côté b (adjacent) :</label>
+              <input type="number" id="par-b" class="form-control" value="5" min="0.1" step="0.5">
+            </div>
+            <div class="col-md-4">
+              <label class="form-label fw-bold">Angle &theta; (en degrés) :</label>
+              <div class="input-group">
+                <input type="number" id="par-deg" class="form-control" value="45" min="1" max="179" step="1">
+                <span class="input-group-text">°</span>
+              </div>
+              <input type="range" id="par-deg-range" class="form-range mt-2" min="10" max="170" value="45" step="1" title="Ajuster l'angle en temps réel">
+            </div>
+          </div>
+          <div id="par-out" class="alert alert-primary mb-0 fs-5 text-center"></div>
+        </div>
+      </section>
+
+      <!-- Exercice 5 -->
+      <section>
+        <h3>Exercice 5 – Aire d'une ellipse</h3>
+        <div class="alert alert-light border shadow-sm p-3 mb-3">
+          <h5 class="text-success fw-bold mb-2">📋 Énoncé du problème</h5>
+          <p class="mb-2">On désire concevoir un programme intitulé <code>Ellipse</code> qui demande à l'utilisateur de saisir les valeurs du demi-grand axe (<code>a</code>) et du demi-petit axe (<code>b</code>) d'une ellipse, puis calcule et affiche son aire.</p>
+          <p class="mb-0">La formule mathématique est : <strong>$$\text{Aire} = a \times b \times \pi$$</strong></p>
+        </div>
+
+        <div class="card border-success mb-3 shadow-sm">
+          <div class="card-header bg-success text-white py-2">
+            <strong>🎯 Travail demandé :</strong>
+          </div>
+          <div class="card-body py-2">
+            <ol class="mb-0">
+              <li>Dresser le <strong>Tableau de Déclaration des Objets (TDO)</strong> en précisant la constante $\pi$ et les variables.</li>
+              <li>Élaborer l'<strong>algorithme</strong> de résolution du programme <code>Ellipse</code>.</li>
+              <li>Traduire cet algorithme en script <strong>Python</strong>.</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="interactive-box shadow-sm">
+          <h4 class="text-success mb-3">🧪 Simulateur &amp; Illustration interactive (Vérification)</h4>
 
           <!-- Zone d'illustration SVG réactive -->
           <div class="text-center my-3 p-2 bg-white rounded border shadow-sm mx-auto" style="max-width: 480px;">
@@ -489,14 +589,30 @@ moy = float(input("Moyenne ? "))</code></pre>
         </div>
       </section>
 
-      <!-- Exercice 5 -->
+      <!-- Exercice 6 -->
       <section>
-        <h3>Exercice 5 – Moyenne d'informatique</h3>
-        <p>Ecrire l'algorithme du programme "Moyenne" qui calcule et affiche la moyenne d'un élève sachant sa note
-          globale (<code>NG</code>) et sa note de synthèse (<code>NS</code>) : <code>Moy = (NG + NS) / 2</code>.</p>
+        <h3>Exercice 6 – Moyenne d'informatique</h3>
+        <div class="alert alert-light border shadow-sm p-3 mb-3">
+          <h5 class="text-warning text-dark fw-bold mb-2">📋 Énoncé du problème</h5>
+          <p class="mb-2">On désire concevoir un programme intitulé <code>Moyenne</code> qui demande à l'utilisateur de saisir la note globale de contrôle continu (<code>NG</code>) et la note de devoir de synthèse (<code>NS</code>) d'un élève, puis calcule et affiche sa moyenne en appliquant la formule :</p>
+          <p class="text-center fs-5 mb-0"><strong>$$\text{Moy} = \frac{\text{NG} + \text{NS}}{2}$$</strong></p>
+        </div>
+
+        <div class="card border-warning mb-3 shadow-sm">
+          <div class="card-header bg-warning text-dark py-2">
+            <strong>🎯 Travail demandé :</strong>
+          </div>
+          <div class="card-body py-2">
+            <ol class="mb-0">
+              <li>Dresser le <strong>Tableau de Déclaration des Objets (TDO)</strong>.</li>
+              <li>Élaborer l'<strong>algorithme</strong> de résolution du programme <code>Moyenne</code>.</li>
+              <li>Traduire cet algorithme en script <strong>Python</strong>.</li>
+            </ol>
+          </div>
+        </div>
 
         <div class="interactive-box shadow-sm">
-          <h4 class="text-warning text-dark">📊 Calculateur de Moyenne</h4>
+          <h4 class="text-warning text-dark mb-3">🧪 Simulateur &amp; Calculateur interactif (Vérification)</h4>
           <div class="row g-3 mb-3">
             <div class="col-md-6">
               <label class="form-label fw-bold">Note Globale (NG) :</label>
@@ -507,19 +623,36 @@ moy = float(input("Moyenne ? "))</code></pre>
               <input type="number" id="moy-ns" class="form-control" value="14" min="0" max="20">
             </div>
           </div>
-          <div id="moy-out" class="alert alert-warning text-dark mb-0 fs-5"></div>
+          <div id="moy-out" class="alert alert-warning text-dark mb-0 fs-5 text-center"></div>
         </div>
       </section>
 
-      <!-- Exercice 6 -->
+      <!-- Exercice 7 -->
       <section>
-        <h3>Exercice 6 – Raideur d'un ressort</h3>
-        <p>Pour mesurer la raideur <code>k</code> d'un ressort, on lui accroche un objet de masse <code>m</code> et on
-          mesure son allongement <code>x</code>. À l'équilibre : $m \cdot g = k \cdot x \implies k = \frac{m \cdot
-          g}{x}$ avec $g = 10 \text{ N/kg}$.</p>
+        <h3>Exercice 7 – Raideur d'un ressort</h3>
+        <div class="alert alert-light border shadow-sm p-3 mb-3">
+          <h5 class="text-danger fw-bold mb-2">📋 Énoncé du problème (Physique Appliquée)</h5>
+          <p class="mb-2">Pour mesurer la raideur <code>k</code> d'un ressort élastique, on lui suspend un objet de masse <code>m</code> (en kg) et on mesure l'allongement <code>x</code> (en mètres) subi par le ressort.</p>
+          <p class="mb-2">À l'équilibre, le poids $P = m \cdot g$ compense la tension du ressort $T = k \cdot x$, ce qui donne la relation :</p>
+          <p class="text-center fs-5 mb-2">$$m \cdot g = k \cdot x \implies k = \frac{m \cdot g}{x}$$</p>
+          <p class="mb-0 small text-muted">On prendra pour l'intensité de la pesanteur la constante <code>g = 10 N/kg</code>.</p>
+        </div>
+
+        <div class="card border-danger mb-3 shadow-sm">
+          <div class="card-header bg-danger text-white py-2">
+            <strong>🎯 Travail demandé :</strong>
+          </div>
+          <div class="card-body py-2">
+            <ol class="mb-0">
+              <li>Dresser le <strong>Tableau de Déclaration des Objets (TDO)</strong> en précisant la constante gravitationnelle $g$ et les variables.</li>
+              <li>Élaborer l'<strong>algorithme</strong> de résolution du programme <code>Raideur_Ressort</code>.</li>
+              <li>Traduire cet algorithme en script <strong>Python</strong>.</li>
+            </ol>
+          </div>
+        </div>
 
         <div class="interactive-box shadow-sm">
-          <h4 class="text-danger mb-3">⚖ Calculateur &amp; Illustration interactive du Ressort</h4>
+          <h4 class="text-danger mb-3">🧪 Simulateur &amp; Illustration interactive du Ressort (Vérification)</h4>
 
           <!-- Zone d'illustration SVG réactive du Ressort -->
           <div class="text-center my-3 p-2 bg-white rounded border shadow-sm mx-auto" style="max-width: 480px;">
@@ -537,6 +670,61 @@ moy = float(input("Moyenne ? "))</code></pre>
             </div>
           </div>
           <div id="res-out" class="alert alert-danger mb-0 fs-5 text-center"></div>
+        </div>
+      </section>
+
+      <!-- Exercice 8 -->
+      <section>
+        <h3>Exercice 8 – Formule de Héron (Aire d'un triangle quelconque)</h3>
+        <div class="alert alert-light border shadow-sm p-3 mb-3">
+          <h5 class="fw-bold mb-2" style="color: #4f46e5;">📋 Énoncé du problème (Niveau Avancé)</h5>
+          <p class="mb-2">On désire concevoir un programme intitulé <code>Aire_Heron</code> qui calcule l'aire d'un triangle quelconque dont on connaît les longueurs des trois côtés <code>a</code>, <code>b</code> et <code>c</code> sans avoir besoin de mesurer sa hauteur.</p>
+          <p class="mb-1">La formule historique attribuée à Héron d'Alexandrie se décompose en deux temps :</p>
+          <ol class="mb-2">
+            <li>Calcul du <strong>demi-périmètre</strong> $p$ : <strong>$$p = \frac{a + b + c}{2}$$</strong></li>
+            <li>Calcul de l'<strong>aire</strong> $S$ du triangle : <strong>$$S = \sqrt{p \times (p - a) \times (p - b) \times (p - c)}$$</strong></li>
+          </ol>
+          <div class="alert alert-info border-info p-2 mb-0 small">
+            <strong>💡 Remarque didactique :</strong> Cet exercice illustre l'intérêt fondamental de l'opération d'affectation pour mémoriser une variable intermédiaire (le demi-périmètre <code>p</code>) réutilisée ensuite à plusieurs reprises dans le calcul de la racine carrée <code>math.sqrt(...)</code>.
+          </div>
+        </div>
+
+        <div class="card mb-3 shadow-sm" style="border-color: #4f46e5;">
+          <div class="card-header text-white py-2" style="background-color: #4f46e5;">
+            <strong>🎯 Travail demandé :</strong>
+          </div>
+          <div class="card-body py-2">
+            <ol class="mb-0">
+              <li>Dresser le <strong>Tableau de Déclaration des Objets (TDO)</strong> en distinguant les données d'entrée ($a, b, c$), la variable intermédiaire ($p$) et le résultat final ($S$).</li>
+              <li>Élaborer l'<strong>algorithme</strong> de résolution du programme <code>Aire_Heron</code>.</li>
+              <li>Traduire cet algorithme en script <strong>Python</strong>.</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="interactive-box shadow-sm">
+          <h4 class="mb-3" style="color: #4f46e5;">🧪 Simulateur &amp; Illustration interactive du Triangle (Vérification)</h4>
+
+          <!-- Zone d'illustration SVG réactive -->
+          <div class="text-center my-3 p-2 bg-white rounded border shadow-sm mx-auto" style="max-width: 500px;">
+            <div id="her-svg-preview"></div>
+          </div>
+
+          <div class="row g-3 mb-3">
+            <div class="col-md-4">
+              <label class="form-label fw-bold">Côté a (BC) :</label>
+              <input type="number" id="her-a" class="form-control" value="6" min="0.1" step="0.5">
+            </div>
+            <div class="col-md-4">
+              <label class="form-label fw-bold">Côté b (AC) :</label>
+              <input type="number" id="her-b" class="form-control" value="5" min="0.1" step="0.5">
+            </div>
+            <div class="col-md-4">
+              <label class="form-label fw-bold">Côté c (AB) :</label>
+              <input type="number" id="her-c" class="form-control" value="7" min="0.1" step="0.5">
+            </div>
+          </div>
+          <div id="her-out" class="alert alert-light border mb-0 fs-5 text-center" style="background-color: #eef2ff; border-color: #c7d2fe !important; color: #3730a3;"></div>
         </div>
       </section>
     </article>

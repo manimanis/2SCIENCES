@@ -1,6 +1,6 @@
 # 📝 Fiche Pédagogique – Séance 16
 ## Module 05 : Structure itérative complète
-### Thème : Schémas d'Accumulation, de Comptage & Classification des Nombres (Parfaits, Abondants, Déficients)
+### Thème : Parcours Séquentiel de Chaînes de Caractères (Sans Listes) & Filtrage de Données
 
 ---
 
@@ -10,130 +10,143 @@
 | :--- | :--- |
 | **Matière** | Informatique |
 | **Niveau & Section** | 2ème Année Secondaire – Section Sciences |
-| **Durée prévisionnelle** | 1 séance (1h à 1h30) |
+| **Durée prévisionnelle** | 1 séance (1 heure) |
 | **Cadre de référence** | Programme officiel du Ministère de l'Éducation (Tunisie) |
 | **Enseignant** | Mohamed Anis MANI |
-| **Supports & Outils** | Ordinateurs, page web `module05.html`, Playground Python (`playground.html`), tableau |
-| **Prérequis** | Boucle `Pour`, fonction `range()`, modulo `%` (Séance 15) |
+| **Supports & Outils** | Ordinateurs, page web `module05.html` (bacs SVG de tri), Playground Python, tableau |
+| **Prérequis** | Longueur `len()`, indexation `ch[i]`, boucle `Pour` |
 
 ---
 
 ## 🎯 2. Compétences & Objectifs Opérationnels
 
 ### Compétences visées :
-* **Compétence algorithmique** : Maîtriser les deux schémas itératifs fondamentaux : le **compteur** ($C \leftarrow C + 1$) et l'**accumulateur** ($S \leftarrow S + \text{terme}$).
-* **Compétence arithmétique** : Extraire et additionner les diviseurs stricts d'un entier naturel.
+* **Compétence algorithmique** : Visiter systématiquement chaque caractère d'un texte pour effectuer des opérations de test, de comptage ou d'extraction.
+* **Compétence de rigueur pédagogique** : Manipuler les chaînes de caractères sans recourir aux structures de listes (`[...]`), strictement hors programme en 2e Sciences.
 
 ### Objectifs opérationnels (À l'issue de la séance, l'élève sera capable de) :
-1. **Initialiser obligatoirement** les variables de cumul avant d'entrer dans la boucle.
-2. **Construire** un tableau de trace d'exécution pas-à-pas consignant les états successifs de la mémoire.
-3. **Calculer la somme** des nombres impairs d'un intervalle donné (Exercice 3).
-4. **Classifier** un nombre comme Parfait, Abondant ou Déficient selon la somme de ses diviseurs stricts (Exercice 7).
+1. **Écrire** la structure canonique de parcours séquentiel : `for i in range(len(ch)):`.
+2. **Accéder** au caractère courant via `car = ch[i]`.
+3. **Dénombrer** les voyelles et les consonnes d'un texte (Exercice 4).
+4. **Construire par accumulation textuelle** deux nouvelles chaînes séparées `chl` (lettres) et `chc` (chiffres) (Exercice 5).
 
 ---
 
-## ⏱️ 3. Scénario Pédagogique & Déroulement Minuté
+## ⏱️ 3. Scénario Pédagogique & Déroulement Minuté (Séance de 60 min)
 
 ```
-┌──────────────────────────────────────────────────────────────────────────────┐
-│  00 - 15 min : Phase 1 - Accroche : Comment la machine calcule-t-elle Σ ?    │
-│  15 - 35 min : Phase 2 - Cours : Schémas Compteur / Accumulateur & Tracé     │
-│  35 - 55 min : Phase 3 - Exercice 3 (Somme impairs avec tableau de trace)    │
-│  55 - 75 min : Phase 4 - Exercice 7 : Nombres Parfaits & Diviseurs stricts   │
-│  75 - 80 min : Phase 5 - Synthèse, trace écrite & préparation Séance 17      │
-└──────────────────────────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────────────────────────────┐
+│  00 - 10 min : Phase 1 - Accroche : Inspecter un texte lettre par lettre            │
+│  10 - 25 min : Phase 2 - Cours : Schéma canonique for i in range(len(ch))           │
+│  25 - 42 min : Phase 3 - Exercice 4 : Compteur de voyelles et de consonnes          │
+│  42 - 55 min : Phase 4 - Exercice 5 : Filtrage dynamique (Bacs SVG lettres/chiffres)│
+│  55 - 60 min : Phase 5 - Synthèse, trace écrite & préparation Séance 17             │
+└─────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
 ## 📖 4. Contenu Didactique & Support de Cours
 
-### 1. Le Schéma du Compteur
-Sert à dénombrer des événements ou des éléments satisfaisant un critère :
+### 1. Le Schéma Canonique de Parcours
+Pour inspecter chaque symbole d'une chaîne `ch` de longueur $L$ :
+* Les indices valides vont de **0** à **$L - 1$**.
+* La fonction `range(len(ch))` génère exactement cette suite d'indices.
+
 ```algorithm
-compteur ← 0                // 1. Initialisation à zéro AVANT la boucle
-Pour i De 1 À N Faire
-   Si condition Alors
-      compteur ← compteur + 1   // 2. Incrémentation
-   FinSi
+Pour i De 0 À long(ch) - 1 Faire
+   car ← ch[i]
+   // Traitements sur le caractère courant
 FinPour
 ```
 
-### 2. Le Schéma de l'Accumulateur (Somme Cumulée)
-Sert à additionner une série de valeurs au fur et à mesure :
-```algorithm
-somme ← 0                   // 1. Élément neutre de l'addition AVANT la boucle
-Pour i De 1 À N Faire
-   somme ← somme + terme    // 2. Accumulation progressive
-FinPour
+*Équivalent Python :*
+```python
+for i in range(len(ch)):
+    car = ch[i]
+    # Traitements sur car
 ```
 
-> [!CAUTION]
-> Si l'on oublie d'initialiser `somme = 0` avant la boucle, Python lève une erreur `NameError: name 'somme' is not defined`. Si on l'initialise *à l'intérieur* de la boucle, la somme est réinitialisée à chaque tour et seul le dernier terme est conservé !
+### 2. Le Schéma d'Accumulation Textuelle (Concaténation Progressive)
+Pour filtrer des caractères sans utiliser de listes ou de tableaux :
+1. On initialise une chaîne vide **AVANT** la boucle : `res = ""`.
+2. À chaque tour, si le caractère courant satisfait le critère, on l'ajoute à la fin : `res = res + car`.
 
 ---
 
 ## 🧩 5. Fiche Activités & Corrigés Détaillés
 
-### 🔴 Exercice 3 : Somme des Nombres Impairs dans $[A..B]$
+### 🔴 Exercice 4 : Dénombrement des Voyelles et Consonnes
+* **Énoncé** : Saisir une chaîne alphabétique `ch`. Compter et afficher le nombre de voyelles et le nombre de consonnes qu'elle contient.
 * **Algorithme** :
 ```algorithm
-Algorithme Somme_Impairs
+Algorithme Compteur_Voyelles_Consonnes
 Début
-   Ecrire("Borne début A : ") ; Lire(A)
-   Ecrire("Borne fin B : ")   ; Lire(B)
+   Ecrire("Donner une chaîne alphabétique : ")
+   Lire(ch)
 
-   somme ← 0
-   Pour i De A À B Faire
-      Si (i mod 2 ≠ 0) Alors
-         somme ← somme + i
+   voyelles ← "AEIOUYaeiouy"
+   nb_v ← 0
+   nb_c ← 0
+
+   Pour i De 0 À long(ch) - 1 Faire
+      car ← ch[i]
+      Si (car >= 'A' ET car <= 'Z') OU (car >= 'a' ET car <= 'z') Alors
+         Si Pos(car, voyelles) ≠ -1 Alors
+            nb_v ← nb_v + 1
+         Sinon
+            nb_c ← nb_c + 1
+         FinSi
       FinSi
    FinPour
 
-   Ecrire("La somme des impairs vaut : ", somme)
+   Ecrire("Nombre de voyelles : ", nb_v)
+   Ecrire("Nombre de consonnes : ", nb_c)
 Fin
 ```
 
-* **Tableau de Trace pour $A = 3$ et $B = 7$** :
-| Tour de boucle | Valeur de `i` | Test `i % 2 != 0` | Calcul `somme` | Valeur finale de `somme` |
-| :---: | :---: | :---: | :---: | :---: |
-| *Avant boucle* | – | – | Initialisation | **0** |
-| Itération 1 | `3` | Vrai | $0 + 3$ | **3** |
-| Itération 2 | `4` | Faux | Inchangé | **3** |
-| Itération 3 | `5` | Vrai | $3 + 5$ | **8** |
-| Itération 4 | `6` | Faux | Inchangé | **8** |
-| Itération 5 | `7` | Vrai | $8 + 7$ | **15** |
+* **Code Python équivalent** :
+```python
+ch = input("Donner une chaîne de caractères : ")
+
+voyelles = "AEIOUYaeiouy"
+nb_v = 0
+nb_c = 0
+
+for i in range(len(ch)):
+    car = ch[i]
+    # Vérifier s'il s'agit bien d'une lettre de l'alphabet
+    if ('A' <= car <= 'Z') or ('a' <= car <= 'z'):
+        if car in voyelles:
+            nb_v += 1
+        else:
+            nb_c += 1
+
+print(f"Nombre de voyelles  : {nb_v}")
+print(f"Nombre de consonnes : {nb_c}")
+```
 
 ---
 
-### 🟡 Exercice 7 : Nombres Parfaits, Abondants ou Déficients
-* **Définitions mathématiques** : Soit $SD$ la somme des diviseurs stricts d'un entier $N$ (diviseurs de 1 à $N-1$ inclus).
-  * Si $SD = N$ : $N$ est un **Nombre Parfait** (ex: $6 = 1 + 2 + 3$).
-  * Si $SD > N$ : $N$ est un **Nombre Abondant** (ex: $12 \implies SD = 1+2+3+4+6 = 16 > 12$).
-  * Si $SD < N$ : $N$ est un **Nombre Déficient** (ex: $8 \implies SD = 1+2+4 = 7 < 8$).
-
-* **Script Python** :
+### 🟡 Exercice 5 : Filtrage de Lettres et Chiffres (Les Bacs SVG)
+* **Énoncé** : Saisir une chaîne mixte `ch` contenant des lettres, des chiffres et des symboles divers (ex: `"Bac2026-Sciences!"`).
+* **Objectif** : Extraire dans `chl` toutes les lettres et dans `chc` tous les chiffres. Ignorer les symboles de ponctuation.
+* **Code Python sans aucune liste** :
 ```python
-N = int(input("Donner un entier positif N : "))
+ch = input("Saisir un texte mixte : ")
 
-if N <= 0:
-    print("Veuillez saisir un entier strictement positif.")
-else:
-    SD = 0  # Somme des diviseurs stricts
+chl = ""  # Bac accumulateur des lettres
+chc = ""  # Bac accumulateur des chiffres
 
-    # Parcours des diviseurs stricts possibles de 1 à N - 1
-    for i in range(1, N):
-        if N % i == 0:
-            SD += i  # i est un diviseur strict de N
+for i in range(len(ch)):
+    car = ch[i]
+    if ('A' <= car <= 'Z') or ('a' <= car <= 'z'):
+        chl = chl + car  # Concaténation dans le bac lettres
+    elif '0' <= car <= '9':
+        chc = chc + car  # Concaténation dans le bac chiffres
 
-    print(f"Somme des diviseurs stricts de {N} : SD = {SD}")
-
-    if SD == N:
-        print(f"✨ {N} est un NOMBRE PARFAIT !")
-    elif SD > N:
-        print(f"📈 {N} est un NOMBRE ABONDANT (SD > N).")
-    else:
-        print(f"📉 {N} est un NOMBRE DÉFICIENT (SD < N).")
+print("Chaîne des lettres extraites (chl)  :", chl)
+print("Chaîne des chiffres extraits (chc)  :", chc)
 ```
 
 ---
@@ -141,41 +154,47 @@ else:
 ## 📝 6. Trace Écrite pour le Cahier de l'Élève
 
 ```markdown
-CHAPITRE 5 : LA STRUCTURE ITÉRATIVE (Partie 2 : Accumulateurs)
+CHAPITRE 5 : LA STRUCTURE ITÉRATIVE (Partie 3 : Parcours de Chaînes)
 
-1. Schéma de l'Accumulateur :
-   S = 0            # Toujours initialiser AVANT la boucle !
-   for i in range(...):
-       S = S + valeur
+1. Schéma canonique de parcours d'une chaîne :
+   for i in range(len(ch)):
+       car = ch[i]
+       # Analyse de chaque caractère
 
-2. Schéma du Compteur :
-   C = 0            # Initialiser à zéro AVANT la boucle !
-   for i in range(...):
+2. Accumulateur textuel (Sans listes) :
+   resultat = ""           # Chaîne vide avant la boucle
+   for i in range(len(ch)):
        if condition:
-           C = C + 1
+           resultat = resultat + ch[i]
 
-3. Diviseurs stricts d'un nombre N :
-   Boucle de 1 à N - 1 avec le test (N % i == 0).
-   - Nombres parfaits : Somme des diviseurs = N (ex: 6, 28, 496).
+3. Détection de catégorie :
+   - Lettre majuscule : 'A' <= car <= 'Z'
+   - Lettre minuscule : 'a' <= car <= 'z'
+   - Chiffre          : '0' <= car <= '9'
 ```
 
 ---
 
 ## ❓ 7. Auto-Évaluation Formative (5 Questions)
 
-1. **Vérifier si 28 est un nombre parfait.**  
-   *Réponse* : Diviseurs stricts de 28 : $1, 2, 4, 7, 14$. Somme : $1 + 2 + 4 + 7 + 14 = \mathbf{28}$. Oui, 28 est parfait !
-2. **Quel est le produit neutre pour un accumulateur de produit (ex: factorielle $P$) ?**  
-   *Réponse* : Initialiser à $P \leftarrow 1$ (car $0 \times \dots = 0$).
-3. **Dans quel intervalle cherche-t-on les diviseurs stricts d'un nombre $N$ ?**  
-   *Réponse* : De $1$ à $N-1$ (soit `range(1, N)` en Python).
-4. **Que se passe-t-il si on place l'instruction `somme = 0` à l'intérieur de la boucle ?**  
-   *Réponse* : La somme est remise à zéro à chaque itération, faussant complètement le cumul global.
-5. **Combien d'itérations sont effectuées pour tester les diviseurs de $N = 100$ ?**  
-   *Réponse* : $99$ itérations (de 1 à 99).
+1. **Pourquoi la boucle s'arrête-t-elle à `len(ch) - 1` ?**  
+   *Réponse* : Car les indices en Python débutent à $0$. Le dernier caractère se trouve à l'indice $L - 1$.
+2. **Combien de voyelles contient le mot `"ALGORITHME"` ?**  
+   *Réponse* : $4$ voyelles (`A`, `O`, `I`, `E`).
+3. **Que vaut `res` après l'exécution suivante sur `ch = "S2C"` ?**
+   ```python
+   res = ""
+   for i in range(len(ch)):
+       if 'A' <= ch[i] <= 'Z': res += ch[i]
+   ```
+   *Réponse* : `"SC"` (le chiffre `'2'` est filtré et exclu).
+4. **Peut-on utiliser `for car in ch:` en Python ?**  
+   *Réponse* : Oui, c'est le parcours direct par élément en Python, mais le parcours par indices `range(len(ch))` reste la norme officielle enseignée au niveau 2e Sciences en Tunisie pour manipuler les positions.
+5. **Quelle est la sortie de l'Exercice 5 pour `ch = "Covid-19"` ?**  
+   *Réponse* : `chl = "Covid"` et `chc = "19"`.
 
 ---
 
-## 🚀 8. Préparation de la Séance 17
-* **Thème** : *Parcours séquentiel de chaînes de caractères (sans listes Python)*.
-* **Défi d'amorce** : Comment compter le nombre de voyelles dans une phrase ?
+## 🚀 8. Préparation de la Séance 18
+* **Thème** : *Arithmétique itérative avancée : Nombres poly-divisibles et séries alternées*.
+* **Défi mathématique** : Comment calculer la somme alternée $S = 1^1 - 2^2 + 3^3 - 4^4 + \dots \pm n^n$ ?

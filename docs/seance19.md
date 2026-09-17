@@ -1,6 +1,6 @@
 # 📝 Fiche Pédagogique – Séance 19
 ## Module 05 : Structure itérative complète
-### Thème : Algorithmes de Contrôle d'Intégrité ("Check_card") & Analyse de Monotonie
+### Thème : Analyse de Monotonie & Comparaisons Itératives Avancées via la boucle `Pour`
 
 ---
 
@@ -10,91 +10,101 @@
 | :--- | :--- |
 | **Matière** | Informatique |
 | **Niveau & Section** | 2ème Année Secondaire – Section Sciences |
-| **Durée prévisionnelle** | 1 séance (1h à 1h30) |
+| **Durée prévisionnelle** | 1 séance (1 heure) |
 | **Cadre de référence** | Programme officiel du Ministère de l'Éducation (Tunisie) |
 | **Enseignant** | Mohamed Anis MANI |
 | **Supports & Outils** | Ordinateurs, page web `module05.html`, Playground Python (`playground.html`), tableau |
-| **Prérequis** | Parcours de chaînes, accumulateurs, indicateurs booléens |
+| **Prérequis** | Boucle `Pour`, indexation de chaînes, opérateurs relationnels, booléens |
 
 ---
 
 ## 🎯 2. Compétences & Objectifs Opérationnels
 
 ### Compétences visées :
-* **Compétence de sécurité informatique & intégrité des données** : Comprendre le principe d'une clé de contrôle (checksum) utilisée dans les cartes bancaires, cartes de fidélité et codes-barres.
-* **Compétence d'analyse séquentielle** : Comparer deux éléments consécutifs d'une séquence pour statuer sur sa monotonie.
+* **Compétence d'analyse séquentielle** : Comparer deux éléments consécutifs d'une séquence pour statuer sur sa monotonie globale.
+* **Compétence de gestion des bornes d'indices** : Éviter les dépassements d'index (`IndexError`) lors de la consultation de l'élément suivant `seq[i+1]`.
 
 ### Objectifs opérationnels (À l'issue de la séance, l'élève sera capable de) :
-1. **Implémenter** un algorithme de somme de contrôle pondérée selon la parité de l'indice (Exercice 10).
-2. **Détecter** si une suite de nombres ou de caractères est strictement croissante ou décroissante (Exercice 11).
-3. **Structurer** une réponse claire indiquant la validité globale d'un code saisi.
+1. **Formaliser** la condition de monotonie stricte croissante ($c_i < c_{i+1}$) et décroissante ($c_i > c_{i+1}$).
+2. **Paramétrer correctement** la borne de fin de la boucle `Pour` (`range(len(seq) - 1)`).
+3. **Utiliser des variables drapeaux** (`est_croissant`, `est_decroissant`) initialisées à `Vrai`.
+4. **Construire un tableau de trace** pas-à-pas pour suivre les comparaisons successives.
 
 ---
 
-## ⏱️ 3. Scénario Pédagogique & Déroulement Minuté
+## ⏱️ 3. Scénario Pédagogique & Déroulement Minuté (Séance de 60 min)
 
 ```
-┌──────────────────────────────────────────────────────────────────────────────┐
-│  00 - 15 min : Phase 1 - Accroche : Comment la machine sait qu'un code est faux?│
-│  15 - 35 min : Phase 2 - Cours : Clé de contrôle & Formule de Luhn simplifiée │
-│  35 - 55 min : Phase 3 - Exercice 10 : Algorithme de validation "Check_card"  │
-│  55 - 75 min : Phase 4 - Exercice 11 : Détection de monotonie (croissante/décr)│
-│  75 - 80 min : Phase 5 - Synthèse, trace écrite & préparation du Défi Final   │
-└──────────────────────────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────────────────────────────┐
+│  00 - 10 min : Phase 1 - Défi : Comment savoir si une suite progresse toujours ?    │
+│  10 - 25 min : Phase 2 - Cours : Comparaison de voisins seq[i]/seq[i+1] & indices   │
+│  25 - 42 min : Phase 3 - Exercice 11 : Algorithme complet de monotonie              │
+│  42 - 55 min : Phase 4 - Atelier Playground : Tableaux de trace & cas limites       │
+│  55 - 60 min : Phase 5 - Synthèse, trace écrite & préparation du Défi Final         │
+└─────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
 ## 📖 4. Contenu Didactique & Support de Cours
 
-### 1. Le Principe de la Clé de Contrôle (*Checksum*)
-Pour s'assurer qu'un numéro de carte ou de compte saisi par l'utilisateur ne comporte aucune erreur de frappe :
-* On applique un calcul pondéré sur les chiffres du numéro.
-* Le résultat modulo un entier (généralement 10 ou 11) doit être égal au dernier chiffre de contrôle.
-
-### 2. L'Analyse de Monotonie d'une Suite
-Une séquence de valeurs est dite :
+### 1. Définition de la Monotonie d'une Suite
+Une suite de valeurs est dite :
 * **Strictement croissante** : si pour tout indice $i$, $\text{élément}[i] < \text{élément}[i+1]$.
 * **Strictement décroissante** : si pour tout indice $i$, $\text{élément}[i] > \text{élément}[i+1]$.
+* **Quelconque** : dès qu'il existe à la fois des montées et des descentes ou des éléments consécutifs égaux.
+
+### 2. La Règle d'Or des Indices Voisins
+Lorsqu'on compare `seq[i]` avec `seq[i+1]` :
+* Si la chaîne compte $N$ éléments, le dernier indice valide est $N - 1$.
+* Par conséquent, pour que `i + 1` ne dépasse jamais $N - 1$, l'indice $i$ doit s'arrêter à :
+  $$i_{\max} = N - 2 \implies \text{en Python : } \text{range}(\text{len}(seq) - 1)$$
 
 ---
 
 ## 🧩 5. Fiche Activités & Corrigés Détaillés
 
-### 🔴 Exercice 10 : Carte de Fidélité ("Check_card")
-* **Énoncé** : Une carte de fidélité comporte 8 chiffres (ex: `"45127834"`). Pour être valide :
-  * On calcule la somme pondérée $S$ :
-    * Les chiffres d'indice pair ($0, 2, 4, 6$) sont multipliés par 1.
-    * Les chiffres d'indice impair ($1, 3, 5, 7$) sont multipliés par 2.
-  * La carte est **valide** si la somme totale $S$ est un **multiple de 10** ($S \mathbin{\text{mod}} 10 = 0$).
-* **Code Python sans aucune liste** :
-```python
-carte = input("Entrez le numéro de la carte (8 chiffres) : ")
+### 🔴 Exercice 11 : Analyse de Monotonie
+* **Énoncé** : Saisir une chaîne de chiffres `seq` de longueur au moins 3. Déterminer si les chiffres progressent de manière strictement croissante, strictement décroissante, ou ni l'un ni l'autre.
 
-if len(carte) != 8:
-    print("Erreur : Le numéro de carte doit comporter exactement 8 chiffres.")
-else:
-    somme = 0
-    for i in range(8):
-        chiffre = int(carte[i])
-        if i % 2 == 0:
-            somme += chiffre * 1
-        else:
-            somme += chiffre * 2
+* **Algorithme en pseudo-code** :
+```algorithm
+Algorithme Monotonie_Sequence
+Début
+   Ecrire("Donner une séquence de chiffres (au moins 3) : ")
+   Lire(seq)
+   n ← long(seq)
 
-    print(f"Somme pondérée calculée : S = {somme}")
+   Si n < 3 Alors
+      Ecrire("Erreur : La séquence doit comporter au moins 3 chiffres !")
+   Sinon
+      croissant ← Vrai
+      decroissant ← Vrai
 
-    if somme % 10 == 0:
-        print("✅ CARTE DE FIDÉLITÉ VALIDE ! Félicitations.")
-    else:
-        print("❌ CARTE INVALIDE (Somme non divisible par 10).")
+      Pour i De 0 À n - 2 Faire
+         c_actuel ← Valeur(seq[i])
+         c_suivant ← Valeur(seq[i + 1])
+
+         Si c_actuel >= c_suivant Alors
+            croissant ← Faux
+         FinSi
+         Si c_actuel <= c_suivant Alors
+            decroissant ← Faux
+         FinSi
+      FinPour
+
+      Si croissant Alors
+         Ecrire("📈 La suite est STRICTEMENT CROISSANTE.")
+      SinonSi decroissant Alors
+         Ecrire("📉 La suite est STRICTEMENT DÉCROISSANTE.")
+      Sinon
+         Ecrire("🔀 La suite n'est NI croissante NI décroissante.")
+      FinSi
+   FinSi
+Fin
 ```
 
----
-
-### 🟡 Exercice 11 : Analyse de Monotonie
-* **Énoncé** : Saisir une chaîne de chiffres `seq` de longueur au moins 3. Déterminer si les chiffres progressent de manière strictement croissante, strictement décroissante, ou ni l'un ni l'autre (désordonnée).
-* **Code Python** :
+* **Code Python validé pour le Playground** :
 ```python
 seq = input("Donner une séquence de chiffres (au moins 3) : ")
 
@@ -127,37 +137,35 @@ else:
 ## 📝 6. Trace Écrite pour le Cahier de l'Élève
 
 ```markdown
-CHAPITRE 5 : LA STRUCTURE ITÉRATIVE (Partie 5 : Contrôle & Monotonie)
+CHAPITRE 5 : LA STRUCTURE ITÉRATIVE (Partie 6 : Analyse de Monotonie)
 
-1. Contrôle d'intégrité (Check_card) :
-   Parcours des chiffres avec pondération selon l'indice :
-   - Indice pair (i % 2 == 0)   ➔ somme += chiffre * 1
-   - Indice impair (i % 2 != 0) ➔ somme += chiffre * 2
-   - Test final : (somme % 10 == 0)
+1. Test de Monotonie par comparaison de voisins :
+   On compare chaque élément ch[i] avec son successeur direct ch[i + 1].
+   Attention : La boucle s'arrête impérativement à len(ch) - 1 en Python
+   (c'est-à-dire jusqu'à l'indice len(ch) - 2 inclus).
 
-2. Test de Monotonie :
-   On compare chaque élément ch[i] avec son voisin ch[i + 1].
-   Attention : La boucle s'arrête impérativement à len(ch) - 2 
-   pour éviter l'erreur de dépassement d'indice (IndexError) !
+2. Les drapeaux (flags) :
+   - On suppose au départ que la propriété est vraie (flag = True).
+   - Dès qu'un contre-exemple est rencontré, le drapeau bascule à False.
 ```
 
 ---
 
 ## ❓ 7. Auto-Évaluation Formative (5 Questions)
 
-1. **Pourquoi la boucle de monotonie va-t-elle jusqu'à `len(seq) - 1` ?**  
-   *Réponse* : Parce qu'on examine `seq[i + 1]`. Si la boucle allait jusqu'à la fin, `i + 1` dépasserait la taille de la chaîne.
+1. **Pourquoi la boucle s'arrête-t-elle à `len(seq) - 1` ?**  
+   *Réponse* : Pour éviter l'erreur `IndexError` lors de l'accès à `seq[i + 1]`.
 2. **La séquence `"13579"` est-elle strictement croissante ?**  
    *Réponse* : Oui, chaque chiffre est strictement supérieur au précédent.
 3. **La séquence `"1223"` est-elle strictement croissante ?**  
-   *Réponse* : Non, à cause de la répétition des deux `2` (elle est croissante au sens large, mais pas strictement croissante).
-4. **Quelle est la somme pondérée pour la carte `"12345678"` ?**  
-   *Réponse* : $(1\times1 + 2\times2) + (3\times1 + 4\times2) + (5\times1 + 6\times2) + (7\times1 + 8\times2) = 5 + 11 + 17 + 23 = \mathbf{56}$. Carte invalide ($56 \mathbin{\text{mod}} 10 = 6 \ne 0$).
-5. **Quelle est l'utilité pratique des sommes de contrôle ?**  
-   *Réponse* : Détecter instantanément les erreurs de saisie ou de transmission de données sans interroger une base distante.
+   *Réponse* : Non, à cause des deux `2` consécutifs (elle est croissante large, non stricte).
+4. **Si l'utilisateur saisit `"97531"`, quel sera le résultat ?**  
+   *Réponse* : Strictement décroissante.
+5. **Si l'utilisateur saisit `"1537"`, quel sera le résultat ?**  
+   *Réponse* : Ni croissante ni décroissante.
 
 ---
 
-## 🚀 8. Préparation de la Séance 20 (Synthèse Globale)
-* **Thème** : *Défi pratique de synthèse intégrant les 5 modules du programme*.
-* **À réviser** : L'ensemble des notions de l'année (E/T/S, variables, types numériques, chaînes, conditions, boucles).
+## 🚀 8. Préparation de la Séance Suivante (Séance 20)
+* **Thème** : *Module 05 – Séance 20 : Structure Itérative « Pour » & Intégration des Modules Précédents (Défi BioPass)*.
+* **À réviser** : Boucles `Pour`, conditions, chaînes, codes ASCII (`ord`/`chr`) et analyse E/T/S.

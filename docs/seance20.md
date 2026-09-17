@@ -1,6 +1,6 @@
 # 📝 Fiche Pédagogique – Séance 20
-## Synthèse Globale & Défi Pratique d'Intégration
-### Thème : Mobilisation Conjointe des Modules 01 à 05 (Projet Transversal & Préparation aux Épreuves de Synthèse)
+## Module 05 : Structure itérative complète & Intégration
+### Thème : Structure Itérative « Pour » & Intégration des Notions des Modules Précédents (Défi Transversal « BioPass »)
 
 ---
 
@@ -10,7 +10,7 @@
 | :--- | :--- |
 | **Matière** | Informatique |
 | **Niveau & Section** | 2ème Année Secondaire – Section Sciences |
-| **Durée prévisionnelle** | 1 séance (1h à 1h30) |
+| **Durée prévisionnelle** | 1 séance (1 heure) |
 | **Cadre de référence** | Programme officiel du Ministère de l'Éducation (Tunisie) |
 | **Enseignant** | Mohamed Anis MANI |
 | **Supports & Outils** | Ordinateurs, IDE Python WebAssembly Playground (`playground.html`), tableau |
@@ -32,16 +32,16 @@
 
 ---
 
-## ⏱️ 3. Scénario Pédagogique & Déroulement Minuté
+## ⏱️ 3. Scénario Pédagogique & Déroulement Minuté (Séance de 60 min)
 
 ```
-┌──────────────────────────────────────────────────────────────────────────────┐
-│  00 - 10 min : Phase 1 - Présentation du Défi de Synthèse & Cahier des charges│
-│  10 - 30 min : Phase 2 - Travail d'analyse : Grille E/T/S et TDO complet     │
-│  30 - 55 min : Phase 3 - Rédaction de l'Algorithme structuré                  │
-│  55 - 75 min : Phase 4 - Implémentation & Tests sur le Playground Python      │
-│  75 - 80 min : Phase 5 - Bilan d'apprentissage annuel & auto-évaluation       │
-└──────────────────────────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────────────────────────────┐
+│  00 - 08 min : Phase 1 - Présentation du Défi de Synthèse & Cahier des charges      │
+│  08 - 22 min : Phase 2 - Travail d'analyse : Grille E/T/S et TDO complet            │
+│  22 - 38 min : Phase 3 - Rédaction de l'Algorithme structuré (Boucle Pour)          │
+│  38 - 54 min : Phase 4 - Implémentation & Tests sur le Playground Python            │
+│  54 - 60 min : Phase 5 - Bilan d'apprentissage annuel & auto-évaluation             │
+└─────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---

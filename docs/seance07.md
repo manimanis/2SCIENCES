@@ -1,6 +1,6 @@
 # 📝 Fiche Pédagogique – Séance 07
 ## Module 03 : Les structures de données
-### Thème : Types Textuels (I) : Type Caractère, Code ASCII (`ord` / `chr`), Longueur (`long` / `len`) & Indexation
+### Thème : Types Textuels (II) : Découpage par Tranches (Slicing), Conversions, Fonctions Avancées & Synthèse du Module 03
 
 ---
 
@@ -10,134 +10,114 @@
 | :--- | :--- |
 | **Matière** | Informatique |
 | **Niveau & Section** | 2ème Année Secondaire – Section Sciences |
-| **Durée prévisionnelle** | 1 séance (1h à 1h30) |
+| **Durée prévisionnelle** | 1 séance (1 heure) |
 | **Cadre de référence** | Programme officiel du Ministère de l'Éducation (Tunisie) |
 | **Enseignant** | Mohamed Anis MANI |
-| **Supports & Outils** | Ordinateurs, page web `module03.html`, Playground Python (`playground.html`), table ASCII |
-| **Prérequis** | Types numériques, affectation, chaînes simples (E/S) |
+| **Supports & Outils** | Ordinateurs, page web `module03.html`, Playground Python (`playground.html`), tableau |
+| **Prérequis** | Code ASCII, indexation à base 0, longueur `len()` (Séance 07) |
 
 ---
 
 ## 🎯 2. Compétences & Objectifs Opérationnels
 
 ### Compétences visées :
-* **Compétence textuelle** : Manipuler les caractères et les chaînes comme des séquences ordonnées de symboles indexés.
-* **Compétence d'encodage** : Comprendre la représentation numérique des caractères à travers le code ASCII standard.
+* **Compétence algorithmique** : Extraire des sous-chaînes ciblées grâce au découpage par tranches (*slicing*).
+* **Compétence de synthèse** : Mobiliser l'ensemble des types de données de base (numérique, booléen, textuel) dans une application concrète.
 
 ### Objectifs opérationnels (À l'issue de la séance, l'élève sera capable de) :
-1. **Distinguer** le type caractère (`caractère` / `str` de longueur 1) de la chaîne (`chaine` / `str`).
-2. **Utiliser** les fonctions de conversion ASCII : `ord(c)` (caractère $\rightarrow$ code entier) et `chr(code)` (code entier $\rightarrow$ caractère).
-3. **Déterminer** la longueur d'une chaîne avec `long(ch)` / `len(ch)`.
-4. **Accéder** à un caractère individuel par son indice `ch[i]` (indexation à base 0).
-5. **Programmer** un générateur de mot de passe et une permutation de chiffres (Exercices 8 et 9).
+1. **Maîtriser** la notation du découpage : `ch[début : fin]` avec l'exclusion stricte de la borne supérieure.
+2. **Utiliser** les méthodes standard de transformation : `.upper()`, `.lower()`, `.find()`, `.count()`.
+3. **Convertir** les chaînes numériques en entiers/réels et réciproquement (`str()`, `int()`, `float()`).
+4. **Réaliser** le projet de synthèse : Générateur de Pseudonymes (Exercice 14).
 
 ---
 
-## ⏱️ 3. Scénario Pédagogique & Déroulement Minuté
+## ⏱️ 3. Scénario Pédagogique & Déroulement Minuté (Séance de 60 min)
 
 ```
-┌──────────────────────────────────────────────────────────────────────────────┐
-│  00 - 15 min : Phase 1 - Découverte : Comment l'ordinateur stocke-t-il 'A' ?  │
-│  15 - 35 min : Phase 2 - Cours : Table ASCII, ord(), chr() et indices        │
-│  35 - 55 min : Phase 3 - Applications immédiates : Ex 3 (Trace) & Ex 5       │
-│  55 - 75 min : Phase 4 - Atelier pratique : Ex 8 (Password) & Ex 9 (Chiffres)│
-│  75 - 80 min : Phase 5 - Synthèse, trace écrite & préparation Séance 08      │
-└──────────────────────────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────────────────────────────┐
+│  00 - 10 min : Phase 1 - Accroche : L'art du découpage par tranche (Slicing)        │
+│  10 - 25 min : Phase 2 - Cours : Syntaxe ch[d:f], conversions str/int et fonctions  │
+│  25 - 42 min : Phase 3 - Exercice 6 (Slicing) & Exercice 7 (QCM interactif)         │
+│  42 - 55 min : Phase 4 - Atelier Playground : Ex 13 (SVG) & Ex 14 (Pseudonymes)     │
+│  55 - 60 min : Phase 5 - Bilan global du Module 03 & annonce du Module 04           │
+└─────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
 ## 📖 4. Contenu Didactique & Support de Cours
 
-### 1. La Table des Caractères ASCII Standard
-L'ordinateur ne traite que des nombres binaires. La table **ASCII** (American Standard Code for Information Interchange) associe à chaque symbole usuel un code numérique entier compris entre 0 et 127 :
+### 1. Le Découpage par Tranches (*Slicing*)
+Le découpage permet d'extraire une portion contiguë (sous-chaîne) à partir d'une chaîne existante.
 
-| Caractères | Plage des Codes ASCII | Exemples remarquables |
-| :--- | :---: | :--- |
-| **Chiffres textuels** `'0' .. '9'` | **48 à 57** | `'0'` $\rightarrow 48$, `'9'` $\rightarrow 57$ |
-| **Lettres majuscules** `'A' .. 'Z'` | **65 à 90** | `'A'` $\rightarrow 65$, `'B'` $\rightarrow 66$, `'Z'` $\rightarrow 90$ |
-| **Lettres minuscules** `'a' .. 'z'` | **97 à 122** | `'a'` $\rightarrow 97$, `'b'` $\rightarrow 98$, `'z'` $\rightarrow 122$ |
-| **Espace** `' '` | **32** | Espace blanc |
+$$\mathbf{ch[d : f]}$$
 
-> [!NOTE]
-> Pour convertir une majuscule en minuscule, il suffit d'ajouter 32 à son code ASCII :
-> $$\text{ord}('a') = \text{ord}('A') + 32 = 65 + 32 = 97$$
+* **$d$ (début)** : Indice du premier caractère inclus.
+* **$f$ (fin)** : Indice de fin **EXCLU**.
+* **Propriété mathématique** : Le nombre de caractères extraits est exactement égal à **$f - d$**.
 
-### 2. Les Fonctions Fondamentales `ord()` et `chr()`
-* `ord(c)` : Prend un caractère $c$ et renvoie son **code entier ASCII**.
-  * `ord('A')` $\rightarrow 65$
-  * `ord('5')` $\rightarrow 53$
-* `chr(code)` : Prend un code entier ASCII et renvoie le **caractère associé**.
-  * `chr(65)` $\rightarrow \text{'A'}$
-  * `chr(97)` $\rightarrow \text{'a'}$
+*Exemples avec `ch = "INFORMATIQUE"` (longueur 12) :*
+* `ch[0 : 4]` $\rightarrow$ `"INFO"` (indices 0, 1, 2, 3 $\implies 4 - 0 = 4$ caractères)
+* `ch[2 : 7]` $\rightarrow$ `"FORMA"` (indices 2, 3, 4, 5, 6 $\implies 7 - 2 = 5$ caractères)
+* `ch[ : 4]`  $\rightarrow$ `"INFO"` (départ implicite à 0)
+* `ch[7 : ]`  $\rightarrow$ `"TIQUE"` (va jusqu'à la fin de la chaîne)
 
-### 3. Longueur & Repères d'Indices dans une Chaîne
-Une chaîne de caractères est une séquence finie ordonnée de symboles.
-* **Fonction Longueur** : `long(ch)` en algorithme $\rightarrow$ `len(ch)` en Python.
-* **Règle d'or de l'indexation** : En Python, les indices commencent impérativement à **0** et se terminent à **$\text{len}(ch) - 1$**.
+### 2. Méthodes et Fonctions Prédéfinies sur les Chaînes
 
-Exemple avec la chaîne `ch = "PYTHON"` :
-```
-Indice :      0     1     2     3     4     5     (len = 6)
-Caractère :   'P'   'Y'   'T'   'H'   'O'   'N'
-              │                               │
-              ch[0]                           ch[5]  ou  ch[len(ch)-1]
-```
+| Méthode Python | Équivalent Algorithme | Rôle | Exemple (`ch = "Sciences"`) |
+| :--- | :--- | :--- | :--- |
+| `ch.upper()` | `Majus(ch)` | Convertit tout en majuscules | `"SCIENCES"` |
+| `ch.lower()` | `Minus(ch)` | Convertit tout en minuscules | `"sciences"` |
+| `ch.find(sous_ch)` | `Pos(sous_ch, ch)` | Renvoie l'indice de la 1ère occurrence (-1 si absent) | `ch.find("en")` $\rightarrow 3$ |
+| `ch.count(sous_ch)`| – | Compte le nombre d'occurrences | `ch.count("e")` $\rightarrow 2$ |
+| `str(nombre)` | `Convch(nombre)` | Convertit un nombre en chaîne | `str(2026)` $\rightarrow \text{"2026"}$ |
+| `int(ch)` | `Valeur(ch)` | Convertit une chaîne en entier | `int("45")` $\rightarrow 45$ |
 
 ---
 
 ## 🧩 5. Fiche Activités & Corrigés Détaillés
 
-### 🔴 Exercice 3 : Tableau de Trace Mémoire
-Suivre l'évolution des variables :
-```python
-mot = "BAC"
-c1 = mot[0]          # c1 = 'B' (ord = 66)
-code = ord(c1) + 1   # code = 67
-c2 = chr(code)       # c2 = 'C'
-res = c1 + c2        # res = "BC"
-```
+### 🔴 Exercice 6 & 7 : Manipulation de Chaînes & QCM
+Soit la chaîne : `titre = "TUNISIE 2026"`
+1. `titre[0:7]` $\rightarrow$ `"TUNISIE"`
+2. `titre[8:]`  $\rightarrow$ `"2026"`
+3. `int(titre[8:]) + 1` $\rightarrow$ $2026 + 1 = \mathbf{2027}$
+4. `titre.find("2")` $\rightarrow$ `8` (indice du caractère `'2'`)
+5. `titre.count("I")` $\rightarrow$ `2`
 
 ---
 
-### 🟡 Exercice 5 : Concaténation de Chaînes
-* L'opérateur `+` entre deux chaînes réalise la **concaténation** (fusion bout à bout) :
-  `"Sciences " + "2026"` $\rightarrow$ `"Sciences 2026"`.
-* L'opérateur `*` entre une chaîne et un entier réalise la **répétition** :
-  `"=*=" * 4` $\rightarrow$ `"=**==*==*="`.
+### 🟡 Exercice 14 : Générateur de Pseudonymes (Synthèse Module 03)
+* **Énoncé** : Un site éducatif demande de générer automatiquement un pseudonyme d'élève à partir de son `prenom`, son `nom` et sa `classe` (ex: `"2SC"`).
+* **Règle de construction du pseudonyme** :
+  1. Les 3 premières lettres du prénom en majuscules.
+  2. Le caractère séparateur `_`.
+  3. Les 2 premières lettres du nom en minuscules.
+  4. La somme des codes ASCII des deux premières lettres du prénom.
+* **Exemple** :
+  * `prenom = "Yassine"`, `nom = "Ben Ali"`
+  * 3 premières lettres du prénom : `"YAS"`
+  * 2 premières lettres du nom : `"be"`
+  * Codes ASCII de `'Y'` (89) et `'a'` (97) : $89 + 97 = 186$
+  * Résultat attendu : `"YAS_be186"`
 
----
-
-### 🟢 Exercice 8 : Générateur de Mot de Passe Sécurisé
-* **Énoncé** : Saisir le nom `nom` et l'année de naissance `annee`. Construire un mot de passe composé de :
-  1. La première lettre du nom en majuscule.
-  2. La dernière lettre du nom.
-  3. Le symbole spécial dont le code ASCII est 64 (`@`).
-  4. Les deux derniers chiffres de l'année.
-* **Script Python** :
+* **Algorithme & Code Python** :
 ```python
+prenom = input("Donner votre prénom : ")
 nom = input("Donner votre nom : ")
-annee = input("Donner votre année de naissance (ex: 2009) : ")
 
-# Extraction des composants
-c_debut = nom[0].upper()
-c_fin = nom[len(nom) - 1]
-arobase = chr(64)          # Code ASCII 64 = '@'
-annee_court = annee[2] + annee[3]
+# 1. Extraction et transformation des lettres
+p_debut = prenom[0:3].upper()
+n_debut = nom[0:2].lower()
 
-password = c_debut + c_fin + arobase + annee_court
-print("Votre mot de passe généré est :", password)
-```
+# 2. Calcul arithmétique sur les codes ASCII
+cle_ascii = ord(prenom[0]) + ord(prenom[1])
 
----
+# 3. Assemblage du pseudonyme final
+pseudo = p_debut + "_" + n_debut + str(cle_ascii)
 
-### 🔵 Exercice 9 : Permutation des Chiffres d'un Entier
-* **Énoncé** : Saisir un entier positif à 3 chiffres (ex: `n = 482`). Afficher le nombre inversé (`284`).
-* **Méthode par manipulation textuelle** :
-```python
-ch = input("Donner un nombre de 3 chiffres : ")
-inverse = ch[2] + ch[1] + ch[0]
-print("Nombre inversé :", int(inverse))
+print("Votre pseudonyme officiel est :", pseudo)
 ```
 
 ---
@@ -145,41 +125,41 @@ print("Nombre inversé :", int(inverse))
 ## 📝 6. Trace Écrite pour le Cahier de l'Élève
 
 ```markdown
-CHAPITRE 3 : LES STRUCTURES DE DONNÉES (Partie 3 : Caractères & ASCII)
+CHAPITRE 3 : LES STRUCTURES DE DONNÉES (Partie 4 : Slicing & Synthèse)
 
-1. Le Code ASCII :
-   - '0' à '9' : codes 48 à 57
-   - 'A' à 'Z' : codes 65 à 90
-   - 'a' à 'z' : codes 97 à 122
-   - Espace ' ' : code 32
+1. Découpage par tranches (Slicing) :
+   ch[début : fin]
+   - 'début' est inclus, 'fin' est EXCLU.
+   - Nombre de caractères extraits = fin - début.
 
-2. Fonctions de Conversion :
-   - ord(c)    : renvoie le code ASCII du caractère c (ex: ord('A') = 65)
-   - chr(code) : renvoie le caractère associé au code (ex: chr(65) = 'A')
+2. Fonctions utiles sur les chaînes :
+   - ch.upper() : passage en majuscules
+   - ch.lower() : passage en minuscules
+   - ch.find(x) : cherche l'indice de x (ou -1)
+   - ch.count(x): compte les apparitions de x
 
-3. Chaîne de caractères :
-   - Longueur : len(ch)
-   - Premier caractère : ch[0]
-   - Dernier caractère : ch[len(ch) - 1]
+3. Conversions :
+   - str(x) : transforme un nombre en texte "x"
+   - int(ch) / float(ch) : transforme un texte en nombre calculable
 ```
 
 ---
 
 ## ❓ 7. Auto-Évaluation Formative (5 Questions)
 
-1. **Que vaut `ord('C') - ord('A')` ?**  
-   *Réponse* : $67 - 65 = \mathbf{2}$.
-2. **Que renvoie `chr(ord('x') - 32)` ?**  
-   *Réponse* : `'X'` (la majuscule correspondante).
-3. **Si `ch = "INFO"`, que renvoie l'instruction `ch[4]` ?**  
-   *Réponse* : Une erreur `IndexError: string index out of range` (car les indices valides vont de 0 à 3).
-4. **Quelle est la longueur de la chaîne `ch = "2e Sciences"` ?**  
-   *Réponse* : $11$ caractères (l'espace est compté comme un caractère à part entière).
-5. **Quelle instruction permet de récupérer le dernier caractère d'une chaîne `ch` sans connaître sa longueur à l'avance ?**  
-   *Réponse* : `ch[len(ch) - 1]` ou `ch[-1]`.
+1. **Si `texte = "SCIENCES"`, que vaut `texte[1:5]` ?**  
+   *Réponse* : `"CIEN"` (indices 1, 2, 3, 4 $\implies$ 4 caractères).
+2. **Comment obtenir les 3 derniers caractères d'une chaîne `ch` avec le slicing ?**  
+   *Réponse* : `ch[len(ch) - 3 : len(ch)]` ou en abrégé `ch[-3:]`.
+3. **Que renvoie `"informatique".find("z")` ?**  
+   *Réponse* : `-1` (convention Python pour indiquer que la sous-chaîne n'existe pas).
+4. **Pourquoi `str(12) + str(34)` donne-t-il `"1234"` et non `46` ?**  
+   *Réponse* : Parce que ce sont des chaînes de caractères : l'opérateur `+` réalise une concaténation et non une addition arithmétique.
+5. **Quelle est la taille de la tranche `ch[4:4]` ?**  
+   *Réponse* : $0$ caractère (chaîne vide `""`, car $4 - 4 = 0$).
 
 ---
 
-## 🚀 8. Préparation de la Séance 08
-* **Thème** : *Types textuels (II) : Découpage par tranches (Slicing), conversions et synthèse de module*.
-* **À réfléchir** : Comment extraire d'un mot les trois premières lettres d'un seul coup ?
+## 🚀 8. Préparation de la Séance 09 (Module 04)
+* **Thème** : *Les structures conditionnelles : Choix algorithmiques, formes simple (`Si`) et alternative (`Si ... Sinon`)*.
+* **Problème d'amorce** : Comment programmer un test pour savoir si un nombre est positif, négatif ou nul ?

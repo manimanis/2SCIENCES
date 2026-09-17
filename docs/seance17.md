@@ -1,6 +1,6 @@
 # 📝 Fiche Pédagogique – Séance 17
 ## Module 05 : Structure itérative complète
-### Thème : Parcours Séquentiel de Chaînes de Caractères (Sans Listes) & Filtrage de Données
+### Thème : Arithmétique Itérative, Séries Numériques Alternées & Nombres Poly-Divisibles
 
 ---
 
@@ -10,191 +10,170 @@
 | :--- | :--- |
 | **Matière** | Informatique |
 | **Niveau & Section** | 2ème Année Secondaire – Section Sciences |
-| **Durée prévisionnelle** | 1 séance (1h à 1h30) |
+| **Durée prévisionnelle** | 1 séance (1 heure) |
 | **Cadre de référence** | Programme officiel du Ministère de l'Éducation (Tunisie) |
 | **Enseignant** | Mohamed Anis MANI |
-| **Supports & Outils** | Ordinateurs, page web `module05.html` (bacs SVG de tri), Playground Python, tableau |
-| **Prérequis** | Longueur `len()`, indexation `ch[i]`, boucle `Pour` |
+| **Supports & Outils** | Ordinateurs, page web `module05.html`, Playground Python (`playground.html`), tableau |
+| **Prérequis** | Accumulateurs numériques, puissance `**`, boucle `Pour` |
 
 ---
 
 ## 🎯 2. Compétences & Objectifs Opérationnels
 
 ### Compétences visées :
-* **Compétence algorithmique** : Visiter systématiquement chaque caractère d'un texte pour effectuer des opérations de test, de comptage ou d'extraction.
-* **Compétence de rigueur pédagogique** : Manipuler les chaînes de caractères sans recourir aux structures de listes (`[...]`), strictement hors programme en 2e Sciences.
+* **Compétence mathématique & algorithmique** : Traduire des notations mathématiques rigoureuses (symbole de sommation $\sum$, signes alternés $(-1)^{k+1}$, puissances $k^k$) en instructions algorithmiques itératives.
+* **Compétence de validation globale** : Utiliser un indicateur booléen (*drapeau / flag*) pour vérifier une propriété partagée par toute une suite de diviseurs.
 
 ### Objectifs opérationnels (À l'issue de la séance, l'élève sera capable de) :
-1. **Écrire** la structure canonique de parcours séquentiel : `for i in range(len(ch)):`.
-2. **Accéder** au caractère courant via `car = ch[i]`.
-3. **Dénombrer** les voyelles et les consonnes d'un texte (Exercice 4).
-4. **Construire par accumulation textuelle** deux nouvelles chaînes séparées `chl` (lettres) et `chc` (chiffres) (Exercice 5).
+1. **Gérer les alternances de signe** dans une somme mathématique.
+2. **Calculer la somme d'une série** $S_n = \sum_{k=1}^n (-1)^{k+1} k^k$ (Exercice 9).
+3. **Mettre en œuvre un booléen témoin** pour vérifier la divisibilité séquentielle d'un nombre (Exercice 8).
 
 ---
 
-## ⏱️ 3. Scénario Pédagogique & Déroulement Minuté
+## ⏱️ 3. Scénario Pédagogique & Déroulement Minuté (Séance de 60 min)
 
 ```
-┌──────────────────────────────────────────────────────────────────────────────┐
-│  00 - 15 min : Phase 1 - Accroche : Comment inspecter un texte lettre par lettre?│
-│  15 - 35 min : Phase 2 - Cours : Le schéma canonique for i in range(len(ch)) │
-│  35 - 55 min : Phase 3 - Exercice 4 : Compteur voyelles & consonnes           │
-│  55 - 75 min : Phase 4 - Exercice 5 : Filtrage dynamique (Bacs SVG lettres/chiffres)│
-│  75 - 80 min : Phase 5 - Synthèse, trace écrite & préparation Séance 18      │
-└──────────────────────────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────────────────────────────┐
+│  00 - 10 min : Phase 1 - Accroche : Comment programmer la notation Sigma Σ ?        │
+│  10 - 25 min : Phase 2 - Cours : Gestion des signes alternés (-1)^k et puissances   │
+│  25 - 42 min : Phase 3 - Exercice 9 : Calcul de la série alternée Sn                │
+│  42 - 55 min : Phase 4 - Exercice 8 : Nombre poly-divisible & Ticket de caisse      │
+│  55 - 60 min : Phase 5 - Synthèse, trace écrite & préparation Séance 18             │
+└─────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
 ## 📖 4. Contenu Didactique & Support de Cours
 
-### 1. Le Schéma Canonique de Parcours
-Pour inspecter chaque symbole d'une chaîne `ch` de longueur $L$ :
-* Les indices valides vont de **0** à **$L - 1$**.
-* La fonction `range(len(ch))` génère exactement cette suite d'indices.
+### 1. Traduction de la Sommation Mathématique $\sum$
+Toute expression de la forme :
+$$S_n = \sum_{k=1}^n \text{terme}(k)$$
+se traduit en algorithme par :
+1. L'initialisation : `S ← 0`
+2. Une boucle : `Pour k De 1 À n Faire`
+3. L'accumulation : `S ← S + terme(k)`
 
-```algorithm
-Pour i De 0 À long(ch) - 1 Faire
-   car ← ch[i]
-   // Traitements sur le caractère courant
-FinPour
-```
+### 2. Gestion des Signes Alternés
+Pour une suite alternant $+$, $-$, $+$, $-$ :
+* **Méthode analytique** : Multiplier par $(-1)^{k+1}$ ou $(-1)^k$.
+* **Méthode conditionnelle de parité** :
+  * Si $k$ est impair $\implies$ signe $+$.
+  * Si $k$ est pair $\implies$ signe $-$.
 
-*Équivalent Python :*
-```python
-for i in range(len(ch)):
-    car = ch[i]
-    # Traitements sur car
-```
-
-### 2. Le Schéma d'Accumulation Textuelle (Concaténation Progressive)
-Pour filtrer des caractères sans utiliser de listes ou de tableaux :
-1. On initialise une chaîne vide **AVANT** la boucle : `res = ""`.
-2. À chaque tour, si le caractère courant satisfait le critère, on l'ajoute à la fin : `res = res + car`.
+### 3. Le Principe du Témoin Booléen (*Flag*)
+Pour vérifier qu'un nombre $N$ est divisible par TOUS les entiers de 2 à 10 :
+* On pose initialement que c'est vrai : `poly = True`.
+* On teste chaque diviseur $k \in [2..10]$. Dès que l'un d'eux ne divise pas $N$ ($N \mathbin{\text{mod}} k \ne 0$), on bascule le drapeau à faux : `poly = False`.
 
 ---
 
 ## 🧩 5. Fiche Activités & Corrigés Détaillés
 
-### 🔴 Exercice 4 : Dénombrement des Voyelles et Consonnes
-* **Énoncé** : Saisir une chaîne alphabétique `ch`. Compter et afficher le nombre de voyelles et le nombre de consonnes qu'elle contient.
+### 🔴 Exercice 9 : Somme de la Série Numérique $S_n$
+* **Formule** :
+  $$S_n = \sum_{k=1}^n (-1)^{k+1} \cdot k^k = 1^1 - 2^2 + 3^3 - 4^4 + 5^5 - \dots + (-1)^{n+1} n^n$$
 * **Algorithme** :
 ```algorithm
-Algorithme Compteur_Voyelles_Consonnes
+Algorithme Serie_Sn
 Début
-   Ecrire("Donner une chaîne alphabétique : ")
-   Lire(ch)
+   Ecrire("Donner un entier n >= 1 : ")
+   Lire(n)
 
-   voyelles ← "AEIOUYaeiouy"
-   nb_v ← 0
-   nb_c ← 0
-
-   Pour i De 0 À long(ch) - 1 Faire
-      car ← ch[i]
-      Si (car >= 'A' ET car <= 'Z') OU (car >= 'a' ET car <= 'z') Alors
-         Si Pos(car, voyelles) ≠ -1 Alors
-            nb_v ← nb_v + 1
-         Sinon
-            nb_c ← nb_c + 1
-         FinSi
-      FinSi
+   S ← 0
+   signe ← 1
+   Pour k De 1 À n Faire
+      terme ← signe * (k ** k)
+      S ← S + terme
+      signe ← -signe   // Alterne entre +1 et -1 à chaque tour
    FinPour
 
-   Ecrire("Nombre de voyelles : ", nb_v)
-   Ecrire("Nombre de consonnes : ", nb_c)
+   Ecrire("La somme de la série S_", n, " vaut : ", S)
 Fin
 ```
 
 * **Code Python équivalent** :
 ```python
-ch = input("Donner une chaîne de caractères : ")
+n = int(input("Donner n (n >= 1) : "))
 
-voyelles = "AEIOUYaeiouy"
-nb_v = 0
-nb_c = 0
+S = 0
+signe = 1
 
-for i in range(len(ch)):
-    car = ch[i]
-    # Vérifier s'il s'agit bien d'une lettre de l'alphabet
-    if ('A' <= car <= 'Z') or ('a' <= car <= 'z'):
-        if car in voyelles:
-            nb_v += 1
-        else:
-            nb_c += 1
+for k in range(1, n + 1):
+    terme = signe * (k ** k)
+    S += terme
+    signe = -signe  # Inversion de signe pour le tour suivant
 
-print(f"Nombre de voyelles  : {nb_v}")
-print(f"Nombre de consonnes : {nb_c}")
+print(f"Somme de la série S_{n} = {S}")
 ```
+
+* **Vérification pour $n = 3$** :
+  $$S_3 = 1^1 - 2^2 + 3^3 = 1 - 4 + 27 = \mathbf{24}$$
 
 ---
 
-### 🟡 Exercice 5 : Filtrage de Lettres et Chiffres (Les Bacs SVG)
-* **Énoncé** : Saisir une chaîne mixte `ch` contenant des lettres, des chiffres et des symboles divers (ex: `"Bac2026-Sciences!"`).
-* **Objectif** : Extraire dans `chl` toutes les lettres et dans `chc` tous les chiffres. Ignorer les symboles de ponctuation.
-* **Code Python sans aucune liste** :
+### 🟡 Exercice 8 : Nombre Poly-Divisible (Ticket de Caisse)
+* **Énoncé** : Un code promotionnel $N$ figurant sur un ticket de caisse est dit *poly-divisible* s'il est divisible par **tous les entiers de 2 à 10**.
+* **Code Python** :
 ```python
-ch = input("Saisir un texte mixte : ")
+N = int(input("Entrez le numéro du ticket de caisse : "))
 
-chl = ""  # Bac accumulateur des lettres
-chc = ""  # Bac accumulateur des chiffres
+poly = True  # Hypothèse initiale : le nombre est poly-divisible
 
-for i in range(len(ch)):
-    car = ch[i]
-    if ('A' <= car <= 'Z') or ('a' <= car <= 'z'):
-        chl = chl + car  # Concaténation dans le bac lettres
-    elif '0' <= car <= '9':
-        chc = chc + car  # Concaténation dans le bac chiffres
+for k in range(2, 11):  # De 2 à 10 inclus
+    if N % k != 0:
+        poly = False    # Un diviseur a échoué
 
-print("Chaîne des lettres extraites (chl)  :", chl)
-print("Chaîne des chiffres extraits (chc)  :", chc)
+if poly:
+    print(f"🎉 Le nombre {N} est POLY-DIVISIBLE (divisible par 2, 3, 4, 5, 6, 7, 8, 9 et 10) !")
+else:
+    print(f"❌ Le nombre {N} n'est pas poly-divisible.")
 ```
+* **Remarque arithmétique** : Le plus petit entier poly-divisible non nul est le PPCM de $\{2, 3, 4, 5, 6, 7, 8, 9, 10\} = \mathbf{2520}$.
 
 ---
 
 ## 📝 6. Trace Écrite pour le Cahier de l'Élève
 
 ```markdown
-CHAPITRE 5 : LA STRUCTURE ITÉRATIVE (Partie 3 : Parcours de Chaînes)
+CHAPITRE 5 : LA STRUCTURE ITÉRATIVE (Partie 4 : Séries & Validation)
 
-1. Schéma canonique de parcours d'une chaîne :
-   for i in range(len(ch)):
-       car = ch[i]
-       # Analyse de chaque caractère
+1. Calcul de Série Mathématique (Sigma) :
+   S = 0
+   for k in range(1, n + 1):
+       terme = ...
+       S = S + terme
 
-2. Accumulateur textuel (Sans listes) :
-   resultat = ""           # Chaîne vide avant la boucle
-   for i in range(len(ch)):
-       if condition:
-           resultat = resultat + ch[i]
+2. Gestion de l'Alternance de Signe :
+   signe = 1
+   for k in range(1, n + 1):
+       S = S + signe * (...)
+       signe = -signe       # Bascule 1 ➔ -1 ➔ 1 ➔ -1
 
-3. Détection de catégorie :
-   - Lettre majuscule : 'A' <= car <= 'Z'
-   - Lettre minuscule : 'a' <= car <= 'z'
-   - Chiffre          : '0' <= car <= '9'
+3. Le Témoin Booléen (Flag) :
+   valide = True
+   for k in range(...):
+       if echec: valide = False
 ```
 
 ---
 
 ## ❓ 7. Auto-Évaluation Formative (5 Questions)
 
-1. **Pourquoi la boucle s'arrête-t-elle à `len(ch) - 1` ?**  
-   *Réponse* : Car les indices en Python débutent à $0$. Le dernier caractère se trouve à l'indice $L - 1$.
-2. **Combien de voyelles contient le mot `"ALGORITHME"` ?**  
-   *Réponse* : $4$ voyelles (`A`, `O`, `I`, `E`).
-3. **Que vaut `res` après l'exécution suivante sur `ch = "S2C"` ?**
-   ```python
-   res = ""
-   for i in range(len(ch)):
-       if 'A' <= ch[i] <= 'Z': res += ch[i]
-   ```
-   *Réponse* : `"SC"` (le chiffre `'2'` est filtré et exclu).
-4. **Peut-on utiliser `for car in ch:` en Python ?**  
-   *Réponse* : Oui, c'est le parcours direct par élément en Python, mais le parcours par indices `range(len(ch))` reste la norme officielle enseignée au niveau 2e Sciences en Tunisie pour manipuler les positions.
-5. **Quelle est la sortie de l'Exercice 5 pour `ch = "Covid-19"` ?**  
-   *Réponse* : `chl = "Covid"` et `chc = "19"`.
+1. **Combien vaut $S_2 = \sum_{k=1}^2 (-1)^{k+1} k^k$ ?**  
+   *Réponse* : $1^1 - 2^2 = 1 - 4 = \mathbf{-3}$.
+2. **Pourquoi l'instruction `signe = -signe` alterne-t-elle le signe ?**  
+   *Réponse* : Si `signe = 1`, $-1 \times 1 = -1$. Au tour suivant, $-1 \times (-1) = 1$.
+3. **Le nombre 5040 est-il poly-divisible par les entiers de 2 à 10 ?**  
+   *Réponse* : Oui, car $5040 = 2520 \times 2$ (multiple de 2520).
+4. **Quelle est la puissance calculée pour $k = 4$ dans l'Exercice 9 ?**  
+   *Réponse* : $4^4 = 256$.
+5. **Pourquoi la borne de boucle est-elle `range(2, 11)` dans l'Exercice 8 ?**  
+   *Réponse* : Pour inclure le diviseur 10, la borne supérieure en Python doit être $10 + 1 = 11$.
 
 ---
 
-## 🚀 8. Préparation de la Séance 18
-* **Thème** : *Arithmétique itérative avancée : Nombres poly-divisibles et séries alternées*.
-* **Défi mathématique** : Comment calculer la somme alternée $S = 1^1 - 2^2 + 3^3 - 4^4 + \dots \pm n^n$ ?
+## 🚀 8. Préparation de la Séance 19
+* **Thème** : *Algorithmes de contrôle d'intégrité et analyse de monotonie*.
+* **Défi d'amorce** : Comment une carte de fidélité ou un code-barres détecte-t-il une faute de frappe ?

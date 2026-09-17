@@ -5,21 +5,21 @@
 * **Enseignant responsable** : Mohamed Anis MANI  
 * **Matière** : Informatique  
 * **Niveau** : 2ème Année Secondaire (Section Sciences)  
-* **Volume prévisionnel** : 20 séances (Cours & Travaux Pratiques)  
+* **Volume prévisionnel** : 20 séances d'une heure (20 heures au total – Cours & Travaux Pratiques)  
 * **Support interactif** : Plateforme Web 2SCIENCES & IDE Python 3 WebAssembly (Pyodide)
 
 ---
 
 ## 📌 1. Répartition Globale des Volumes Horaires
 
-| Module | Intitulé | Nombre de séances | Séances | Poids relatif |
-| :--- | :--- | :---: | :---: | :---: |
-| **Module 01** | Étapes de résolution d’un problème | **2 séances** | Séances 1 et 2 | 10 % |
-| **Module 02** | Les structures simples (E/S & Affectation) | **2 séances** | Séances 3 et 4 | 10 % |
-| **Module 03** | Les structures de données (Numérique, Booléen, Chaînes) | **4 séances** | Séances 5 à 8 | 20 % |
-| **Module 04** | Les structures conditionnelles (Simple, Alternative, Généralisée, Choix multiple) | **6 séances** | Séances 9 à 14 | 30 % |
-| **Module 05** | La structure itérative complète (Boucle `Pour` / `range`, Parcours, Accumulateurs) | **6 séances** | Séances 15 à 20 | 30 % |
-| **Total** | **Programme complet 2e Sciences** | **20 séances** | **1 à 20** | **100 %** |
+| Module | Intitulé | Nombre de séances | Durée totale | Séances | Poids relatif |
+| :--- | :--- | :---: | :---: | :---: | :---: |
+| **Module 01** | Étapes de résolution d’un problème | **1 séance** | 1 heure | Séance 1 | 5 % |
+| **Module 02** | Les structures simples (E/S & Affectation) | **2 séances** | 2 heures | Séances 2 et 3 | 10 % |
+| **Module 03** | Les structures de données (Numérique, Booléen, Chaînes) | **4 séances** | 4 heures | Séances 4 à 7 | 20 % |
+| **Module 04** | Les structures conditionnelles (Simple, Alternative, Généralisée, Choix multiple) | **6 séances** | 6 heures | Séances 8 à 13 | 30 % |
+| **Module 05** | La structure itérative complète (Boucle `Pour` / `range`, Parcours, Accumulateurs, Intégration) | **7 séances** | 7 heures | Séances 14 à 20 | 35 % |
+| **Total** | **Programme complet 2e Sciences** | **20 séances** | **20 heures** | **1 à 20** | **100 %** |
 
 ---
 
@@ -27,26 +27,26 @@
 
 | Séance | Module | Intitulé & Notions Clés | Exercices & Simulateurs Associés |
 | :---: | :---: | :--- | :--- |
-| [**S01**](seance01.md) | M01 | Démarche de résolution, étapes E/T/S, énigmes logiques | Ex 1 (Cordes), Ex 2 (Ampoules), Ex 5 (Schéma démarche) |
-| [**S02**](seance02.md) | M01 | Formalisation : Schéma d'Analyse, TDO, premier script Python | Ex 3 (Somme/Produit), Ex 4 (Forme H), Ex 6 & 7 |
-| [**S03**](seance03.md) | M02 | Sorties (`print`), Entrées (`input`), Cast et identificateurs | Ex 1 (QCM), Ex 2 (Validité des noms de variables) |
-| [**S04**](seance04.md) | M02 | Affectation (`=`), formules physiques & géométriques | Ex 3 (Rectangle), Ex 4 (Ellipse), Ex 5 (Moyenne), Ex 6 (Ressort) |
-| [**S05**](seance05.md) | M03 | Types numériques, `//`, `%`, puissances et bibliothèque `math` | Ex 1 (Opérateurs), Ex 2 (Expressions), Ex 4 (Aléa), Ex 10 (Batterie) |
-| [**S06**](seance06.md) | M03 | Logique booléenne, tables de vérité et portes logiques | Ex 11 (Circuit logique interactif), Ex 12 (Logistique citerne) |
-| [**S07**](seance07.md) | M03 | Types textuels (I) : code ASCII (`ord`/`chr`), indices, longueur | Ex 3 (Trace mémoire), Ex 5 (Concaténation), Ex 8 (Password), Ex 9 (Chiffres) |
-| [**S08**](seance08.md) | M03 | Types textuels (II) : Slicing, conversions et synthèse | Ex 6 (Découpage), Ex 7 (QCM), Ex 13 (Fonctions chaînes), Ex 14 (Pseudo) |
-| [**S09**](seance09.md) | M04 | Structure conditionnelle simple et alternative (`if ... else`) | Ex 1 (QCM 1), Ex 4 (Trace), Ex 5 (Signe/Parité), Ex 6 (Armstrong) |
-| [**S10**](seance10.md) | M04 | Forme généralisée (`elif`) et réécriture de conditions | Ex 7 (Formes), Ex 8 (Type caractère ASCII), Ex 10 (pH chimique) |
-| [**S11**](seance11.md) | M04 | Structure à choix multiples (`Selon` / `match...case`) | Ex 2 & 3 (QCM), Ex 9 (Calculatrice $A \text{ op } B$), Ex 13 (Salutations) |
-| [**S12**](seance12.md) | M04 | Conditions imbriquées et applications de contrôle | Ex 11 (Évaluation conditionnelle), Ex 12 (Bissextile), Ex 14 (Score match) |
-| [**S13**](seance13.md) | M04 | Modélisation scientifique : Équations 1er et 2nd degré | Ex 15 ($ax+b=0$), Ex 17 ($ax^2+bx+c=0$ avec discriminant $\Delta$) |
-| [**S14**](seance14.md) | M04 | Géométrie analytique & Chimie organique appliquée | Ex 16 (Nature du triangle), Ex 18 (Alcools 3D), Ex 19 (Droites affines Canvas) |
-| [**S15**](seance15.md) | M05 | Boucle `Pour`, syntaxe de `range(vi, vf, pas)` et itérations | Ex 1 (Visualiseur interactif range), Ex 2 (Bonjour & divisibilité) |
-| [**S16**](seance16.md) | M05 | Schémas de comptage, d'accumulation et diviseurs | Ex 3 (Somme impairs), Ex 6 (QCM boucles), Ex 7 (Nombres Parfaits) |
-| [**S17**](seance17.md) | M05 | Parcours séquentiel de chaînes de caractères (sans listes) | Ex 4 (Voyelles/Consonnes), Ex 5 (Filtrage lettres/chiffres SVG) |
-| [**S18**](seance18.md) | M05 | Arithmétique itérative et séries numériques alternées | Ex 8 (Poly-divisible), Ex 9 (Série $S_n = \sum (-1)^{k+1} k^k$) |
-| [**S19**](seance19.md) | M05 | Algorithmes de contrôle, validation et monotonie | Ex 10 (Carte Check_card), Ex 11 (Monotonie croissante/décroissante) |
-| [**S20**](seance20.md) | M01-M05 | **Séance d'intégration globale & Mini-projet de synthèse** | Résolution globale sur le Playground WebAssembly |
+| [**S01**](seance01.md) | M01 | Démarche de résolution (4 étapes), E/T/S, TDO, énigmes & premiers scripts | Ex 1 (Cordes), Ex 2 (Ampoules), Ex 3 (Somme/Produit), Ex 4 (Forme H), Ex 5 (Schéma) |
+| [**S02**](seance02.md) | M02 | Structures simples (Cours complet) : E/S, Transtypage, Nommage & Affectation (`←` / `=`) | Ex 1 (QCM), Ex 2 (Tri validité identificateurs), Ex 3 (Distance euclidienne : repère & racine carrée) |
+| [**S03**](seance03.md) | M02 | Atelier d'applications pratiques & modélisation scientifique (TP / TD) | Ex 4 (Parallélogramme), Ex 5 (Ellipse), Ex 6 (Moyenne), Ex 7 (Ressort), Ex 8 (Formule de Héron) |
+| [**S04**](seance04.md) | M03 | Types numériques, opérateurs arithmétiques `//`, `%`, `**` et fonctions `math` | Ex 1 (Opérateurs), Ex 2 (Expressions), Ex 4 (Aléa), Ex 10 (Batterie) |
+| [**S05**](seance05.md) | M03 | Logique booléenne, tables de vérité et portes logiques (NOT, AND, OR) | Ex 11 (Circuit logique interactif), Ex 12 (Logistique citerne) |
+| [**S06**](seance06.md) | M03 | Types textuels (I) : code ASCII (`ord`/`chr`), indices, longueur `len()` | Ex 3 (Trace mémoire), Ex 5 (Concaténation), Ex 8 (Password), Ex 9 (Chiffres) |
+| [**S07**](seance07.md) | M03 | Types textuels (II) : Découpage (Slicing), conversions et fonctions chaînes | Ex 6 (Découpage), Ex 7 (QCM), Ex 13 (Fonctions chaînes SVG), Ex 14 (Pseudo) |
+| [**S08**](seance08.md) | M04 | Structure conditionnelle simple et alternative (`if ... else`) | Ex 1 (QCM 1), Ex 4 (Trace), Ex 5 (Signe/Parité), Ex 6 (Armstrong) |
+| [**S09**](seance09.md) | M04 | Forme généralisée (`elif`) et réécriture de conditions | Ex 7 (Formes), Ex 8 (Type caractère ASCII), Ex 10 (pH chimique) |
+| [**S10**](seance10.md) | M04 | Structure à choix multiples (`Selon` / `match...case`) | Ex 2 & 3 (QCM), Ex 9 (Calculatrice $A \text{ op } B$), Ex 13 (Salutations) |
+| [**S11**](seance11.md) | M04 | Conditions composées, imbriquées et applications de contrôle | Ex 11 (Évaluation conditionnelle), Ex 12 (Bissextile), Ex 14 (Score match) |
+| [**S12**](seance12.md) | M04 | Modélisation scientifique : Équations 1er et 2nd degré ($\Delta$) | Ex 15 ($ax+b=0$), Ex 17 ($ax^2+bx+c=0$ avec discriminant $\Delta$) |
+| [**S13**](seance13.md) | M04 | Géométrie analytique & Chimie organique appliquée | Ex 16 (Nature du triangle), Ex 18 (Alcools 3D), Ex 19 (Droites affines Canvas) |
+| [**S14**](seance14.md) | M05 | Découverte de la boucle `Pour` et syntaxe de `range(vi, vf, pas)` | Ex 1 (Visualiseur interactif range), Ex 2 (Bonjour & divisibilité) |
+| [**S15**](seance15.md) | M05 | Schémas de comptage, d'accumulation et diviseurs stricts | Ex 3 (Somme impairs), Ex 6 (QCM boucles), Ex 7 (Nombres Parfaits) |
+| [**S16**](seance16.md) | M05 | Parcours séquentiel de chaînes de caractères (sans listes) | Ex 4 (Voyelles/Consonnes), Ex 5 (Filtrage lettres/chiffres SVG) |
+| [**S17**](seance17.md) | M05 | Arithmétique itérative et séries numériques alternées | Ex 8 (Poly-divisible), Ex 9 (Série $S_n = \sum (-1)^{k+1} k^k$) |
+| [**S18**](seance18.md) | M05 | Algorithmes de contrôle et validation par drapeaux (`flag`) | Ex 10 (Carte Check_card avec accumulation pondérée) |
+| [**S19**](seance19.md) | M05 | Analyse de monotonie et comparaisons itératives avancées | Ex 11 (Monotonie croissante/décroissante et tableaux de trace) |
+| [**S20**](seance20.md) | M05 | **Structure itérative `Pour` & Intégration des modules précédents** | Mobilisation de `Pour` avec conditions, chaînes et calculs (Défi BioPass) |
 
 ---
 
@@ -54,46 +54,33 @@
 
 ```
 ================================================================================
-MODULE 01 : ÉTAPES DE RÉSOLUTION D'UN PROBLÈME (2 SÉANCES)
+MODULE 01 : ÉTAPES DE RÉSOLUTION D'UN PROBLÈME (1 SÉANCE)
 ================================================================================
 ```
 
-### 🔹 Séance 01 : Démarche algorithmique et énigmes logiques
-> 📄 **Fiche pédagogique complète & guide de séance** : [seance01.md](file:///c:/xampp-school/htdocs/2SCIENCES/docs/seance01.md)
+### 🔹 Séance 01 : Démarche de résolution d'un problème, formalisation (E/T/S, TDO) et premiers scripts
+> 📄 **Fiche pédagogique complète & guide de séance** : [seance01.md](seance01.md)
 
-* **Module** : 01 – Résolution d'un problème
+* **Module** : 01 – Résolution d'un problème (Séance unique intensive de 1h – 70% des exercices traités)
 * **Objectifs opérationnels** :
-  * Découvrir le rôle d'un programme informatique et d'un algorithme.
-  * Maîtriser le découpage méthodique en 4 étapes : **Analyse $\rightarrow$ Algorithme $\rightarrow$ Programme $\rightarrow$ Exécution & Tests**.
-  * Identifier les Entrées, Traitements et Sorties (E/T/S) dans un énoncé.
+  * Découvrir le rôle d'un algorithme et d'un programme informatique.
+  * Maîtriser le cycle fondamental en 4 étapes : **Analyse $\rightarrow$ Algorithme $\rightarrow$ Programme $\rightarrow$ Exécution & Tests**.
+  * Formaliser le schéma **Entrées / Traitements / Sorties (E/T/S)** et renseigner le **Tableau de Déclaration des Objets (TDO)**.
+  * Écrire la structure algorithmique minimale (`Algorithme Nom`, `Début`, `Fin`) et traduire en premier script Python 3.
+  * Tester et valider les scripts dans le Playground WebAssembly.
 * **Notions de cours** :
-  * Qu'est-ce qu'un problème informatique ?
+  * Qu'est-ce qu'un problème informatique et un algorithme ?
   * Notion d'entrées (données brutes), traitements (transformations) et sorties (résultats utiles).
-  * Différence entre pseudo-code algorithmique et langage exécutable (Python).
-* **Activités pratiques & Exercices** :
+  * Modèle E/T/S et formalisation de la grille d'analyse.
+  * TDO : objets, noms d'identificateurs et types de données de base (`entier`, `réel`).
+  * Squelette d'un programme Python et cycle d'exécution/débogage.
+* **Activités pratiques & Exercices traités (70% du module en 1h)** :
   * **Exercice 1** : Problème des deux cordes (énigme logique avec simulateur temporel dynamique).
-  * **Exercice 2** : Problème des trois ampoules (raisonnement par déduction).
-  * **Exercice 5** : Schéma interactif d'ordonnancement de la démarche de résolution.
-* **Trace écrite** : Définition de l'algorithme, des 4 étapes de résolution et du schéma E/T/S.
-
----
-
-### 🔹 Séance 02 : Formalisation : Schéma d'Analyse, TDO et premier script Python
-> 📄 **Fiche pédagogique complète & guide de séance** : [seance02.md](seance02.md)
-
-* **Objectifs opérationnels** :
-  * Remplir rigoureusement la grille d'Analyse et le Tableau de Déclaration des Objets (TDO).
-  * Écrire la structure minimale d'un algorithme (`Algorithme Nom`, `Début`, `Fin`).
-  * Traduire un premier algorithme en Python et l'exécuter dans le Playground WebAssembly.
-* **Notions de cours** :
-  * Syntaxe de l'algorithme en pseudo-code.
-  * Tableau des Données et Objets (TDO) : colonnes `Objet` et `Type`.
-* **Activités pratiques & Exercices** :
-  * **Exercice 3** : Calcul de la somme et du produit de deux entiers (grille d'analyse complète, TDO, algorithme et code Python équivalent).
+  * **Exercice 2** : Problème des trois ampoules (déduction logique & température).
+  * **Exercice 3** : Calcul de la somme et du produit de deux entiers (Analyse, TDO, Algorithme et script Python).
   * **Exercice 4** : Calcul d'aire de la Forme H (décomposition géométrique).
-  * **Exercice 6** : Calcul d'aire de la Forme R.
-  * **Exercice 7** : Prédécesseur et successeur d'un nombre pair.
-* **Pratique Playground** : Exécution du script Somme/Produit et observation des sorties console.
+  * **Exercice 5** : Ordonnancement interactif des 4 étapes du cycle de résolution.
+* **Trace écrite** : Définition de l'algorithme, schéma des 4 étapes, modèle E/T/S et TDO de référence.
 
 ---
 
@@ -103,8 +90,8 @@ MODULE 02 : LES STRUCTURES SIMPLES (2 SÉANCES)
 ================================================================================
 ```
 
-### 🔹 Séance 03 : Opérations d'Entrée/Sortie et gestion des identificateurs
-> 📄 **Fiche pédagogique complète & guide de séance** : [seance03.md](seance03.md)
+### 🔹 Séance 02 : Les structures simples (Cours complet) – E/S, Transtypage, Nommage & Affectation
+> 📄 **Fiche pédagogique complète & guide de séance** : [seance02.md](seance02.md)
 
 * **Module** : 02 – Les structures simples
 * **Objectifs opérationnels** :
@@ -112,31 +99,39 @@ MODULE 02 : LES STRUCTURES SIMPLES (2 SÉANCES)
   * Exploiter la primitive de lecture `Lire(...)` / `input(...)`.
   * Maîtriser le cast explicite de types en Python (`int()`, `float()`).
   * Appliquer les règles formelles de nommage des variables (identificateurs).
+  * Comprendre et appliquer le mécanisme de l'affectation (`←` / `=`), l'évaluation du membre droit et le rangement à gauche.
+  * Mettre en œuvre un algorithme séquentiel complet articulant Entrées, Affectations et Sorties.
 * **Notions de cours** :
   * Affichage de texte, de variables et mixte.
-  * Lecture de données : conversion de la chaîne retournée par `input()` en type numérique.
-  * Règles de nommage : caractères autorisés, interdiction de commencer par un chiffre, rejet des espaces, ponctuation et mots réservés.
+  * Lecture de données et transtypage numérique explicite.
+  * Règles de nommage : caractères autorisés, début par une lettre, rejet des espaces et mots réservés.
+  * Sémantique de l'affectation, écriture interdite `A + B = C`, constantes et mise à jour de variables.
 * **Activités pratiques & Exercices** :
-  * **Exercice 1** : QCM interactif sur les entrées/sorties et types de données.
+  * **Exercice 1** : QCM interactif sur les entrées/sorties, transtypage et types de données.
   * **Exercice 2** : Atelier de tri interactif de validité de noms de variables.
+  * **Exercice 3** : Distance euclidienne entre deux points dans le plan orthonormé (Analyse, TDO, $d = \sqrt{(x_B - x_A)^2 + (y_B - y_A)^2}$, affectations et script Python avec `math.sqrt`).
 
 ---
 
-### 🔹 Séance 04 : L'opération d'affectation et calculs scientifiques appliqués
-> 📄 **Fiche pédagogique complète & guide de séance** : [seance04.md](seance04.md)
+### 🔹 Séance 03 : Atelier d'applications pratiques & modélisation scientifique (TP / TD)
+> 📄 **Fiche pédagogique complète & guide de séance** : [seance03.md](seance03.md)
 
 * **Objectifs opérationnels** :
-  * Comprendre le mécanisme interne de l'affectation (`←` / `=`).
-  * Distinguer constante et variable.
-  * Traduire des formules géométriques et physiques en expressions de calcul informatique.
+  * Modéliser des problèmes issus des sciences (géométrie, physique, calcul de moyennes).
+  * Manipuler des constantes ($\pi$) et des fonctions de la bibliothèque standard (`math.sin`, `math.pi`, `math.sqrt`).
+  * Convertir des angles degrés/radians pour l'évaluation trigonométrique informatique.
+  * Traduire des formules pondérées, des lois physiques et des relations géométriques complexes en expressions algorithmiques.
 * **Notions de cours** :
-  * Sémantique de l'affectation : évaluation du membre droit puis stockage dans le conteneur gauche.
-  * Règle de compatibilité de types lors de l'affectation.
+  * Rôle de la bibliothèque `math` et importation de modules (`math.sin`, `math.pi`, `math.sqrt`).
+  * Fonctions trigonométriques et impératif des radians.
+  * Décomposition d'un calcul complexe : variables intermédiaires mémorisées par affectation.
+  * Modélisation de formules pondérées et gestion de priorités d'évaluation.
 * **Activités pratiques & Exercices** :
-  * **Exercice 3** : Aire et périmètre d'un rectangle.
-  * **Exercice 4** : Aire d'une ellipse ($S = \pi \times a \times b$).
-  * **Exercice 5** : Calcul de la moyenne trimestrielle pondérée d'informatique.
-  * **Exercice 6** : Raideur d'un ressort (application physique : $k = \frac{F}{\Delta L}$ avec widget interactif).
+  * **Exercice 4** : Aire d'un parallélogramme ($S = a \times b \times \sin(\theta)$ avec conversion degrés/radians).
+  * **Exercice 5** : Aire d'une ellipse ($S = \pi \times a \times b$).
+  * **Exercice 6** : Calcul de la moyenne trimestrielle pondérée d'informatique.
+  * **Exercice 7** : Raideur d'un ressort (application physique : $k = \frac{F}{\Delta L}$ avec widget interactif).
+  * **Exercice 8** : Formule de Héron d'Alexandrie (Aire d'un triangle quelconque à partir de ses 3 côtés $a, b, c$, demi-périmètre intermédiaire $p$ et $S = \sqrt{p(p-a)(p-b)(p-c)}$).
 
 ---
 
@@ -146,8 +141,8 @@ MODULE 03 : LES STRUCTURES DE DONNÉES (4 SÉANCES)
 ================================================================================
 ```
 
-### 🔹 Séance 05 : Types numériques & Fonctions arithmétiques prédéfinies
-> 📄 **Fiche pédagogique complète & guide de séance** : [seance05.md](seance05.md)
+### 🔹 Séance 04 : Types numériques & Fonctions arithmétiques prédéfinies
+> 📄 **Fiche pédagogique complète & guide de séance** : [seance04.md](seance04.md)
 
 * **Module** : 03 – Les structures de données
 * **Objectifs opérationnels** :
@@ -166,8 +161,8 @@ MODULE 03 : LES STRUCTURES DE DONNÉES (4 SÉANCES)
 
 ---
 
-### 🔹 Séance 06 : Le type booléen, portes logiques et tables de vérité
-> 📄 **Fiche pédagogique complète & guide de séance** : [seance06.md](seance06.md)
+### 🔹 Séance 05 : Le type booléen, portes logiques et tables de vérité
+> 📄 **Fiche pédagogique complète & guide de séance** : [seance05.md](seance05.md)
 
 * **Objectifs opérationnels** :
   * Évaluer la valeur de vérité (`Vrai`/`Faux` - `True`/`False`) d'une expression.
@@ -184,8 +179,8 @@ MODULE 03 : LES STRUCTURES DE DONNÉES (4 SÉANCES)
 
 ---
 
-### 🔹 Séance 07 : Types textuels (I) – Caractère, code ASCII et indexation
-> 📄 **Fiche pédagogique complète & guide de séance** : [seance07.md](seance07.md)
+### 🔹 Séance 06 : Types textuels (I) – Caractère, code ASCII et indexation
+> 📄 **Fiche pédagogique complète & guide de séance** : [seance06.md](seance06.md)
 
 * **Objectifs opérationnels** :
   * Différencier le type caractère du type chaîne.
@@ -203,8 +198,8 @@ MODULE 03 : LES STRUCTURES DE DONNÉES (4 SÉANCES)
 
 ---
 
-### 🔹 Séance 08 : Types textuels (II) – Découpage (Slicing) et fonctions avancées
-> 📄 **Fiche pédagogique complète & guide de séance** : [seance08.md](seance08.md)
+### 🔹 Séance 07 : Types textuels (II) – Découpage (Slicing) et fonctions avancées
+> 📄 **Fiche pédagogique complète & guide de séance** : [seance07.md](seance07.md)
 
 * **Objectifs opérationnels** :
   * Extraire une sous-chaîne via le slicing (`ch[d:f]`).
@@ -227,8 +222,8 @@ MODULE 04 : LES STRUCTURES CONDITIONNELLES (6 SÉANCES)
 ================================================================================
 ```
 
-### 🔹 Séance 09 : Formes conditionnelles simple et alternative
-> 📄 **Fiche pédagogique complète & guide de séance** : [seance09.md](seance09.md)
+### 🔹 Séance 08 : Formes conditionnelles simple et alternative
+> 📄 **Fiche pédagogique complète & guide de séance** : [seance08.md](seance08.md)
 
 * **Module** : 04 – Les structures conditionnelles
 * **Objectifs opérationnels** :
@@ -246,8 +241,8 @@ MODULE 04 : LES STRUCTURES CONDITIONNELLES (6 SÉANCES)
 
 ---
 
-### 🔹 Séance 10 : Forme généralisée (`elif`) & Passage entre formes
-> 📄 **Fiche pédagogique complète & guide de séance** : [seance10.md](seance10.md)
+### 🔹 Séance 09 : Forme généralisée (`elif`) & Passage entre formes
+> 📄 **Fiche pédagogique complète & guide de séance** : [seance09.md](seance09.md)
 
 * **Objectifs opérationnels** :
   * Imbriquer plusieurs conditions avec la forme généralisée (`Si ... Sinon Si ... Sinon` / `elif`).
@@ -262,8 +257,8 @@ MODULE 04 : LES STRUCTURES CONDITIONNELLES (6 SÉANCES)
 
 ---
 
-### 🔹 Séance 11 : Structure à choix multiples (`Selon` / `match...case`)
-> 📄 **Fiche pédagogique complète & guide de séance** : [seance11.md](seance11.md)
+### 🔹 Séance 10 : Structure à choix multiples (`Selon` / `match...case`)
+> 📄 **Fiche pédagogique complète & guide de séance** : [seance10.md](seance10.md)
 
 * **Objectifs opérationnels** :
   * Simplifier les tests d'égalité multiple via la structure `Selon sélecteur Faire`.
@@ -278,8 +273,8 @@ MODULE 04 : LES STRUCTURES CONDITIONNELLES (6 SÉANCES)
 
 ---
 
-### 🔹 Séance 12 : Conditions composées et applications de contrôle
-> 📄 **Fiche pédagogique complète & guide de séance** : [seance12.md](seance12.md)
+### 🔹 Séance 11 : Conditions composées et applications de contrôle
+> 📄 **Fiche pédagogique complète & guide de séance** : [seance11.md](seance11.md)
 
 * **Objectifs opérationnels** :
   * Structurer des prédicats complexes combinant parenthèses, comparaisons et opérateurs `ET`/`OU`.
@@ -293,8 +288,8 @@ MODULE 04 : LES STRUCTURES CONDITIONNELLES (6 SÉANCES)
 
 ---
 
-### 🔹 Séance 13 : Modélisation mathématique : Résolution d'équations
-> 📄 **Fiche pédagogique complète & guide de séance** : [seance13.md](seance13.md)
+### 🔹 Séance 12 : Modélisation mathématique : Résolution d'équations
+> 📄 **Fiche pédagogique complète & guide de séance** : [seance12.md](seance12.md)
 
 * **Objectifs opérationnels** :
   * Traduire l'arbre de décision complet d'un problème mathématique.
@@ -308,8 +303,8 @@ MODULE 04 : LES STRUCTURES CONDITIONNELLES (6 SÉANCES)
 
 ---
 
-### 🔹 Séance 14 : Géométrie analytique & Chimie organique appliquée
-> 📄 **Fiche pédagogique complète & guide de séance** : [seance14.md](seance14.md)
+### 🔹 Séance 13 : Géométrie analytique & Chimie organique appliquée
+> 📄 **Fiche pédagogique complète & guide de séance** : [seance13.md](seance13.md)
 
 * **Objectifs opérationnels** :
   * Mobiliser les structures conditionnelles sur des problèmes interdisciplinaires (maths, physique, chimie).
@@ -323,7 +318,7 @@ MODULE 04 : LES STRUCTURES CONDITIONNELLES (6 SÉANCES)
 
 ```
 ================================================================================
-MODULE 05 : STRUCTURE ITÉRATIVE COMPLÈTE (6 SÉANCES)
+MODULE 05 : STRUCTURE ITÉRATIVE COMPLÈTE & INTÉGRATION (7 SÉANCES)
 ================================================================================
 ```
 
@@ -332,8 +327,8 @@ MODULE 05 : STRUCTURE ITÉRATIVE COMPLÈTE (6 SÉANCES)
 
 ---
 
-### 🔹 Séance 15 : Découverte de la boucle `Pour` & Fonction `range()`
-> 📄 **Fiche pédagogique complète & guide de séance** : [seance15.md](seance15.md)
+### 🔹 Séance 14 : Découverte de la boucle `Pour` & Fonction `range()`
+> 📄 **Fiche pédagogique complète & guide de séance** : [seance14.md](seance14.md)
 
 * **Module** : 05 – Structure itérative complète
 * **Objectifs opérationnels** :
@@ -350,8 +345,8 @@ MODULE 05 : STRUCTURE ITÉRATIVE COMPLÈTE (6 SÉANCES)
 
 ---
 
-### 🔹 Séance 16 : Compteurs, accumulateurs et diviseurs stricts
-> 📄 **Fiche pédagogique complète & guide de séance** : [seance16.md](seance16.md)
+### 🔹 Séance 15 : Compteurs, accumulateurs et diviseurs stricts
+> 📄 **Fiche pédagogique complète & guide de séance** : [seance15.md](seance15.md)
 
 * **Objectifs opérationnels** :
   * Implémenter le schéma classique du compteur ($C \leftarrow C + 1$).
@@ -367,8 +362,8 @@ MODULE 05 : STRUCTURE ITÉRATIVE COMPLÈTE (6 SÉANCES)
 
 ---
 
-### 🔹 Séance 17 : Parcours séquentiel de chaînes de caractères
-> 📄 **Fiche pédagogique complète & guide de séance** : [seance17.md](seance17.md)
+### 🔹 Séance 16 : Parcours séquentiel de chaînes de caractères
+> 📄 **Fiche pédagogique complète & guide de séance** : [seance16.md](seance16.md)
 
 * **Objectifs opérationnels** :
   * Parcourir une chaîne de caractères indice par indice (`for i in range(len(ch))`).
@@ -382,8 +377,8 @@ MODULE 05 : STRUCTURE ITÉRATIVE COMPLÈTE (6 SÉANCES)
 
 ---
 
-### 🔹 Séance 18 : Arithmétique itérative et séries numériques alternées
-> 📄 **Fiche pédagogique complète & guide de séance** : [seance18.md](seance18.md)
+### 🔹 Séance 17 : Arithmétique itérative et séries numériques alternées
+> 📄 **Fiche pédagogique complète & guide de séance** : [seance17.md](seance17.md)
 
 * **Objectifs opérationnels** :
   * Traduire une formule de sommation mathématique indexée $\sum$ en algorithme itératif.
@@ -397,34 +392,51 @@ MODULE 05 : STRUCTURE ITÉRATIVE COMPLÈTE (6 SÉANCES)
 
 ---
 
-### 🔹 Séance 19 : Algorithmes de contrôle & Validation globale
-> 📄 **Fiche pédagogique complète & guide de séance** : [seance19.md](seance19.md)
+### 🔹 Séance 18 : Algorithmes de contrôle & Validation par drapeaux (`flag`)
+> 📄 **Fiche pédagogique complète & guide de séance** : [seance18.md](seance18.md)
 
 * **Objectifs opérationnels** :
   * Concevoir un algorithme de vérification d'intégrité (clé de contrôle, somme pondérée).
-  * Contrôler la monotonie d'une suite de valeurs saisies au clavier ou stockées dans une chaîne.
+  * Exploiter les drapeaux booléens pour valider des conditions sur l'ensemble des itérations.
 * **Notions de cours** :
   * Utilisation d'un indicateur booléen / drapeau (`flag`) pour valider une propriété globale.
+  * Schéma d'accumulation pondérée selon la parité de l'indice de boucle.
 * **Activités pratiques & Exercices** :
   * **Exercice 10** : Carte de fidélité ("Check_card" avec accumulation pondérée selon la parité des rangs).
-  * **Exercice 11** : Analyse de monotonie (détection d'une progression strictement croissante ou décroissante).
 
 ---
 
-### 🔹 Séance 20 : Synthèse globale & Défi pratique d'intégration
+### 🔹 Séance 19 : Analyse de monotonie et comparaisons itératives avancées
+> 📄 **Fiche pédagogique complète & guide de séance** : [seance19.md](seance19.md)
+
+* **Objectifs opérationnels** :
+  * Comparer deux éléments successifs d'une séquence pour statuer sur sa monotonie.
+  * Construire un tableau de trace complet lors de comparaisons itératives.
+* **Notions de cours** :
+  * Algorithme de détection de monotonie stricte (croissante / décroissante).
+  * Gestion des conditions de rupture de monotonie.
+* **Activités pratiques & Exercices** :
+  * **Exercice 11** : Analyse de monotonie (détection d'une progression strictement croissante ou décroissante avec tableaux de trace).
+
+---
+
+### 🔹 Séance 20 : Structure itérative `Pour` & Intégration des modules précédents
 > 📄 **Fiche pédagogique complète & guide de séance** : [seance20.md](seance20.md)
 
-* **Module** : Modules 01 à 05 combinés
+* **Module** : 05 – Structure itérative `Pour` & Intégration globale (Modules 01 à 05)
 * **Objectifs opérationnels** :
-  * Mobiliser simultanément l'ensemble des compétences développées sur l'année :
-    1. Démarche méthodique : Analyse (E/T/S) et TDO.
-    2. Manipulation rigoureuse des types numériques, booléens et textuels.
-    3. Décisions conditionnelles imbriquées ou à choix multiples.
-    4. Répétition contrôlée via la boucle `Pour`.
-    5. Implémentation, débogage et validation finale sur le Playground WebAssembly.
-* **Déroulement de la séance** :
-  * Résolution en binôme ou individuelle d'un problème transversal de synthèse (ex: Validation d'un code-barres EAN-13, chiffrement par substitution ou décodage d'un message scientifique).
-  * Bilan d'apprentissage et consolidation méthodologique pour les devoirs de synthèse.
+  * Mobiliser la structure itérative `Pour` en synergie avec l'ensemble des notions antérieures :
+    1. **Démarche algorithmique (M01)** : Analyse formelle E/T/S et TDO complet.
+    2. **Structures simples (M02)** : Entrées sécurisées, sorties formatées et calculs arithmétiques.
+    3. **Structures de données (M03)** : Types numériques, booléens, codes ASCII (`ord`/`chr`) et manipulation de chaînes (sans listes).
+    4. **Structures conditionnelles (M04)** : Contrôles d'intégrité et embranchements logiques imbriqués.
+    5. **Structure itérative `Pour` (M05)** : Parcours de chaîne caractère par caractère, accumulation et chiffrement itératif.
+* **Activités pratiques & Projet de synthèse** :
+  * **Grand Défi d'intégration : Système de Badge Sécurisé "BioPass"** :
+    * Contrôle de longueur et somme de contrôle d'un identifiant numérique via boucle `Pour`.
+    * Chiffrement par décalage (Code de César) du nom de l'élève par itération `Pour` et arithmétique ASCII.
+    * Décisions conditionnelles de validation et assemblage du badge final.
+* **Validation & Bilan** : Implémentation, exécution sur le Playground WebAssembly et synthèse méthodologique en vue des devoirs de synthèse.
 
 ---
 

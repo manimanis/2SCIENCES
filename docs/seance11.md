@@ -1,6 +1,6 @@
 # 📝 Fiche Pédagogique – Séance 11
 ## Module 04 : Les structures conditionnelles
-### Thème : Structure à Choix Multiples (`Selon ... Faire` / `match ... case`) & Mini-Calculatrice
+### Thème : Prédicats Logiques Composés, Algorithme de l'Année Bissextile & Règles de Gestion Sportive
 
 ---
 
@@ -10,144 +10,107 @@
 | :--- | :--- |
 | **Matière** | Informatique |
 | **Niveau & Section** | 2ème Année Secondaire – Section Sciences |
-| **Durée prévisionnelle** | 1 séance (1h à 1h30) |
+| **Durée prévisionnelle** | 1 séance (1 heure) |
 | **Cadre de référence** | Programme officiel du Ministère de l'Éducation (Tunisie) |
 | **Enseignant** | Mohamed Anis MANI |
 | **Supports & Outils** | Ordinateurs, page web `module04.html`, Playground Python (`playground.html`), tableau |
-| **Prérequis** | Forme généralisée `elif` (Séance 10), types caractère et entier |
+| **Prérequis** | Opérateurs `and`, `or`, modulo `%`, formes conditionnelles |
 
 ---
 
 ## 🎯 2. Compétences & Objectifs Opérationnels
 
 ### Compétences visées :
-* **Compétence algorithmique** : Structurer des branchements conditionnels basés sur la valeur discrète d'un sélecteur unique.
-* **Compétence syntaxique** : Manipuler la structure moderne `match ... case` en Python 3.10+.
+* **Compétence logique & modélisation** : Traduire des règles historiques et de gestion réelles en expressions logiques condensées et fiables.
+* **Compétence de rigueur** : Éviter les erreurs de parenthésage dans les prédicats combinant `and` et `or`.
 
 ### Objectifs opérationnels (À l'issue de la séance, l'élève sera capable de) :
-1. **Identifier** les situations où la structure `Selon` est plus lisible que `Si...SinonSi`.
-2. **Respecter** les contraintes sur le sélecteur (valeur de type scalaire discret : entier ou caractère).
-3. **Programmer** une mini-calculatrice arithmétique $A \text{ op } B$ avec gestion de la division par zéro (Exercice 9).
-4. **Réécrire** un algorithme de salutations horaires avec la structure à choix multiples (Exercice 13).
+1. **Évaluer sans erreur** un prédicat logique composé à plusieurs clauses.
+2. **Formuler** la condition exacte de l'année bissextile selon la réforme grégorienne (Exercice 12).
+3. **Programmer** la comptabilisation des points et de l'issue d'un match sportif (Exercice 14).
+4. **Simplifier** des expressions booléennes redondantes.
 
 ---
 
-## ⏱️ 3. Scénario Pédagogique & Déroulement Minuté
+## ⏱️ 3. Scénario Pédagogique & Déroulement Minuté (Séance de 60 min)
 
 ```
-┌──────────────────────────────────────────────────────────────────────────────┐
-│  00 - 15 min : Phase 1 - Accroche : Simplifier les cascades de if op == '+'...│
-│  15 - 35 min : Phase 2 - Cours : Syntaxe Selon...Faire et match...case        │
-│  35 - 55 min : Phase 3 - Entraînement : Exercices 2 & 3 (QCM logiques)        │
-│  55 - 75 min : Phase 4 - Réalisation pratique : Ex 9 (Calculatrice) & Ex 13  │
-│  75 - 80 min : Phase 5 - Synthèse, trace écrite & préparation Séance 12      │
-└──────────────────────────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────────────────────────────┐
+│  00 - 10 min : Phase 1 - Accroche : Les règles de gestion multi-critères            │
+│  10 - 25 min : Phase 2 - Cours : Priorités logiques, parenthèses & court-circuit    │
+│  25 - 42 min : Phase 3 - Exercice 11 (Évaluation) & Ex 12 (Année bissextile)        │
+│  42 - 55 min : Phase 4 - Atelier Playground : Exercice 14 (Scores d'un match)       │
+│  55 - 60 min : Phase 5 - Synthèse, trace écrite & préparation Séance 12             │
+└─────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
 ## 📖 4. Contenu Didactique & Support de Cours
 
-### 1. La Structure `Selon ... Faire`
-On l'utilise lorsqu'une même variable (le **sélecteur**) est comparée à une liste de valeurs constantes discrètes possibles.
+### 1. La Règle Grégorienne de l'Année Bissextile
+Une année compte environ 365.2422 jours. Pour ajuster le calendrier civil au calendrier astronomique :
+1. Une année est bissextile si elle est **divisible par 4** ($an \mathbin{\text{mod}} 4 = 0$).
+2. **Exception séculaire** : Si elle est divisible par 100, elle n'est **PAS bissextile**...
+3. **Exception à l'exception** : ... Sauf si elle est divisible par 400 ($an \mathbin{\text{mod}} 400 = 0$) !
 
-```algorithm
-Selon sélecteur Faire
-   valeur_1 : Traitements_1
-   valeur_2 : Traitements_2
-   valeur_3, valeur_4 : Traitements_3_4
-   Autre : Traitements_Par_Défaut
-FinSelon
-```
+*Formule booléenne universelle condensée :*
+$$\mathbf{Bissextile} \iff (an \mathbin{\text{mod}} 4 = 0 \quad \mathbf{ET} \quad an \mathbin{\text{mod}} 100 \ne 0) \quad \mathbf{OU} \quad (an \mathbin{\text{mod}} 400 = 0)$$
 
-### 2. Équivalent Python Moderne : `match ... case` (Python 3.10+)
-
-```python
-match selecteur:
-    case valeur_1:
-        # Traitements 1
-    case valeur_2:
-        # Traitements 2
-    case valeur_3 | valeur_4:
-        # Traitements si 3 ou 4
-    case _:
-        # Branche par défaut (équivalent de Autre)
-```
-
-> [!NOTE]
-> *Le tiret du bas `case _:` représente le cas par défaut (wildcard) qui attrape toutes les valeurs non prévues précédemment.*
+*Exemples historiques :*
+* $2024$ : Divisible par 4 et non par 100 $\implies$ **Bissextile (366 jours)**.
+* $1900$ : Divisible par 4 et par 100, mais pas par 400 $\implies$ **Ordinaire (365 jours)**.
+* $2000$ : Divisible par 400 $\implies$ **Bissextile (366 jours)**.
 
 ---
 
 ## 🧩 5. Fiche Activités & Corrigés Détaillés
 
-### 🔴 Exercice 9 : Calculatrice d'Expressions ($A \text{ op } B$)
-* **Énoncé** : Saisir deux nombres réels $A$ et $B$ et un opérateur arithmétique `op` parmi `+`, `-`, `*`, `/`. Calculer et afficher le résultat. Prévoir un message d'alerte en cas de division par zéro ou d'opérateur inconnu.
-* **Algorithme** :
-```algorithm
-Algorithme Calculatrice
-Début
-   Ecrire("Donner A : ") ; Lire(A)
-   Ecrire("Donner l'opérateur (+, -, *, /) : ") ; Lire(op)
-   Ecrire("Donner B : ") ; Lire(B)
+### 🔴 Exercice 12 : Algorithme & Programme "Année Bissextile"
 
-   Selon op Faire
-      '+' : res ← A + B ; Ecrire("Résultat = ", res)
-      '-' : res ← A - B ; Ecrire("Résultat = ", res)
-      '*' : res ← A * B ; Ecrire("Résultat = ", res)
-      '/' : 
-         Si B ≠ 0 Alors
-            res ← A / B
-            Ecrire("Résultat = ", res)
-         Sinon
-            Ecrire("Erreur : Division par zéro impossible !")
-         FinSi
-      Autre : Ecrire("Erreur : Opérateur non reconnu !")
-   FinSelon
+#### 1. Algorithme
+```algorithm
+Algorithme Annee_Bissextile
+Début
+   Ecrire("Donner une année : ")
+   Lire(an)
+
+   Si ((an mod 4 = 0 ET an mod 100 ≠ 0) OU (an mod 400 = 0)) Alors
+      Ecrire(an, " est une ANNÉE BISSEXTILE (366 jours, février a 29 jours).")
+   Sinon
+      Ecrire(an, " est une ANNÉE ORDINAIRE (365 jours, février a 28 jours).")
+   FinSi
 Fin
 ```
 
-* **Code Python avec `match ... case`** :
+#### 2. Code Python équivalent
 ```python
-A = float(input("Donner A : "))
-op = input("Opérateur (+, -, *, /) : ")
-B = float(input("Donner B : "))
+an = int(input("Donner une année : "))
 
-match op:
-    case '+':
-        print(f"{A} + {B} = {A + B}")
-    case '-':
-        print(f"{A} - {B} = {A - B}")
-    case '*':
-        print(f"{A} * {B} = {A * B}")
-    case '/':
-        if B != 0:
-            print(f"{A} / {B} = {A / B:.2f}")
-        else:
-            print("Erreur : Division par zéro impossible !")
-    case _:
-        print("Erreur : Opérateur arithmétique invalide !")
+if (an % 4 == 0 and an % 100 != 0) or (an % 400 == 0):
+    print(f"🎉 L'année {an} est BISSEXTILE (Février a 29 jours).")
+else:
+    print(f"📅 L'année {an} est ORDINAIRE (Février a 28 jours).")
 ```
 
 ---
 
-### 🟡 Exercice 13 : Salutations selon le Créneau Horaire
-* **Énoncé** : En fonction du code de créneau horaire `code` ($1$ : Matin, $2$ : Après-midi, $3$ : Soir, $4$ : Nuit), afficher la salutation appropriée.
-* **Script Python** :
+### 🟡 Exercice 14 : Score d'un Match de Football
+* **Énoncé** : Saisir les buts marqués par l'équipe locale $B_1$ et l'équipe visiteuse $B_2$. Déterminer l'issue du match et attribuer les points du championnat :
+  * Victoire locale : 3 points pour l'équipe 1, 0 pour l'équipe 2.
+  * Victoire visiteuse : 0 point pour l'équipe 1, 3 pour l'équipe 2.
+  * Match nul : 1 point pour chaque équipe.
+* **Code Python** :
 ```python
-code = int(input("Entrez le code créneau (1=Matin, 2=Après-midi, 3=Soir, 4=Nuit) : "))
+b1 = int(input("Buts marqués par l'Équipe 1 : "))
+b2 = int(input("Buts marqués par l'Équipe 2 : "))
 
-match code:
-    case 1:
-        print("🌅 Bonjour ! Bonne journée.")
-    case 2:
-        print("☀️ Bon après-midi !")
-    case 3:
-        print("🌆 Bonsoir !")
-    case 4:
-        print("🌙 Bonne nuit et doux rêves.")
-    case _:
-        print("Code invalide (choisir entre 1 et 4).")
+if b1 > b2:
+    print(f"Victoire de l'Équipe 1 ({b1} - {b2}) ! Points : Équipe 1 = 3, Équipe 2 = 0")
+elif b2 > b1:
+    print(f"Victoire de l'Équipe 2 ({b1} - {b2}) ! Points : Équipe 1 = 0, Équipe 2 = 3")
+else:
+    print(f"Match Nul ({b1} - {b2}) ! 1 point attribué à chaque équipe.")
 ```
 
 ---
@@ -155,45 +118,36 @@ match code:
 ## 📝 6. Trace Écrite pour le Cahier de l'Élève
 
 ```markdown
-CHAPITRE 4 : LES STRUCTURES CONDITIONNELLES (Partie 3 : Choix Multiples)
+CHAPITRE 4 : LES STRUCTURES CONDITIONNELLES (Partie 4 : Prédicats Composés)
 
-1. En Algorithme :
-   Selon sélecteur Faire
-      valeur_1 : actions
-      valeur_2 : actions
-      Autre    : actions_par_défaut
-   FinSelon
+1. Règle de l'Année Bissextile :
+   Condition = (an % 4 == 0 and an % 100 != 0) or (an % 400 == 0)
 
-2. En Python (3.10+) :
-   match selecteur:
-       case val1:
-           actions
-       case val2:
-           actions
-       case _:
-           actions_defaut
+2. Gestion des Priorités Logiques :
+   - Le connecteur 'and' est TOUJOURS prioritaire sur le connecteur 'or'.
+   - Conseil : Toujours utiliser des parenthèses claires pour éviter toute ambiguïté !
 
-3. Règle clé :
-   Le sélecteur doit être une variable discrète (entier ou caractère).
+3. Table de décision :
+   Recenser tous les cas possibles (victoire, défaite, nul) pour garantir la complétude.
 ```
 
 ---
 
 ## ❓ 7. Auto-Évaluation Formative (5 Questions)
 
-1. **Peut-on utiliser une condition comme `case x > 10:` dans un `match` simple ?**  
-   *Réponse* : Non, le `case` compare directement une égalité de valeur avec le sélecteur. Pour des intervalles, on privilégie `if...elif`.
-2. **Que représente le symbole `_` dans `case _:` ?**  
-   *Réponse* : La valeur par défaut (joker), exécutée si aucun autre cas ne correspond.
-3. **Que se passe-t-il si l'utilisateur entre `/` et $B=0$ dans l'Exercice 9 ?**  
-   *Réponse* : La condition imbriquée `if B != 0` empêche l'exécution de la division et affiche un message d'erreur explicite.
-4. **Le sélecteur peut-il être un nombre réel (`float`) ?**  
-   *Réponse* : Non recommandé, en raison des imprécisions d'arrondi sur les nombres réels flottants.
-5. **Comment regrouper plusieurs valeurs dans un même `case` ?**  
-   *Réponse* : En les séparant par une barre verticale : `case 1 | 2 | 3:`.
+1. **L'année 2100 sera-t-elle bissextile ?**  
+   *Réponse* : Non, car $2100$ est divisible par 100 mais pas par 400 ($2100 / 400 = 5.25$).
+2. **Dans l'expression `(A and B) or C`, que se passe-t-il si `C` est Vrai ?**  
+   *Réponse* : L'ensemble de l'expression devient immédiatement Vrai, indépendamment de `A` et `B`.
+3. **Que produit le code de l'Exercice 14 pour un score de $2 - 2$ ?**  
+   *Réponse* : La branche `else` s'exécute : `"Match Nul ! 1 point attribué à chaque équipe."`.
+4. **Pourquoi teste-t-on `an % 4 == 0` et non `an / 4 == 0` ?**  
+   *Réponse* : L'opérateur modulo `%` calcule le reste de la division : un reste nul indique une divisibilité parfaite.
+5. **Combien de jours compte le mois de février lors d'une année bissextile ?**  
+   *Réponse* : $29$ jours.
 
 ---
 
-## 🚀 8. Préparation de la Séance 12
-* **Thème** : *Conditions composées, calendrier grégorien et contrôle d'intégrité*.
-* **Énigme d'amorce** : Pourquoi l'année 2000 était-elle bissextile alors que 1900 ne l'était pas ?
+## 🚀 8. Préparation de la Séance 13
+* **Thème** : *Modélisation mathématique : Résolution rigoureuse des équations du 1er et 2nd degré*.
+* **Rappel maths** : Revoir la formule du discriminant $\Delta = b^2 - 4ac$.

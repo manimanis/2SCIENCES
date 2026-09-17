@@ -245,48 +245,95 @@ Parmi les mots suivants, barrer ceux qui ne sont pas des mots valides pour une v
 
 ---
 
-#### Exercice 3 - Aire & Périmètre d'un rectangle
+#### Exercice 3 - Distance euclidienne entre deux points
 
-On désire faire le programme qui demande à l'utilisateur la longueur (`x`) et la largeur (`y`) d'un rectangle et calcule son périmètre (`p`) et son aire (`s`) en utilisant les formules suivantes :
+Dans un repère orthonormé $(O, \vec{i}, \vec{j})$, soient deux points $A(x_A, y_A)$ et $B(x_B, y_B)$. On souhaite concevoir le programme nommé « Distance_Points » qui demande à l'utilisateur de saisir les coordonnées cartésiennes de $A$ et $B$, puis calcule et affiche la distance euclidienne $d$ séparant ces deux points à l'aide de la formule :
 
-- Périmètre = (longueur + largeur) × 2
-- Aire = longueur × largeur
+**d = √((x_B - x_A)² + (y_B - y_A)²)**
 
-1. Compléter le schéma suivant permettant d'analyser le problème posé.
-2. Faire l'algorithme permettant de résoudre le problème posé.
-3. Utiliser le langage de programmation Python pour traduire l'algorithme.
+*Remarque* : En Python, on importe la fonction racine carrée depuis le module mathématique : `from math import sqrt` ou `import math` puis `math.sqrt(...)`.
+
+**Travail demandé :**
+1. Dresser le Tableau de Déclaration des Objets (TDO).
+2. Élaborer l'algorithme permettant de résoudre le problème posé.
+3. Traduire cet algorithme en langage de programmation Python.
 
 ---
 
-#### Exercice 4 - Aire d'une ellipse
+#### Exercice 4 - Aire d'un parallélogramme
+
+On désire concevoir le programme nommé « Parallelogramme » qui calcule l'aire d'un parallélogramme en connaissant la longueur de ses deux côtés consécutifs (`a` et `b`) ainsi que la mesure de l'angle (`theta` en degrés) formé par ces deux côtés en appliquant la formule :
+
+**Aire = a × b × sin(theta)**
+
+*Remarque* : L'angle `theta` en degrés doit être converti en radians avant d'appliquer la fonction sinus : `theta_rad = theta × π / 180`.
+
+**Travail demandé :**
+1. Dresser le Tableau de Déclaration des Objets (TDO) en précisant la constante π et les variables.
+2. Élaborer l'algorithme du programme permettant de résoudre le problème posé.
+3. Traduire cet algorithme en langage de programmation Python.
+
+---
+
+#### Exercice 5 - Aire d'une ellipse
 
 On désire calculer l'aire d'une ellipse en appliquant la formule suivante :
 
 **Aire = a × b × π**
 
-Écrire l'algorithme du programme nommé « ellipse » qui, sachant la valeur de `a` et de `b`, calcule et affiche l'aire `s` de la forme ci-contre.
+**Travail demandé :**
+1. Dresser le Tableau de Déclaration des Objets (TDO) en précisant la constante π et les variables.
+2. Écrire l'algorithme du programme nommé « Ellipse » qui saisit les valeurs de `a` et de `b`, puis calcule et affiche l'aire de l'ellipse.
+3. Traduire cet algorithme en langage de programmation Python.
 
 ---
 
-#### Exercice 5 - Moyenne d'informatique
+#### Exercice 6 - Moyenne d'informatique
 
-Écrire l'algorithme du programme "Moyenne" qui calcule et affiche la moyenne d'un élève sachant sa note globale (`NG`) et sa note de synthèse (`NS`). La moyenne (`Moy`) est calculée à l'aide de la formule :
+On désire concevoir le programme « Moyenne » qui calcule et affiche la moyenne d'un élève sachant sa note globale (`NG`) et sa note de synthèse (`NS`). La moyenne (`Moy`) est calculée à l'aide de la formule :
 
 ```
 Moy = (NG + NS) / 2
 ```
 
+**Travail demandé :**
+1. Dresser le Tableau de Déclaration des Objets (TDO).
+2. Élaborer l'algorithme du programme « Moyenne ».
+3. Traduire cet algorithme en langage de programmation Python.
+
 ---
 
-#### Exercice 6 - Raideur d'un ressort
+#### Exercice 7 - Raideur d'un ressort
 
-Pour mesurer la raideur `k` d'un ressort, on lui accroche un objet d'une masse connue `m`. Puis, on mesure l'allongement, en mètres, `x` du ressort. Comme le système est en équilibre sous l'effet de la pesanteur, on obtient :
+Pour mesurer la raideur `k` d'un ressort, on lui accroche un objet d'une masse connue `m` (en kg). Puis, on mesure l'allongement `x` (en mètres) du ressort. Comme le système est en équilibre sous l'effet de la pesanteur, on obtient :
 
 ```
-m.g = k.x
+m.g = k.x  ⇒  k = (m.g) / x
 ```
 
-En supposant que l'attraction gravitationnelle est constante (`g = 10 N/kg`), écrire l'algorithme d'un programme qui calcule et affiche la raideur `k` du ressort.
+En supposant que l'attraction gravitationnelle est constante (`g = 10 N/kg`).
+
+**Travail demandé :**
+1. Dresser le Tableau de Déclaration des Objets (TDO) en précisant la constante gravitationnelle `g` et les variables.
+2. Écrire l'algorithme d'un programme nommé « Raideur_Ressort » qui calcule et affiche la raideur `k` du ressort.
+3. Traduire cet algorithme en langage de programmation Python.
+
+---
+
+#### Exercice 8 - Formule de Héron (Aire d'un triangle quelconque)
+
+On désire concevoir le programme nommé « Aire_Heron » qui calcule l'aire d'un triangle quelconque à partir des longueurs de ses trois côtés (`a`, `b` et `c`).
+
+La formule de Héron d'Alexandrie s'applique en deux étapes :
+1. Calcul du demi-périmètre : `p = (a + b + c) / 2`
+2. Calcul de l'aire du triangle : `S = √(p × (p - a) × (p - b) × (p - c))`
+
+*Remarque* : Ce problème met en évidence la décomposition d'un calcul complexe et la nécessité de stocker le résultat intermédiaire `p` dans une variable par affectation avant de calculer la surface `S`.
+
+**Travail demandé :**
+1. Dresser le Tableau de Déclaration des Objets (TDO) en distinguant les données d'entrée (`a`, `b`, `c`), la variable intermédiaire (`p`) et la variable de résultat (`S`).
+2. Élaborer l'algorithme du programme permettant de résoudre le problème posé.
+3. Traduire cet algorithme en langage de programmation Python.
 
 ---
 

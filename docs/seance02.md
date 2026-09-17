@@ -1,6 +1,6 @@
 # 📝 Fiche Pédagogique – Séance 02
-## Module 01 : Les étapes de résolution d’un problème
-### Thème : Formalisation : Schéma d'Analyse (E/T/S), Tableau des Données et Objets (TDO) & Premier Script Python
+## Module 02 : Les structures simples
+### Thème : Les Structures Simples (Cours Complet) : Entrées/Sorties, Transtypage, Règles de Nommage & Opération d'Affectation (`←` / `=`)
 
 ---
 
@@ -10,200 +10,192 @@
 | :--- | :--- |
 | **Matière** | Informatique |
 | **Niveau & Section** | 2ème Année Secondaire – Section Sciences |
-| **Durée prévisionnelle** | 1 séance (1h à 1h30) |
+| **Durée prévisionnelle** | 1 séance (1 heure) |
 | **Cadre de référence** | Programme officiel du Ministère de l'Éducation (Tunisie) |
 | **Enseignant** | Mohamed Anis MANI |
-| **Supports & Outils** | Ordinateurs, page web `module01.html`, Playground Python (`playground.html`), tableau blanc |
-| **Prérequis** | Notions de base de la Séance 01 (Définition d'un algorithme, les 4 étapes du cycle) |
+| **Supports & Outils** | Ordinateurs, page web `module02.html`, Playground Python (`playground.html`), tableau |
+| **Prérequis** | Notions du Module 01 (Démarche E/T/S, TDO, structure minimale d'un algorithme) |
 
 ---
 
 ## 🎯 2. Compétences & Objectifs Opérationnels
 
 ### Compétences visées :
-* **Compétence disciplinaire** : Formaliser une démarche de résolution en exploitant rigoureusement la grille d'Analyse et le Tableau de Déclaration des Objets (TDO).
-* **Compétence pratique** : Traduire un algorithme simple en script Python 3 et vérifier son comportement par l'exécution.
+* **Compétence disciplinaire** : Maîtriser l'ensemble des structures simples (Entrées, Sorties et Affectation) pour concevoir un algorithme séquentiel autonome.
+* **Compétence syntaxique & logique** : Nommer rigoureusement les variables, convertir les types de données et mémoriser les résultats de calcul par affectation.
 
 ### Objectifs opérationnels (À l'issue de la séance, l'élève sera capable de) :
-1. **Compléter sans erreur** une grille d'Analyse (Entrées, Traitements, Sorties).
-2. **Déclarer les objets** dans le TDO avec leur nom (identificateur) et leur type de base (`entier`, `réel`).
-3. **Rédiger un algorithme structuré** en respectant la syntaxe normalisée (`Algorithme Nom`, `Début`, `Fin`).
-4. **Traduire cet algorithme en Python 3** et l'exécuter dans le Playground WebAssembly.
+1. **Écrire** des instructions d'affichage simples et mixtes (`Ecrire` / `print`).
+2. **Réaliser** la saisie de données au clavier (`Lire` / `input`) avec transtypage explicite (`int()`, `float()`).
+3. **Appliquer** les règles formelles de nommage des identificateurs (variables et constantes).
+4. **Comprendre et appliquer** l'opération d'affectation (`←` / `=`) et son mécanisme d'évaluation droite $\rightarrow$ rangement gauche.
+5. **Résoudre** un problème géométrique avancé (Exercice 3 : Distance euclidienne dans le plan orthonormé) articulant Entrées, Affectations, puissances et fonction racine carrée.
 
 ---
 
-## ⏱️ 3. Scénario Pédagogique & Déroulement Minuté
+## ⏱️ 3. Scénario Pédagogique & Déroulement Minuté (Séance de 60 min)
 
 ```
-┌──────────────────────────────────────────────────────────────────────────────┐
-│  00 - 10 min : Phase 1 - Rappel des 4 étapes & Correction du travail maison   │
-│  10 - 30 min : Phase 2 - Formalisation : Grille d'Analyse, TDO & Algorithme   │
-│  30 - 55 min : Phase 3 - Activité guidée : Exercice 3 (Somme & Produit)       │
-│  55 - 75 min : Phase 4 - Atelier autonome : Exercices 4, 6 et 7 (Géométrie)   │
-│  75 - 80 min : Phase 5 - Synthèse, trace écrite & amorce du Module 02         │
-└──────────────────────────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────────────────────────────┐
+│  00 - 10 min : Phase 1 - Accroche : Pourquoi communiquer et mémoriser en machine ?  │
+│  10 - 25 min : Phase 2 - Cours (I) : Sortie (print), Entrée (input) & Transtypage   │
+│  25 - 40 min : Phase 3 - Cours (II) : Règles de nommage & L'Affectation (← / =)     │
+│  40 - 55 min : Phase 4 - Atelier pratique : Ex 1 (QCM), Ex 2 (Tri) & Ex 3 (Distance)│
+│  55 - 60 min : Phase 5 - Synthèse, trace écrite & préparation Séance 03             │
+└─────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
 ## 📖 4. Contenu Didactique & Support de Cours
 
-### 1. La Grille d'Analyse d'un Problème
-L'analyse formalise la transition entre la compréhension humaine du problème et la solution algorithmique :
+### 1. L'Opération de Sortie (L'Affichage)
+Permet d'envoyer des informations vers le périphérique de sortie standard (l'écran).
+* **En Algorithme** : `Ecrire(...)`
+* **En Python** : `print(...)`
 
-```
-             ┌───────────────────────────────┐
-             │       GRILLE D'ANALYSE        │
-             ├──────────────┬────────────────┤
-             │ Résultat =   │ Sorties (S)    │
-             │ Traitement = │ Formules (T)   │
-             │ Données =    │ Entrées (E)    │
-             └──────────────┴────────────────┘
-```
+| Type d'affichage | Syntaxe Algorithmique | Équivalent Python |
+| :--- | :--- | :--- |
+| **Message textuel** | `Ecrire("Bienvenue en 2e Sciences")` | `print("Bienvenue en 2e Sciences")` |
+| **Valeur d'une variable** | `Ecrire(x)` | `print(x)` |
+| **Affichage combiné** | `Ecrire("Le résultat est : ", r)` | `print("Le résultat est :", r)` |
 
-### 2. Le Tableau de Déclaration des Objets (TDO)
-Chaque donnée manipulée dans l'algorithme est stockée dans un conteneur mémoire appelé **variable** ou **constante**. Le TDO recense l'ensemble des objets :
+### 2. L'Opération d'Entrée (La Lecture) et le Transtypage
+Permet de récupérer des données saisies par l'utilisateur au clavier.
+* **En Algorithme** : `Lire(nom_variable)`
+* **En Python** : `nom_variable = input("Invite : ")`
 
-| Objet | Type / Nature | Rôle / Description |
-| :---: | :---: | :--- |
-| `a`, `b` | `entier` | Données d'entrée saisies au clavier |
-| `s` | `entier` | Somme calculée |
-| `p` | `entier` | Produit calculé |
+> [!IMPORTANT]
+> En Python, `input()` retourne TOUJOURS une chaîne de caractères (`str`). Pour effectuer des calculs arithmétiques, la conversion (le **cast**) est indispensable :
+> * Entier : `n = int(input("Donner n : "))`
+> * Réel : `x = float(input("Donner x : "))`
 
-### 3. Structure Générale d'un Algorithme
-```algorithm
-Algorithme Nom_De_L_Algorithme
-Début
-   // 1. Saisie des entrées
-   // 2. Traitements et calculs
-   // 3. Affichage des sorties
-Fin
-```
+### 3. Les Règles de Nommage des Identificateurs
+Un identificateur (nom de variable ou constante) doit respecter 4 règles impératives :
+1. Composé uniquement de **lettres non accentuées**, de **chiffres** et du tiret bas `_` (*underscore*).
+2. Doit obligatoirement **commencer par une lettre** (ou un `_`). Jamais par un chiffre.
+3. Ne doit contenir **aucun espace**, tiret `-` ou symbole spécial (`@`, `#`, `$`, `%`, etc.).
+4. Ne doit pas être un **mot réservé** du langage Python (`for`, `if`, `while`, `class`, `def`, `import`, etc.).
+
+### 4. L'Opération d'Affectation (`←` / `=`)
+L'affectation est l'opération centrale permettant d'attribuer une valeur ou le résultat d'un calcul à une case mémoire.
+* **Notation Algorithmique** : `Variable ← Expression`
+* **Syntaxe Python** : `variable = expression`
+
+> [!CAUTION]
+> **Le conteneur est TOUJOURS à gauche !**  
+> Une écriture comme `L * l = aire` ou `x + 1 = x` est strictement **interdite**.  
+> Le membre droit est d'abord évalué, puis le résultat est rangé dans la variable à gauche.
+
+* **Constante** : Valeur fixée dès le départ ne changeant jamais (ex: `PI = 3.14159`, conventionnellement en majuscules).
 
 ---
 
 ## 🧩 5. Fiche Activités & Corrigés Détaillés
 
-### 🔴 Exercice 3 : Calcul Somme et Produit de deux entiers
+### 🔴 Exercice 1 : QCM d'Auto-Évaluation
+1. **L'instruction `print("5 + 3 =", 5 + 3)` affiche :**
+   * *Réponse exacte* : `5 + 3 = 8` (le texte entre guillemets est affiché littéralement, l'expression sans guillemets est évaluée).
+2. **Si l'utilisateur tape 12 à l'instruction `x = input()`, quel est le type de `x` ?**
+   * *Réponse exacte* : `str` (chaîne de caractères).
+3. **Pour convertir la variable `x` en nombre décimal, on utilise :**
+   * *Réponse exacte* : `float(x)`.
 
-#### 1. Analyse
-* **Résultat =** Afficher `s`, `p`
-* **Traitement =**
-  * `s ← a + b`
-  * `p ← a * b`
-* **Données =** Saisir `a`, `b`
+---
 
-#### 2. Tableau de Déclaration des Objets (TDO)
-| Objet | Type |
-| :---: | :---: |
-| `a`, `b` | `entier` |
-| `s`, `p` | `entier` |
+### 🟡 Exercice 2 : Validité des Noms de Variables
+Classer les identificateurs suivants et justifier les erreurs :
 
-#### 3. Algorithme
+| Identificateur | Validité | Justification pédagogique |
+| :--- | :---: | :--- |
+| `moyenne_info` | ✅ Valide | Lettres et underscore, commence par une lettre. |
+| `2eme_note` | ❌ Invalide | Commence par un chiffre (`2`). Correction : `note_2eme`. |
+| `taux-tva` | ❌ Invalide | Contient un tiret `-` (opérateur de soustraction). Correction : `taux_tva`. |
+| `note élève` | ❌ Invalide | Contient un espace et une lettre accentuée `è`. Correction : `note_eleve`. |
+| `while` | ❌ Invalide | Mot-clé réservé de Python (boucle TantQue). Correction : `mon_while` ou `duree`. |
+| `PI` | ✅ Valide | Conventionnellement utilisé pour désigner une constante. |
+| `_compteur` | ✅ Valide | L'underscore est autorisé en début d'identificateur. |
+| `prix$` | ❌ Invalide | Contient le caractère spécial interdit `$`. Correction : `prix_dollar`. |
+
+---
+
+### 🟢 Exercice 3 : Distance Euclidienne entre Deux Points (Application Intégrée Avancée)
+* **Formule mathématique** :
+  $$d(A, B) = \sqrt{(x_B - x_A)^2 + (y_B - y_A)^2}$$
+* **Analyse** :
+  * Résultat = Afficher `d`
+  * Traitement = `d ← RacineCarre((xb - xa)^2 + (yb - ya)^2)`
+  * Données = Saisir `xa`, `ya`, `xb`, `yb`
+* **TDO** :
+  * Variables : `xa`, `ya`, `xb`, `yb`, `d` : `réel`
+* **Algorithme** :
 ```algorithm
-Algorithme Somme_Produit
+Algorithme Distance_Points
 Début
-   Ecrire("Donner le premier entier a : ")
-   Lire(a)
-   Ecrire("Donner le deuxième entier b : ")
-   Lire(b)
-   s ← a + b
-   p ← a * b
-   Ecrire("La somme est : ", s)
-   Ecrire("Le produit est : ", p)
+   Ecrire("Abscisse de A (xa) : ") ; Lire(xa)
+   Ecrire("Ordonnée de A (ya) : ") ; Lire(ya)
+   Ecrire("Abscisse de B (xb) : ") ; Lire(xb)
+   Ecrire("Ordonnée de B (yb) : ") ; Lire(yb)
+   d ← RacineCarre((xb - xa) * (xb - xa) + (yb - ya) * (yb - ya))
+   Ecrire("La distance euclidienne AB est : ", d)
 Fin
 ```
-
-#### 4. Traduction Python (Testée sur le Playground)
+* **Traduction Python (Playground)** :
 ```python
-# Saisie des entrées avec conversion en entier (int)
-a = int(input("Donner le premier entier a : "))
-b = int(input("Donner le deuxième entier b : "))
+import math
 
-# Traitements
-s = a + b
-p = a * b
+xa = float(input("Abscisse de A (xa) : "))
+ya = float(input("Ordonnée de A (ya) : "))
+xb = float(input("Abscisse de B (xb) : "))
+yb = float(input("Ordonnée de B (yb) : "))
 
-# Affichage des sorties
-print("La somme est :", s)
-print("Le produit est :", p)
+d = math.sqrt((xb - xa)**2 + (yb - ya)**2)
+
+print(f"La distance euclidienne AB est : {d:.3f}")
 ```
-
----
-
-### 🟡 Exercice 4 : Aire de la Forme H
-* **Énoncé** : Calculer l'aire d'une forme géométrique en "H" paramétrée par la dimension $a$.
-* **Méthode 1** : 3 carrés de côté $a$ et 1 rectangle de largeur $a/3$ et longueur $a$.
-  $$\text{Aire} = 3 \times a^2 + \frac{a}{3} \times a = 3a^2 + \frac{a^2}{3} = \frac{10}{3}a^2$$
-* **Algorithme** :
-```algorithm
-Algorithme Aire_Forme_H
-Début
-   Ecrire("Donner la dimension a : ")
-   Lire(a)
-   aire ← (10 / 3) * a * a
-   Ecrire("L'aire de la forme H est : ", aire)
-Fin
-```
-* **TDO** : `a` : `réel`, `aire` : `réel`.
-
----
-
-### 🟢 Exercice 7 : Prédécesseur et Successeur d'un nombre pair
-* **Énoncé** : Saisir un nombre pair `a`, puis afficher le nombre pair précédent et le suivant. Exemple pour $a=8$ : affichage `6 – 8 – 10`.
-* **Traitements** : $\text{pred} \leftarrow a - 2$, $\text{succ} \leftarrow a + 2$.
-* **Algorithme** :
-```algorithm
-Algorithme Pred_Succ
-Début
-   Ecrire("Donner un nombre pair a : ")
-   Lire(a)
-   pred ← a - 2
-   succ ← a + 2
-   Ecrire(pred, " - ", a, " - ", succ)
-Fin
-```
-* **TDO** : `a`, `pred`, `succ` : `entier`.
 
 ---
 
 ## 📝 6. Trace Écrite pour le Cahier de l'Élève
 
 ```markdown
-CHAPITRE 1 (Suite) : FORMALISATION D'UN ALGORITHME
+CHAPITRE 2 : LES STRUCTURES SIMPLES
 
-1. La Grille d'Analyse :
-   - Entrées (E) : variables à saisir au clavier.
-   - Traitements (T) : formules et opérations affectées aux variables.
-   - Sorties (S) : résultats affichés à l'écran.
+1. Affichage : 
+   - Algorithme : Ecrire("Message", variable)
+   - Python : print("Message", variable)
 
-2. Le TDO (Tableau des Données et Objets) :
-   Recense tous les objets manipulés avec leur type (ex: entier, réel).
+2. Lecture & Transtypage :
+   - var = int(input("Invite : "))    # Pour un entier
+   - var = float(input("Invite : "))  # Pour un réel
 
-3. Structure d'un Algorithme :
-   Algorithme Nom
-   Début
-      // Instructions
-   Fin
+3. Affectation (Rangement en mémoire) :
+   - Algorithme : Variable ← Expression
+   - Python : variable = expression
+   - Règle d'or : Conteneur toujours à gauche ! (A = B ≠ B = A)
+
+4. Règles de nommage :
+   - Lettres, chiffres, underscore (_).
+   - Commence par une lettre. Aucun espace ni symbole spécial.
 ```
 
 ---
 
 ## ❓ 7. Auto-Évaluation Formative (5 Questions)
 
-1. **Dans l'Exercice 3, quel est le type de l'objet `s` ?**  
-   *Réponse* : `entier` (la somme de deux entiers est un entier).
-2. **Pourquoi écrit-on `int(input())` en Python au lieu de `input()` seul ?**  
-   *Réponse* : Car `input()` renvoie une chaîne de caractères (`str`). La fonction `int()` convertit cette chaîne en nombre entier pour permettre les calculs arithmétiques.
-3. **Quelle est la différence entre un objet de type `entier` et un objet de type `réel` ?**  
-   *Réponse* : L'`entier` ne comporte pas de virgule, tandis que le `réel` comporte une partie décimale.
-4. **Dans quel ordre exécute-t-on les instructions d'un algorithme simple ?**  
-   *Réponse* : De façon séquentielle, de haut en bas, de `Début` à `Fin`.
-5. **Si la saisie de `a` vaut 10 dans l'Exercice 7, que doit afficher le programme ?**  
-   *Réponse* : `8 - 10 - 12`.
+1. **Pourquoi l'affectation est-elle obligatoire pour calculer une aire ?**  
+   *Réponse* : Pour évaluer la formule mathématique ($L \times l$) et stocker le résultat dans une variable dédiée avant de l'afficher.
+2. **Que produit l'instruction Python `print(4 * "Ab")` ?**  
+   *Réponse* : `AbAbAbAb` (répétition de la chaîne).
+3. **Pourquoi `L * l = aire` provoque une erreur `SyntaxError` ?**  
+   *Réponse* : En informatique, la variable réceptrice doit toujours se trouver à gauche de l'opérateur `=`.
+4. **Quelle est la différence entre `x = 5` et `x == 5` ?**  
+   *Réponse* : `=` est l'affectation (action de stockage), tandis que `==` est le test d'égalité logique (comparaison).
+5. **Que vaut `x` après `x = 10` puis `x = x + 3` ?**  
+   *Réponse* : `x` vaut `13` (l'ancienne valeur 10 est écrasée par la nouvelle).
 
 ---
 
-## 🚀 8. Préparation de la Séance 03 (Module 02)
-* **Thème** : *Les structures simples : Opérations d'Entrée/Sortie et gestion des identificateurs*.
-* **À retenir** : Bien réviser les primitives d'entrée (`input`) et de sortie (`print`).
+## 🚀 8. Préparation de la Séance Suivante (Séance 03)
+* **Thème** : *Atelier d'Applications Pratiques & Modélisation Scientifique (Parallélogramme, Ellipse, Moyenne pondérée, Ressort)*.
+* **À faire par l'élève** : Réviser la formule de l'aire du parallélogramme ($S = a \cdot b \cdot \sin(\theta)$) et la loi de Hooke ($F = k \cdot \Delta L$).
