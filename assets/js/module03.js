@@ -1158,16 +1158,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const b = uni * 10 + diz;
 
     renderPermSvg(rawA, diz, uni, b);
-
-    if (permOut) {
-      permOut.innerHTML = `
-        <div class="alert alert-info border-start border-info border-4 mb-0 py-2 px-3 small text-dark">
-          <strong>Décomposition mathématique :</strong><br>
-          • <code>Dizaines = a // 10</code> = <code>${rawA} // 10</code> = <strong>${diz}</strong><br>
-          • <code>Unités = a % 10</code> = <code>${rawA} % 10</code> = <strong>${uni}</strong><br>
-          • <code>b = Unités * 10 + Dizaines</code> = <code>${uni} * 10 + ${diz}</code> = <strong class="text-primary fs-6">${b}</strong>
-        </div>`;
-    }
   };
 
   const renderPermSvg = (a, diz, uni, b) => {

@@ -822,6 +822,29 @@
       <section>
         <h3>Exercice 1 – Opérateurs numériques</h3>
         <p>Compléter le tableau ci-dessous (Expression Python équivalente, Résultat et Type) :</p>
+
+        <details class="my-3">
+          <summary class="btn btn-sm btn-outline-info fw-bold py-1 px-3 d-inline-flex align-items-center gap-2">
+            <span>💡</span> Afficher les indices de résolution
+          </summary>
+          <div class="alert alert-info border-start border-info border-4 shadow-sm mt-2 mb-0 py-3 px-4 small">
+            <h6 class="fw-bold text-primary mb-2">📌 Règles et astuces pour l'Exercice 1 :</h6>
+            <ul class="mb-0 space-y-1">
+              <li><strong>Division réelle (<code>/</code>) :</strong> En Python, la division simple produit <em>toujours</em> un flottant (<code>float</code>). Ainsi, <code>12 / 4</code> donne <code>3.0</code> (et non <code>3</code>).</li>
+              <li><strong>Division entière (<code>div</code> &rarr; <code>//</code>) :</strong> Renvoie le quotient entier (ex : <code>11 // 5</code> donne <code>2</code>, de type <code>int</code>).</li>
+              <li><strong>Reste de la division (<code>mod</code> &rarr; <code>%</code>) :</strong> Calcule le reste de la division euclidienne (ex : <code>11 % 4</code> donne <code>3</code> car $11 = 4 \times 2 + 3$, type <code>int</code>).</li>
+              <li><strong>Opérateurs relationnels en Python :</strong>
+                <ul>
+                  <li>Égalité : <code>==</code> (ex : <code>1+2 == 3-0</code>).</li>
+                  <li>Différence : <code>!=</code> (pour $\ne$).</li>
+                  <li>Inférieur ou égal : <code>&lt;=</code> (pour $\le$).</li>
+                  <li>Appartenance : <code>in</code> avec une liste entre crochets (ex : <code>5 in [12, 6, -3, 5, 7]</code>).</li>
+                </ul>
+              </li>
+              <li><strong>Type booléen (<code>bool</code>) :</strong> Le résultat d'une comparaison est un booléen : <code>True</code> ou <code>False</code> (avec majuscule initiale).</li>
+            </ul>
+          </div>
+        </details>
         <div class="table-responsive shadow-sm rounded border overflow-hidden my-3">
           <table class="table table-hover text-center align-middle mb-0" id="ex1-table">
             <thead style="background-color: #0f172a;" class="text-white">
@@ -840,7 +863,14 @@
                 <td><input type="text" class="form-control form-control-sm font-monospace text-center ex1-py"
                     placeholder="Python..."></td>
                 <td><input type="text" class="form-control form-control-sm text-center ex1-res" placeholder="?"></td>
-                <td><input type="text" class="form-control form-control-sm text-center ex1-type" placeholder="type">
+                <td>
+                  <select class="form-select form-select-sm text-center ex1-type">
+                    <option value="">-- type --</option>
+                    <option value="int">int</option>
+                    <option value="float">float</option>
+                    <option value="bool">bool</option>
+                    <option value="str">str</option>
+                  </select>
                 </td>
                 <td class="ex1-status"></td>
               </tr>
@@ -850,7 +880,14 @@
                 <td><input type="text" class="form-control form-control-sm font-monospace text-center ex1-py"
                     placeholder="Python..."></td>
                 <td><input type="text" class="form-control form-control-sm text-center ex1-res" placeholder="?"></td>
-                <td><input type="text" class="form-control form-control-sm text-center ex1-type" placeholder="type">
+                <td>
+                  <select class="form-select form-select-sm text-center ex1-type">
+                    <option value="">-- type --</option>
+                    <option value="int">int</option>
+                    <option value="float">float</option>
+                    <option value="bool">bool</option>
+                    <option value="str">str</option>
+                  </select>
                 </td>
                 <td class="ex1-status"></td>
               </tr>
@@ -860,7 +897,14 @@
                 <td><input type="text" class="form-control form-control-sm font-monospace text-center ex1-py"
                     placeholder="Python..."></td>
                 <td><input type="text" class="form-control form-control-sm text-center ex1-res" placeholder="?"></td>
-                <td><input type="text" class="form-control form-control-sm text-center ex1-type" placeholder="type">
+                <td>
+                  <select class="form-select form-select-sm text-center ex1-type">
+                    <option value="">-- type --</option>
+                    <option value="int">int</option>
+                    <option value="float">float</option>
+                    <option value="bool">bool</option>
+                    <option value="str">str</option>
+                  </select>
                 </td>
                 <td class="ex1-status"></td>
               </tr>
@@ -870,7 +914,14 @@
                 <td><input type="text" class="form-control form-control-sm font-monospace text-center ex1-py"
                     placeholder="Python..."></td>
                 <td><input type="text" class="form-control form-control-sm text-center ex1-res" placeholder="?"></td>
-                <td><input type="text" class="form-control form-control-sm text-center ex1-type" placeholder="type">
+                <td>
+                  <select class="form-select form-select-sm text-center ex1-type">
+                    <option value="">-- type --</option>
+                    <option value="int">int</option>
+                    <option value="float">float</option>
+                    <option value="bool">bool</option>
+                    <option value="str">str</option>
+                  </select>
                 </td>
                 <td class="ex1-status"></td>
               </tr>
@@ -880,7 +931,14 @@
                 <td><input type="text" class="form-control form-control-sm font-monospace text-center ex1-py"
                     placeholder="Python..."></td>
                 <td><input type="text" class="form-control form-control-sm text-center ex1-res" placeholder="?"></td>
-                <td><input type="text" class="form-control form-control-sm text-center ex1-type" placeholder="type">
+                <td>
+                  <select class="form-select form-select-sm text-center ex1-type">
+                    <option value="">-- type --</option>
+                    <option value="int">int</option>
+                    <option value="float">float</option>
+                    <option value="bool">bool</option>
+                    <option value="str">str</option>
+                  </select>
                 </td>
                 <td class="ex1-status"></td>
               </tr>
@@ -890,7 +948,14 @@
                 <td><input type="text" class="form-control form-control-sm font-monospace text-center ex1-py"
                     placeholder="Python..."></td>
                 <td><input type="text" class="form-control form-control-sm text-center ex1-res" placeholder="?"></td>
-                <td><input type="text" class="form-control form-control-sm text-center ex1-type" placeholder="type">
+                <td>
+                  <select class="form-select form-select-sm text-center ex1-type">
+                    <option value="">-- type --</option>
+                    <option value="int">int</option>
+                    <option value="float">float</option>
+                    <option value="bool">bool</option>
+                    <option value="str">str</option>
+                  </select>
                 </td>
                 <td class="ex1-status"></td>
               </tr>
@@ -900,7 +965,14 @@
                 <td><input type="text" class="form-control form-control-sm font-monospace text-center ex1-py"
                     placeholder="Python..."></td>
                 <td><input type="text" class="form-control form-control-sm text-center ex1-res" placeholder="?"></td>
-                <td><input type="text" class="form-control form-control-sm text-center ex1-type" placeholder="type">
+                <td>
+                  <select class="form-select form-select-sm text-center ex1-type">
+                    <option value="">-- type --</option>
+                    <option value="int">int</option>
+                    <option value="float">float</option>
+                    <option value="bool">bool</option>
+                    <option value="str">str</option>
+                  </select>
                 </td>
                 <td class="ex1-status"></td>
               </tr>
@@ -910,7 +982,14 @@
                 <td><input type="text" class="form-control form-control-sm font-monospace text-center ex1-py"
                     placeholder="Python..."></td>
                 <td><input type="text" class="form-control form-control-sm text-center ex1-res" placeholder="?"></td>
-                <td><input type="text" class="form-control form-control-sm text-center ex1-type" placeholder="type">
+                <td>
+                  <select class="form-select form-select-sm text-center ex1-type">
+                    <option value="">-- type --</option>
+                    <option value="int">int</option>
+                    <option value="float">float</option>
+                    <option value="bool">bool</option>
+                    <option value="str">str</option>
+                  </select>
                 </td>
                 <td class="ex1-status"></td>
               </tr>
@@ -920,7 +999,14 @@
                 <td><input type="text" class="form-control form-control-sm font-monospace text-center ex1-py"
                     placeholder="Python..."></td>
                 <td><input type="text" class="form-control form-control-sm text-center ex1-res" placeholder="?"></td>
-                <td><input type="text" class="form-control form-control-sm text-center ex1-type" placeholder="type">
+                <td>
+                  <select class="form-select form-select-sm text-center ex1-type">
+                    <option value="">-- type --</option>
+                    <option value="int">int</option>
+                    <option value="float">float</option>
+                    <option value="bool">bool</option>
+                    <option value="str">str</option>
+                  </select>
                 </td>
                 <td class="ex1-status"></td>
               </tr>
@@ -929,7 +1015,6 @@
         </div>
         <div class="d-flex gap-2 mt-2">
           <button id="btn-check-ex1" class="btn btn-primary fw-bold px-4">✔️ Vérifier mes réponses</button>
-          <button id="btn-show-ex1" class="btn btn-outline-secondary fw-bold px-4">👁️ Voir les réponses</button>
         </div>
         <div id="ex1-score" class="mt-3"></div>
       </section>
@@ -939,6 +1024,31 @@
         <h3>Exercice 2 – Expressions numériques / logiques</h3>
         <p>Compléter le tableau ci-dessous. Les cellules grises sont données, les cases blanches sont à
           remplir :</p>
+
+        <details class="my-3">
+          <summary class="btn btn-sm btn-outline-info fw-bold py-1 px-3 d-inline-flex align-items-center gap-2">
+            <span>💡</span> Afficher les indices de résolution
+          </summary>
+          <div class="alert alert-info border-start border-info border-4 shadow-sm mt-2 mb-0 py-3 px-4 small">
+            <h6 class="fw-bold text-primary mb-2">📌 Règles et astuces pour l'Exercice 2 :</h6>
+            <ul class="mb-0 space-y-1">
+              <li><strong>Correspondance Algorithme &rarr; Python :</strong>
+                <ul>
+                  <li><code>Abs(x)</code> &rarr; <code>abs(x)</code> (valeur absolue).</li>
+                  <li><code>Ent(x)</code> &rarr; <code>int(x)</code> (partie entière, type <code>int</code>).</li>
+                  <li><code>Arrondi(x)</code> &rarr; <code>round(x)</code> (arrondi à l'entier le plus proche).</li>
+                  <li><code>Racine(x)</code> &rarr; <code>sqrt(x)</code> (module <code>math</code>). <em>Attention :</em> <code>sqrt()</code> retourne toujours un <code>float</code> (ex : <code>sqrt(16)</code> donne <code>4.0</code>).</li>
+                  <li><code>Aléa(a, b)</code> &rarr; <code>randint(a, b)</code> (module <code>random</code>).</li>
+                  <li><code>mod</code> &rarr; <code>%</code> et <code>div</code> &rarr; <code>//</code>.</li>
+                </ul>
+              </li>
+              <li><strong>Propagation du type réel (<code>float</code>) :</strong> Tout nombre avec un point décimal (ex: <code>15.</code> ou <code>1.5</code>) ou division réelle (<code>/</code>) convertit toute l'expression arithmétique en <code>float</code>.</li>
+              <li><strong>Priorité des opérations (PEMDAS) :</strong> Parenthèses &rarr; Exposants &rarr; Multiplications, Divisions et Modulo &rarr; Additions et Soustractions.</li>
+              <li><strong>Simulation conditionnelle :</strong> Dans <code>x = (a &gt; b) * a + (a &lt;= b) * b</code>, la condition vraie vaut 1 et la fausse vaut 0, sélectionnant la plus grande valeur (maximum).</li>
+              <li><strong>Test hors limites :</strong> Dans <code>Aléa(10, 20) &gt; 30</code>, un nombre tiré entre 10 et 20 ne peut jamais être supérieur à 30, donc le résultat est toujours <code>False</code> (type <code>bool</code>).</li>
+            </ul>
+          </div>
+        </details>
         <div class="table-responsive shadow-sm rounded border overflow-hidden my-3">
           <table class="table table-hover text-center align-middle mb-0" id="ex2-table">
             <thead style="background-color: #0f172a;" class="text-white">
@@ -1184,7 +1294,6 @@
         </div>
         <div class="d-flex gap-2 mt-2">
           <button id="btn-check-ex2" class="btn btn-primary fw-bold px-4">✔️ Vérifier mes réponses</button>
-          <button id="btn-show-ex2" class="btn btn-outline-secondary fw-bold px-4">👁️ Voir les réponses</button>
         </div>
         <div id="ex2-score" class="mt-3"></div>
       </section>
@@ -1194,15 +1303,26 @@
         <h3>Exercice 3 – Exécution manuelle (Trace mémoire)</h3>
         <p>Donner la trace d'exécution des variables <code>X</code>, <code>Y</code> et <code>Z</code> après l'exécution
           de chaque instruction :</p>
-        <div class="alert alert-info border-start border-info border-4 shadow-sm mb-3">
-          <h6 class="fw-bold text-primary mb-2">💡 Indications :</h6>
-          <ul class="mb-0 small text-dark">
-            <li>Si une variable n'a pas encore été initialisée, indiquer un tiret <code>-</code> (ou laisser vide).</li>
-            <li>Une variable conserve sa valeur précédente tant qu'une nouvelle affectation ne la modifie pas.</li>
-            <li>Respecter la priorité des opérateurs : <code>*</code>, <code>div</code>, et <code>mod</code> sont
-              prioritaires sur <code>+</code> et <code>-</code>.</li>
-          </ul>
-        </div>
+        <details class="my-3">
+          <summary class="btn btn-sm btn-outline-info fw-bold py-1 px-3 d-inline-flex align-items-center gap-2">
+            <span>💡</span> Afficher les indices de résolution
+          </summary>
+          <div class="alert alert-info border-start border-info border-4 shadow-sm mt-2 mb-0 py-3 px-4 small">
+            <h6 class="fw-bold text-primary mb-2">📌 Conseils méthodologiques (Trace mémoire) :</h6>
+            <ul class="mb-0 space-y-1">
+              <li><strong>Initialisation :</strong> Tant qu'une variable n'a reçu aucune affectation, indiquer un tiret <code>-</code> (ou laisser vide).</li>
+              <li><strong>Conservation des valeurs :</strong> À chaque nouvelle ligne, seules les variables affectées changent de valeur. Les autres variables <em>conservent leur valeur de la ligne précédente</em>.</li>
+              <li><strong>Priorité des opérations :</strong> Les opérateurs <code>*</code>, <code>div</code> et <code>mod</code> sont prioritaires sur <code>+</code> et <code>-</code>. N'effectuez les additions ou soustractions qu'après avoir évalué les multiplications ou divisions.</li>
+              <li><strong>Rôle des parenthèses :</strong> Toute opération entre parenthèses <code>( )</code> doit être calculée en premier, avant toute autre opération extérieure.</li>
+              <li><strong>Rappel des opérateurs :</strong>
+                <ul>
+                  <li><code>div</code> : quotient entier de la division euclidienne (sans virgule ni décimales).</li>
+                  <li><code>mod</code> : reste entier de la division euclidienne.</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </details>
         <div class="table-responsive shadow-sm rounded border overflow-hidden my-3">
           <table class="table table-hover text-center align-middle mb-0" id="ex3-table">
             <thead style="background-color: #0f172a;" class="text-white">
@@ -1293,7 +1413,6 @@
         </div>
         <div class="d-flex gap-2 mt-2">
           <button id="btn-check-ex3" class="btn btn-primary fw-bold px-4">✔️ Vérifier mes réponses</button>
-          <button id="btn-show-ex3" class="btn btn-outline-secondary fw-bold px-4">👁️ Voir les réponses</button>
         </div>
         <div id="ex3-score" class="mt-3"></div>
       </section>
@@ -1303,19 +1422,61 @@
         <h3>Exercice 4 – Fonction Aléa</h3>
         <p>Compléter le tableau ci-dessous avec l'instruction Python équivalente et l'intervalle de variation de la
           variable X :</p>
-        <div class="alert alert-info border-start border-info border-4 shadow-sm mb-3">
-          <h6 class="fw-bold text-primary mb-2">💡 Indications :</h6>
-          <ul class="mb-0 small text-dark">
-            <li>La fonction algorithmique <code>Aléa(a, b)</code> se traduit en Python par
-              <code>x = randint(a, b)</code> (bibliothèque <code>random</code>).
-            </li>
-            <li>L'intervalle de variation s'obtient en déterminant les valeurs minimale et maximale possibles pour
-              <code>X</code>.
-            </li>
-            <li>Attention aux opérations avec un nombre négatif (ex: <code>* -2</code>) : les bornes s'inversent car la
-              valeur min provient de la plus grande valeur d'origine.</li>
-          </ul>
-        </div>
+        <details class="my-3">
+          <summary class="btn btn-sm btn-outline-info fw-bold py-1 px-3 d-inline-flex align-items-center gap-2">
+            <span>💡</span> Afficher les indices de résolution
+          </summary>
+          <div class="alert alert-info border-start border-info border-4 shadow-sm mt-2 mb-0 py-3 px-4 small">
+            <h6 class="fw-bold text-primary mb-2">📌 Règles et exemples d'encadrement des intervalles :</h6>
+            <p class="mb-2"><strong>Traduction Python :</strong> <code>Aléa(a, b)</code> se traduit par <code>x = randint(a, b)</code> (module <code>random</code>), avec $a \le x \le b$.</p>
+            <ul class="mb-0 space-y-2">
+              <li class="mb-2">
+                <strong>Multiplication par une constante positive (ex: $\times 2$) :</strong><br>
+                On multiplie chaque membre de l'inégalité :<br>
+                <div class="font-monospace bg-white p-2 rounded border mt-1 text-dark">
+                  1 &le; x &le; 5<br>
+                  1 * 2 &le; x * 2 &le; 5 * 2<br>
+                  &rarr; 2 &le; x * 2 &le; 10
+                </div>
+              </li>
+              <li class="mb-2">
+                <strong>Multiplication par une constante négative (ex: $\times -3$) :</strong><br>
+                <em>Attention :</em> multiplier par un nombre négatif inverse le sens des bornes :<br>
+                <div class="font-monospace bg-white p-2 rounded border mt-1 text-dark">
+                  1 &le; x &le; 5<br>
+                  5 * (-3) &le; x * (-3) &le; 1 * (-3)<br>
+                  &rarr; -15 &le; x * (-3) &le; -3
+                </div>
+              </li>
+              <li class="mb-2">
+                <strong>Division entière (ex: <code>// 2</code>) :</strong><br>
+                On applique la division entière aux bornes :<br>
+                <div class="font-monospace bg-white p-2 rounded border mt-1 text-dark">
+                  1 &le; x &le; 7<br>
+                  1 // 2 &le; x // 2 &le; 7 // 2<br>
+                  &rarr; 0 &le; x // 2 &le; 3
+                </div>
+              </li>
+              <li class="mb-2">
+                <strong>Produit de deux tirages indépendants ($x \times y$) :</strong><br>
+                Si $1 \le x \le 4$ et $0 \le y \le 3$ :<br>
+                <div class="font-monospace bg-white p-2 rounded border mt-1 text-dark">
+                  Min : 1 * 0 = 0 &bull; Max : 4 * 3 = 12<br>
+                  &rarr; 0 &le; x * y &le; 12
+                </div>
+              </li>
+              <li>
+                <strong>Quotient de deux tirages indépendants ($x / y$) :</strong><br>
+                Si $10 \le x \le 40$ et $2 \le y \le 5$ :<br>
+                <div class="font-monospace bg-white p-2 rounded border mt-1 text-dark">
+                  Min : plus petit numérateur / plus grand dénominateur = 10 / 5 = 2.0<br>
+                  Max : plus grand numérateur / plus petit dénominateur = 40 / 2 = 20.0<br>
+                  &rarr; 2.0 &le; x / y &le; 20.0
+                </div>
+              </li>
+            </ul>
+          </div>
+        </details>
         <div class="table-responsive shadow-sm rounded border overflow-hidden my-3">
           <table class="table table-hover text-center align-middle mb-0" id="ex4-table">
             <thead style="background-color: #0f172a;" class="text-white">
@@ -1441,7 +1602,6 @@
         </div>
         <div class="d-flex gap-2 mt-2">
           <button id="btn-check-ex4" class="btn btn-primary fw-bold px-4">✔️ Vérifier mes réponses</button>
-          <button id="btn-show-ex4" class="btn btn-outline-secondary fw-bold px-4">👁️ Voir les réponses</button>
         </div>
         <div id="ex4-score" class="mt-3"></div>
       </section>
@@ -1630,36 +1790,24 @@
         </div>
 
         <!-- Indices pour les expressions complexes -->
-        <div class="alert alert-info border-start border-info border-4 shadow-sm my-3">
-          <h6 class="fw-bold text-primary mb-2">💡 Indices de résolution pour les expressions complexes :</h6>
-          <ul class="mb-0 small text-dark space-y-1">
-            <li class="mb-2">
-              <strong>Expression 4 :</strong> <code>ch2[9].upper()</code> donne <code>'T'</code>,
-              <code>ch1[2].upper()</code> donne <code>'T'</code>. Assembler dans l'ordre avec les lettres
-              <code>ch2[7]</code> ('i'), <code>ch2[8]</code> ('p'), <code>ch1[4]</code> ('o'), <code>ch1[0]</code>
-              ('p').
-            </li>
-            <li class="mb-2">
-              <strong>Expression 5 :</strong>
-              <code>len(ch1) - len(ch4) = 6 - 4 = 2</code> &rarr; <code>str(2) = "2"</code>.
-              Pour le terme <code>chr(ord(ch1[3]) - 3)</code> : <code>ch1[3]</code> est <code>'h'</code> (code ASCII
-              104), et $104 - 3 = 101$ qui correspond au caractère <code>'e'</code>.
-            </li>
-            <li>
-              <strong>Expression 6 :</strong> Évaluer les longueurs : <code>len(ch3) = 3</code> et
-              <code>len(ch4) = 4</code>.
-              <ul class="mt-1 mb-0 ps-3">
-                <li><code>ch3[len(ch3)-1]</code> &rarr; <code>ch3[2]</code> = <code>'l'</code> &bull;
-                  <code>ch2[len(ch3)]</code> &rarr; <code>ch2[3]</code> = <code>'a'</code> &bull;
-                  <code>ch4[len(ch4)-2]</code> &rarr; <code>ch4[2]</code> = <code>'r'</code>
-                </li>
-                <li><code>ch3[3 // 2]</code> &rarr; <code>ch3[1]</code> = <code>'m'</code> &bull;
-                  <code>ch4[4 - 3]</code> &rarr; <code>ch4[1]</code> = <code>'e'</code>.
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </div>
+        <details class="my-3">
+          <summary class="btn btn-sm btn-outline-info fw-bold py-1 px-3 d-inline-flex align-items-center gap-2">
+            <span>💡</span> Afficher les indices de résolution
+          </summary>
+          <div class="alert alert-info border-start border-info border-4 shadow-sm mt-2 mb-0 py-3 px-4 small">
+            <h6 class="fw-bold text-primary mb-2">📌 Décomposition pas à pas des 6 expressions :</h6>
+            <ul class="mb-0 space-y-1">
+              <li class="mb-1"><strong>Expression 1 (<code>ch1[0]</code>) :</strong> Extrait le 1er caractère (indice 0) de <code>"python"</code> &rarr; <code>'p'</code>.</li>
+              <li class="mb-1"><strong>Expression 2 (<code>ch2.upper()</code>) :</strong> Met toute la chaîne <code>"javascript"</code> en lettres majuscules.</li>
+              <li class="mb-1"><strong>Expression 3 :</strong> Concatène les lettres aux indices donnés : <code>ch1[0]</code> ('p') + <code>ch3[0]</code> ('u') + <code>ch2[5]</code> ('c') + <code>ch4[1]</code> ('e').</li>
+              <li class="mb-1"><strong>Expression 4 :</strong> <code>ch2[9].upper()</code> donne <code>'T'</code>, <code>ch1[2].upper()</code> donne <code>'T'</code>. Assembler avec <code>ch2[7]</code> ('i'), <code>ch2[8]</code> ('p'), <code>ch1[4]</code> ('o') et <code>ch1[0]</code> ('p').</li>
+              <li class="mb-1"><strong>Expression 5 :</strong> <code>len(ch1) - len(ch4) = 6 - 4 = 2</code> &rarr; <code>str(2) = "2"</code>. Pour le terme <code>chr(ord(ch1[3]) - 3)</code> : <code>ch1[3]</code> est <code>'h'</code> (ASCII 104), et $104 - 3 = 101$ qui est la lettre <code>'e'</code>.</li>
+              <li><strong>Expression 6 :</strong> Utiliser <code>len(ch3) = 3</code> et <code>len(ch4) = 4</code> :
+                <code>ch3[2]</code> ('l') + <code>ch2[3]</code> ('a') + <code>ch4[2]</code> ('r') + <code>ch3[1]</code> ('m') + <code>ch4[1]</code> ('e').
+              </li>
+            </ul>
+          </div>
+        </details>
 
         <p>Remplir le tableau ci-dessous par l'affichage de chacune des instructions (résultat sans les guillemets) :
         </p>
@@ -1731,7 +1879,6 @@
         </div>
         <div class="d-flex gap-2 mt-2">
           <button id="btn-check-ex5" class="btn btn-primary fw-bold px-4">✔️ Vérifier mes réponses</button>
-          <button id="btn-show-ex5" class="btn btn-outline-secondary fw-bold px-4">👁️ Voir les réponses</button>
         </div>
         <div id="ex5-score" class="mt-3"></div>
       </section>
@@ -1904,21 +2051,22 @@
 
         <p>Compléter le tableau ci-dessous en évaluant chaque instruction :</p>
 
-        <div class="alert alert-info border-start border-info border-4 shadow-sm my-3">
-          <h6 class="fw-bold text-primary mb-2">💡 Indications :</h6>
-          <ul class="mb-0 small text-dark">
-            <li><code>sous_chaine(ch, d, f)</code> en Algorithme équivaut au découpage <code>ch[d:f]</code> en Python.
-            </li>
-            <li><code>Effacer(ch, d, f)</code> supprime les caractères de l'indice <code>d</code> à <code>f</code> (ex:
-              <code>Effacer(F, 0, 2)</code> supprime les 2 premiers caractères &rarr; <code>F[2:]</code>).
-            </li>
-            <li><code>ch1.find(sub)</code> retourne l'indice de la 1ère occurrence de <code>sub</code>, ou
-              <code>-1</code> si la sous-chaîne n'est pas trouvée.
-            </li>
-            <li>En Python, <code>isdecimal()</code> retourne <code>True</code> (évalué comme <code>1</code> dans un
-              calcul) ou <code>False</code> (évalué comme <code>0</code>).</li>
-          </ul>
-        </div>
+        <details class="my-3">
+          <summary class="btn btn-sm btn-outline-info fw-bold py-1 px-3 d-inline-flex align-items-center gap-2">
+            <span>💡</span> Afficher les indices de résolution
+          </summary>
+          <div class="alert alert-info border-start border-info border-4 shadow-sm mt-2 mb-0 py-3 px-4 small">
+            <h6 class="fw-bold text-primary mb-2">📌 Règles et astuces pour l'Exercice 6 :</h6>
+            <ul class="mb-0 space-y-1">
+              <li><strong>Lignes 1 à 3 (Long, ConvCh, Valeur) :</strong> <code>Long()</code> &rarr; <code>len()</code> ; <code>ConvCh()</code> &rarr; <code>str()</code> (concatène `"13"` et `"6"` en `"136"`) ; <code>Valeur()</code> &rarr; <code>int()</code> (convertit `"613"` en nombre entier 613).</li>
+              <li><strong>Ligne 4 (Réel) :</strong> <code>Réel(C)</code> &rarr; <code>float(C)</code>. La soustraction avec un nombre réel donne un <code>float</code> ($613 - 136.0 = 477.0$).</li>
+              <li><strong>Lignes 5 et 6 (Découpage et Effacement) :</strong> <code>sous_chaine(ch, d, f)</code> correspond à <code>ch[d:f]</code> (de l'indice $d$ à $f-1$). <code>Effacer(F, 0, 2)</code> supprime les 2 premiers caractères (équivaut à <code>F[2:]</code>). Note : $136 - 15 = 121$ et <code>chr(121) = 'y'</code>.</li>
+              <li><strong>Ligne 7 (EstNum / isdecimal) :</strong> <code>isdecimal()</code> vaut <code>True</code> (1) si la chaîne ne contient que des chiffres, sinon <code>False</code> (0). <code>C</code> ("136") est décimal mais pas <code>G</code> ("Rhythmique"), donc $1 \times 3 + 0 \times 10 = 3$.</li>
+              <li><strong>Ligne 8 (Pos / find) :</strong> <code>Pos(motif, ch)</code> &rarr; <code>ch.find(motif)</code>. Retourne la position (indice à partir de 0) du motif dans la chaîne (ex: `"go"` commence à l'indice 2 dans `"Algorithmique"`).</li>
+              <li><strong>Lignes 9 et 10 (Combinaison finale) :</strong> Calcul arithmétique de $K$ ($4502 - 477 - 2000 = 2025$), puis assemblage des tranches de chaîne avec <code>K</code>.</li>
+            </ul>
+          </div>
+        </details>
 
         <div class="table-responsive shadow-sm rounded border overflow-hidden my-3">
           <table class="table table-hover text-center align-middle mb-0" id="ex6-table">
@@ -2138,7 +2286,6 @@
         </div>
         <div class="d-flex gap-2 mt-2">
           <button id="btn-check-ex6" class="btn btn-primary fw-bold px-4">✔️ Vérifier mes réponses</button>
-          <button id="btn-show-ex6" class="btn btn-outline-secondary fw-bold px-4">👁️ Voir les réponses</button>
         </div>
         <div id="ex6-score" class="mt-3"></div>
       </section>
@@ -2332,6 +2479,21 @@
         <p>Création d'un mot de passe <code>mp</code> de 6 caractères composé de <strong>2 chiffres</strong> (0 &rarr;
           9), <strong>2 majuscules</strong> ("A" &rarr; "Z") et <strong>2 minuscules</strong> ("a" &rarr; "z") :</p>
 
+        <details class="my-3">
+          <summary class="btn btn-sm btn-outline-info fw-bold py-1 px-3 d-inline-flex align-items-center gap-2">
+            <span>💡</span> Afficher les indices de conception (Algorithme &amp; ASCII)
+          </summary>
+          <div class="alert alert-info border-start border-info border-4 shadow-sm mt-2 mb-0 py-3 px-4 small">
+            <h6 class="fw-bold text-primary mb-2">📌 Principe algorithmique de génération du mot de passe :</h6>
+            <ul class="mb-0 space-y-1">
+              <li><strong>2 Chiffres ('0' &rarr; '9') :</strong> Codes ASCII de 48 à 57. Obtenus par <code>chr(alea(48, 57))</code> ou <code>convch(alea(0, 9))</code>.</li>
+              <li><strong>2 Majuscules ('A' &rarr; 'Z') :</strong> Codes ASCII de 65 à 90. Obtenus par <code>chr(alea(65, 90))</code>.</li>
+              <li><strong>2 Minuscules ('a' &rarr; 'z') :</strong> Codes ASCII de 97 à 122. Obtenus par <code>chr(alea(97, 122))</code>.</li>
+              <li><strong>Assemblage final :</strong> Concaténation des 6 caractères générés dans la variable résultat : <code>mp &larr; c1 + c2 + m1 + m2 + min1 + min2</code>.</li>
+            </ul>
+          </div>
+        </details>
+
         <div class="interactive-box shadow-sm p-4 bg-dark text-white rounded border border-secondary my-3">
           <div class="row align-items-center g-3 mb-3">
             <div class="col-md-7">
@@ -2365,6 +2527,20 @@
           <code>b</code> (ex: 49 &rarr; 94) :
         </p>
 
+        <details class="my-3">
+          <summary class="btn btn-sm btn-outline-info fw-bold py-1 px-3 d-inline-flex align-items-center gap-2">
+            <span>💡</span> Afficher les indices de résolution (Division &amp; Modulo)
+          </summary>
+          <div class="alert alert-info border-start border-info border-4 shadow-sm mt-2 mb-0 py-3 px-4 small">
+            <h6 class="fw-bold text-primary mb-2">📌 Décomposition arithmétique d'un entier à 2 chiffres :</h6>
+            <ul class="mb-0 space-y-1">
+              <li><strong>Chiffre des dizaines :</strong> Obtenu par la division entière par 10 : <code>d &larr; a div 10</code> (en Python : <code>d = a // 10</code>). Pour 49, $49 // 10 = 4$.</li>
+              <li><strong>Chiffre des unités :</strong> Obtenu par le reste de la division par 10 : <code>u &larr; a mod 10</code> (en Python : <code>u = a % 10</code>). Pour 49, $49 \% 10 = 9$.</li>
+              <li><strong>Reconstruction du nombre permuté :</strong> On multiplie les unités par 10 et on ajoute les dizaines : <code>b &larr; u * 10 + d</code>. Pour 49 : $9 \times 10 + 4 = 94$.</li>
+            </ul>
+          </div>
+        </details>
+
         <div class="interactive-box shadow-sm p-4 bg-dark text-white rounded border border-secondary my-3">
           <div class="row align-items-center g-3 mb-3">
             <div class="col-md-6">
@@ -2388,8 +2564,6 @@
             style="background-color: #0b1120; min-height: 220px;">
             <!-- Dynamic SVG rendered by JS -->
           </div>
-
-          <div id="perm-out" class="mt-3"></div>
         </div>
       </section>
 
@@ -2404,6 +2578,21 @@
             class="img-fluid rounded shadow-sm p-2 bg-white border">
           <figcaption>Autonomie de la Batterie</figcaption>
         </figure>
+
+        <details class="my-3">
+          <summary class="btn btn-sm btn-outline-info fw-bold py-1 px-3 d-inline-flex align-items-center gap-2">
+            <span>💡</span> Afficher les indices &amp; formules de calcul
+          </summary>
+          <div class="alert alert-info border-start border-info border-4 shadow-sm mt-2 mb-0 py-3 px-4 small">
+            <h6 class="fw-bold text-primary mb-2">📌 Formules mathématiques et algorithmiques :</h6>
+            <ul class="mb-0 space-y-1">
+              <li><strong>Distance parcourue ($\text{dp}$) :</strong> Différence des compteurs kilométriques : $\text{dp} = \text{ikf} - \text{ikd}$ (en km).</li>
+              <li><strong>Énergie consommée ($\text{ec}$) :</strong> Baisse du niveau de batterie : $\text{ec} = \text{nib} - \text{nfb}$ (en %).</li>
+              <li><strong>Consommation moyenne aux 100 km ($\text{cm}$) :</strong> Règle de trois : $\text{cm} = \frac{\text{ec} \times 100}{\text{dp}}$ (% / 100 km).</li>
+              <li><strong>Distance maximale restante ($\text{dm}$) :</strong> Autonomie calculable par proportionnalité : $\text{dm} = \frac{\text{nfb} \times \text{dp}}{\text{ec}} = \frac{\text{nfb} \times 100}{\text{cm}}$ (en km).</li>
+            </ul>
+          </div>
+        </details>
 
         <div class="interactive-box shadow-sm p-4 bg-dark text-white rounded border border-secondary my-3">
           <div class="row g-3 mb-3">
@@ -2451,6 +2640,24 @@
         <h3>Exercice 11 – Circuit Logique et Portes Logiques</h3>
         <p>Simulation du circuit logique de l'équation booleénne : <strong>$$L = (a \cdot \bar{c}) + (b \cdot
             c)$$</strong></p>
+
+        <details class="my-3">
+          <summary class="btn btn-sm btn-outline-info fw-bold py-1 px-3 d-inline-flex align-items-center gap-2">
+            <span>💡</span> Afficher les indices &amp; rôle du circuit (Multiplexeur)
+          </summary>
+          <div class="alert alert-info border-start border-info border-4 shadow-sm mt-2 mb-0 py-3 px-4 small">
+            <h6 class="fw-bold text-primary mb-2">📌 Analyse des portes logiques et de l'équation :</h6>
+            <ul class="mb-0 space-y-1">
+              <li><strong>Porte NON (Inverseur) :</strong> Calcule $\bar{c}$ ($0 \rightarrow 1$ et $1 \rightarrow 0$).</li>
+              <li><strong>Porte ET supérieure ($T_1 = a \cdot \bar{c}$) :</strong> Active (sortie 1) uniquement lorsque $a=1$ et $c=0$.</li>
+              <li><strong>Porte ET inférieure ($T_2 = b \cdot c$) :</strong> Active (sortie 1) uniquement lorsque $b=1$ et $c=1$.</li>
+              <li><strong>Porte OU finale ($L = T_1 + T_2$) :</strong> Allume la lampe si $T_1=1$ ou $T_2=1$.</li>
+              <li><strong>Rôle de sélection (Multiplexeur 2:1) :</strong> La variable $c$ agit comme un commutateur :
+                si $c=0$, la lampe recopie l'état de l'entrée $a$ ($L=a$) ; si $c=1$, elle recopie l'état de l'entrée $b$ ($L=b$).
+              </li>
+            </ul>
+          </div>
+        </details>
 
         <div class="interactive-box shadow-sm p-4 bg-dark text-white rounded border border-secondary my-3">
           <div class="d-flex justify-content-center flex-wrap gap-4 mb-4">
@@ -2588,6 +2795,23 @@
           rangées dans des <strong>caisses de 12 bouteilles</strong>, puis transportées par un <strong>camion de 30
             caisses max</strong> par voyage :</p>
 
+        <details class="my-3">
+          <summary class="btn btn-sm btn-outline-info fw-bold py-1 px-3 d-inline-flex align-items-center gap-2">
+            <span>💡</span> Afficher les indices de calcul (Divisions euclidiennes)
+          </summary>
+          <div class="alert alert-info border-start border-info border-4 shadow-sm mt-2 mb-0 py-3 px-4 small">
+            <h6 class="fw-bold text-primary mb-2">📌 Enchaînement des calculs de logistique :</h6>
+            <ul class="mb-0 space-y-1">
+              <li><strong>Nombre total de bouteilles :</strong> Division de la quantité par la contenance : $\text{bouteilles} = \text{Ent}(Q / \text{vol})$.</li>
+              <li><strong>Reste d'huile non embouteillée :</strong> $\text{reste\_huile} = Q \pmod{\text{vol}}$.</li>
+              <li><strong>Caisses pleines de 12 bouteilles :</strong> Quotient entier : $\text{caisses} = \text{bouteilles} \text{ div } 12$ (en Python : <code>// 12</code>).</li>
+              <li><strong>Bouteilles restantes sans caisse :</strong> Reste entier : $\text{bouteilles\_restantes} = \text{bouteilles} \text{ mod } 12$ (en Python : <code>% 12</code>).</li>
+              <li><strong>Voyages complets du camion (30 caisses) :</strong> $\text{voyages} = \text{caisses} \text{ div } 30$ (en Python : <code>// 30</code>).</li>
+              <li><strong>Caisses du dernier voyage partiel :</strong> $\text{caisses\_dernier} = \text{caisses} \text{ mod } 30$ (en Python : <code>% 30</code>).</li>
+            </ul>
+          </div>
+        </details>
+
         <div class="interactive-box shadow-sm p-4 bg-dark text-white rounded border border-secondary my-3">
           <div class="row g-3 mb-3">
             <div class="col-md-3">
@@ -2637,6 +2861,26 @@
         <p>Compléter le tableau ci-dessous avec la chaîne <code
             class="bg-dark text-warning px-2 py-1 rounded font-monospace fw-bold border border-warning">ch &larr; "programme 2025"</code>
           :</p>
+
+        <details class="my-3">
+          <summary class="btn btn-sm btn-outline-info fw-bold py-1 px-3 d-inline-flex align-items-center gap-2">
+            <span>💡</span> Afficher les indices de résolution
+          </summary>
+          <div class="alert alert-info border-start border-info border-4 shadow-sm mt-2 mb-0 py-3 px-4 small">
+            <h6 class="fw-bold text-primary mb-2">📌 Règles des fonctions algorithmiques de chaînes et types :</h6>
+            <ul class="mb-0 space-y-1">
+              <li><strong>Types standards attendus :</strong> <code>Entier</code>, <code>Réel</code>, <code>Caractère</code>, <code>Chaîne</code>, <code>Booleen</code>.</li>
+              <li><strong>Fonction <code>chr(code)</code> :</strong> Convertit un code ASCII numérique en caractère (ex: <code>ent(100.5) = 100</code>, et le code ASCII 100 donne <code>'d'</code>, type <code>Caractère</code>). Mettre entre apostrophes simples.</li>
+              <li><strong>Fonction <code>ord(car)</code> :</strong> Retourne le code ASCII entier du caractère (ex: <code>ord('o')</code> donne <code>111</code>, type <code>Entier</code>).</li>
+              <li><strong>Indices de la chaîne <code>ch</code> :</strong> <code>ch[0]='p'</code>, <code>ch[2]='o'</code>, <code>ch[3]='g'</code>, <code>ch[5]='a'</code>, <code>ch[8]='e'</code>, <code>ch[13]='5'</code>.</li>
+              <li><strong><code>sous_chaine(ch, d, f)</code> :</strong> Extrait les caractères de l'indice $d$ jusqu'à $f-1$ exclu (longueur $f-d$, type <code>Chaîne</code>, ex: <code>sous_chaine(ch, 3, 9)</code> donne <code>"gramme"</code>).</li>
+              <li><strong><code>effacer(ch, d, f)</code> :</strong> Supprime la portion entre $d$ et $f-1$ et recolle les morceaux (type <code>Chaîne</code>, ex: <code>effacer(ch, 3, 9)</code> donne <code>"pro 2025"</code>).</li>
+              <li><strong>Génération de lettre majuscule :</strong> <code>alea(0, 25) + 65</code> donne un code ASCII entre 65 ('A') et 90 ('Z'), donc <code>chr(...)</code> produit une lettre majuscule de type <code>Caractère</code>.</li>
+              <li><strong>Comparaison booléenne :</strong> La condition <code>"A" &le; e &le; "Z"</code> teste si <code>e</code> est une majuscule, ce qui est toujours <code>VRAI</code> (type <code>Booleen</code>).</li>
+              <li><strong><code>convch()</code> et <code>valeur()</code> :</strong> <code>convch()</code> transforme un nombre en <code>Chaîne</code>, et <code>valeur()</code> transforme une chaîne en <code>Entier</code>.</li>
+            </ul>
+          </div>
+        </details>
 
         <!-- Card Illustration SVG de la chaîne ch (Style Exercice 7) -->
         <div class="card bg-dark text-white border-0 shadow-sm mb-3 overflow-hidden">
@@ -2745,7 +2989,6 @@
 
         <div class="d-flex gap-2 mt-2">
           <button id="btn-check-ex13" class="btn btn-primary fw-bold px-4">✔️ Vérifier mes réponses</button>
-          <button id="btn-show-ex13" class="btn btn-outline-secondary fw-bold px-4">👁️ Voir les réponses</button>
           <button id="btn-eval-ch-func" class="btn btn-outline-warning fw-bold px-3 ms-auto text-dark">
             <span>🎲</span> Générer e aléatoire
           </button>
@@ -2859,6 +3102,34 @@ print("Pseudonyme proposé :", pseudo)</code></pre>
         <h5 class="fw-bold text-dark mt-4">✍️ Exercice d'entraînement : Compléter le tableau</h5>
         <p>Appliquer les règles de génération pour trouver les composantes et le pseudonyme de chaque utilisateur :</p>
 
+        <details class="my-3">
+          <summary class="btn btn-sm btn-outline-info fw-bold py-1 px-3 d-inline-flex align-items-center gap-2">
+            <span>💡</span> Afficher les indices de calcul (p1, p2 et Pseudonyme)
+          </summary>
+          <div class="alert alert-info border-start border-info border-4 shadow-sm mt-2 mb-0 py-3 px-4 small">
+            <h6 class="fw-bold text-primary mb-2">📌 Décomposition pas à pas pour chaque nom d'utilisateur :</h6>
+            <ul class="mb-0 space-y-1">
+              <li><strong>Composante <code>p1</code> (Prénom) :</strong> Les 3 premières lettres du prénom en majuscules + le nombre total de lettres du prénom.
+                <ul>
+                  <li><em>Sami :</em> 3 premières lettres <code>SAM</code>, longueur 4 &rarr; <code>SAM4</code>.</li>
+                  <li><em>Mohamed :</em> 3 premières lettres <code>MOH</code>, longueur 7 &rarr; <code>MOH7</code>.</li>
+                  <li><em>Ali :</em> 3 premières lettres <code>ALI</code>, longueur 3 &rarr; <code>ALI3</code>.</li>
+                  <li><em>Yassine :</em> 3 premières lettres <code>YAS</code>, longueur 7 &rarr; <code>YAS7</code>.</li>
+                </ul>
+              </li>
+              <li><strong>Composante <code>p2</code> (Nom de famille) :</strong> Les 3 dernières lettres du nom en majuscules + la longueur totale du nom (après le 1er espace).
+                <ul>
+                  <li><em>Ben Salah :</em> Dernières lettres <code>LAH</code>, longueur totale 9 &rarr; <code>LAH9</code>.</li>
+                  <li><em>Mani :</em> Dernières lettres <code>ANI</code>, longueur 4 &rarr; <code>ANI4</code>.</li>
+                  <li><em>Bouazizi :</em> Dernières lettres <code>IZI</code>, longueur 8 &rarr; <code>IZI8</code>.</li>
+                  <li><em>Trabelsi :</em> Dernières lettres <code>LSI</code>, longueur 8 &rarr; <code>LSI8</code>.</li>
+                </ul>
+              </li>
+              <li><strong>Format du pseudonyme complet :</strong> Assembler avec tirets bas : <code>p1_p2_XX</code> (ex: <code>SAM4_LAH9_XX</code> où <code>XX</code> représente 2 chiffres quelconques de 10 à 99).</li>
+            </ul>
+          </div>
+        </details>
+
         <div class="table-responsive shadow-sm rounded border overflow-hidden my-3">
           <table class="table table-hover text-center align-middle mb-0" id="ex14-table">
             <thead style="background-color: #0f172a;" class="text-white">
@@ -2917,7 +3188,6 @@ print("Pseudonyme proposé :", pseudo)</code></pre>
 
         <div class="d-flex gap-2 mt-2">
           <button id="btn-check-ex14" class="btn btn-primary fw-bold px-4">✔️ Vérifier mes réponses</button>
-          <button id="btn-show-ex14" class="btn btn-outline-secondary fw-bold px-4">👁️ Voir les réponses</button>
         </div>
 
         <div id="ex14-score" class="mt-3"></div>
